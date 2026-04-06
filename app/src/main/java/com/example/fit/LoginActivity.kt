@@ -4,7 +4,10 @@ import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.widget.Toast
+import androidx.activity.compose.setContent
 import androidx.appcompat.app.AppCompatActivity
+import com.example.fit.ui.LoginScreen
+import com.example.fit.ui.theme.FitTheme
 import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInClient
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions
@@ -22,13 +25,11 @@ class LoginActivity : AppCompatActivity() {
 
         auth = FirebaseAuth.getInstance()
 
-        // Already signed in — go straight to main
+        // Already signed in -- go straight to main
         if (auth.currentUser != null) {
             startMainActivity()
             return
         }
-
-        setContentView(R.layout.activity_login)
 
         val gso = GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
             .requestIdToken(getString(R.string.default_web_client_id))
@@ -36,9 +37,16 @@ class LoginActivity : AppCompatActivity() {
             .build()
         googleSignInClient = GoogleSignIn.getClient(this, gso)
 
-        findViewById<android.widget.Button>(R.id.btnGoogleSignIn).setOnClickListener {
-            startActivityForResult(googleSignInClient.signInIntent, RC_SIGN_IN)
+        setContent {
+            FitTheme {
+                LoginScreen(onSignInClick = { launchSignIn() })
+            }
         }
+    }
+
+    private fun launchSignIn() {
+        @Suppress("DEPRECATION")
+        startActivityForResult(googleSignInClient.signInIntent, RC_SIGN_IN)
     }
 
     @Deprecated("Use Activity Result API")

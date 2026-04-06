@@ -69,7 +69,8 @@ class ProgrammeRepository(
                                 reps = exObj.getString("reps"),
                                 orderIndex = exObj.optInt("order", exercises.size),
                                 rpe = exObj.optString("rpe", ""),
-                                notes = exObj.optString("notes", "")
+                                notes = exObj.optString("notes", ""),
+                                warmupSets = exObj.optString("warmupSets", "0")
                             )
                         )
                     }

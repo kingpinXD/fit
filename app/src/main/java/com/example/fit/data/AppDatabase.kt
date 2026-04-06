@@ -22,7 +22,8 @@ data class Exercise(
     val reps: String,
     val orderIndex: Int,
     val rpe: String = "",
-    val notes: String = ""
+    val notes: String = "",
+    val warmupSets: String = "0"
 )
 
 @Entity(tableName = "exercise_logs")
@@ -75,7 +76,7 @@ interface ExerciseLogDao {
     suspend fun upsert(log: ExerciseLog)
 }
 
-@Database(entities = [Exercise::class, ExerciseLog::class], version = 2, exportSchema = false)
+@Database(entities = [Exercise::class, ExerciseLog::class], version = 3, exportSchema = false)
 abstract class AppDatabase : RoomDatabase() {
 
     abstract fun exerciseDao(): ExerciseDao

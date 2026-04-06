@@ -29,9 +29,21 @@ def parse_rpe(value) -> str:
     return str(value).strip()
 
 
-def make_exercise(name: str, sets: int, reps, rpe, notes, order: int) -> dict:
+def parse_warmup(value) -> str:
+    """Parse warmup sets — same datetime quirk as RPE."""
+    if value is None:
+        return "0"
+    if isinstance(value, datetime):
+        return f"{value.month}-{value.day}"
+    if isinstance(value, (int, float)):
+        return str(int(value))
+    return str(value).strip()
+
+
+def make_exercise(name: str, warmup, sets: int, reps, rpe, notes, order: int) -> dict:
     return {
         "name": str(name).strip(),
+        "warmupSets": parse_warmup(warmup),
         "sets": int(sets),
         "reps": str(reps).strip() if reps else "",
         "rpe": parse_rpe(rpe),
@@ -51,6 +63,7 @@ def parse_programme(xlsx_path: str) -> dict:
     for row in ws.iter_rows(min_row=1, max_row=ws.max_row, min_col=2, max_col=12):
         col_b = row[0].value   # Column B
         col_c = row[1].value   # Column C
+        col_d = row[2].value   # Column D (warmup sets)
         col_e = row[3].value   # Column E (working sets)
         col_f = row[4].value   # Column F (reps)
         col_h = row[6].value   # Column H (RPE)
@@ -73,7 +86,7 @@ def parse_programme(xlsx_path: str) -> dict:
                 current_week["days"].append(current_day)
                 if col_c and col_e is not None:
                     current_day["exercises"].append(
-                        make_exercise(col_c, col_e, col_f, col_h, col_l, order=1)
+                        make_exercise(col_c, col_d, col_e, col_f, col_h, col_l, order=1)
                     )
                 continue
 
@@ -84,7 +97,7 @@ def parse_programme(xlsx_path: str) -> dict:
         if col_c and col_e is not None and current_day is not None:
             order = len(current_day["exercises"]) + 1
             current_day["exercises"].append(
-                make_exercise(col_c, col_e, col_f, col_h, col_l, order=order)
+                make_exercise(col_c, col_d, col_e, col_f, col_h, col_l, order=order)
             )
 
     return {"name": PROGRAMME_NAME, "weeks": weeks}
