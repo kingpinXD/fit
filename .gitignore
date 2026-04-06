@@ -16,6 +16,12 @@ app/google-services.json
 # Claude context
 .claude/
 
+# Scaffolding tools (local only)
+android-app-scaffolding/
+
+# Firebase debug logs
+firebase-debug.log
+
 # OS files
 .DS_Store
 
