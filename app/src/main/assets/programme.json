@@ -1,0 +1,1985 @@
+{
+  "name": "Jeff Nippard's Essentials Program - 5x/Week",
+  "weeks": [
+    {
+      "week": 1,
+      "days": [
+        {
+          "day": "Upper",
+          "exercises": [
+            {
+              "name": "Flat DB Press (Heavy)",
+              "sets": 1,
+              "reps": "4-6"
+            },
+            {
+              "name": "Flat DB Press (Back off)",
+              "sets": 1,
+              "reps": "8-10"
+            },
+            {
+              "name": "2-Grip Lat Pulldown",
+              "sets": 2,
+              "reps": "10-12"
+            },
+            {
+              "name": "Seated DB Shoulder Press",
+              "sets": 2,
+              "reps": "10-12"
+            },
+            {
+              "name": "Seated Cable Row",
+              "sets": 2,
+              "reps": "10-12 (dropset)"
+            },
+            {
+              "name": "A1: EZ Bar Skull Crusher",
+              "sets": 2,
+              "reps": "12-15"
+            },
+            {
+              "name": "A2: EZ Bar Curl",
+              "sets": 2,
+              "reps": "12-15"
+            }
+          ]
+        },
+        {
+          "day": "Lower",
+          "exercises": [
+            {
+              "name": "Hack Squat (Heavy)",
+              "sets": 1,
+              "reps": "4-6"
+            },
+            {
+              "name": "Hack Squat (Back off)",
+              "sets": 1,
+              "reps": "8-10"
+            },
+            {
+              "name": "Seated Hamstring Curl",
+              "sets": 1,
+              "reps": "10-12 (dropset)"
+            },
+            {
+              "name": "A1: Standing Calf Raise",
+              "sets": 2,
+              "reps": "10-12"
+            },
+            {
+              "name": "A2: Hanging Leg Raise",
+              "sets": 2,
+              "reps": "10-12"
+            }
+          ]
+        },
+        {
+          "day": "Push",
+          "exercises": [
+            {
+              "name": "Machine Shoulder Press",
+              "sets": 3,
+              "reps": "8-10"
+            },
+            {
+              "name": "Cable Chest Press",
+              "sets": 2,
+              "reps": "10-12 (dropset)"
+            },
+            {
+              "name": "Triceps Pressdown",
+              "sets": 2,
+              "reps": "12-15 (dropset)"
+            },
+            {
+              "name": "Close-Grip Push Up",
+              "sets": 1,
+              "reps": "Failure"
+            },
+            {
+              "name": "DB Lateral Raise",
+              "sets": 2,
+              "reps": "12-15"
+            }
+          ]
+        },
+        {
+          "day": "Pull",
+          "exercises": [
+            {
+              "name": "1-Arm Half-Kneeling Lat Pulldown",
+              "sets": 1,
+              "reps": "10-12"
+            },
+            {
+              "name": "Weighted Pullup",
+              "sets": 3,
+              "reps": "6-8"
+            },
+            {
+              "name": "Pendlay Row",
+              "sets": 2,
+              "reps": "8-10"
+            },
+            {
+              "name": "Bayesian Cable Curl",
+              "sets": 2,
+              "reps": "12-15"
+            },
+            {
+              "name": "Rope Facepull",
+              "sets": 2,
+              "reps": "10-12 (dropset)"
+            }
+          ]
+        },
+        {
+          "day": "Legs",
+          "exercises": [
+            {
+              "name": "Romanian Deadlift",
+              "sets": 2,
+              "reps": "10-12"
+            },
+            {
+              "name": "Leg Press",
+              "sets": 3,
+              "reps": "10-12"
+            },
+            {
+              "name": "Leg Extension",
+              "sets": 1,
+              "reps": "10-12 (dropset)"
+            },
+            {
+              "name": "A1: Seated Calf Raise",
+              "sets": 2,
+              "reps": "12-15"
+            },
+            {
+              "name": "A2: Cable Crunch",
+              "sets": 2,
+              "reps": "12-15"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "week": 2,
+      "days": [
+        {
+          "day": "Upper",
+          "exercises": [
+            {
+              "name": "Flat DB Press (Heavy)",
+              "sets": 1,
+              "reps": "4-6"
+            },
+            {
+              "name": "Flat DB Press (Back off)",
+              "sets": 1,
+              "reps": "8-10"
+            },
+            {
+              "name": "2-Grip Lat Pulldown",
+              "sets": 2,
+              "reps": "10-12"
+            },
+            {
+              "name": "Seated DB Shoulder Press",
+              "sets": 2,
+              "reps": "10-12"
+            },
+            {
+              "name": "Seated Cable Row",
+              "sets": 2,
+              "reps": "10-12 (dropset)"
+            },
+            {
+              "name": "A1: EZ Bar Skull Crusher",
+              "sets": 2,
+              "reps": "12-15"
+            },
+            {
+              "name": "A2: EZ Bar Curl",
+              "sets": 2,
+              "reps": "12-15"
+            }
+          ]
+        },
+        {
+          "day": "Lower",
+          "exercises": [
+            {
+              "name": "Hack Squat (Heavy)",
+              "sets": 1,
+              "reps": "4-6"
+            },
+            {
+              "name": "Hack Squat (Back off)",
+              "sets": 1,
+              "reps": "8-10"
+            },
+            {
+              "name": "Seated Hamstring Curl",
+              "sets": 1,
+              "reps": "10-12 (dropset)"
+            },
+            {
+              "name": "A1: Standing Calf Raise",
+              "sets": 2,
+              "reps": "10-12"
+            },
+            {
+              "name": "A2: Hanging Leg Raise",
+              "sets": 2,
+              "reps": "10-12"
+            }
+          ]
+        },
+        {
+          "day": "Push",
+          "exercises": [
+            {
+              "name": "Machine Shoulder Press",
+              "sets": 3,
+              "reps": "8-10"
+            },
+            {
+              "name": "Cable Chest Press",
+              "sets": 2,
+              "reps": "10-12 (dropset)"
+            },
+            {
+              "name": "Triceps Pressdown",
+              "sets": 2,
+              "reps": "12-15 (dropset)"
+            },
+            {
+              "name": "Close-Grip Push Up",
+              "sets": 1,
+              "reps": "Failure"
+            },
+            {
+              "name": "DB Lateral Raise",
+              "sets": 2,
+              "reps": "12-15"
+            }
+          ]
+        },
+        {
+          "day": "Pull",
+          "exercises": [
+            {
+              "name": "1-Arm Half-Kneeling Lat Pulldown",
+              "sets": 1,
+              "reps": "10-12"
+            },
+            {
+              "name": "Weighted Pullup",
+              "sets": 3,
+              "reps": "6-8"
+            },
+            {
+              "name": "Pendlay Row",
+              "sets": 2,
+              "reps": "8-10"
+            },
+            {
+              "name": "Bayesian Cable Curl",
+              "sets": 2,
+              "reps": "12-15"
+            },
+            {
+              "name": "Rope Facepull",
+              "sets": 2,
+              "reps": "10-12 (dropset)"
+            }
+          ]
+        },
+        {
+          "day": "Legs",
+          "exercises": [
+            {
+              "name": "Romanian Deadlift",
+              "sets": 2,
+              "reps": "10-12"
+            },
+            {
+              "name": "Leg Press",
+              "sets": 3,
+              "reps": "10-12"
+            },
+            {
+              "name": "Leg Extension",
+              "sets": 1,
+              "reps": "10-12 (dropset)"
+            },
+            {
+              "name": "A1: Seated Calf Raise",
+              "sets": 2,
+              "reps": "12-15"
+            },
+            {
+              "name": "A2: Cable Crunch",
+              "sets": 2,
+              "reps": "12-15"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "week": 3,
+      "days": [
+        {
+          "day": "Upper",
+          "exercises": [
+            {
+              "name": "Flat DB Press (Heavy)",
+              "sets": 1,
+              "reps": "4-6"
+            },
+            {
+              "name": "Flat DB Press (Back off)",
+              "sets": 1,
+              "reps": "8-10"
+            },
+            {
+              "name": "2-Grip Lat Pulldown",
+              "sets": 2,
+              "reps": "10-12"
+            },
+            {
+              "name": "Seated DB Shoulder Press",
+              "sets": 2,
+              "reps": "10-12"
+            },
+            {
+              "name": "Seated Cable Row",
+              "sets": 2,
+              "reps": "10-12 (dropset)"
+            },
+            {
+              "name": "A1: EZ Bar Skull Crusher",
+              "sets": 2,
+              "reps": "12-15"
+            },
+            {
+              "name": "A2: EZ Bar Curl",
+              "sets": 2,
+              "reps": "12-15"
+            }
+          ]
+        },
+        {
+          "day": "Lower",
+          "exercises": [
+            {
+              "name": "Hack Squat (Heavy)",
+              "sets": 1,
+              "reps": "4-6"
+            },
+            {
+              "name": "Hack Squat (Back off)",
+              "sets": 1,
+              "reps": "8-10"
+            },
+            {
+              "name": "Seated Hamstring Curl",
+              "sets": 1,
+              "reps": "10-12 (dropset)"
+            },
+            {
+              "name": "A1: Standing Calf Raise",
+              "sets": 2,
+              "reps": "10-12"
+            },
+            {
+              "name": "A2: Hanging Leg Raise",
+              "sets": 2,
+              "reps": "10-12"
+            }
+          ]
+        },
+        {
+          "day": "Push",
+          "exercises": [
+            {
+              "name": "Machine Shoulder Press",
+              "sets": 3,
+              "reps": "8-10"
+            },
+            {
+              "name": "Cable Chest Press",
+              "sets": 2,
+              "reps": "10-12 (dropset)"
+            },
+            {
+              "name": "Triceps Pressdown",
+              "sets": 2,
+              "reps": "12-15 (dropset)"
+            },
+            {
+              "name": "Close-Grip Push Up",
+              "sets": 1,
+              "reps": "Failure"
+            },
+            {
+              "name": "DB Lateral Raise",
+              "sets": 2,
+              "reps": "12-15"
+            }
+          ]
+        },
+        {
+          "day": "Pull",
+          "exercises": [
+            {
+              "name": "1-Arm Half-Kneeling Lat Pulldown",
+              "sets": 1,
+              "reps": "10-12"
+            },
+            {
+              "name": "Weighted Pullup",
+              "sets": 3,
+              "reps": "6-8"
+            },
+            {
+              "name": "Pendlay Row",
+              "sets": 2,
+              "reps": "8-10"
+            },
+            {
+              "name": "Bayesian Cable Curl",
+              "sets": 2,
+              "reps": "12-15"
+            },
+            {
+              "name": "Rope Facepull",
+              "sets": 2,
+              "reps": "10-12 (dropset)"
+            }
+          ]
+        },
+        {
+          "day": "Legs",
+          "exercises": [
+            {
+              "name": "Romanian Deadlift",
+              "sets": 2,
+              "reps": "10-12"
+            },
+            {
+              "name": "Leg Press",
+              "sets": 3,
+              "reps": "10-12"
+            },
+            {
+              "name": "Leg Extension",
+              "sets": 1,
+              "reps": "10-12 (dropset)"
+            },
+            {
+              "name": "A1: Seated Calf Raise",
+              "sets": 2,
+              "reps": "12-15"
+            },
+            {
+              "name": "A2: Cable Crunch",
+              "sets": 2,
+              "reps": "12-15"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "week": 4,
+      "days": [
+        {
+          "day": "Upper",
+          "exercises": [
+            {
+              "name": "Flat DB Press (Heavy)",
+              "sets": 1,
+              "reps": "4-6"
+            },
+            {
+              "name": "Flat DB Press (Back off)",
+              "sets": 1,
+              "reps": "8-10"
+            },
+            {
+              "name": "2-Grip Lat Pulldown",
+              "sets": 2,
+              "reps": "10-12"
+            },
+            {
+              "name": "Seated DB Shoulder Press",
+              "sets": 2,
+              "reps": "10-12"
+            },
+            {
+              "name": "Seated Cable Row",
+              "sets": 2,
+              "reps": "10-12 (dropset)"
+            },
+            {
+              "name": "A1: EZ Bar Skull Crusher",
+              "sets": 2,
+              "reps": "12-15"
+            },
+            {
+              "name": "A2: EZ Bar Curl",
+              "sets": 2,
+              "reps": "12-15"
+            }
+          ]
+        },
+        {
+          "day": "Lower",
+          "exercises": [
+            {
+              "name": "Hack Squat (Heavy)",
+              "sets": 1,
+              "reps": "4-6"
+            },
+            {
+              "name": "Hack Squat (Back off)",
+              "sets": 1,
+              "reps": "8-10"
+            },
+            {
+              "name": "Seated Hamstring Curl",
+              "sets": 1,
+              "reps": "10-12 (dropset)"
+            },
+            {
+              "name": "A1: Standing Calf Raise",
+              "sets": 2,
+              "reps": "10-12"
+            },
+            {
+              "name": "A2: Hanging Leg Raise",
+              "sets": 2,
+              "reps": "10-12"
+            }
+          ]
+        },
+        {
+          "day": "Push",
+          "exercises": [
+            {
+              "name": "Machine Shoulder Press",
+              "sets": 3,
+              "reps": "8-10"
+            },
+            {
+              "name": "Cable Chest Press",
+              "sets": 2,
+              "reps": "10-12 (dropset)"
+            },
+            {
+              "name": "Triceps Pressdown",
+              "sets": 2,
+              "reps": "12-15 (dropset)"
+            },
+            {
+              "name": "Close-Grip Push Up",
+              "sets": 1,
+              "reps": "Failure"
+            },
+            {
+              "name": "DB Lateral Raise",
+              "sets": 2,
+              "reps": "12-15"
+            }
+          ]
+        },
+        {
+          "day": "Pull",
+          "exercises": [
+            {
+              "name": "1-Arm Half-Kneeling Lat Pulldown",
+              "sets": 1,
+              "reps": "10-12"
+            },
+            {
+              "name": "Weighted Pullup",
+              "sets": 3,
+              "reps": "6-8"
+            },
+            {
+              "name": "Pendlay Row",
+              "sets": 2,
+              "reps": "8-10"
+            },
+            {
+              "name": "Bayesian Cable Curl",
+              "sets": 2,
+              "reps": "12-15"
+            },
+            {
+              "name": "Rope Facepull",
+              "sets": 2,
+              "reps": "10-12 (dropset)"
+            }
+          ]
+        },
+        {
+          "day": "Legs",
+          "exercises": [
+            {
+              "name": "Romanian Deadlift",
+              "sets": 2,
+              "reps": "10-12"
+            },
+            {
+              "name": "Leg Press",
+              "sets": 3,
+              "reps": "10-12"
+            },
+            {
+              "name": "Leg Extension",
+              "sets": 1,
+              "reps": "10-12 (dropset)"
+            },
+            {
+              "name": "A1: Seated Calf Raise",
+              "sets": 2,
+              "reps": "12-15"
+            },
+            {
+              "name": "A2: Cable Crunch",
+              "sets": 2,
+              "reps": "12-15"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "week": 5,
+      "days": [
+        {
+          "day": "Upper",
+          "exercises": [
+            {
+              "name": "2-Grip Pullup",
+              "sets": 2,
+              "reps": "8-10"
+            },
+            {
+              "name": "Weighted Dip (Heavy)",
+              "sets": 1,
+              "reps": "6-8"
+            },
+            {
+              "name": "Weighted Dip (Back off)",
+              "sets": 1,
+              "reps": "10-12"
+            },
+            {
+              "name": "Incline Chest-Supported DB Row",
+              "sets": 2,
+              "reps": "8-10"
+            },
+            {
+              "name": "Standing DB Arnold Press",
+              "sets": 2,
+              "reps": "8-10"
+            },
+            {
+              "name": "A1: DB Incline Curl",
+              "sets": 2,
+              "reps": "15-20"
+            },
+            {
+              "name": "A2: DB French Press",
+              "sets": 2,
+              "reps": "15-20"
+            }
+          ]
+        },
+        {
+          "day": "Lower",
+          "exercises": [
+            {
+              "name": "Single-Leg Leg Press (Heavy)",
+              "sets": 1,
+              "reps": "6-8 per leg"
+            },
+            {
+              "name": "Single-Leg Leg Press (Back off)",
+              "sets": 1,
+              "reps": "10-12 per leg"
+            },
+            {
+              "name": "Glute-Ham Raise",
+              "sets": 1,
+              "reps": "10-12"
+            },
+            {
+              "name": "A1: Roman Chair Crunch",
+              "sets": 2,
+              "reps": "12-15"
+            },
+            {
+              "name": "A2: Seated Calf Raise",
+              "sets": 2,
+              "reps": "12-15"
+            }
+          ]
+        },
+        {
+          "day": "Push",
+          "exercises": [
+            {
+              "name": "Machine Chest Press",
+              "sets": 2,
+              "reps": "8-10"
+            },
+            {
+              "name": "Seated DB Shoulder Press",
+              "sets": 3,
+              "reps": "10-12"
+            },
+            {
+              "name": "Cable Triceps Kickback",
+              "sets": 2,
+              "reps": "12-15 (dropset)"
+            },
+            {
+              "name": "Close-Grip Push Up",
+              "sets": 1,
+              "reps": "Failure"
+            },
+            {
+              "name": "Cable Lateral Raise",
+              "sets": 2,
+              "reps": "12-15"
+            }
+          ]
+        },
+        {
+          "day": "Pull",
+          "exercises": [
+            {
+              "name": "1-Arm Half-Kneeling Lat Pulldown",
+              "sets": 1,
+              "reps": "10-12"
+            },
+            {
+              "name": "T-Bar Row",
+              "sets": 2,
+              "reps": "10-12"
+            },
+            {
+              "name": "Lat Pulldown",
+              "sets": 3,
+              "reps": "8-10 (dropset)"
+            },
+            {
+              "name": "Reverse Pec Deck",
+              "sets": 2,
+              "reps": "12-15 (dropset)"
+            },
+            {
+              "name": "Spider Curl",
+              "sets": 2,
+              "reps": "12-15 (dropset)"
+            }
+          ]
+        },
+        {
+          "day": "Legs",
+          "exercises": [
+            {
+              "name": "DB Bulgarian Split Squat",
+              "sets": 3,
+              "reps": "10-12"
+            },
+            {
+              "name": "DB Romanian Deadlift",
+              "sets": 2,
+              "reps": "10-12"
+            },
+            {
+              "name": "Goblet Squat",
+              "sets": 1,
+              "reps": "12-15"
+            },
+            {
+              "name": "A1: Leg Press Toe Press",
+              "sets": 2,
+              "reps": "15-20"
+            },
+            {
+              "name": "A2: Machine Crunch",
+              "sets": 2,
+              "reps": "10-12"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "week": 6,
+      "days": [
+        {
+          "day": "Upper",
+          "exercises": [
+            {
+              "name": "2-Grip Pullup",
+              "sets": 2,
+              "reps": "8-10"
+            },
+            {
+              "name": "Weighted Dip (Heavy)",
+              "sets": 1,
+              "reps": "6-8"
+            },
+            {
+              "name": "Weighted Dip (Back off)",
+              "sets": 1,
+              "reps": "10-12"
+            },
+            {
+              "name": "Incline Chest-Supported DB Row",
+              "sets": 2,
+              "reps": "8-10"
+            },
+            {
+              "name": "Standing DB Arnold Press",
+              "sets": 2,
+              "reps": "8-10"
+            },
+            {
+              "name": "A1: DB Incline Curl",
+              "sets": 2,
+              "reps": "15-20"
+            },
+            {
+              "name": "A2: DB French Press",
+              "sets": 2,
+              "reps": "15-20"
+            }
+          ]
+        },
+        {
+          "day": "Lower",
+          "exercises": [
+            {
+              "name": "Single-Leg Leg Press (Heavy)",
+              "sets": 1,
+              "reps": "6-8 per leg"
+            },
+            {
+              "name": "Single-Leg Leg Press (Back off)",
+              "sets": 1,
+              "reps": "10-12 per leg"
+            },
+            {
+              "name": "Glute-Ham Raise",
+              "sets": 1,
+              "reps": "10-12"
+            },
+            {
+              "name": "A1: Roman Chair Crunch",
+              "sets": 2,
+              "reps": "12-15"
+            },
+            {
+              "name": "A2: Seated Calf Raise",
+              "sets": 2,
+              "reps": "12-15"
+            }
+          ]
+        },
+        {
+          "day": "Push",
+          "exercises": [
+            {
+              "name": "Machine Chest Press",
+              "sets": 2,
+              "reps": "8-10"
+            },
+            {
+              "name": "Seated DB Shoulder Press",
+              "sets": 3,
+              "reps": "10-12"
+            },
+            {
+              "name": "Cable Triceps Kickback",
+              "sets": 2,
+              "reps": "12-15 (dropset)"
+            },
+            {
+              "name": "Close-Grip Push Up",
+              "sets": 1,
+              "reps": "Failure"
+            },
+            {
+              "name": "Cable Lateral Raise",
+              "sets": 2,
+              "reps": "12-15"
+            }
+          ]
+        },
+        {
+          "day": "Pull",
+          "exercises": [
+            {
+              "name": "1-Arm Half-Kneeling Lat Pulldown",
+              "sets": 1,
+              "reps": "10-12"
+            },
+            {
+              "name": "T-Bar Row",
+              "sets": 2,
+              "reps": "10-12"
+            },
+            {
+              "name": "Lat Pulldown",
+              "sets": 3,
+              "reps": "8-10 (dropset)"
+            },
+            {
+              "name": "Reverse Pec Deck",
+              "sets": 2,
+              "reps": "12-15 (dropset)"
+            },
+            {
+              "name": "Spider Curl",
+              "sets": 2,
+              "reps": "12-15 (dropset)"
+            }
+          ]
+        },
+        {
+          "day": "Legs",
+          "exercises": [
+            {
+              "name": "DB Bulgarian Split Squat",
+              "sets": 3,
+              "reps": "10-12"
+            },
+            {
+              "name": "DB Romanian Deadlift",
+              "sets": 2,
+              "reps": "10-12"
+            },
+            {
+              "name": "Goblet Squat",
+              "sets": 1,
+              "reps": "12-15"
+            },
+            {
+              "name": "A1: Leg Press Toe Press",
+              "sets": 2,
+              "reps": "15-20"
+            },
+            {
+              "name": "A2: Machine Crunch",
+              "sets": 2,
+              "reps": "10-12"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "week": 7,
+      "days": [
+        {
+          "day": "Upper",
+          "exercises": [
+            {
+              "name": "2-Grip Pullup",
+              "sets": 2,
+              "reps": "8-10"
+            },
+            {
+              "name": "Weighted Dip (Heavy)",
+              "sets": 1,
+              "reps": "6-8"
+            },
+            {
+              "name": "Weighted Dip (Back off)",
+              "sets": 1,
+              "reps": "10-12"
+            },
+            {
+              "name": "Incline Chest-Supported DB Row",
+              "sets": 2,
+              "reps": "8-10"
+            },
+            {
+              "name": "Standing DB Arnold Press",
+              "sets": 2,
+              "reps": "8-10"
+            },
+            {
+              "name": "A1: DB Incline Curl",
+              "sets": 2,
+              "reps": "15-20"
+            },
+            {
+              "name": "A2: DB French Press",
+              "sets": 2,
+              "reps": "15-20"
+            }
+          ]
+        },
+        {
+          "day": "Lower",
+          "exercises": [
+            {
+              "name": "Single-Leg Leg Press (Heavy)",
+              "sets": 1,
+              "reps": "6-8 per leg"
+            },
+            {
+              "name": "Single-Leg Leg Press (Back off)",
+              "sets": 1,
+              "reps": "10-12 per leg"
+            },
+            {
+              "name": "Glute-Ham Raise",
+              "sets": 1,
+              "reps": "10-12"
+            },
+            {
+              "name": "A1: Roman Chair Crunch",
+              "sets": 2,
+              "reps": "12-15"
+            },
+            {
+              "name": "A2: Seated Calf Raise",
+              "sets": 2,
+              "reps": "12-15"
+            }
+          ]
+        },
+        {
+          "day": "Push",
+          "exercises": [
+            {
+              "name": "Machine Chest Press",
+              "sets": 2,
+              "reps": "8-10"
+            },
+            {
+              "name": "Seated DB Shoulder Press",
+              "sets": 3,
+              "reps": "10-12"
+            },
+            {
+              "name": "Cable Triceps Kickback",
+              "sets": 2,
+              "reps": "12-15 (dropset)"
+            },
+            {
+              "name": "Close-Grip Push Up",
+              "sets": 1,
+              "reps": "Failure"
+            },
+            {
+              "name": "Cable Lateral Raise",
+              "sets": 2,
+              "reps": "12-15"
+            }
+          ]
+        },
+        {
+          "day": "Pull",
+          "exercises": [
+            {
+              "name": "1-Arm Half-Kneeling Lat Pulldown",
+              "sets": 1,
+              "reps": "10-12"
+            },
+            {
+              "name": "T-Bar Row",
+              "sets": 2,
+              "reps": "10-12"
+            },
+            {
+              "name": "Lat Pulldown",
+              "sets": 3,
+              "reps": "8-10 (dropset)"
+            },
+            {
+              "name": "Reverse Pec Deck",
+              "sets": 2,
+              "reps": "12-15 (dropset)"
+            },
+            {
+              "name": "Spider Curl",
+              "sets": 2,
+              "reps": "12-15 (dropset)"
+            }
+          ]
+        },
+        {
+          "day": "Legs",
+          "exercises": [
+            {
+              "name": "DB Bulgarian Split Squat",
+              "sets": 3,
+              "reps": "10-12"
+            },
+            {
+              "name": "DB Romanian Deadlift",
+              "sets": 2,
+              "reps": "10-12"
+            },
+            {
+              "name": "Goblet Squat",
+              "sets": 1,
+              "reps": "12-15"
+            },
+            {
+              "name": "A1: Leg Press Toe Press",
+              "sets": 2,
+              "reps": "15-20"
+            },
+            {
+              "name": "A2: Machine Crunch",
+              "sets": 2,
+              "reps": "10-12"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "week": 8,
+      "days": [
+        {
+          "day": "Upper",
+          "exercises": [
+            {
+              "name": "2-Grip Pullup",
+              "sets": 2,
+              "reps": "8-10"
+            },
+            {
+              "name": "Weighted Dip (Heavy)",
+              "sets": 1,
+              "reps": "6-8"
+            },
+            {
+              "name": "Weighted Dip (Back off)",
+              "sets": 1,
+              "reps": "10-12"
+            },
+            {
+              "name": "Incline Chest-Supported DB Row",
+              "sets": 2,
+              "reps": "8-10"
+            },
+            {
+              "name": "Standing DB Arnold Press",
+              "sets": 2,
+              "reps": "8-10"
+            },
+            {
+              "name": "A1: DB Incline Curl",
+              "sets": 2,
+              "reps": "15-20"
+            },
+            {
+              "name": "A2: DB French Press",
+              "sets": 2,
+              "reps": "15-20"
+            }
+          ]
+        },
+        {
+          "day": "Lower",
+          "exercises": [
+            {
+              "name": "Single-Leg Leg Press (Heavy)",
+              "sets": 1,
+              "reps": "6-8 per leg"
+            },
+            {
+              "name": "Single-Leg Leg Press (Back off)",
+              "sets": 1,
+              "reps": "10-12 per leg"
+            },
+            {
+              "name": "Glute-Ham Raise",
+              "sets": 1,
+              "reps": "10-12"
+            },
+            {
+              "name": "A1: Roman Chair Crunch",
+              "sets": 2,
+              "reps": "12-15"
+            },
+            {
+              "name": "A2: Seated Calf Raise",
+              "sets": 2,
+              "reps": "12-15"
+            }
+          ]
+        },
+        {
+          "day": "Push",
+          "exercises": [
+            {
+              "name": "Machine Chest Press",
+              "sets": 2,
+              "reps": "8-10"
+            },
+            {
+              "name": "Seated DB Shoulder Press",
+              "sets": 3,
+              "reps": "10-12"
+            },
+            {
+              "name": "Cable Triceps Kickback",
+              "sets": 2,
+              "reps": "12-15 (dropset)"
+            },
+            {
+              "name": "Close-Grip Push Up",
+              "sets": 1,
+              "reps": "Failure"
+            },
+            {
+              "name": "Cable Lateral Raise",
+              "sets": 2,
+              "reps": "12-15"
+            }
+          ]
+        },
+        {
+          "day": "Pull",
+          "exercises": [
+            {
+              "name": "1-Arm Half-Kneeling Lat Pulldown",
+              "sets": 1,
+              "reps": "10-12"
+            },
+            {
+              "name": "T-Bar Row",
+              "sets": 2,
+              "reps": "10-12"
+            },
+            {
+              "name": "Lat Pulldown",
+              "sets": 3,
+              "reps": "8-10 (dropset)"
+            },
+            {
+              "name": "Reverse Pec Deck",
+              "sets": 2,
+              "reps": "12-15 (dropset)"
+            },
+            {
+              "name": "Spider Curl",
+              "sets": 2,
+              "reps": "12-15 (dropset)"
+            }
+          ]
+        },
+        {
+          "day": "Legs",
+          "exercises": [
+            {
+              "name": "DB Bulgarian Split Squat",
+              "sets": 3,
+              "reps": "10-12"
+            },
+            {
+              "name": "DB Romanian Deadlift",
+              "sets": 2,
+              "reps": "10-12"
+            },
+            {
+              "name": "Goblet Squat",
+              "sets": 1,
+              "reps": "12-15"
+            },
+            {
+              "name": "A1: Leg Press Toe Press",
+              "sets": 2,
+              "reps": "15-20"
+            },
+            {
+              "name": "A2: Machine Crunch",
+              "sets": 2,
+              "reps": "10-12"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "week": 9,
+      "days": [
+        {
+          "day": "Upper",
+          "exercises": [
+            {
+              "name": "Machine Chest Press (Heavy)",
+              "sets": 1,
+              "reps": "4-6"
+            },
+            {
+              "name": "Machine Chest Press (Back off)",
+              "sets": 1,
+              "reps": "8-10"
+            },
+            {
+              "name": "Machine Pulldown",
+              "sets": 2,
+              "reps": "10-12 (dropset)"
+            },
+            {
+              "name": "Cable Shoulder Press",
+              "sets": 2,
+              "reps": "12-15 (dropset)"
+            },
+            {
+              "name": "Helms DB Row",
+              "sets": 2,
+              "reps": "10-12"
+            },
+            {
+              "name": "A1: Overhead Cable Triceps Extension",
+              "sets": 2,
+              "reps": "12-15"
+            },
+            {
+              "name": "A2: Cable EZ Curl",
+              "sets": 2,
+              "reps": "12-15"
+            }
+          ]
+        },
+        {
+          "day": "Lower",
+          "exercises": [
+            {
+              "name": "Machine Squat (Heavy)",
+              "sets": 1,
+              "reps": "4-6"
+            },
+            {
+              "name": "Machine Squat (Back off)",
+              "sets": 1,
+              "reps": "8-10"
+            },
+            {
+              "name": "Nordic Ham Curl",
+              "sets": 1,
+              "reps": "8-10"
+            },
+            {
+              "name": "A1: Seated Calf Raise",
+              "sets": 2,
+              "reps": "10-12"
+            },
+            {
+              "name": "A2: Two-Arms Two-Legs Dead Bug",
+              "sets": 2,
+              "reps": "10-12"
+            }
+          ]
+        },
+        {
+          "day": "Push",
+          "exercises": [
+            {
+              "name": "Standing DB Arnold Press",
+              "sets": 2,
+              "reps": "10-12"
+            },
+            {
+              "name": "Cable Chest Press",
+              "sets": 2,
+              "reps": "10-12 (dropset)"
+            },
+            {
+              "name": "DB Triceps Kickback",
+              "sets": 2,
+              "reps": "10-12 (dropset)"
+            },
+            {
+              "name": "Close-Grip Push Up",
+              "sets": 1,
+              "reps": "Failure"
+            },
+            {
+              "name": "Machine Lateral Raise",
+              "sets": 2,
+              "reps": "10-12"
+            }
+          ]
+        },
+        {
+          "day": "Pull",
+          "exercises": [
+            {
+              "name": "1-Arm Half-Kneeling Lat Pulldown",
+              "sets": 1,
+              "reps": "10-12"
+            },
+            {
+              "name": "Neutral-Grip Lat Pulldown",
+              "sets": 3,
+              "reps": "8-10 (dropset)"
+            },
+            {
+              "name": "Meadows Row",
+              "sets": 2,
+              "reps": "10-12"
+            },
+            {
+              "name": "Inverse Zottman Curl",
+              "sets": 2,
+              "reps": "10-12 (dropset)"
+            },
+            {
+              "name": "Bent-Over Reverse DB Flye",
+              "sets": 2,
+              "reps": "15-20"
+            }
+          ]
+        },
+        {
+          "day": "Legs",
+          "exercises": [
+            {
+              "name": "Romanian Deadlift",
+              "sets": 2,
+              "reps": "10-12"
+            },
+            {
+              "name": "DB Walking Lunge",
+              "sets": 3,
+              "reps": "8-10"
+            },
+            {
+              "name": "Leg Extension",
+              "sets": 1,
+              "reps": "12-15 (dropset)"
+            },
+            {
+              "name": "A1: Standing Calf Raise",
+              "sets": 2,
+              "reps": "15-20"
+            },
+            {
+              "name": "A2: Plate-Weighted Crunch",
+              "sets": 2,
+              "reps": "12-15"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "week": 10,
+      "days": [
+        {
+          "day": "Upper",
+          "exercises": [
+            {
+              "name": "Machine Chest Press (Heavy)",
+              "sets": 1,
+              "reps": "4-6"
+            },
+            {
+              "name": "Machine Chest Press (Back off)",
+              "sets": 1,
+              "reps": "8-10"
+            },
+            {
+              "name": "Machine Pulldown",
+              "sets": 2,
+              "reps": "10-12 (dropset)"
+            },
+            {
+              "name": "Cable Shoulder Press",
+              "sets": 2,
+              "reps": "12-15 (dropset)"
+            },
+            {
+              "name": "Helms DB Row",
+              "sets": 2,
+              "reps": "10-12"
+            },
+            {
+              "name": "A1: Overhead Cable Triceps Extension",
+              "sets": 2,
+              "reps": "12-15"
+            },
+            {
+              "name": "A2: Cable EZ Curl",
+              "sets": 2,
+              "reps": "12-15"
+            }
+          ]
+        },
+        {
+          "day": "Lower",
+          "exercises": [
+            {
+              "name": "Machine Squat (Heavy)",
+              "sets": 1,
+              "reps": "4-6"
+            },
+            {
+              "name": "Machine Squat (Back off)",
+              "sets": 1,
+              "reps": "8-10"
+            },
+            {
+              "name": "Nordic Ham Curl",
+              "sets": 1,
+              "reps": "8-10"
+            },
+            {
+              "name": "A1: Seated Calf Raise",
+              "sets": 2,
+              "reps": "10-12"
+            },
+            {
+              "name": "A2: Two-Arms Two-Legs Dead Bug",
+              "sets": 2,
+              "reps": "10-12"
+            }
+          ]
+        },
+        {
+          "day": "Push",
+          "exercises": [
+            {
+              "name": "Standing DB Arnold Press",
+              "sets": 2,
+              "reps": "10-12"
+            },
+            {
+              "name": "Cable Chest Press",
+              "sets": 2,
+              "reps": "10-12 (dropset)"
+            },
+            {
+              "name": "DB Triceps Kickback",
+              "sets": 2,
+              "reps": "10-12 (dropset)"
+            },
+            {
+              "name": "Close-Grip Push Up",
+              "sets": 1,
+              "reps": "Failure"
+            },
+            {
+              "name": "Machine Lateral Raise",
+              "sets": 2,
+              "reps": "10-12"
+            }
+          ]
+        },
+        {
+          "day": "Pull",
+          "exercises": [
+            {
+              "name": "1-Arm Half-Kneeling Lat Pulldown",
+              "sets": 1,
+              "reps": "10-12"
+            },
+            {
+              "name": "Neutral-Grip Lat Pulldown",
+              "sets": 3,
+              "reps": "8-10 (dropset)"
+            },
+            {
+              "name": "Meadows Row",
+              "sets": 2,
+              "reps": "10-12"
+            },
+            {
+              "name": "Inverse Zottman Curl",
+              "sets": 2,
+              "reps": "10-12 (dropset)"
+            },
+            {
+              "name": "Bent-Over Reverse DB Flye",
+              "sets": 2,
+              "reps": "15-20"
+            }
+          ]
+        },
+        {
+          "day": "Legs",
+          "exercises": [
+            {
+              "name": "Romanian Deadlift",
+              "sets": 2,
+              "reps": "10-12"
+            },
+            {
+              "name": "DB Walking Lunge",
+              "sets": 3,
+              "reps": "8-10"
+            },
+            {
+              "name": "Leg Extension",
+              "sets": 1,
+              "reps": "12-15 (dropset)"
+            },
+            {
+              "name": "A1: Standing Calf Raise",
+              "sets": 2,
+              "reps": "15-20"
+            },
+            {
+              "name": "A2: Plate-Weighted Crunch",
+              "sets": 2,
+              "reps": "12-15"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "week": 11,
+      "days": [
+        {
+          "day": "Upper",
+          "exercises": [
+            {
+              "name": "Machine Chest Press (Heavy)",
+              "sets": 1,
+              "reps": "4-6"
+            },
+            {
+              "name": "Machine Chest Press (Back off)",
+              "sets": 1,
+              "reps": "8-10"
+            },
+            {
+              "name": "Machine Pulldown",
+              "sets": 2,
+              "reps": "10-12 (dropset)"
+            },
+            {
+              "name": "Cable Shoulder Press",
+              "sets": 2,
+              "reps": "12-15 (dropset)"
+            },
+            {
+              "name": "Helms DB Row",
+              "sets": 2,
+              "reps": "10-12"
+            },
+            {
+              "name": "A1: Overhead Cable Triceps Extension",
+              "sets": 2,
+              "reps": "12-15"
+            },
+            {
+              "name": "A2: Cable EZ Curl",
+              "sets": 2,
+              "reps": "12-15"
+            }
+          ]
+        },
+        {
+          "day": "Lower",
+          "exercises": [
+            {
+              "name": "Machine Squat (Heavy)",
+              "sets": 1,
+              "reps": "4-6"
+            },
+            {
+              "name": "Machine Squat (Back off)",
+              "sets": 1,
+              "reps": "8-10"
+            },
+            {
+              "name": "Nordic Ham Curl",
+              "sets": 1,
+              "reps": "8-10"
+            },
+            {
+              "name": "A1: Seated Calf Raise",
+              "sets": 2,
+              "reps": "10-12"
+            },
+            {
+              "name": "A2: Two-Arms Two-Legs Dead Bug",
+              "sets": 2,
+              "reps": "10-12"
+            }
+          ]
+        },
+        {
+          "day": "Push",
+          "exercises": [
+            {
+              "name": "Standing DB Arnold Press",
+              "sets": 2,
+              "reps": "10-12"
+            },
+            {
+              "name": "Cable Chest Press",
+              "sets": 2,
+              "reps": "10-12 (dropset)"
+            },
+            {
+              "name": "DB Triceps Kickback",
+              "sets": 2,
+              "reps": "10-12 (dropset)"
+            },
+            {
+              "name": "Close-Grip Push Up",
+              "sets": 1,
+              "reps": "Failure"
+            },
+            {
+              "name": "Machine Lateral Raise",
+              "sets": 2,
+              "reps": "10-12"
+            }
+          ]
+        },
+        {
+          "day": "Pull",
+          "exercises": [
+            {
+              "name": "1-Arm Half-Kneeling Lat Pulldown",
+              "sets": 1,
+              "reps": "10-12"
+            },
+            {
+              "name": "Neutral-Grip Lat Pulldown",
+              "sets": 3,
+              "reps": "8-10 (dropset)"
+            },
+            {
+              "name": "Meadows Row",
+              "sets": 2,
+              "reps": "10-12"
+            },
+            {
+              "name": "Inverse Zottman Curl",
+              "sets": 2,
+              "reps": "10-12 (dropset)"
+            },
+            {
+              "name": "Bent-Over Reverse DB Flye",
+              "sets": 2,
+              "reps": "15-20"
+            }
+          ]
+        },
+        {
+          "day": "Legs",
+          "exercises": [
+            {
+              "name": "Romanian Deadlift",
+              "sets": 2,
+              "reps": "10-12"
+            },
+            {
+              "name": "DB Walking Lunge",
+              "sets": 3,
+              "reps": "8-10"
+            },
+            {
+              "name": "Leg Extension",
+              "sets": 1,
+              "reps": "12-15 (dropset)"
+            },
+            {
+              "name": "A1: Standing Calf Raise",
+              "sets": 2,
+              "reps": "15-20"
+            },
+            {
+              "name": "A2: Plate-Weighted Crunch",
+              "sets": 2,
+              "reps": "12-15"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "week": 12,
+      "days": [
+        {
+          "day": "Upper",
+          "exercises": [
+            {
+              "name": "Machine Chest Press (Heavy)",
+              "sets": 1,
+              "reps": "4-6"
+            },
+            {
+              "name": "Machine Chest Press (Back off)",
+              "sets": 1,
+              "reps": "8-10"
+            },
+            {
+              "name": "Machine Pulldown",
+              "sets": 2,
+              "reps": "10-12 (dropset)"
+            },
+            {
+              "name": "Cable Shoulder Press",
+              "sets": 2,
+              "reps": "12-15 (dropset)"
+            },
+            {
+              "name": "Helms DB Row",
+              "sets": 2,
+              "reps": "10-12"
+            },
+            {
+              "name": "A1: Overhead Cable Triceps Extension",
+              "sets": 2,
+              "reps": "12-15"
+            },
+            {
+              "name": "A2: Cable EZ Curl",
+              "sets": 2,
+              "reps": "12-15"
+            }
+          ]
+        },
+        {
+          "day": "Lower",
+          "exercises": [
+            {
+              "name": "Machine Squat (Heavy)",
+              "sets": 1,
+              "reps": "4-6"
+            },
+            {
+              "name": "Machine Squat (Back off)",
+              "sets": 1,
+              "reps": "8-10"
+            },
+            {
+              "name": "Nordic Ham Curl",
+              "sets": 1,
+              "reps": "8-10"
+            },
+            {
+              "name": "A1: Seated Calf Raise",
+              "sets": 2,
+              "reps": "10-12"
+            },
+            {
+              "name": "A2: Two-Arms Two-Legs Dead Bug",
+              "sets": 2,
+              "reps": "10-12"
+            }
+          ]
+        },
+        {
+          "day": "Push",
+          "exercises": [
+            {
+              "name": "Standing DB Arnold Press",
+              "sets": 2,
+              "reps": "10-12"
+            },
+            {
+              "name": "Cable Chest Press",
+              "sets": 2,
+              "reps": "10-12 (dropset)"
+            },
+            {
+              "name": "DB Triceps Kickback",
+              "sets": 2,
+              "reps": "10-12 (dropset)"
+            },
+            {
+              "name": "Close-Grip Push Up",
+              "sets": 1,
+              "reps": "Failure"
+            },
+            {
+              "name": "Machine Lateral Raise",
+              "sets": 2,
+              "reps": "10-12"
+            }
+          ]
+        },
+        {
+          "day": "Pull",
+          "exercises": [
+            {
+              "name": "1-Arm Half-Kneeling Lat Pulldown",
+              "sets": 1,
+              "reps": "10-12"
+            },
+            {
+              "name": "Neutral-Grip Lat Pulldown",
+              "sets": 3,
+              "reps": "8-10 (dropset)"
+            },
+            {
+              "name": "Meadows Row",
+              "sets": 2,
+              "reps": "10-12"
+            },
+            {
+              "name": "Inverse Zottman Curl",
+              "sets": 2,
+              "reps": "10-12 (dropset)"
+            },
+            {
+              "name": "Bent-Over Reverse DB Flye",
+              "sets": 2,
+              "reps": "15-20"
+            }
+          ]
+        },
+        {
+          "day": "Legs",
+          "exercises": [
+            {
+              "name": "Romanian Deadlift",
+              "sets": 2,
+              "reps": "10-12"
+            },
+            {
+              "name": "DB Walking Lunge",
+              "sets": 3,
+              "reps": "8-10"
+            },
+            {
+              "name": "Leg Extension",
+              "sets": 1,
+              "reps": "12-15 (dropset)"
+            },
+            {
+              "name": "A1: Standing Calf Raise",
+              "sets": 2,
+              "reps": "15-20"
+            },
+            {
+              "name": "A2: Plate-Weighted Crunch",
+              "sets": 2,
+              "reps": "12-15"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

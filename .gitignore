@@ -19,6 +19,9 @@ app/google-services.json
 # Scaffolding tools (local only)
 android-app-scaffolding/
 
+# Sample programme files (copyrighted)
+sample/
+
 # Firebase debug logs
 firebase-debug.log
 
