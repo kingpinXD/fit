@@ -6,8 +6,9 @@
 - **Android:** compileSdk=34, minSdk=24, targetSdk=34, Java 17
 - **Database:** Room 2.6.1 (local), Firebase RTDB (sync)
 - **Auth:** Firebase Auth + Google Sign-In (play-services-auth 20.7.0)
-- **UI:** Material Components 1.11.0, ConstraintLayout, RecyclerView
-- **Architecture:** MVVM (ViewModel + LiveData + activity-ktx)
+- **UI:** Jetpack Compose with Material3 (migrating from XML layouts)
+- **Theme:** Black and gold — dark surfaces (#121212, #1A1A1A), gold primary (#D4AF37), light gold highlights (#E6C867)
+- **Architecture:** MVVM (ViewModel + Compose state / LiveData for Room)
 - **Testing:** JUnit 4.13.2, Robolectric 4.11.1, coroutines-test 1.7.3
 
 ## Build Commands
@@ -41,6 +42,10 @@
 
 ### Code Style
 - Early returns over nested if/else
-- ViewModels expose LiveData, Activities observe
+- ViewModels expose state via LiveData (Room) or Compose State
 - Room DAOs use suspend functions with coroutines
 - Firebase operations in dedicated SyncManager classes, not in Activities/ViewModels
+- UI in Jetpack Compose — no new XML layouts
+
+### Decisions
+- (2026-04-06) Migrating from XML layouts to Jetpack Compose with Material3. Compose reduces boilerplate (no adapters, ViewHolders, findViewById), makes animations and custom components trivial, and provides better state management for the exercise tracking UI. Black and gold dark theme.
