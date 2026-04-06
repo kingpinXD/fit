@@ -6,6 +6,7 @@ import androidx.room.Dao
 import androidx.room.Database
 import androidx.room.Entity
 import androidx.room.Insert
+import androidx.room.OnConflictStrategy
 import androidx.room.PrimaryKey
 import androidx.room.Query
 import androidx.room.Room
@@ -19,7 +20,19 @@ data class Exercise(
     val exerciseName: String,
     val sets: Int,
     val reps: String,
-    val orderIndex: Int
+    val orderIndex: Int,
+    val rpe: String = "",
+    val notes: String = ""
+)
+
+@Entity(tableName = "exercise_logs")
+data class ExerciseLog(
+    @PrimaryKey(autoGenerate = true) val id: Long = 0,
+    val exerciseId: Long,
+    val userWeight: String,
+    val userComments: String,
+    val observedRpe: String,
+    val status: String // "PENDING", "DONE", "SKIPPED"
 )
 
 @Dao
@@ -43,10 +56,30 @@ interface ExerciseDao {
     suspend fun deleteAll()
 }
 
-@Database(entities = [Exercise::class], version = 1, exportSchema = false)
+@Dao
+interface ExerciseLogDao {
+    @Query("SELECT * FROM exercise_logs WHERE exerciseId = :exerciseId LIMIT 1")
+    fun getLog(exerciseId: Long): LiveData<ExerciseLog?>
+
+    @Query("SELECT * FROM exercise_logs WHERE exerciseId = :exerciseId LIMIT 1")
+    suspend fun getLogSync(exerciseId: Long): ExerciseLog?
+
+    @Query(
+        "SELECT el.* FROM exercise_logs el " +
+        "INNER JOIN exercises e ON el.exerciseId = e.id " +
+        "WHERE e.weekNumber = :weekNumber AND e.dayName = :dayName"
+    )
+    fun getLogsForDay(weekNumber: Int, dayName: String): LiveData<List<ExerciseLog>>
+
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    suspend fun upsert(log: ExerciseLog)
+}
+
+@Database(entities = [Exercise::class, ExerciseLog::class], version = 2, exportSchema = false)
 abstract class AppDatabase : RoomDatabase() {
 
     abstract fun exerciseDao(): ExerciseDao
+    abstract fun exerciseLogDao(): ExerciseLogDao
 
     companion object {
         @Volatile
@@ -58,7 +91,7 @@ abstract class AppDatabase : RoomDatabase() {
                     context.applicationContext,
                     AppDatabase::class.java,
                     "fit.db"
-                ).build().also { INSTANCE = it }
+                ).fallbackToDestructiveMigration().build().also { INSTANCE = it }
             }
         }
     }

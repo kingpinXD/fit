@@ -6,6 +6,7 @@ import org.json.JSONObject
 
 class ProgrammeRepository(
     private val dao: ExerciseDao,
+    private val logDao: ExerciseLogDao,
     private val context: Context
 ) {
 
@@ -28,6 +29,18 @@ class ProgrammeRepository(
 
     fun getDistinctDays(weekNumber: Int): LiveData<List<String>> =
         dao.getDistinctDays(weekNumber)
+
+    fun getLog(exerciseId: Long): LiveData<ExerciseLog?> =
+        logDao.getLog(exerciseId)
+
+    fun getLogsForDay(weekNumber: Int, dayName: String): LiveData<List<ExerciseLog>> =
+        logDao.getLogsForDay(weekNumber, dayName)
+
+    suspend fun getLogSync(exerciseId: Long): ExerciseLog? =
+        logDao.getLogSync(exerciseId)
+
+    suspend fun saveLog(exerciseLog: ExerciseLog) =
+        logDao.upsert(exerciseLog)
 
     companion object {
         fun parseProgramme(json: String): List<Exercise> {
@@ -54,7 +67,9 @@ class ProgrammeRepository(
                                 exerciseName = exObj.getString("name"),
                                 sets = exObj.getInt("sets"),
                                 reps = exObj.getString("reps"),
-                                orderIndex = exercises.size
+                                orderIndex = exObj.optInt("order", exercises.size),
+                                rpe = exObj.optString("rpe", ""),
+                                notes = exObj.optString("notes", "")
                             )
                         )
                     }

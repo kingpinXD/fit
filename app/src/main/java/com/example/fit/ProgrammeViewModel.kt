@@ -10,6 +10,7 @@ import androidx.lifecycle.switchMap
 import androidx.lifecycle.viewModelScope
 import com.example.fit.data.AppDatabase
 import com.example.fit.data.Exercise
+import com.example.fit.data.ExerciseLog
 import com.example.fit.data.ProgrammeRepository
 import kotlinx.coroutines.launch
 
@@ -23,9 +24,15 @@ class ProgrammeViewModel(app: Application) : AndroidViewModel(app) {
     val days: LiveData<List<String>>
     val exercises: LiveData<List<Exercise>>
 
+    val selectedExercise = MutableLiveData<Exercise?>()
+    val showTable = MutableLiveData(false)
+
+    val selectedExerciseLog: LiveData<ExerciseLog?>
+    val exerciseLogs: LiveData<List<ExerciseLog>>
+
     init {
         val db = AppDatabase.getInstance(app)
-        repository = ProgrammeRepository(db.exerciseDao(), app)
+        repository = ProgrammeRepository(db.exerciseDao(), db.exerciseLogDao(), app)
 
         weeks = repository.getDistinctWeeks()
 
@@ -49,12 +56,61 @@ class ProgrammeViewModel(app: Application) : AndroidViewModel(app) {
             }
         }
 
+        exerciseLogs = trigger.switchMap { (week, day) ->
+            if (week != null && day != null) {
+                repository.getLogsForDay(week, day)
+            } else {
+                MutableLiveData(emptyList())
+            }
+        }
+
+        selectedExerciseLog = selectedExercise.switchMap { exercise ->
+            if (exercise != null) {
+                repository.getLog(exercise.id)
+            } else {
+                MutableLiveData(null)
+            }
+        }
+
         viewModelScope.launch {
             try {
                 repository.loadProgrammeIfNeeded()
             } catch (e: Exception) {
                 Log.e("ProgrammeViewModel", "Failed to load programme", e)
             }
+        }
+    }
+
+    fun markDone(exercise: Exercise, weight: String, comments: String, observedRpe: String) {
+        val rpe = if (observedRpe.isBlank()) exercise.rpe else observedRpe
+        viewModelScope.launch {
+            val existing = repository.getLogSync(exercise.id)
+            repository.saveLog(
+                ExerciseLog(
+                    id = existing?.id ?: 0,
+                    exerciseId = exercise.id,
+                    userWeight = weight,
+                    userComments = comments,
+                    observedRpe = rpe,
+                    status = "DONE"
+                )
+            )
+        }
+    }
+
+    fun markSkipped(exercise: Exercise) {
+        viewModelScope.launch {
+            val existing = repository.getLogSync(exercise.id)
+            repository.saveLog(
+                ExerciseLog(
+                    id = existing?.id ?: 0,
+                    exerciseId = exercise.id,
+                    userWeight = "",
+                    userComments = "",
+                    observedRpe = "",
+                    status = "SKIPPED"
+                )
+            )
         }
     }
 }

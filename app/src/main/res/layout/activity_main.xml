@@ -6,7 +6,7 @@
     android:orientation="vertical"
     android:background="@color/background">
 
-    <!-- Spinner row -->
+    <!-- Section 1: Spinner row -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -31,48 +31,211 @@
             android:background="@color/surface" />
     </LinearLayout>
 
-    <!-- Column headers -->
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:paddingHorizontal="16dp"
-        android:paddingVertical="8dp"
-        android:background="@color/surfaceVariant">
-
-        <TextView
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="Exercise"
-            android:textSize="13sp"
-            android:textStyle="bold"
-            android:textColor="@color/textSecondary" />
-
-        <TextView
-            android:layout_width="60dp"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:text="Sets"
-            android:textSize="13sp"
-            android:textStyle="bold"
-            android:textColor="@color/textSecondary" />
-
-        <TextView
-            android:layout_width="80dp"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:text="Reps"
-            android:textSize="13sp"
-            android:textStyle="bold"
-            android:textColor="@color/textSecondary" />
-    </LinearLayout>
-
+    <!-- Section 2: Exercise list (compact, vertical) -->
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rvExercises"
+        android:id="@+id/rvExerciseList"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
         android:background="@color/surface" />
+
+    <!-- Section 3a: Exercise detail panel -->
+    <ScrollView
+        android:id="@+id/detailPanel"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="2"
+        android:visibility="gone"
+        android:background="@color/surface">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp">
+
+            <!-- Exercise name -->
+            <TextView
+                android:id="@+id/tvDetailName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:textColor="@color/textPrimary" />
+
+            <!-- Info line: sets x reps | RPE -->
+            <TextView
+                android:id="@+id/tvDetailInfo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:textSize="14sp"
+                android:textColor="@color/textSecondary" />
+
+            <!-- Notes toggle -->
+            <TextView
+                android:id="@+id/tvNotesToggle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="Notes \u25B6"
+                android:textSize="14sp"
+                android:textColor="@color/primary"
+                android:padding="4dp" />
+
+            <!-- Notes content (collapsed by default) -->
+            <TextView
+                android:id="@+id/tvNotesContent"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:textSize="13sp"
+                android:textColor="@color/textSecondary"
+                android:visibility="gone"
+                android:paddingStart="4dp"
+                android:paddingEnd="4dp" />
+
+            <!-- Weight input -->
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:hint="Weight (e.g. 30kg)">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/etWeight"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="text" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <!-- Comments input -->
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:hint="Comments (optional)">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/etComments"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="text" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <!-- Observed RPE input -->
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:hint="Observed RPE (optional)">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/etObservedRpe"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="text" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <!-- Done / Skip buttons -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:orientation="horizontal">
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnDone"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:layout_marginEnd="8dp"
+                    android:text="DONE"
+                    android:backgroundTint="@color/success"
+                    android:textColor="@color/onPrimary" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnSkip"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:layout_marginStart="8dp"
+                    android:text="SKIP"
+                    android:backgroundTint="#2196F3"
+                    android:textColor="@color/onPrimary" />
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+
+    <!-- Section 3b: Table view (shown when "Show Table" selected) -->
+    <LinearLayout
+        android:id="@+id/tablePanel"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="2"
+        android:orientation="vertical"
+        android:visibility="gone">
+
+        <!-- Column headers -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingHorizontal="16dp"
+            android:paddingVertical="8dp"
+            android:background="@color/surfaceVariant">
+
+            <TextView
+                android:layout_width="32dp"
+                android:layout_height="wrap_content"
+                android:text="#"
+                android:textSize="13sp"
+                android:textStyle="bold"
+                android:textColor="@color/textSecondary" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Exercise"
+                android:textSize="13sp"
+                android:textStyle="bold"
+                android:textColor="@color/textSecondary" />
+
+            <TextView
+                android:layout_width="48dp"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="Sets"
+                android:textSize="13sp"
+                android:textStyle="bold"
+                android:textColor="@color/textSecondary" />
+
+            <TextView
+                android:layout_width="72dp"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="Reps"
+                android:textSize="13sp"
+                android:textStyle="bold"
+                android:textColor="@color/textSecondary" />
+
+            <TextView
+                android:layout_width="56dp"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="RPE"
+                android:textSize="13sp"
+                android:textStyle="bold"
+                android:textColor="@color/textSecondary" />
+        </LinearLayout>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvTable"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:background="@color/surface" />
+    </LinearLayout>
 
 </LinearLayout>
