@@ -39,6 +39,9 @@ class ProgrammeRepository(
     suspend fun getLogSync(exerciseId: Long): ExerciseLog? =
         logDao.getLogSync(exerciseId)
 
+    fun getHistory(exerciseName: String, currentWeek: Int): LiveData<List<ExerciseHistoryEntry>> =
+        logDao.getHistory(exerciseName, currentWeek)
+
     suspend fun saveLog(exerciseLog: ExerciseLog) =
         logDao.upsert(exerciseLog)
 

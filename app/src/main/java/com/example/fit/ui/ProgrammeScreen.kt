@@ -1,8 +1,11 @@
 package com.example.fit.ui
 
 import androidx.compose.animation.AnimatedVisibility
+import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
+import androidx.compose.foundation.combinedClickable
+import androidx.compose.foundation.horizontalScroll
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -53,6 +56,7 @@ import androidx.compose.ui.unit.sp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import com.example.fit.ProgrammeViewModel
 import com.example.fit.data.Exercise
+import com.example.fit.data.ExerciseHistoryEntry
 import com.example.fit.data.ExerciseLog
 import com.example.fit.ui.theme.SkipBlue
 import com.example.fit.ui.theme.SuccessGreen
@@ -65,7 +69,10 @@ fun ProgrammeScreen(viewModel: ProgrammeViewModel = viewModel()) {
     val exercises by viewModel.exercises.observeAsState(emptyList())
     val exerciseLogs by viewModel.exerciseLogs.observeAsState(emptyList())
     val selectedExercise by viewModel.selectedExercise.observeAsState(null)
+    val selectedExerciseLog by viewModel.selectedExerciseLog.observeAsState(null)
+    val exerciseHistory by viewModel.exerciseHistory.observeAsState(emptyList())
     val showTable by viewModel.showTable.observeAsState(false)
+    val showHistory by viewModel.showHistory.observeAsState(false)
 
     val logsByExerciseId = remember(exerciseLogs) {
         exerciseLogs.associateBy { it.exerciseId }
@@ -150,6 +157,12 @@ fun ProgrammeScreen(viewModel: ProgrammeViewModel = viewModel()) {
                     onClick = {
                         viewModel.selectedExercise.value = exercise
                         viewModel.showTable.value = false
+                        viewModel.showHistory.value = false
+                    },
+                    onLongPress = {
+                        viewModel.selectedExercise.value = exercise
+                        viewModel.showTable.value = false
+                        viewModel.showHistory.value = true
                     }
                 )
             }
@@ -176,12 +189,17 @@ fun ProgrammeScreen(viewModel: ProgrammeViewModel = viewModel()) {
         } else if (selectedExercise != null) {
             ExerciseDetail(
                 exercise = selectedExercise!!,
-                onDone = { weight, comments, rpe ->
-                    viewModel.markDone(selectedExercise!!, weight, comments, rpe)
+                existingLog = selectedExerciseLog,
+                history = exerciseHistory,
+                showHistory = showHistory,
+                onDone = { weight, equipment, comments, rpe ->
+                    viewModel.markDone(selectedExercise!!, weight, equipment, comments, rpe)
+                    viewModel.showHistory.value = false
                     advanceToNext(exercises, selectedExercise!!, viewModel)
                 },
                 onSkip = {
                     viewModel.markSkipped(selectedExercise!!)
+                    viewModel.showHistory.value = false
                     advanceToNext(exercises, selectedExercise!!, viewModel)
                 },
                 modifier = Modifier
@@ -308,12 +326,14 @@ private fun DayDropdown(
     }
 }
 
+@OptIn(ExperimentalFoundationApi::class)
 @Composable
 private fun ExerciseListItem(
     exercise: Exercise,
     isSelected: Boolean,
     log: ExerciseLog?,
-    onClick: () -> Unit
+    onClick: () -> Unit,
+    onLongPress: () -> Unit
 ) {
     val bgColor = if (isSelected) {
         MaterialTheme.colorScheme.surfaceVariant
@@ -329,7 +349,10 @@ private fun ExerciseListItem(
         shape = RoundedCornerShape(12.dp),
         modifier = Modifier
             .fillMaxWidth()
-            .clickable(onClick = onClick)
+            .combinedClickable(
+                onClick = onClick,
+                onLongClick = onLongPress
+            )
     ) {
         Row(
             modifier = Modifier
@@ -399,17 +422,25 @@ private fun ShowTableButton(
 @Composable
 private fun ExerciseDetail(
     exercise: Exercise,
-    onDone: (weight: String, comments: String, rpe: String) -> Unit,
+    existingLog: ExerciseLog?,
+    history: List<ExerciseHistoryEntry>,
+    showHistory: Boolean,
+    onDone: (weight: String, equipment: String, comments: String, rpe: String) -> Unit,
     onSkip: () -> Unit,
     modifier: Modifier = Modifier
 ) {
-    var weight by remember(exercise.id) { mutableStateOf("") }
-    var isBb by remember(exercise.id) { mutableStateOf(false) }
-    var isDb by remember(exercise.id) { mutableStateOf(false) }
-    var isMn by remember(exercise.id) { mutableStateOf(false) }
-    var isEs by remember(exercise.id) { mutableStateOf(false) }
-    var comments by remember(exercise.id) { mutableStateOf("") }
-    var observedRpe by remember(exercise.id) { mutableStateOf("") }
+    // Parse existing equipment tags
+    val existingEquipment = remember(existingLog) {
+        existingLog?.equipmentType?.split(",")?.map { it.trim() }?.toSet() ?: emptySet()
+    }
+
+    var weight by remember(exercise.id, existingLog) { mutableStateOf(existingLog?.userWeight ?: "") }
+    var isBb by remember(exercise.id, existingLog) { mutableStateOf("Barbell" in existingEquipment) }
+    var isDb by remember(exercise.id, existingLog) { mutableStateOf("Dumbbell" in existingEquipment) }
+    var isMn by remember(exercise.id, existingLog) { mutableStateOf("Machine" in existingEquipment) }
+    var isEs by remember(exercise.id, existingLog) { mutableStateOf("Each Side" in existingEquipment) }
+    var comments by remember(exercise.id, existingLog) { mutableStateOf(existingLog?.userComments ?: "") }
+    var observedRpe by remember(exercise.id, existingLog) { mutableStateOf(existingLog?.observedRpe ?: "") }
     var notesExpanded by remember(exercise.id) { mutableStateOf(false) }
 
     val fieldColors = OutlinedTextFieldDefaults.colors(
@@ -484,6 +515,38 @@ private fun ExerciseDetail(
                 }
             }
 
+            // History section (shown on long press)
+            AnimatedVisibility(visible = showHistory) {
+                Column(modifier = Modifier.padding(top = 12.dp)) {
+                    Text(
+                        text = "PREVIOUS WEEKS",
+                        color = TextSecondary,
+                        fontSize = 12.sp,
+                        fontWeight = FontWeight.Medium,
+                        modifier = Modifier.padding(bottom = 8.dp)
+                    )
+                    if (history.isEmpty()) {
+                        Text(
+                            text = "No data available",
+                            color = TextSecondary,
+                            fontSize = 13.sp,
+                            fontStyle = FontStyle.Italic
+                        )
+                    } else {
+                        Row(
+                            modifier = Modifier
+                                .fillMaxWidth()
+                                .horizontalScroll(rememberScrollState()),
+                            horizontalArrangement = Arrangement.spacedBy(8.dp)
+                        ) {
+                            history.forEach { entry ->
+                                HistoryCard(entry)
+                            }
+                        }
+                    }
+                }
+            }
+
             Spacer(modifier = Modifier.height(12.dp))
 
             // Weight input + equipment checkboxes
@@ -498,25 +561,27 @@ private fun ExerciseDetail(
                     label = { Text("Weight") },
                     colors = fieldColors,
                     singleLine = true,
-                    modifier = Modifier.width(120.dp)
+                    modifier = Modifier.weight(1f)
                 )
 
-                // Equipment type checkboxes: 2x2 grid
+                // Equipment type buttons: 2x2 compact grid
                 Column(
-                    verticalArrangement = Arrangement.spacedBy(0.dp),
+                    verticalArrangement = Arrangement.spacedBy(3.dp),
                     modifier = Modifier.weight(1f)
                 ) {
                     Row(
-                        horizontalArrangement = Arrangement.spacedBy(4.dp)
+                        horizontalArrangement = Arrangement.spacedBy(3.dp),
+                        modifier = Modifier.fillMaxWidth()
                     ) {
-                        EquipmentChip("BB", isBb, { isBb = it })
-                        EquipmentChip("DB", isDb, { isDb = it })
+                        EquipmentChip("Barbell", isBb, { isBb = it }, Modifier.weight(1f))
+                        EquipmentChip("Dumbbell", isDb, { isDb = it }, Modifier.weight(1f))
                     }
                     Row(
-                        horizontalArrangement = Arrangement.spacedBy(4.dp)
+                        horizontalArrangement = Arrangement.spacedBy(3.dp),
+                        modifier = Modifier.fillMaxWidth()
                     ) {
-                        EquipmentChip("MN", isMn, { isMn = it })
-                        EquipmentChip("ES", isEs, { isEs = it })
+                        EquipmentChip("Machine", isMn, { isMn = it }, Modifier.weight(1f))
+                        EquipmentChip("Each Side", isEs, { isEs = it }, Modifier.weight(1f))
                     }
                 }
             }
@@ -553,7 +618,15 @@ private fun ExerciseDetail(
                 horizontalArrangement = Arrangement.spacedBy(8.dp)
             ) {
                 Button(
-                    onClick = { onDone(weight, comments, observedRpe) },
+                    onClick = {
+                        val equipment = listOfNotNull(
+                            if (isBb) "Barbell" else null,
+                            if (isDb) "Dumbbell" else null,
+                            if (isMn) "Machine" else null,
+                            if (isEs) "Each Side" else null
+                        ).joinToString(",")
+                        onDone(weight, equipment, comments, observedRpe)
+                    },
                     colors = ButtonDefaults.buttonColors(
                         containerColor = SuccessGreen,
                         contentColor = Color.White
@@ -634,27 +707,132 @@ private fun ExerciseTable(
 private fun EquipmentChip(
     label: String,
     checked: Boolean,
-    onCheckedChange: (Boolean) -> Unit
+    onCheckedChange: (Boolean) -> Unit,
+    modifier: Modifier = Modifier
 ) {
-    val bgColor = if (checked) Color.White.copy(alpha = 0.15f) else Color.Transparent
+    val bgColor = if (checked) Color.White.copy(alpha = 0.15f) else MaterialTheme.colorScheme.surfaceVariant
     val borderColor = if (checked) Color.White else MaterialTheme.colorScheme.outline
     val textColor = if (checked) Color.White else TextSecondary
 
-    Text(
-        text = label,
-        color = textColor,
-        fontSize = 12.sp,
-        fontWeight = if (checked) FontWeight.Bold else FontWeight.Normal,
-        modifier = Modifier
+    Row(
+        horizontalArrangement = Arrangement.Center,
+        modifier = modifier
             .clickable { onCheckedChange(!checked) }
-            .background(bgColor, RoundedCornerShape(6.dp))
+            .background(bgColor, RoundedCornerShape(4.dp))
             .drawBehind {
                 drawRoundRect(
                     color = borderColor,
-                    cornerRadius = androidx.compose.ui.geometry.CornerRadius(6.dp.toPx()),
+                    cornerRadius = androidx.compose.ui.geometry.CornerRadius(4.dp.toPx()),
                     style = androidx.compose.ui.graphics.drawscope.Stroke(width = 1.dp.toPx())
                 )
             }
-            .padding(horizontal = 12.dp, vertical = 6.dp)
+            .padding(horizontal = 4.dp, vertical = 4.dp)
+    ) {
+        Text(
+            text = label,
+            color = textColor,
+            fontSize = 10.sp,
+            fontWeight = if (checked) FontWeight.Bold else FontWeight.Normal
+        )
+    }
+}
+
+private val RpePurple = Color(0xFF9C27B0)
+private val EquipmentGreen = Color(0xFF2E7D32)
+
+@Composable
+private fun HistoryCard(entry: ExerciseHistoryEntry) {
+    var showComments by remember { mutableStateOf(false) }
+    val equipmentTags = entry.equipmentType.split(",").filter { it.isNotBlank() }
+    val shortEquipment = mapOf(
+        "Barbell" to "BB", "Dumbbell" to "DB",
+        "Machine" to "MN", "Each Side" to "ES"
+    )
+
+    Card(
+        colors = CardDefaults.cardColors(
+            containerColor = MaterialTheme.colorScheme.surfaceVariant
+        ),
+        shape = RoundedCornerShape(10.dp),
+        modifier = Modifier.width(120.dp)
+    ) {
+        Column(
+            modifier = Modifier.padding(10.dp)
+        ) {
+            // Week label
+            Text(
+                text = "W${entry.weekNumber}",
+                color = TextSecondary,
+                fontSize = 11.sp,
+                fontWeight = FontWeight.Medium
+            )
+
+            Spacer(modifier = Modifier.height(4.dp))
+
+            // Weight
+            if (entry.userWeight.isNotBlank()) {
+                Text(
+                    text = entry.userWeight,
+                    color = Color.White,
+                    fontSize = 20.sp,
+                    fontWeight = FontWeight.Bold
+                )
+            } else {
+                Text(
+                    text = if (entry.status == "SKIPPED") "Skipped" else "—",
+                    color = TextSecondary,
+                    fontSize = 14.sp,
+                    fontStyle = FontStyle.Italic
+                )
+            }
+
+            Spacer(modifier = Modifier.height(6.dp))
+
+            // RPE + Equipment chips + comment arrow
+            Row(
+                horizontalArrangement = Arrangement.spacedBy(3.dp),
+                verticalAlignment = Alignment.CenterVertically,
+                modifier = Modifier.fillMaxWidth()
+            ) {
+                if (entry.observedRpe.isNotBlank()) {
+                    HistoryChip(entry.observedRpe, RpePurple)
+                }
+                equipmentTags.forEach { tag ->
+                    HistoryChip(shortEquipment[tag] ?: tag, EquipmentGreen)
+                }
+                if (entry.userComments.isNotBlank()) {
+                    Text(
+                        text = if (showComments) "\u25BC" else "\u25B6",
+                        fontSize = 10.sp,
+                        color = TextSecondary,
+                        modifier = Modifier.clickable { showComments = !showComments }
+                    )
+                }
+            }
+
+            // Expandable comments
+            AnimatedVisibility(visible = showComments) {
+                Text(
+                    text = entry.userComments,
+                    color = TextSecondary,
+                    fontSize = 11.sp,
+                    fontStyle = FontStyle.Italic,
+                    modifier = Modifier.padding(top = 4.dp)
+                )
+            }
+        }
+    }
+}
+
+@Composable
+private fun HistoryChip(label: String, color: Color) {
+    Text(
+        text = label,
+        color = Color.White,
+        fontSize = 10.sp,
+        fontWeight = FontWeight.Bold,
+        modifier = Modifier
+            .background(color.copy(alpha = 0.7f), RoundedCornerShape(4.dp))
+            .padding(horizontal = 5.dp, vertical = 2.dp)
     )
 }

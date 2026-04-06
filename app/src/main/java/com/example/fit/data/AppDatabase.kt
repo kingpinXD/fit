@@ -31,6 +31,7 @@ data class ExerciseLog(
     @PrimaryKey(autoGenerate = true) val id: Long = 0,
     val exerciseId: Long,
     val userWeight: String,
+    val equipmentType: String = "", // comma-separated: "Barbell,Each Side"
     val userComments: String,
     val observedRpe: String,
     val status: String // "PENDING", "DONE", "SKIPPED"
@@ -57,6 +58,15 @@ interface ExerciseDao {
     suspend fun deleteAll()
 }
 
+data class ExerciseHistoryEntry(
+    val weekNumber: Int,
+    val userWeight: String,
+    val equipmentType: String,
+    val userComments: String,
+    val observedRpe: String,
+    val status: String
+)
+
 @Dao
 interface ExerciseLogDao {
     @Query("SELECT * FROM exercise_logs WHERE exerciseId = :exerciseId LIMIT 1")
@@ -72,11 +82,20 @@ interface ExerciseLogDao {
     )
     fun getLogsForDay(weekNumber: Int, dayName: String): LiveData<List<ExerciseLog>>
 
+    @Query(
+        "SELECT e.weekNumber, el.userWeight, el.equipmentType, el.userComments, el.observedRpe, el.status " +
+        "FROM exercise_logs el " +
+        "INNER JOIN exercises e ON el.exerciseId = e.id " +
+        "WHERE e.exerciseName = :exerciseName AND e.weekNumber < :currentWeek " +
+        "ORDER BY e.weekNumber DESC"
+    )
+    fun getHistory(exerciseName: String, currentWeek: Int): LiveData<List<ExerciseHistoryEntry>>
+
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun upsert(log: ExerciseLog)
 }
 
-@Database(entities = [Exercise::class, ExerciseLog::class], version = 3, exportSchema = false)
+@Database(entities = [Exercise::class, ExerciseLog::class], version = 4, exportSchema = false)
 abstract class AppDatabase : RoomDatabase() {
 
     abstract fun exerciseDao(): ExerciseDao

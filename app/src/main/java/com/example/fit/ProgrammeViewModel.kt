@@ -10,6 +10,7 @@ import androidx.lifecycle.switchMap
 import androidx.lifecycle.viewModelScope
 import com.example.fit.data.AppDatabase
 import com.example.fit.data.Exercise
+import com.example.fit.data.ExerciseHistoryEntry
 import com.example.fit.data.ExerciseLog
 import com.example.fit.data.ProgrammeRepository
 import kotlinx.coroutines.launch
@@ -26,9 +27,11 @@ class ProgrammeViewModel(app: Application) : AndroidViewModel(app) {
 
     val selectedExercise = MutableLiveData<Exercise?>()
     val showTable = MutableLiveData(false)
+    val showHistory = MutableLiveData(false)
 
     val selectedExerciseLog: LiveData<ExerciseLog?>
     val exerciseLogs: LiveData<List<ExerciseLog>>
+    val exerciseHistory: LiveData<List<ExerciseHistoryEntry>>
 
     init {
         val db = AppDatabase.getInstance(app)
@@ -72,6 +75,15 @@ class ProgrammeViewModel(app: Application) : AndroidViewModel(app) {
             }
         }
 
+        // History: all logs for same exercise name in previous weeks (descending)
+        exerciseHistory = selectedExercise.switchMap { exercise ->
+            if (exercise != null) {
+                repository.getHistory(exercise.exerciseName, exercise.weekNumber)
+            } else {
+                MutableLiveData(emptyList())
+            }
+        }
+
         viewModelScope.launch {
             try {
                 repository.loadProgrammeIfNeeded()
@@ -81,7 +93,7 @@ class ProgrammeViewModel(app: Application) : AndroidViewModel(app) {
         }
     }
 
-    fun markDone(exercise: Exercise, weight: String, comments: String, observedRpe: String) {
+    fun markDone(exercise: Exercise, weight: String, equipment: String, comments: String, observedRpe: String) {
         val rpe = if (observedRpe.isBlank()) exercise.rpe else observedRpe
         viewModelScope.launch {
             val existing = repository.getLogSync(exercise.id)
@@ -90,6 +102,7 @@ class ProgrammeViewModel(app: Application) : AndroidViewModel(app) {
                     id = existing?.id ?: 0,
                     exerciseId = exercise.id,
                     userWeight = weight,
+                    equipmentType = equipment,
                     userComments = comments,
                     observedRpe = rpe,
                     status = "DONE"
@@ -106,6 +119,7 @@ class ProgrammeViewModel(app: Application) : AndroidViewModel(app) {
                     id = existing?.id ?: 0,
                     exerciseId = exercise.id,
                     userWeight = "",
+                    equipmentType = "",
                     userComments = "",
                     observedRpe = "",
                     status = "SKIPPED"
