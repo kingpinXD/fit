@@ -57,12 +57,26 @@ interface ExerciseDao {
     @Query("SELECT COUNT(*) FROM exercises")
     fun countLive(): LiveData<Int>
 
+    @Query("SELECT * FROM exercises ORDER BY weekNumber, id")
+    suspend fun getAllExercises(): List<Exercise>
+
     @Query("DELETE FROM exercises")
     suspend fun deleteAll()
 }
 
 data class ExerciseHistoryEntry(
     val weekNumber: Int,
+    val userWeight: String,
+    val equipmentType: String,
+    val userComments: String,
+    val observedRpe: String,
+    val status: String
+)
+
+data class ExportLogEntry(
+    val exerciseName: String,
+    val weekNumber: Int,
+    val dayName: String,
     val userWeight: String,
     val equipmentType: String,
     val userComments: String,
@@ -96,6 +110,15 @@ interface ExerciseLogDao {
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun upsert(log: ExerciseLog)
+
+    @Query(
+        "SELECT e.exerciseName, e.weekNumber, e.dayName, " +
+        "el.userWeight, el.equipmentType, el.userComments, el.observedRpe, el.status " +
+        "FROM exercise_logs el " +
+        "INNER JOIN exercises e ON el.exerciseId = e.id " +
+        "ORDER BY e.weekNumber, e.id"
+    )
+    suspend fun getExportLogs(): List<ExportLogEntry>
 
     @Query("DELETE FROM exercise_logs")
     suspend fun deleteAll()

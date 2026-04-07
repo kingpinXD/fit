@@ -23,6 +23,7 @@ class MainActivity : AppCompatActivity() {
 
                 if (showSettings) {
                     SettingsScreen(
+                        viewModel = viewModel,
                         onBack = { showSettings = false },
                         onDeleteProgramme = {
                             viewModel.deleteProgramme()

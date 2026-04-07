@@ -12,6 +12,7 @@ import com.example.fit.data.AppDatabase
 import com.example.fit.data.Exercise
 import com.example.fit.data.ExerciseHistoryEntry
 import com.example.fit.data.ExerciseLog
+import com.example.fit.data.FirebaseSyncManager
 import com.example.fit.data.ProgrammeRepository
 import kotlinx.coroutines.launch
 import java.io.InputStream
@@ -19,12 +20,14 @@ import java.io.InputStream
 class ProgrammeViewModel(app: Application) : AndroidViewModel(app) {
 
     private val repository: ProgrammeRepository
+    private val firebaseSyncManager = FirebaseSyncManager()
 
     val weeks: LiveData<List<Int>>
     val selectedWeek = MutableLiveData<Int>()
     val selectedDay = MutableLiveData<String>()
     val days: LiveData<List<String>>
     val exercises: LiveData<List<Exercise>>
+    val programmeName = MutableLiveData("")
 
     val selectedExercise = MutableLiveData<Exercise?>()
     val showTable = MutableLiveData(false)
@@ -39,6 +42,7 @@ class ProgrammeViewModel(app: Application) : AndroidViewModel(app) {
         val db = AppDatabase.getInstance(app)
         repository = ProgrammeRepository(db.exerciseDao(), db.exerciseLogDao(), app)
 
+        programmeName.value = repository.getProgrammeName()
         hasProgramme = repository.hasProgramme()
         weeks = repository.getDistinctWeeks()
 
@@ -89,20 +93,28 @@ class ProgrammeViewModel(app: Application) : AndroidViewModel(app) {
 
     }
 
-    fun importProgramme(json: String) {
+    fun importProgramme(json: String, name: String = "") {
         viewModelScope.launch {
             try {
                 repository.importProgrammeFromJson(json)
+                if (name.isNotBlank()) {
+                    repository.setProgrammeName(name)
+                    programmeName.value = name
+                }
             } catch (e: Exception) {
                 Log.e("ProgrammeViewModel", "Failed to import programme", e)
             }
         }
     }
 
-    fun importProgrammeFromXlsx(inputStream: InputStream) {
+    fun importProgrammeFromXlsx(inputStream: InputStream, name: String = "") {
         viewModelScope.launch {
             try {
                 repository.importProgrammeFromXlsx(inputStream)
+                if (name.isNotBlank()) {
+                    repository.setProgrammeName(name)
+                    programmeName.value = name
+                }
             } catch (e: Exception) {
                 Log.e("ProgrammeViewModel", "Failed to import XLSX programme", e)
             }
@@ -113,6 +125,7 @@ class ProgrammeViewModel(app: Application) : AndroidViewModel(app) {
         viewModelScope.launch {
             try {
                 repository.deleteProgramme()
+                programmeName.value = ""
                 selectedWeek.value = null
                 selectedDay.value = null
                 selectedExercise.value = null
@@ -120,6 +133,26 @@ class ProgrammeViewModel(app: Application) : AndroidViewModel(app) {
                 showHistory.value = false
             } catch (e: Exception) {
                 Log.e("ProgrammeViewModel", "Failed to delete programme", e)
+            }
+        }
+    }
+
+    /**
+     * Builds export JSON and pushes to Firebase. Returns the JSON string via callback
+     * so the caller can trigger a share intent.
+     */
+    fun exportProgramme(identifier: String, onResult: (json: String?, success: Boolean) -> Unit) {
+        viewModelScope.launch {
+            try {
+                val name = programmeName.value ?: ""
+                val json = repository.buildExportJson(name, identifier)
+
+                firebaseSyncManager.exportProgramme(name, identifier, json) { firebaseOk ->
+                    onResult(json, firebaseOk)
+                }
+            } catch (e: Exception) {
+                Log.e("ProgrammeViewModel", "Failed to export programme", e)
+                onResult(null, false)
             }
         }
     }

@@ -1,5 +1,7 @@
 package com.example.fit.ui
 
+import android.content.Intent
+import android.widget.Toast
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Column
@@ -18,6 +20,7 @@ import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
 import androidx.compose.runtime.Composable
@@ -28,16 +31,23 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.example.fit.ProgrammeViewModel
 
 @Composable
 fun SettingsScreen(
+    viewModel: ProgrammeViewModel,
     onBack: () -> Unit,
     onDeleteProgramme: () -> Unit
 ) {
+    val context = LocalContext.current
     var showDeleteDialog by remember { mutableStateOf(false) }
+    var showExportDialog by remember { mutableStateOf(false) }
+    var exportIdentifier by remember { mutableStateOf("") }
+    var exporting by remember { mutableStateOf(false) }
 
     if (showDeleteDialog) {
         AlertDialog(
@@ -56,6 +66,69 @@ fun SettingsScreen(
             },
             dismissButton = {
                 TextButton(onClick = { showDeleteDialog = false }) {
+                    Text("Cancel")
+                }
+            }
+        )
+    }
+
+    if (showExportDialog) {
+        AlertDialog(
+            onDismissRequest = {
+                if (!exporting) {
+                    showExportDialog = false
+                    exportIdentifier = ""
+                }
+            },
+            title = { Text("Export Programme") },
+            text = {
+                OutlinedTextField(
+                    value = exportIdentifier,
+                    onValueChange = { exportIdentifier = it },
+                    label = { Text("e.g. Round 1, Jan 2026") },
+                    singleLine = true,
+                    enabled = !exporting
+                )
+            },
+            confirmButton = {
+                TextButton(
+                    onClick = {
+                        exporting = true
+                        val identifier = exportIdentifier.trim()
+                            .lowercase().replace(" ", "_")
+                        viewModel.exportProgramme(identifier) { json, firebaseOk ->
+                            exporting = false
+                            showExportDialog = false
+                            exportIdentifier = ""
+
+                            val message = if (firebaseOk) "Exported to cloud" else "Export failed (cloud)"
+                            Toast.makeText(context, message, Toast.LENGTH_SHORT).show()
+
+                            if (json != null) {
+                                val shareIntent = Intent(Intent.ACTION_SEND).apply {
+                                    type = "application/json"
+                                    putExtra(Intent.EXTRA_TEXT, json)
+                                    putExtra(Intent.EXTRA_SUBJECT, "Fit Programme Export")
+                                }
+                                context.startActivity(
+                                    Intent.createChooser(shareIntent, "Share export")
+                                )
+                            }
+                        }
+                    },
+                    enabled = !exporting
+                ) {
+                    Text(if (exporting) "Exporting..." else "Export")
+                }
+            },
+            dismissButton = {
+                TextButton(
+                    onClick = {
+                        showExportDialog = false
+                        exportIdentifier = ""
+                    },
+                    enabled = !exporting
+                ) {
                     Text("Cancel")
                 }
             }
@@ -86,6 +159,28 @@ fun SettingsScreen(
                 color = Color.White,
                 fontSize = 22.sp,
                 fontWeight = FontWeight.Bold
+            )
+        }
+
+        Spacer(modifier = Modifier.height(8.dp))
+
+        // Export programme card
+        Card(
+            colors = CardDefaults.cardColors(
+                containerColor = MaterialTheme.colorScheme.surface
+            ),
+            shape = RoundedCornerShape(12.dp),
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(horizontal = 16.dp)
+                .clickable { showExportDialog = true }
+        ) {
+            Text(
+                text = "Export Programme",
+                color = Color.White,
+                fontSize = 16.sp,
+                fontWeight = FontWeight.Medium,
+                modifier = Modifier.padding(16.dp)
             )
         }
 

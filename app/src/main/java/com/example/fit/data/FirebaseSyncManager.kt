@@ -13,4 +13,25 @@ class FirebaseSyncManager {
 
     val isSignedIn: Boolean
         get() = auth.currentUser != null
+
+    fun exportProgramme(
+        programmeName: String,
+        identifier: String,
+        jsonData: String,
+        onComplete: (Boolean) -> Unit
+    ) {
+        if (!isSignedIn) {
+            onComplete(false)
+            return
+        }
+        val key = "${programmeName}_${identifier}"
+        db.reference
+            .child("users")
+            .child(uid!!)
+            .child("exports")
+            .child(key)
+            .setValue(jsonData)
+            .addOnSuccessListener { onComplete(true) }
+            .addOnFailureListener { onComplete(false) }
+    }
 }

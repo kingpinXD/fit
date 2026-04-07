@@ -1,6 +1,7 @@
 package com.example.fit.ui
 
 import android.net.Uri
+import android.provider.OpenableColumns
 import androidx.activity.compose.rememberLauncherForActivityResult
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.compose.animation.AnimatedVisibility
@@ -69,6 +70,7 @@ import com.example.fit.ProgrammeViewModel
 import com.example.fit.data.Exercise
 import com.example.fit.data.ExerciseHistoryEntry
 import com.example.fit.data.ExerciseLog
+import com.example.fit.data.ProgrammeNameNormalizer
 import com.example.fit.ui.theme.LocalFitSizing
 import com.example.fit.ui.theme.RpePurple
 import com.example.fit.ui.theme.EquipmentGreen
@@ -88,6 +90,7 @@ fun ProgrammeScreen(
         return
     }
 
+    val programmeNameValue by viewModel.programmeName.observeAsState("")
     val weeks by viewModel.weeks.observeAsState(emptyList())
     val days by viewModel.days.observeAsState(emptyList())
     val exercises by viewModel.exercises.observeAsState(emptyList())
@@ -137,7 +140,7 @@ fun ProgrammeScreen(
             verticalAlignment = Alignment.CenterVertically
         ) {
             Text(
-                text = "Fit",
+                text = programmeNameValue.ifBlank { "Fit" },
                 color = Color.White,
                 fontSize = 22.sp,
                 fontWeight = FontWeight.Bold
@@ -272,15 +275,31 @@ private fun ImportScreen(viewModel: ProgrammeViewModel) {
         if (uri == null) return@rememberLauncherForActivityResult
         importing = true
         try {
-            val fileName = uri.lastPathSegment ?: ""
+            // Extract display name from content resolver
+            var displayName = ""
+            context.contentResolver.query(uri, null, null, null, null)?.use { cursor ->
+                if (cursor.moveToFirst()) {
+                    val nameIndex = cursor.getColumnIndex(OpenableColumns.DISPLAY_NAME)
+                    if (nameIndex >= 0) displayName = cursor.getString(nameIndex) ?: ""
+                }
+            }
+            if (displayName.isBlank()) displayName = uri.lastPathSegment ?: ""
+
+            // Best-effort parent folder from URI path
+            val parentFolder = uri.path?.let { path ->
+                val segments = path.split("/").filter { it.isNotBlank() }
+                if (segments.size >= 2) segments[segments.size - 2] else ""
+            } ?: ""
+
+            val programmeName = ProgrammeNameNormalizer.normalize(displayName, parentFolder)
+
             val inputStream = context.contentResolver.openInputStream(uri)
             if (inputStream != null) {
-                if (fileName.endsWith(".json") || fileName.contains("json")) {
+                if (displayName.endsWith(".json") || displayName.contains("json")) {
                     val json = inputStream.bufferedReader().use { it.readText() }
-                    viewModel.importProgramme(json)
+                    viewModel.importProgramme(json, programmeName)
                 } else {
-                    // Treat as XLSX
-                    viewModel.importProgrammeFromXlsx(inputStream)
+                    viewModel.importProgrammeFromXlsx(inputStream, programmeName)
                 }
             }
         } catch (e: Exception) {
