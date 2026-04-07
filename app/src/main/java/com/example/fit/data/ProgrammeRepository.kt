@@ -2,7 +2,9 @@ package com.example.fit.data
 
 import android.content.Context
 import androidx.lifecycle.LiveData
+import androidx.lifecycle.map
 import org.json.JSONObject
+import java.io.InputStream
 
 class ProgrammeRepository(
     private val dao: ExerciseDao,
@@ -10,15 +12,21 @@ class ProgrammeRepository(
     private val context: Context
 ) {
 
-    suspend fun loadProgrammeIfNeeded() {
-        if (dao.count() > 0) return
+    fun hasProgramme(): LiveData<Boolean> = dao.countLive().map { it > 0 }
 
-        val json = context.assets.open("programme.json")
-            .bufferedReader()
-            .use { it.readText() }
-
+    suspend fun importProgrammeFromJson(json: String) {
         val exercises = parseProgramme(json)
         dao.insertAll(exercises)
+    }
+
+    suspend fun importProgrammeFromXlsx(inputStream: InputStream) {
+        val exercises = XlsxParser.parse(inputStream)
+        dao.insertAll(exercises)
+    }
+
+    suspend fun deleteProgramme() {
+        logDao.deleteAll()
+        dao.deleteAll()
     }
 
     fun getExercises(weekNumber: Int, dayName: String): LiveData<List<Exercise>> =

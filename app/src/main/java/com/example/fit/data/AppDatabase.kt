@@ -45,7 +45,7 @@ interface ExerciseDao {
     @Query("SELECT DISTINCT weekNumber FROM exercises ORDER BY weekNumber")
     fun getDistinctWeeks(): LiveData<List<Int>>
 
-    @Query("SELECT dayName FROM exercises WHERE weekNumber = :weekNumber GROUP BY dayName ORDER BY MIN(orderIndex)")
+    @Query("SELECT dayName FROM exercises WHERE weekNumber = :weekNumber GROUP BY dayName ORDER BY MIN(id)")
     fun getDistinctDays(weekNumber: Int): LiveData<List<String>>
 
     @Insert
@@ -53,6 +53,9 @@ interface ExerciseDao {
 
     @Query("SELECT COUNT(*) FROM exercises")
     suspend fun count(): Int
+
+    @Query("SELECT COUNT(*) FROM exercises")
+    fun countLive(): LiveData<Int>
 
     @Query("DELETE FROM exercises")
     suspend fun deleteAll()
@@ -93,6 +96,9 @@ interface ExerciseLogDao {
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun upsert(log: ExerciseLog)
+
+    @Query("DELETE FROM exercise_logs")
+    suspend fun deleteAll()
 }
 
 @Database(entities = [Exercise::class, ExerciseLog::class], version = 4, exportSchema = false)

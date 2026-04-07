@@ -14,6 +14,7 @@ import com.example.fit.data.ExerciseHistoryEntry
 import com.example.fit.data.ExerciseLog
 import com.example.fit.data.ProgrammeRepository
 import kotlinx.coroutines.launch
+import java.io.InputStream
 
 class ProgrammeViewModel(app: Application) : AndroidViewModel(app) {
 
@@ -29,6 +30,7 @@ class ProgrammeViewModel(app: Application) : AndroidViewModel(app) {
     val showTable = MutableLiveData(false)
     val showHistory = MutableLiveData(false)
 
+    val hasProgramme: LiveData<Boolean>
     val selectedExerciseLog: LiveData<ExerciseLog?>
     val exerciseLogs: LiveData<List<ExerciseLog>>
     val exerciseHistory: LiveData<List<ExerciseHistoryEntry>>
@@ -37,6 +39,7 @@ class ProgrammeViewModel(app: Application) : AndroidViewModel(app) {
         val db = AppDatabase.getInstance(app)
         repository = ProgrammeRepository(db.exerciseDao(), db.exerciseLogDao(), app)
 
+        hasProgramme = repository.hasProgramme()
         weeks = repository.getDistinctWeeks()
 
         days = selectedWeek.switchMap { week ->
@@ -84,11 +87,39 @@ class ProgrammeViewModel(app: Application) : AndroidViewModel(app) {
             }
         }
 
+    }
+
+    fun importProgramme(json: String) {
         viewModelScope.launch {
             try {
-                repository.loadProgrammeIfNeeded()
+                repository.importProgrammeFromJson(json)
             } catch (e: Exception) {
-                Log.e("ProgrammeViewModel", "Failed to load programme", e)
+                Log.e("ProgrammeViewModel", "Failed to import programme", e)
+            }
+        }
+    }
+
+    fun importProgrammeFromXlsx(inputStream: InputStream) {
+        viewModelScope.launch {
+            try {
+                repository.importProgrammeFromXlsx(inputStream)
+            } catch (e: Exception) {
+                Log.e("ProgrammeViewModel", "Failed to import XLSX programme", e)
+            }
+        }
+    }
+
+    fun deleteProgramme() {
+        viewModelScope.launch {
+            try {
+                repository.deleteProgramme()
+                selectedWeek.value = null
+                selectedDay.value = null
+                selectedExercise.value = null
+                showTable.value = false
+                showHistory.value = false
+            } catch (e: Exception) {
+                Log.e("ProgrammeViewModel", "Failed to delete programme", e)
             }
         }
     }

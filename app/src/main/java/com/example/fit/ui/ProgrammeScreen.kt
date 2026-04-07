@@ -1,5 +1,8 @@
 package com.example.fit.ui
 
+import android.net.Uri
+import androidx.activity.compose.rememberLauncherForActivityResult
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.compose.animation.AnimatedVisibility
 import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.background
@@ -7,6 +10,7 @@ import androidx.compose.foundation.clickable
 import androidx.compose.foundation.combinedClickable
 import androidx.compose.foundation.horizontalScroll
 import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
@@ -14,21 +18,27 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.itemsIndexed
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.verticalScroll
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.MoreVert
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
+import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.DropdownMenuItem
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.ExposedDropdownMenuBox
 import androidx.compose.material3.ExposedDropdownMenuDefaults
 import androidx.compose.material3.HorizontalDivider
+import androidx.compose.material3.Icon
+import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedButton
 import androidx.compose.material3.OutlinedTextField
@@ -49,6 +59,7 @@ import androidx.compose.ui.draw.drawBehind
 import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.SolidColor
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.text.font.FontStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
@@ -58,12 +69,25 @@ import com.example.fit.ProgrammeViewModel
 import com.example.fit.data.Exercise
 import com.example.fit.data.ExerciseHistoryEntry
 import com.example.fit.data.ExerciseLog
+import com.example.fit.ui.theme.LocalFitSizing
+import com.example.fit.ui.theme.RpePurple
+import com.example.fit.ui.theme.EquipmentGreen
 import com.example.fit.ui.theme.SkipBlue
 import com.example.fit.ui.theme.SuccessGreen
 import com.example.fit.ui.theme.TextSecondary
 
 @Composable
-fun ProgrammeScreen(viewModel: ProgrammeViewModel = viewModel()) {
+fun ProgrammeScreen(
+    viewModel: ProgrammeViewModel = viewModel(),
+    onNavigateToSettings: () -> Unit = {}
+) {
+    val hasProgramme by viewModel.hasProgramme.observeAsState(false)
+
+    if (!hasProgramme) {
+        ImportScreen(viewModel = viewModel)
+        return
+    }
+
     val weeks by viewModel.weeks.observeAsState(emptyList())
     val days by viewModel.days.observeAsState(emptyList())
     val exercises by viewModel.exercises.observeAsState(emptyList())
@@ -104,6 +128,29 @@ fun ProgrammeScreen(viewModel: ProgrammeViewModel = viewModel()) {
             .fillMaxSize()
             .background(MaterialTheme.colorScheme.background)
     ) {
+        // Top bar with title and settings icon
+        Row(
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(horizontal = 16.dp, vertical = 8.dp),
+            horizontalArrangement = Arrangement.SpaceBetween,
+            verticalAlignment = Alignment.CenterVertically
+        ) {
+            Text(
+                text = "Fit",
+                color = Color.White,
+                fontSize = 22.sp,
+                fontWeight = FontWeight.Bold
+            )
+            IconButton(onClick = onNavigateToSettings) {
+                Icon(
+                    imageVector = Icons.Default.MoreVert,
+                    contentDescription = "Settings",
+                    tint = Color.White
+                )
+            }
+        }
+
         // 1. Dropdown row
         Card(
             colors = CardDefaults.cardColors(
@@ -120,24 +167,28 @@ fun ProgrammeScreen(viewModel: ProgrammeViewModel = viewModel()) {
                     .padding(12.dp),
                 horizontalArrangement = Arrangement.spacedBy(8.dp)
             ) {
-                WeekDropdown(
-                    weeks = weeks,
-                    selectedIndex = selectedWeekIndex,
-                    onSelected = { index ->
-                        selectedWeekIndex = index
-                        viewModel.selectedWeek.value = weeks[index]
-                    },
-                    modifier = Modifier.weight(1f)
-                )
-                DayDropdown(
-                    days = days,
-                    selectedIndex = selectedDayIndex,
-                    onSelected = { index ->
-                        selectedDayIndex = index
-                        viewModel.selectedDay.value = days[index]
-                    },
-                    modifier = Modifier.weight(1f)
-                )
+                Box(modifier = Modifier.weight(1f)) {
+                    WeekDropdown(
+                        weeks = weeks,
+                        selectedIndex = selectedWeekIndex,
+                        onSelected = { index ->
+                            selectedWeekIndex = index
+                            viewModel.selectedWeek.value = weeks[index]
+                        },
+                        modifier = Modifier.fillMaxWidth()
+                    )
+                }
+                Box(modifier = Modifier.weight(1f)) {
+                    DayDropdown(
+                        days = days,
+                        selectedIndex = selectedDayIndex,
+                        onSelected = { index ->
+                            selectedDayIndex = index
+                            viewModel.selectedDay.value = days[index]
+                        },
+                        modifier = Modifier.fillMaxWidth()
+                    )
+                }
             }
         }
 
@@ -183,8 +234,8 @@ fun ProgrammeScreen(viewModel: ProgrammeViewModel = viewModel()) {
                 exercises = exercises,
                 modifier = Modifier
                     .fillMaxWidth()
-                    .weight(2f)
-                    .padding(horizontal = 16.dp, vertical = 8.dp)
+                    .weight(1f)
+                    .padding(horizontal = 16.dp, vertical = 4.dp)
             )
         } else if (selectedExercise != null) {
             ExerciseDetail(
@@ -204,9 +255,88 @@ fun ProgrammeScreen(viewModel: ProgrammeViewModel = viewModel()) {
                 },
                 modifier = Modifier
                     .fillMaxWidth()
-                    .weight(2f)
-                    .padding(horizontal = 16.dp, vertical = 8.dp)
+                    .padding(horizontal = 16.dp, vertical = 4.dp)
             )
+        }
+    }
+}
+
+@Composable
+private fun ImportScreen(viewModel: ProgrammeViewModel) {
+    val context = LocalContext.current
+    var importing by remember { mutableStateOf(false) }
+
+    val filePicker = rememberLauncherForActivityResult(
+        contract = ActivityResultContracts.GetContent()
+    ) { uri: Uri? ->
+        if (uri == null) return@rememberLauncherForActivityResult
+        importing = true
+        try {
+            val fileName = uri.lastPathSegment ?: ""
+            val inputStream = context.contentResolver.openInputStream(uri)
+            if (inputStream != null) {
+                if (fileName.endsWith(".json") || fileName.contains("json")) {
+                    val json = inputStream.bufferedReader().use { it.readText() }
+                    viewModel.importProgramme(json)
+                } else {
+                    // Treat as XLSX
+                    viewModel.importProgrammeFromXlsx(inputStream)
+                }
+            }
+        } catch (e: Exception) {
+            android.util.Log.e("ImportScreen", "Import failed", e)
+        }
+        importing = false
+    }
+
+    Column(
+        modifier = Modifier
+            .fillMaxSize()
+            .background(MaterialTheme.colorScheme.background)
+            .padding(32.dp),
+        horizontalAlignment = Alignment.CenterHorizontally,
+        verticalArrangement = Arrangement.Center
+    ) {
+        Text(
+            text = "Fit",
+            color = Color.White,
+            fontSize = 48.sp,
+            fontWeight = FontWeight.Bold
+        )
+
+        Spacer(modifier = Modifier.height(8.dp))
+
+        Text(
+            text = "Track your programme",
+            color = TextSecondary,
+            fontSize = 16.sp
+        )
+
+        Spacer(modifier = Modifier.height(48.dp))
+
+        if (importing) {
+            CircularProgressIndicator(
+                color = Color.White,
+                modifier = Modifier.size(48.dp)
+            )
+        } else {
+            OutlinedButton(
+                onClick = { filePicker.launch("*/*") },
+                colors = ButtonDefaults.outlinedButtonColors(contentColor = Color.White),
+                border = ButtonDefaults.outlinedButtonBorder.copy(
+                    brush = SolidColor(Color.White)
+                ),
+                shape = RoundedCornerShape(12.dp),
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .height(52.dp)
+            ) {
+                Text(
+                    text = "IMPORT PROGRAMME",
+                    fontWeight = FontWeight.SemiBold,
+                    fontSize = 16.sp
+                )
+            }
         }
     }
 }
@@ -247,14 +377,16 @@ private fun WeekDropdown(
         )
         ExposedDropdownMenuBox(
             expanded = expanded,
-            onExpandedChange = { expanded = it }
+            onExpandedChange = { expanded = it },
+            modifier = Modifier.fillMaxWidth()
         ) {
             TextField(
                 value = label,
                 onValueChange = {},
                 readOnly = true,
+                singleLine = true,
                 trailingIcon = { ExposedDropdownMenuDefaults.TrailingIcon(expanded = expanded) },
-                modifier = Modifier.menuAnchor()
+                modifier = Modifier.menuAnchor().fillMaxWidth()
             )
             ExposedDropdownMenu(
                 expanded = expanded,
@@ -284,7 +416,7 @@ private fun DayDropdown(
 ) {
     var expanded by remember { mutableStateOf(false) }
     val label = if (days.isNotEmpty() && selectedIndex in days.indices) {
-        "Day ${selectedIndex + 1}: ${days[selectedIndex]}"
+        "D${selectedIndex + 1}: ${days[selectedIndex]}"
     } else {
         "Day"
     }
@@ -299,14 +431,16 @@ private fun DayDropdown(
         )
         ExposedDropdownMenuBox(
             expanded = expanded,
-            onExpandedChange = { expanded = it }
+            onExpandedChange = { expanded = it },
+            modifier = Modifier.fillMaxWidth()
         ) {
             TextField(
                 value = label,
                 onValueChange = {},
                 readOnly = true,
+                singleLine = true,
                 trailingIcon = { ExposedDropdownMenuDefaults.TrailingIcon(expanded = expanded) },
-                modifier = Modifier.menuAnchor()
+                modifier = Modifier.menuAnchor().fillMaxWidth()
             )
             ExposedDropdownMenu(
                 expanded = expanded,
@@ -443,6 +577,7 @@ private fun ExerciseDetail(
     var observedRpe by remember(exercise.id, existingLog) { mutableStateOf(existingLog?.observedRpe ?: "") }
     var notesExpanded by remember(exercise.id) { mutableStateOf(false) }
 
+    val sz = LocalFitSizing.current
     val fieldColors = OutlinedTextFieldDefaults.colors(
         focusedBorderColor = Color.White,
         cursorColor = Color.White,
@@ -457,32 +592,30 @@ private fun ExerciseDetail(
         colors = CardDefaults.cardColors(
             containerColor = MaterialTheme.colorScheme.surface
         ),
-        shape = RoundedCornerShape(12.dp),
+        shape = RoundedCornerShape(sz.cardCorner),
         modifier = modifier
     ) {
         Column(
             modifier = Modifier
-                .verticalScroll(rememberScrollState())
-                .padding(16.dp)
+                .padding(sz.cardPadding)
         ) {
             // Exercise name
             Text(
                 text = exercise.exerciseName,
                 color = Color.White,
-                fontSize = 18.sp,
+                fontSize = 16.sp,
                 fontWeight = FontWeight.Bold
             )
 
-            Spacer(modifier = Modifier.height(4.dp))
+            Spacer(modifier = Modifier.height(sz.xxs))
 
             // Warmup line
             if (exercise.warmupSets != "0") {
                 Text(
-                    text = "Warm-up: ${exercise.warmupSets} sets \u00D7 ${exercise.reps}",
+                    text = "Warm-up: ${exercise.warmupSets} sets \u00D7 ${exercise.reps.replace(Regex("\\s*\\(.*\\)"), "")}",
                     color = TextSecondary,
-                    fontSize = 14.sp
+                    fontSize = 12.sp
                 )
-                Spacer(modifier = Modifier.height(2.dp))
             }
 
             // Working sets line
@@ -490,27 +623,27 @@ private fun ExerciseDetail(
             Text(
                 text = "Working: ${exercise.sets} sets \u00D7 ${exercise.reps}$rpeStr",
                 color = TextSecondary,
-                fontSize = 14.sp
+                fontSize = 12.sp
             )
 
             // Notes toggle
             if (exercise.notes.isNotBlank()) {
-                Spacer(modifier = Modifier.height(8.dp))
+                Spacer(modifier = Modifier.height(sz.xxs))
                 Text(
                     text = if (notesExpanded) "Notes \u25BC" else "Notes \u25B6",
                     color = TextSecondary,
-                    fontSize = 14.sp,
+                    fontSize = 12.sp,
                     modifier = Modifier
                         .clickable { notesExpanded = !notesExpanded }
-                        .padding(4.dp)
+                        .padding(2.dp)
                 )
                 AnimatedVisibility(visible = notesExpanded) {
                     Text(
                         text = exercise.notes,
                         color = TextSecondary,
-                        fontSize = 13.sp,
+                        fontSize = 11.sp,
                         fontStyle = FontStyle.Italic,
-                        modifier = Modifier.padding(horizontal = 4.dp, vertical = 4.dp)
+                        modifier = Modifier.padding(horizontal = sz.xxs, vertical = 2.dp)
                     )
                 }
             }
@@ -547,37 +680,45 @@ private fun ExerciseDetail(
                 }
             }
 
-            Spacer(modifier = Modifier.height(12.dp))
+            Spacer(modifier = Modifier.height(sz.xs))
 
-            // Weight input + equipment checkboxes
+            // Row 1: Weight + RPE + Equipment grid
             Row(
                 modifier = Modifier.fillMaxWidth(),
                 verticalAlignment = Alignment.CenterVertically,
-                horizontalArrangement = Arrangement.spacedBy(8.dp)
+                horizontalArrangement = Arrangement.spacedBy(sz.xxs)
             ) {
                 OutlinedTextField(
                     value = weight,
                     onValueChange = { weight = it },
-                    label = { Text("Weight") },
+                    label = { Text("Wt (lbs)", fontSize = 10.sp) },
                     colors = fieldColors,
                     singleLine = true,
-                    modifier = Modifier.weight(1f)
+                    modifier = Modifier.weight(0.8f)
+                )
+                OutlinedTextField(
+                    value = observedRpe,
+                    onValueChange = { observedRpe = it },
+                    label = { Text("RPE (opt)", fontSize = 9.sp, maxLines = 1) },
+                    colors = fieldColors,
+                    singleLine = true,
+                    modifier = Modifier.width(76.dp)
                 )
 
                 // Equipment type buttons: 2x2 compact grid
                 Column(
-                    verticalArrangement = Arrangement.spacedBy(3.dp),
+                    verticalArrangement = Arrangement.spacedBy(2.dp),
                     modifier = Modifier.weight(1f)
                 ) {
                     Row(
-                        horizontalArrangement = Arrangement.spacedBy(3.dp),
+                        horizontalArrangement = Arrangement.spacedBy(2.dp),
                         modifier = Modifier.fillMaxWidth()
                     ) {
                         EquipmentChip("Barbell", isBb, { isBb = it }, Modifier.weight(1f))
                         EquipmentChip("Dumbbell", isDb, { isDb = it }, Modifier.weight(1f))
                     }
                     Row(
-                        horizontalArrangement = Arrangement.spacedBy(3.dp),
+                        horizontalArrangement = Arrangement.spacedBy(2.dp),
                         modifier = Modifier.fillMaxWidth()
                     ) {
                         EquipmentChip("Machine", isMn, { isMn = it }, Modifier.weight(1f))
@@ -586,36 +727,24 @@ private fun ExerciseDetail(
                 }
             }
 
-            Spacer(modifier = Modifier.height(8.dp))
+            Spacer(modifier = Modifier.height(sz.xxs))
 
-            // Comments input
+            // Row 2: Comments
             OutlinedTextField(
                 value = comments,
                 onValueChange = { comments = it },
-                label = { Text("Comments (optional)") },
+                label = { Text("Comments (opt)", fontSize = 10.sp) },
                 colors = fieldColors,
                 singleLine = true,
                 modifier = Modifier.fillMaxWidth()
             )
 
-            Spacer(modifier = Modifier.height(8.dp))
-
-            // Observed RPE input
-            OutlinedTextField(
-                value = observedRpe,
-                onValueChange = { observedRpe = it },
-                label = { Text("Observed RPE (optional)") },
-                colors = fieldColors,
-                singleLine = true,
-                modifier = Modifier.fillMaxWidth()
-            )
-
-            Spacer(modifier = Modifier.height(16.dp))
+            Spacer(modifier = Modifier.height(sz.xs))
 
             // Done / Skip buttons
             Row(
                 modifier = Modifier.fillMaxWidth(),
-                horizontalArrangement = Arrangement.spacedBy(8.dp)
+                horizontalArrangement = Arrangement.spacedBy(sz.xs)
             ) {
                 Button(
                     onClick = {
@@ -631,10 +760,10 @@ private fun ExerciseDetail(
                         containerColor = SuccessGreen,
                         contentColor = Color.White
                     ),
-                    shape = RoundedCornerShape(12.dp),
+                    shape = RoundedCornerShape(sz.buttonCorner),
                     modifier = Modifier.weight(1f)
                 ) {
-                    Text("DONE", fontWeight = FontWeight.Bold)
+                    Text("DONE", fontWeight = FontWeight.Bold, fontSize = 13.sp)
                 }
 
                 OutlinedButton(
@@ -726,19 +855,18 @@ private fun EquipmentChip(
                     style = androidx.compose.ui.graphics.drawscope.Stroke(width = 1.dp.toPx())
                 )
             }
-            .padding(horizontal = 4.dp, vertical = 4.dp)
+            .padding(horizontal = 3.dp, vertical = 3.dp)
     ) {
         Text(
             text = label,
             color = textColor,
-            fontSize = 10.sp,
+            fontSize = 9.sp,
+            maxLines = 1,
             fontWeight = if (checked) FontWeight.Bold else FontWeight.Normal
         )
     }
 }
 
-private val RpePurple = Color(0xFF9C27B0)
-private val EquipmentGreen = Color(0xFF2E7D32)
 
 @Composable
 private fun HistoryCard(entry: ExerciseHistoryEntry) {
