@@ -133,6 +133,8 @@ object XlsxParser {
         val sets = getNumericCell(row.getCell(offset + 3)) ?: 1
         val reps = getCellString(row.getCell(offset + 4)).trim()
         val rpe = parseDateOrNumber(row.getCell(offset + 6))
+        val sub1 = getCellString(row.getCell(offset + 8)).trim()
+        val sub2 = getCellString(row.getCell(offset + 9)).trim()
         val notes = getCellString(row.getCell(offset + 10)).trim()
 
         return Exercise(
@@ -144,7 +146,9 @@ object XlsxParser {
             orderIndex = orderIndex,
             rpe = rpe,
             notes = notes,
-            warmupSets = warmup
+            warmupSets = warmup,
+            sub1 = sub1,
+            sub2 = sub2
         )
     }
 

@@ -22,6 +22,9 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.grid.GridCells
+import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
+import androidx.compose.foundation.lazy.grid.items
 import androidx.compose.foundation.lazy.itemsIndexed
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.RoundedCornerShape
@@ -63,6 +66,7 @@ import androidx.compose.ui.graphics.SolidColor
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.text.font.FontStyle
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.lifecycle.viewmodel.compose.viewModel
@@ -92,7 +96,9 @@ fun ProgrammeScreen(
 
     val programmeNameValue by viewModel.programmeName.observeAsState("")
     val weeks by viewModel.weeks.observeAsState(emptyList())
+    val completedWeeks by viewModel.completedWeeks.observeAsState(emptyList())
     val days by viewModel.days.observeAsState(emptyList())
+    val completedDays by viewModel.completedDays.observeAsState(emptyList())
     val exercises by viewModel.exercises.observeAsState(emptyList())
     val exerciseLogs by viewModel.exerciseLogs.observeAsState(emptyList())
     val selectedExercise by viewModel.selectedExercise.observeAsState(null)
@@ -173,6 +179,7 @@ fun ProgrammeScreen(
                 Box(modifier = Modifier.weight(1f)) {
                     WeekDropdown(
                         weeks = weeks,
+                        completedWeeks = completedWeeks,
                         selectedIndex = selectedWeekIndex,
                         onSelected = { index ->
                             selectedWeekIndex = index
@@ -184,6 +191,7 @@ fun ProgrammeScreen(
                 Box(modifier = Modifier.weight(1f)) {
                     DayDropdown(
                         days = days,
+                        completedDays = completedDays,
                         selectedIndex = selectedDayIndex,
                         onSelected = { index ->
                             selectedDayIndex = index
@@ -195,15 +203,18 @@ fun ProgrammeScreen(
             }
         }
 
-        // 2. Exercise list
-        LazyColumn(
+        // 2. Exercise list (2-column grid)
+        LazyVerticalGrid(
+            columns = GridCells.Fixed(2),
             modifier = Modifier
                 .fillMaxWidth()
                 .weight(1f)
                 .padding(horizontal = 16.dp),
-            verticalArrangement = Arrangement.spacedBy(8.dp)
+            verticalArrangement = Arrangement.spacedBy(4.dp),
+            horizontalArrangement = Arrangement.spacedBy(4.dp)
         ) {
-            itemsIndexed(exercises) { _, exercise ->
+            items(exercises.size) { index ->
+                val exercise = exercises[index]
                 ExerciseListItem(
                     exercise = exercise,
                     isSelected = exercise.id == selectedExercise?.id,
@@ -238,7 +249,7 @@ fun ProgrammeScreen(
                 modifier = Modifier
                     .fillMaxWidth()
                     .weight(1f)
-                    .padding(horizontal = 16.dp, vertical = 4.dp)
+                    .padding(horizontal = 16.dp, vertical = 0.dp)
             )
         } else if (selectedExercise != null) {
             ExerciseDetail(
@@ -375,13 +386,16 @@ private fun advanceToNext(
 @Composable
 private fun WeekDropdown(
     weeks: List<Int>,
+    completedWeeks: List<Int>,
     selectedIndex: Int,
     onSelected: (Int) -> Unit,
     modifier: Modifier = Modifier
 ) {
     var expanded by remember { mutableStateOf(false) }
+    val selectedWeek = weeks.getOrNull(selectedIndex)
+    val isComplete = selectedWeek != null && selectedWeek in completedWeeks
     val label = if (weeks.isNotEmpty() && selectedIndex in weeks.indices) {
-        "Week ${weeks[selectedIndex]}"
+        if (isComplete) "Week ${weeks[selectedIndex]} \u2713" else "Week ${weeks[selectedIndex]}"
     } else {
         "Week"
     }
@@ -412,8 +426,16 @@ private fun WeekDropdown(
                 onDismissRequest = { expanded = false }
             ) {
                 weeks.forEachIndexed { index, week ->
+                    val weekComplete = week in completedWeeks
                     DropdownMenuItem(
-                        text = { Text("Week $week") },
+                        text = {
+                            Row(verticalAlignment = Alignment.CenterVertically) {
+                                Text("Week $week")
+                                if (weekComplete) {
+                                    Text(" \u2713", color = SuccessGreen, fontWeight = FontWeight.Bold)
+                                }
+                            }
+                        },
                         onClick = {
                             onSelected(index)
                             expanded = false
@@ -429,13 +451,17 @@ private fun WeekDropdown(
 @Composable
 private fun DayDropdown(
     days: List<String>,
+    completedDays: List<String>,
     selectedIndex: Int,
     onSelected: (Int) -> Unit,
     modifier: Modifier = Modifier
 ) {
     var expanded by remember { mutableStateOf(false) }
+    val selectedDay = days.getOrNull(selectedIndex)
+    val isComplete = selectedDay != null && selectedDay in completedDays
     val label = if (days.isNotEmpty() && selectedIndex in days.indices) {
-        "D${selectedIndex + 1}: ${days[selectedIndex]}"
+        val base = "D${selectedIndex + 1}: ${days[selectedIndex]}"
+        if (isComplete) "$base \u2713" else base
     } else {
         "Day"
     }
@@ -466,8 +492,16 @@ private fun DayDropdown(
                 onDismissRequest = { expanded = false }
             ) {
                 days.forEachIndexed { index, day ->
+                    val dayComplete = day in completedDays
                     DropdownMenuItem(
-                        text = { Text("Day ${index + 1}: $day") },
+                        text = {
+                            Row(verticalAlignment = Alignment.CenterVertically) {
+                                Text("Day ${index + 1}: $day")
+                                if (dayComplete) {
+                                    Text(" \u2713", color = SuccessGreen, fontWeight = FontWeight.Bold)
+                                }
+                            }
+                        },
                         onClick = {
                             onSelected(index)
                             expanded = false
@@ -499,7 +533,7 @@ private fun ExerciseListItem(
 
     Card(
         colors = CardDefaults.cardColors(containerColor = bgColor),
-        shape = RoundedCornerShape(12.dp),
+        shape = RoundedCornerShape(8.dp),
         modifier = Modifier
             .fillMaxWidth()
             .combinedClickable(
@@ -511,7 +545,6 @@ private fun ExerciseListItem(
             modifier = Modifier
                 .fillMaxWidth()
                 .drawBehind {
-                    // Left accent border for selected state
                     if (isSelected) {
                         drawLine(
                             color = leftBorderColor,
@@ -521,20 +554,22 @@ private fun ExerciseListItem(
                         )
                     }
                 }
-                .padding(horizontal = 16.dp, vertical = 12.dp),
+                .padding(horizontal = 8.dp, vertical = 8.dp),
             verticalAlignment = Alignment.CenterVertically
         ) {
             Text(
                 text = "${exercise.orderIndex}.",
                 color = TextSecondary,
-                fontSize = 15.sp,
-                modifier = Modifier.padding(end = 8.dp)
+                fontSize = 11.sp,
+                modifier = Modifier.padding(end = 4.dp)
             )
             Text(
                 text = exercise.exerciseName,
                 color = Color.White,
                 fontWeight = if (isSelected) FontWeight.Bold else FontWeight.Normal,
-                fontSize = 15.sp,
+                fontSize = 11.sp,
+                maxLines = 1,
+                overflow = TextOverflow.Ellipsis,
                 modifier = Modifier.weight(1f)
             )
 
@@ -542,13 +577,13 @@ private fun ExerciseListItem(
                 "DONE" -> Text(
                     text = "\u2713",
                     color = SuccessGreen,
-                    fontSize = 16.sp,
+                    fontSize = 12.sp,
                     fontWeight = FontWeight.Bold
                 )
                 "SKIPPED" -> Text(
                     text = "\u21BB",
                     color = SkipBlue,
-                    fontSize = 16.sp,
+                    fontSize = 12.sp,
                     fontWeight = FontWeight.Bold
                 )
             }
@@ -595,6 +630,7 @@ private fun ExerciseDetail(
     var comments by remember(exercise.id, existingLog) { mutableStateOf(existingLog?.userComments ?: "") }
     var observedRpe by remember(exercise.id, existingLog) { mutableStateOf(existingLog?.observedRpe ?: "") }
     var notesExpanded by remember(exercise.id) { mutableStateOf(false) }
+    var altsExpanded by remember(exercise.id) { mutableStateOf(false) }
 
     val sz = LocalFitSizing.current
     val fieldColors = OutlinedTextFieldDefaults.colors(
@@ -664,6 +700,38 @@ private fun ExerciseDetail(
                         fontStyle = FontStyle.Italic,
                         modifier = Modifier.padding(horizontal = sz.xxs, vertical = 2.dp)
                     )
+                }
+            }
+
+            // Alternatives toggle
+            val hasAlts = exercise.sub1.isNotBlank() || exercise.sub2.isNotBlank()
+            if (hasAlts) {
+                Spacer(modifier = Modifier.height(sz.xxs))
+                Text(
+                    text = if (altsExpanded) "Alternatives \u25BC" else "Alternatives \u25B6",
+                    color = TextSecondary,
+                    fontSize = 12.sp,
+                    modifier = Modifier
+                        .clickable { altsExpanded = !altsExpanded }
+                        .padding(2.dp)
+                )
+                AnimatedVisibility(visible = altsExpanded) {
+                    Column(modifier = Modifier.padding(horizontal = sz.xxs, vertical = 2.dp)) {
+                        if (exercise.sub1.isNotBlank()) {
+                            Text(
+                                text = "\u2022 ${exercise.sub1}",
+                                color = TextSecondary,
+                                fontSize = 11.sp
+                            )
+                        }
+                        if (exercise.sub2.isNotBlank()) {
+                            Text(
+                                text = "\u2022 ${exercise.sub2}",
+                                color = TextSecondary,
+                                fontSize = 11.sp
+                            )
+                        }
+                    }
                 }
             }
 

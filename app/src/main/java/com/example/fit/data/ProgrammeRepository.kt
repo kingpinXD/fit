@@ -49,6 +49,12 @@ class ProgrammeRepository(
     fun getDistinctDays(weekNumber: Int): LiveData<List<String>> =
         dao.getDistinctDays(weekNumber)
 
+    fun getCompletedDays(weekNumber: Int): LiveData<List<String>> =
+        dao.getCompletedDays(weekNumber)
+
+    fun getCompletedWeeks(): LiveData<List<Int>> =
+        dao.getCompletedWeeks()
+
     fun getLog(exerciseId: Long): LiveData<ExerciseLog?> =
         logDao.getLog(exerciseId)
 
@@ -99,6 +105,8 @@ class ProgrammeRepository(
                         put("warmupSets", ex.warmupSets)
                         put("notes", ex.notes)
                         put("order", ex.orderIndex)
+                        put("sub1", ex.sub1)
+                        put("sub2", ex.sub2)
                     })
                 }
                 dayObj.put("exercises", exArray)
@@ -157,7 +165,9 @@ class ProgrammeRepository(
                                 orderIndex = exObj.optInt("order", exercises.size),
                                 rpe = exObj.optString("rpe", ""),
                                 notes = exObj.optString("notes", ""),
-                                warmupSets = exObj.optString("warmupSets", "0")
+                                warmupSets = exObj.optString("warmupSets", "0"),
+                                sub1 = exObj.optString("sub1", ""),
+                                sub2 = exObj.optString("sub2", "")
                             )
                         )
                     }

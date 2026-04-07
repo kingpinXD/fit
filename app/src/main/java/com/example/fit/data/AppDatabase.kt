@@ -23,7 +23,9 @@ data class Exercise(
     val orderIndex: Int,
     val rpe: String = "",
     val notes: String = "",
-    val warmupSets: String = "0"
+    val warmupSets: String = "0",
+    val sub1: String = "",
+    val sub2: String = ""
 )
 
 @Entity(tableName = "exercise_logs")
@@ -59,6 +61,33 @@ interface ExerciseDao {
 
     @Query("SELECT * FROM exercises ORDER BY weekNumber, id")
     suspend fun getAllExercises(): List<Exercise>
+
+    // Returns day names that are fully complete (all exercises have a log)
+    @Query(
+        "SELECT e.dayName FROM exercises e " +
+        "WHERE e.weekNumber = :weekNumber " +
+        "GROUP BY e.dayName " +
+        "HAVING COUNT(e.id) = (" +
+        "  SELECT COUNT(el.id) FROM exercise_logs el " +
+        "  INNER JOIN exercises e2 ON el.exerciseId = e2.id " +
+        "  WHERE e2.weekNumber = :weekNumber AND e2.dayName = e.dayName" +
+        ") " +
+        "ORDER BY MIN(e.id)"
+    )
+    fun getCompletedDays(weekNumber: Int): LiveData<List<String>>
+
+    // Returns week numbers where ALL days are complete
+    @Query(
+        "SELECT e.weekNumber FROM exercises e " +
+        "GROUP BY e.weekNumber " +
+        "HAVING COUNT(e.id) = (" +
+        "  SELECT COUNT(el.id) FROM exercise_logs el " +
+        "  INNER JOIN exercises e2 ON el.exerciseId = e2.id " +
+        "  WHERE e2.weekNumber = e.weekNumber" +
+        ") " +
+        "ORDER BY e.weekNumber"
+    )
+    fun getCompletedWeeks(): LiveData<List<Int>>
 
     @Query("DELETE FROM exercises")
     suspend fun deleteAll()
@@ -124,7 +153,7 @@ interface ExerciseLogDao {
     suspend fun deleteAll()
 }
 
-@Database(entities = [Exercise::class, ExerciseLog::class], version = 4, exportSchema = false)
+@Database(entities = [Exercise::class, ExerciseLog::class], version = 5, exportSchema = false)
 abstract class AppDatabase : RoomDatabase() {
 
     abstract fun exerciseDao(): ExerciseDao

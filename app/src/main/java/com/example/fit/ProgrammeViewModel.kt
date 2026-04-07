@@ -34,6 +34,8 @@ class ProgrammeViewModel(app: Application) : AndroidViewModel(app) {
     val showHistory = MutableLiveData(false)
 
     val hasProgramme: LiveData<Boolean>
+    val completedWeeks: LiveData<List<Int>>
+    val completedDays: LiveData<List<String>>
     val selectedExerciseLog: LiveData<ExerciseLog?>
     val exerciseLogs: LiveData<List<ExerciseLog>>
     val exerciseHistory: LiveData<List<ExerciseHistoryEntry>>
@@ -46,8 +48,14 @@ class ProgrammeViewModel(app: Application) : AndroidViewModel(app) {
         hasProgramme = repository.hasProgramme()
         weeks = repository.getDistinctWeeks()
 
+        completedWeeks = repository.getCompletedWeeks()
+
         days = selectedWeek.switchMap { week ->
             repository.getDistinctDays(week)
+        }
+
+        completedDays = selectedWeek.switchMap { week ->
+            repository.getCompletedDays(week)
         }
 
         // Exercises respond to both selectedWeek and selectedDay changes
