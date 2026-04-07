@@ -136,6 +136,9 @@ object XlsxParser {
         val sub1 = getCellString(row.getCell(offset + 8)).trim()
         val sub2 = getCellString(row.getCell(offset + 9)).trim()
         val notes = getCellString(row.getCell(offset + 10)).trim()
+        val videoUrl = getHyperlink(row.getCell(offset + 1))
+        val sub1VideoUrl = getHyperlink(row.getCell(offset + 8))
+        val sub2VideoUrl = getHyperlink(row.getCell(offset + 9))
 
         return Exercise(
             weekNumber = weekNumber,
@@ -148,7 +151,10 @@ object XlsxParser {
             notes = notes,
             warmupSets = warmup,
             sub1 = sub1,
-            sub2 = sub2
+            sub2 = sub2,
+            videoUrl = videoUrl,
+            sub1VideoUrl = sub1VideoUrl,
+            sub2VideoUrl = sub2VideoUrl
         )
     }
 
@@ -201,5 +207,10 @@ object XlsxParser {
             CellType.STRING -> cell.stringCellValue.trim().toIntOrNull()
             else -> null
         }
+    }
+
+    private fun getHyperlink(cell: Cell?): String {
+        if (cell == null) return ""
+        return cell.hyperlink?.address ?: ""
     }
 }

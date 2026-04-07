@@ -25,7 +25,10 @@ data class Exercise(
     val notes: String = "",
     val warmupSets: String = "0",
     val sub1: String = "",
-    val sub2: String = ""
+    val sub2: String = "",
+    val videoUrl: String = "",
+    val sub1VideoUrl: String = "",
+    val sub2VideoUrl: String = ""
 )
 
 @Entity(tableName = "exercise_logs")
@@ -153,7 +156,7 @@ interface ExerciseLogDao {
     suspend fun deleteAll()
 }
 
-@Database(entities = [Exercise::class, ExerciseLog::class], version = 5, exportSchema = false)
+@Database(entities = [Exercise::class, ExerciseLog::class], version = 6, exportSchema = false)
 abstract class AppDatabase : RoomDatabase() {
 
     abstract fun exerciseDao(): ExerciseDao

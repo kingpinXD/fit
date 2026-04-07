@@ -64,6 +64,7 @@ import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.SolidColor
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.platform.LocalUriHandler
 import androidx.compose.ui.text.font.FontStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextOverflow
@@ -654,12 +655,16 @@ private fun ExerciseDetail(
             modifier = Modifier
                 .padding(sz.cardPadding)
         ) {
-            // Exercise name
+            // Exercise name (tappable if video URL exists)
+            val uriHandler = LocalUriHandler.current
             Text(
-                text = exercise.exerciseName,
-                color = Color.White,
+                text = exercise.exerciseName + if (exercise.videoUrl.isNotBlank()) " \u25B6" else "",
+                color = if (exercise.videoUrl.isNotBlank()) Color(0xFF5AC8FA) else Color.White,
                 fontSize = 16.sp,
-                fontWeight = FontWeight.Bold
+                fontWeight = FontWeight.Bold,
+                modifier = if (exercise.videoUrl.isNotBlank()) {
+                    Modifier.clickable { uriHandler.openUri(exercise.videoUrl) }
+                } else Modifier
             )
 
             Spacer(modifier = Modifier.height(sz.xxs))
@@ -718,17 +723,21 @@ private fun ExerciseDetail(
                 AnimatedVisibility(visible = altsExpanded) {
                     Column(modifier = Modifier.padding(horizontal = sz.xxs, vertical = 2.dp)) {
                         if (exercise.sub1.isNotBlank()) {
+                            val hasSub1Link = exercise.sub1VideoUrl.isNotBlank()
                             Text(
-                                text = "\u2022 ${exercise.sub1}",
-                                color = TextSecondary,
-                                fontSize = 11.sp
+                                text = "\u2022 ${exercise.sub1}" + if (hasSub1Link) " \u25B6" else "",
+                                color = if (hasSub1Link) Color(0xFF5AC8FA) else TextSecondary,
+                                fontSize = 11.sp,
+                                modifier = if (hasSub1Link) Modifier.clickable { uriHandler.openUri(exercise.sub1VideoUrl) } else Modifier
                             )
                         }
                         if (exercise.sub2.isNotBlank()) {
+                            val hasSub2Link = exercise.sub2VideoUrl.isNotBlank()
                             Text(
-                                text = "\u2022 ${exercise.sub2}",
-                                color = TextSecondary,
-                                fontSize = 11.sp
+                                text = "\u2022 ${exercise.sub2}" + if (hasSub2Link) " \u25B6" else "",
+                                color = if (hasSub2Link) Color(0xFF5AC8FA) else TextSecondary,
+                                fontSize = 11.sp,
+                                modifier = if (hasSub2Link) Modifier.clickable { uriHandler.openUri(exercise.sub2VideoUrl) } else Modifier
                             )
                         }
                     }
