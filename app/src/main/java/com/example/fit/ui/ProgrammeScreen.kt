@@ -13,8 +13,10 @@ import androidx.compose.foundation.horizontalScroll
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.IntrinsicSize
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
@@ -765,7 +767,8 @@ private fun ExerciseDetail(
                         Row(
                             modifier = Modifier
                                 .fillMaxWidth()
-                                .horizontalScroll(rememberScrollState()),
+                                .horizontalScroll(rememberScrollState())
+                                .height(IntrinsicSize.Max),
                             horizontalArrangement = Arrangement.spacedBy(8.dp)
                         ) {
                             history.forEach { entry ->
@@ -978,41 +981,46 @@ private fun HistoryCard(entry: ExerciseHistoryEntry) {
             containerColor = MaterialTheme.colorScheme.surfaceVariant
         ),
         shape = RoundedCornerShape(10.dp),
-        modifier = Modifier.width(120.dp)
+        modifier = Modifier
+            .width(110.dp)
+            .fillMaxHeight()
     ) {
         Column(
-            modifier = Modifier.padding(10.dp)
+            modifier = Modifier
+                .padding(8.dp)
+                .fillMaxHeight()
         ) {
-            // Week label
+            // Row 1: Week label
             Text(
                 text = "W${entry.weekNumber}",
                 color = TextSecondary,
-                fontSize = 11.sp,
+                fontSize = 10.sp,
                 fontWeight = FontWeight.Medium
             )
 
-            Spacer(modifier = Modifier.height(4.dp))
-
-            // Weight
-            if (entry.userWeight.isNotBlank()) {
-                Text(
-                    text = entry.userWeight,
-                    color = Color.White,
-                    fontSize = 20.sp,
-                    fontWeight = FontWeight.Bold
-                )
-            } else {
-                Text(
-                    text = if (entry.status == "SKIPPED") "Skipped" else "—",
-                    color = TextSecondary,
-                    fontSize = 14.sp,
-                    fontStyle = FontStyle.Italic
-                )
+            // Row 2: Weight (fixed height so cards align)
+            Box(modifier = Modifier.height(26.dp), contentAlignment = Alignment.BottomStart) {
+                if (entry.userWeight.isNotBlank()) {
+                    Text(
+                        text = entry.userWeight,
+                        color = Color.White,
+                        fontSize = 18.sp,
+                        fontWeight = FontWeight.Bold,
+                        maxLines = 1
+                    )
+                } else {
+                    Text(
+                        text = if (entry.status == "SKIPPED") "Skipped" else "\u2014",
+                        color = TextSecondary,
+                        fontSize = 14.sp,
+                        fontStyle = FontStyle.Italic
+                    )
+                }
             }
 
-            Spacer(modifier = Modifier.height(6.dp))
+            Spacer(modifier = Modifier.weight(1f))
 
-            // RPE + Equipment chips + comment arrow
+            // Row 3: RPE + Equipment chips + comment arrow
             Row(
                 horizontalArrangement = Arrangement.spacedBy(3.dp),
                 verticalAlignment = Alignment.CenterVertically,
@@ -1034,14 +1042,16 @@ private fun HistoryCard(entry: ExerciseHistoryEntry) {
                 }
             }
 
-            // Expandable comments
+            // Row 4: Expandable comments
             AnimatedVisibility(visible = showComments) {
                 Text(
                     text = entry.userComments,
                     color = TextSecondary,
-                    fontSize = 11.sp,
+                    fontSize = 9.sp,
                     fontStyle = FontStyle.Italic,
-                    modifier = Modifier.padding(top = 4.dp)
+                    maxLines = 3,
+                    overflow = TextOverflow.Ellipsis,
+                    modifier = Modifier.padding(top = 2.dp)
                 )
             }
         }

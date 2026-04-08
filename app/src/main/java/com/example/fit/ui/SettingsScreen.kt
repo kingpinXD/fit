@@ -1,7 +1,11 @@
 package com.example.fit.ui
 
 import android.content.Intent
+import android.net.Uri
+import android.provider.OpenableColumns
 import android.widget.Toast
+import androidx.activity.compose.rememberLauncherForActivityResult
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Column
@@ -36,6 +40,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.fit.ProgrammeViewModel
+import com.example.fit.data.ProgrammeNameNormalizer
 
 @Composable
 fun SettingsScreen(
@@ -46,8 +51,56 @@ fun SettingsScreen(
     val context = LocalContext.current
     var showDeleteDialog by remember { mutableStateOf(false) }
     var showExportDialog by remember { mutableStateOf(false) }
+    var showCycleDialog by remember { mutableStateOf(false) }
     var exportIdentifier by remember { mutableStateOf("") }
+    var cycleIdentifier by remember { mutableStateOf("") }
     var exporting by remember { mutableStateOf(false) }
+    var cycling by remember { mutableStateOf(false) }
+
+    // File picker for importing a programme
+    val filePicker = rememberLauncherForActivityResult(
+        contract = ActivityResultContracts.GetContent()
+    ) { uri: Uri? ->
+        if (uri == null) return@rememberLauncherForActivityResult
+        try {
+            var displayName = ""
+            context.contentResolver.query(uri, null, null, null, null)?.use { cursor ->
+                if (cursor.moveToFirst()) {
+                    val nameIndex = cursor.getColumnIndex(OpenableColumns.DISPLAY_NAME)
+                    if (nameIndex >= 0) displayName = cursor.getString(nameIndex) ?: ""
+                }
+            }
+            if (displayName.isBlank()) displayName = uri.lastPathSegment ?: ""
+
+            val parentFolder = uri.path?.let { path ->
+                val segments = path.split("/").filter { it.isNotBlank() }
+                if (segments.size >= 2) segments[segments.size - 2] else ""
+            } ?: ""
+
+            val programmeName = ProgrammeNameNormalizer.normalize(displayName, parentFolder)
+
+            val inputStream = context.contentResolver.openInputStream(uri)
+            if (inputStream != null) {
+                val onResult = { result: com.example.fit.data.ImportResult ->
+                    val msg = when (result) {
+                        com.example.fit.data.ImportResult.SWITCHED -> "Switched to $programmeName"
+                        com.example.fit.data.ImportResult.IMPORTED -> "Imported $programmeName"
+                    }
+                    Toast.makeText(context, msg, Toast.LENGTH_SHORT).show()
+                    onBack()
+                }
+                if (displayName.endsWith(".json") || displayName.contains("json")) {
+                    val json = inputStream.bufferedReader().use { it.readText() }
+                    viewModel.importProgramme(json, programmeName, onResult)
+                } else {
+                    viewModel.importProgrammeFromXlsx(inputStream, programmeName, onResult)
+                }
+            }
+        } catch (e: Exception) {
+            android.util.Log.e("SettingsScreen", "Import failed", e)
+            Toast.makeText(context, "Import failed", Toast.LENGTH_SHORT).show()
+        }
+    }
 
     if (showDeleteDialog) {
         AlertDialog(
@@ -135,6 +188,68 @@ fun SettingsScreen(
         )
     }
 
+    if (showCycleDialog) {
+        AlertDialog(
+            onDismissRequest = {
+                if (!cycling) {
+                    showCycleDialog = false
+                    cycleIdentifier = ""
+                }
+            },
+            title = { Text("Start New Cycle") },
+            text = {
+                Column {
+                    Text(
+                        "This will export your current data and reset the programme for a fresh cycle.",
+                        color = MaterialTheme.colorScheme.onSurfaceVariant
+                    )
+                    Spacer(modifier = Modifier.height(12.dp))
+                    OutlinedTextField(
+                        value = cycleIdentifier,
+                        onValueChange = { cycleIdentifier = it },
+                        label = { Text("e.g. Round 1, Jan 2026") },
+                        singleLine = true,
+                        enabled = !cycling
+                    )
+                }
+            },
+            confirmButton = {
+                TextButton(
+                    onClick = {
+                        cycling = true
+                        val identifier = cycleIdentifier.trim()
+                            .lowercase().replace(" ", "_")
+                        viewModel.exportProgramme(identifier) { _, firebaseOk ->
+                            if (firebaseOk) {
+                                viewModel.deleteProgramme()
+                                Toast.makeText(context, "Cycle exported and reset", Toast.LENGTH_SHORT).show()
+                            } else {
+                                Toast.makeText(context, "Export failed - cycle not reset", Toast.LENGTH_SHORT).show()
+                            }
+                            cycling = false
+                            showCycleDialog = false
+                            cycleIdentifier = ""
+                        }
+                    },
+                    enabled = !cycling
+                ) {
+                    Text(if (cycling) "Working..." else "Start")
+                }
+            },
+            dismissButton = {
+                TextButton(
+                    onClick = {
+                        showCycleDialog = false
+                        cycleIdentifier = ""
+                    },
+                    enabled = !cycling
+                ) {
+                    Text("Cancel")
+                }
+            }
+        )
+    }
+
     Column(
         modifier = Modifier
             .fillMaxSize()
@@ -164,25 +279,27 @@ fun SettingsScreen(
 
         Spacer(modifier = Modifier.height(8.dp))
 
+        // Import programme card
+        SettingsCard(
+            text = "Import Programme",
+            onClick = { filePicker.launch("*/*") }
+        )
+
+        Spacer(modifier = Modifier.height(8.dp))
+
         // Export programme card
-        Card(
-            colors = CardDefaults.cardColors(
-                containerColor = MaterialTheme.colorScheme.surface
-            ),
-            shape = RoundedCornerShape(12.dp),
-            modifier = Modifier
-                .fillMaxWidth()
-                .padding(horizontal = 16.dp)
-                .clickable { showExportDialog = true }
-        ) {
-            Text(
-                text = "Export Programme",
-                color = Color.White,
-                fontSize = 16.sp,
-                fontWeight = FontWeight.Medium,
-                modifier = Modifier.padding(16.dp)
-            )
-        }
+        SettingsCard(
+            text = "Export Programme",
+            onClick = { showExportDialog = true }
+        )
+
+        Spacer(modifier = Modifier.height(8.dp))
+
+        // Start new cycle card
+        SettingsCard(
+            text = "Start New Cycle",
+            onClick = { showCycleDialog = true }
+        )
 
         Spacer(modifier = Modifier.height(8.dp))
 
@@ -205,5 +322,27 @@ fun SettingsScreen(
                 modifier = Modifier.padding(16.dp)
             )
         }
+    }
+}
+
+@Composable
+private fun SettingsCard(text: String, onClick: () -> Unit) {
+    Card(
+        colors = CardDefaults.cardColors(
+            containerColor = MaterialTheme.colorScheme.surface
+        ),
+        shape = RoundedCornerShape(12.dp),
+        modifier = Modifier
+            .fillMaxWidth()
+            .padding(horizontal = 16.dp)
+            .clickable(onClick = onClick)
+    ) {
+        Text(
+            text = text,
+            color = Color.White,
+            fontSize = 16.sp,
+            fontWeight = FontWeight.Medium,
+            modifier = Modifier.padding(16.dp)
+        )
     }
 }

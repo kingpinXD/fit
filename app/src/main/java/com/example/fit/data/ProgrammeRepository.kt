@@ -8,9 +8,12 @@ import org.json.JSONObject
 import java.io.InputStream
 import java.time.Instant
 
+enum class ImportResult { IMPORTED, SWITCHED }
+
 class ProgrammeRepository(
     private val dao: ExerciseDao,
     private val logDao: ExerciseLogDao,
+    private val programmeDao: ProgrammeDao,
     private val context: Context
 ) {
 
@@ -22,60 +25,92 @@ class ProgrammeRepository(
         prefs.edit().putString("programme_name", name).apply()
     }
 
-    fun hasProgramme(): LiveData<Boolean> = dao.countLive().map { it > 0 }
+    fun hasProgramme(): LiveData<Boolean> =
+        dao.countLive(getProgrammeName()).map { it > 0 }
 
-    suspend fun importProgrammeFromJson(json: String) {
-        val exercises = parseProgramme(json)
+    fun hasProgrammeByName(name: String): LiveData<Boolean> =
+        dao.countLive(name).map { it > 0 }
+
+    fun getDistinctWeeksByName(name: String): LiveData<List<Int>> =
+        dao.getDistinctWeeks(name)
+
+    fun getCompletedWeeksByName(name: String): LiveData<List<Int>> =
+        dao.getCompletedWeeks(name)
+
+    suspend fun programmeExists(name: String): Boolean =
+        programmeDao.exists(name)
+
+    suspend fun importProgrammeFromJson(json: String, name: String): ImportResult {
+        if (programmeExists(name)) {
+            setProgrammeName(name)
+            return ImportResult.SWITCHED
+        }
+        val exercises = parseProgramme(json).map { it.copy(programmeName = name) }
         dao.insertAll(exercises)
+        programmeDao.upsert(Programme(name = name, importedAt = Instant.now().toString()))
+        setProgrammeName(name)
+        return ImportResult.IMPORTED
     }
 
-    suspend fun importProgrammeFromXlsx(inputStream: InputStream) {
-        val exercises = XlsxParser.parse(inputStream)
+    suspend fun importProgrammeFromXlsx(inputStream: InputStream, name: String): ImportResult {
+        if (programmeExists(name)) {
+            setProgrammeName(name)
+            return ImportResult.SWITCHED
+        }
+        val exercises = XlsxParser.parse(inputStream).map { it.copy(programmeName = name) }
         dao.insertAll(exercises)
+        programmeDao.upsert(Programme(name = name, importedAt = Instant.now().toString()))
+        setProgrammeName(name)
+        return ImportResult.IMPORTED
     }
 
     suspend fun deleteProgramme() {
-        logDao.deleteAll()
-        dao.deleteAll()
+        val name = getProgrammeName()
+        if (name.isNotBlank()) {
+            logDao.deleteByProgramme(name)
+            dao.deleteByProgramme(name)
+            programmeDao.delete(name)
+        }
         setProgrammeName("")
     }
 
     fun getExercises(weekNumber: Int, dayName: String): LiveData<List<Exercise>> =
-        dao.getExercises(weekNumber, dayName)
+        dao.getExercises(getProgrammeName(), weekNumber, dayName)
 
     fun getDistinctWeeks(): LiveData<List<Int>> =
-        dao.getDistinctWeeks()
+        dao.getDistinctWeeks(getProgrammeName())
 
     fun getDistinctDays(weekNumber: Int): LiveData<List<String>> =
-        dao.getDistinctDays(weekNumber)
+        dao.getDistinctDays(getProgrammeName(), weekNumber)
 
     fun getCompletedDays(weekNumber: Int): LiveData<List<String>> =
-        dao.getCompletedDays(weekNumber)
+        dao.getCompletedDays(getProgrammeName(), weekNumber)
 
     fun getCompletedWeeks(): LiveData<List<Int>> =
-        dao.getCompletedWeeks()
+        dao.getCompletedWeeks(getProgrammeName())
 
     fun getLog(exerciseId: Long): LiveData<ExerciseLog?> =
         logDao.getLog(exerciseId)
 
     fun getLogsForDay(weekNumber: Int, dayName: String): LiveData<List<ExerciseLog>> =
-        logDao.getLogsForDay(weekNumber, dayName)
+        logDao.getLogsForDay(getProgrammeName(), weekNumber, dayName)
 
     suspend fun getLogSync(exerciseId: Long): ExerciseLog? =
         logDao.getLogSync(exerciseId)
 
     fun getHistory(exerciseName: String, currentWeek: Int): LiveData<List<ExerciseHistoryEntry>> =
-        logDao.getHistory(exerciseName, currentWeek)
+        logDao.getHistory(getProgrammeName(), exerciseName, currentWeek)
 
     suspend fun saveLog(exerciseLog: ExerciseLog) =
         logDao.upsert(exerciseLog)
 
     suspend fun buildExportJson(programmeName: String, identifier: String): String {
-        val allExercises = dao.getAllExercises()
-        val exportLogs = logDao.getExportLogs()
+        val name = programmeName.ifBlank { getProgrammeName() }
+        val allExercises = dao.getAllExercises(name)
+        val exportLogs = logDao.getExportLogs(name)
 
         val root = JSONObject()
-        root.put("programmeName", programmeName)
+        root.put("programmeName", name)
         root.put("identifier", identifier)
         root.put("exportDate", Instant.now().toString())
 

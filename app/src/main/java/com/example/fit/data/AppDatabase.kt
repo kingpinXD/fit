@@ -28,7 +28,8 @@ data class Exercise(
     val sub2: String = "",
     val videoUrl: String = "",
     val sub1VideoUrl: String = "",
-    val sub2VideoUrl: String = ""
+    val sub2VideoUrl: String = "",
+    val programmeName: String = ""
 )
 
 @Entity(tableName = "exercise_logs")
@@ -44,14 +45,14 @@ data class ExerciseLog(
 
 @Dao
 interface ExerciseDao {
-    @Query("SELECT * FROM exercises WHERE weekNumber = :weekNumber AND dayName = :dayName ORDER BY orderIndex")
-    fun getExercises(weekNumber: Int, dayName: String): LiveData<List<Exercise>>
+    @Query("SELECT * FROM exercises WHERE programmeName = :programmeName AND weekNumber = :weekNumber AND dayName = :dayName ORDER BY orderIndex")
+    fun getExercises(programmeName: String, weekNumber: Int, dayName: String): LiveData<List<Exercise>>
 
-    @Query("SELECT DISTINCT weekNumber FROM exercises ORDER BY weekNumber")
-    fun getDistinctWeeks(): LiveData<List<Int>>
+    @Query("SELECT DISTINCT weekNumber FROM exercises WHERE programmeName = :programmeName ORDER BY weekNumber")
+    fun getDistinctWeeks(programmeName: String): LiveData<List<Int>>
 
-    @Query("SELECT dayName FROM exercises WHERE weekNumber = :weekNumber GROUP BY dayName ORDER BY MIN(id)")
-    fun getDistinctDays(weekNumber: Int): LiveData<List<String>>
+    @Query("SELECT dayName FROM exercises WHERE programmeName = :programmeName AND weekNumber = :weekNumber GROUP BY dayName ORDER BY MIN(id)")
+    fun getDistinctDays(programmeName: String, weekNumber: Int): LiveData<List<String>>
 
     @Insert
     suspend fun insertAll(exercises: List<Exercise>)
@@ -59,41 +60,45 @@ interface ExerciseDao {
     @Query("SELECT COUNT(*) FROM exercises")
     suspend fun count(): Int
 
-    @Query("SELECT COUNT(*) FROM exercises")
-    fun countLive(): LiveData<Int>
+    @Query("SELECT COUNT(*) FROM exercises WHERE programmeName = :programmeName")
+    fun countLive(programmeName: String): LiveData<Int>
 
-    @Query("SELECT * FROM exercises ORDER BY weekNumber, id")
-    suspend fun getAllExercises(): List<Exercise>
+    @Query("SELECT * FROM exercises WHERE programmeName = :programmeName ORDER BY weekNumber, id")
+    suspend fun getAllExercises(programmeName: String): List<Exercise>
 
     // Returns day names that are fully complete (all exercises have a log)
     @Query(
         "SELECT e.dayName FROM exercises e " +
-        "WHERE e.weekNumber = :weekNumber " +
+        "WHERE e.programmeName = :programmeName AND e.weekNumber = :weekNumber " +
         "GROUP BY e.dayName " +
         "HAVING COUNT(e.id) = (" +
         "  SELECT COUNT(el.id) FROM exercise_logs el " +
         "  INNER JOIN exercises e2 ON el.exerciseId = e2.id " +
-        "  WHERE e2.weekNumber = :weekNumber AND e2.dayName = e.dayName" +
+        "  WHERE e2.programmeName = :programmeName AND e2.weekNumber = :weekNumber AND e2.dayName = e.dayName" +
         ") " +
         "ORDER BY MIN(e.id)"
     )
-    fun getCompletedDays(weekNumber: Int): LiveData<List<String>>
+    fun getCompletedDays(programmeName: String, weekNumber: Int): LiveData<List<String>>
 
     // Returns week numbers where ALL days are complete
     @Query(
         "SELECT e.weekNumber FROM exercises e " +
+        "WHERE e.programmeName = :programmeName " +
         "GROUP BY e.weekNumber " +
         "HAVING COUNT(e.id) = (" +
         "  SELECT COUNT(el.id) FROM exercise_logs el " +
         "  INNER JOIN exercises e2 ON el.exerciseId = e2.id " +
-        "  WHERE e2.weekNumber = e.weekNumber" +
+        "  WHERE e2.programmeName = :programmeName AND e2.weekNumber = e.weekNumber" +
         ") " +
         "ORDER BY e.weekNumber"
     )
-    fun getCompletedWeeks(): LiveData<List<Int>>
+    fun getCompletedWeeks(programmeName: String): LiveData<List<Int>>
 
     @Query("DELETE FROM exercises")
     suspend fun deleteAll()
+
+    @Query("DELETE FROM exercises WHERE programmeName = :programmeName")
+    suspend fun deleteByProgramme(programmeName: String)
 }
 
 data class ExerciseHistoryEntry(
@@ -127,18 +132,18 @@ interface ExerciseLogDao {
     @Query(
         "SELECT el.* FROM exercise_logs el " +
         "INNER JOIN exercises e ON el.exerciseId = e.id " +
-        "WHERE e.weekNumber = :weekNumber AND e.dayName = :dayName"
+        "WHERE e.programmeName = :programmeName AND e.weekNumber = :weekNumber AND e.dayName = :dayName"
     )
-    fun getLogsForDay(weekNumber: Int, dayName: String): LiveData<List<ExerciseLog>>
+    fun getLogsForDay(programmeName: String, weekNumber: Int, dayName: String): LiveData<List<ExerciseLog>>
 
     @Query(
         "SELECT e.weekNumber, el.userWeight, el.equipmentType, el.userComments, el.observedRpe, el.status " +
         "FROM exercise_logs el " +
         "INNER JOIN exercises e ON el.exerciseId = e.id " +
-        "WHERE e.exerciseName = :exerciseName AND e.weekNumber < :currentWeek " +
+        "WHERE e.programmeName = :programmeName AND e.exerciseName = :exerciseName AND e.weekNumber < :currentWeek " +
         "ORDER BY e.weekNumber DESC"
     )
-    fun getHistory(exerciseName: String, currentWeek: Int): LiveData<List<ExerciseHistoryEntry>>
+    fun getHistory(programmeName: String, exerciseName: String, currentWeek: Int): LiveData<List<ExerciseHistoryEntry>>
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun upsert(log: ExerciseLog)
@@ -148,19 +153,45 @@ interface ExerciseLogDao {
         "el.userWeight, el.equipmentType, el.userComments, el.observedRpe, el.status " +
         "FROM exercise_logs el " +
         "INNER JOIN exercises e ON el.exerciseId = e.id " +
+        "WHERE e.programmeName = :programmeName " +
         "ORDER BY e.weekNumber, e.id"
     )
-    suspend fun getExportLogs(): List<ExportLogEntry>
+    suspend fun getExportLogs(programmeName: String): List<ExportLogEntry>
 
     @Query("DELETE FROM exercise_logs")
     suspend fun deleteAll()
+
+    @Query("DELETE FROM exercise_logs WHERE exerciseId IN (SELECT id FROM exercises WHERE programmeName = :programmeName)")
+    suspend fun deleteByProgramme(programmeName: String)
 }
 
-@Database(entities = [Exercise::class, ExerciseLog::class], version = 6, exportSchema = false)
+@Entity(tableName = "programmes")
+data class Programme(
+    @PrimaryKey val name: String,
+    val importedAt: String // ISO 8601
+)
+
+@Dao
+interface ProgrammeDao {
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    suspend fun upsert(programme: Programme)
+
+    @Query("SELECT * FROM programmes ORDER BY importedAt DESC")
+    fun getAll(): LiveData<List<Programme>>
+
+    @Query("SELECT COUNT(*) FROM programmes WHERE name = :name")
+    suspend fun exists(name: String): Boolean
+
+    @Query("DELETE FROM programmes WHERE name = :name")
+    suspend fun delete(name: String)
+}
+
+@Database(entities = [Exercise::class, ExerciseLog::class, Programme::class], version = 8, exportSchema = false)
 abstract class AppDatabase : RoomDatabase() {
 
     abstract fun exerciseDao(): ExerciseDao
     abstract fun exerciseLogDao(): ExerciseLogDao
+    abstract fun programmeDao(): ProgrammeDao
 
     companion object {
         @Volatile

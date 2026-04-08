@@ -13,6 +13,7 @@ import com.example.fit.data.Exercise
 import com.example.fit.data.ExerciseHistoryEntry
 import com.example.fit.data.ExerciseLog
 import com.example.fit.data.FirebaseSyncManager
+import com.example.fit.data.ImportResult
 import com.example.fit.data.ProgrammeRepository
 import kotlinx.coroutines.launch
 import java.io.InputStream
@@ -42,13 +43,25 @@ class ProgrammeViewModel(app: Application) : AndroidViewModel(app) {
 
     init {
         val db = AppDatabase.getInstance(app)
-        repository = ProgrammeRepository(db.exerciseDao(), db.exerciseLogDao(), app)
+        repository = ProgrammeRepository(db.exerciseDao(), db.exerciseLogDao(), db.programmeDao(), app)
 
         programmeName.value = repository.getProgrammeName()
-        hasProgramme = repository.hasProgramme()
-        weeks = repository.getDistinctWeeks()
 
-        completedWeeks = repository.getCompletedWeeks()
+        // All queries react to programme name changes
+        hasProgramme = programmeName.switchMap { name ->
+            if (name.isNullOrBlank()) MutableLiveData(false)
+            else repository.hasProgrammeByName(name)
+        }
+
+        weeks = programmeName.switchMap { name ->
+            if (name.isNullOrBlank()) MutableLiveData(emptyList())
+            else repository.getDistinctWeeksByName(name)
+        }
+
+        completedWeeks = programmeName.switchMap { name ->
+            if (name.isNullOrBlank()) MutableLiveData(emptyList())
+            else repository.getCompletedWeeksByName(name)
+        }
 
         days = selectedWeek.switchMap { week ->
             repository.getDistinctDays(week)
@@ -101,28 +114,24 @@ class ProgrammeViewModel(app: Application) : AndroidViewModel(app) {
 
     }
 
-    fun importProgramme(json: String, name: String = "") {
+    fun importProgramme(json: String, name: String = "", onResult: ((ImportResult) -> Unit)? = null) {
         viewModelScope.launch {
             try {
-                repository.importProgrammeFromJson(json)
-                if (name.isNotBlank()) {
-                    repository.setProgrammeName(name)
-                    programmeName.value = name
-                }
+                val result = repository.importProgrammeFromJson(json, name)
+                programmeName.value = repository.getProgrammeName()
+                onResult?.invoke(result)
             } catch (e: Exception) {
                 Log.e("ProgrammeViewModel", "Failed to import programme", e)
             }
         }
     }
 
-    fun importProgrammeFromXlsx(inputStream: InputStream, name: String = "") {
+    fun importProgrammeFromXlsx(inputStream: InputStream, name: String = "", onResult: ((ImportResult) -> Unit)? = null) {
         viewModelScope.launch {
             try {
-                repository.importProgrammeFromXlsx(inputStream)
-                if (name.isNotBlank()) {
-                    repository.setProgrammeName(name)
-                    programmeName.value = name
-                }
+                val result = repository.importProgrammeFromXlsx(inputStream, name)
+                programmeName.value = repository.getProgrammeName()
+                onResult?.invoke(result)
             } catch (e: Exception) {
                 Log.e("ProgrammeViewModel", "Failed to import XLSX programme", e)
             }
