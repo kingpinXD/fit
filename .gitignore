@@ -13,6 +13,10 @@ local.properties
 # Firebase config (contains API keys)
 app/google-services.json
 
+# Release keystore (signing keys)
+*.keystore
+*.jks
+
 # Claude context
 .claude/
 

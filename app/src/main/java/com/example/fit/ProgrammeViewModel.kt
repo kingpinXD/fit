@@ -24,8 +24,8 @@ class ProgrammeViewModel(app: Application) : AndroidViewModel(app) {
     private val firebaseSyncManager = FirebaseSyncManager()
 
     val weeks: LiveData<List<Int>>
-    val selectedWeek = MutableLiveData<Int>()
-    val selectedDay = MutableLiveData<String>()
+    val selectedWeek = MutableLiveData<Int?>()
+    val selectedDay = MutableLiveData<String?>()
     val days: LiveData<List<String>>
     val exercises: LiveData<List<Exercise>>
     val programmeName = MutableLiveData("")
@@ -64,11 +64,13 @@ class ProgrammeViewModel(app: Application) : AndroidViewModel(app) {
         }
 
         days = selectedWeek.switchMap { week ->
-            repository.getDistinctDays(week)
+            if (week != null) repository.getDistinctDays(week)
+            else MutableLiveData(emptyList())
         }
 
         completedDays = selectedWeek.switchMap { week ->
-            repository.getCompletedDays(week)
+            if (week != null) repository.getCompletedDays(week)
+            else MutableLiveData(emptyList())
         }
 
         // Exercises respond to both selectedWeek and selectedDay changes

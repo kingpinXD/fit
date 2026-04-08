@@ -2,7 +2,7 @@ export ANDROID_HOME := $(HOME)/android-sdk
 
 PKG := com.example.fit
 
-.PHONY: build test install install-phone check-phone clean emulator run
+.PHONY: build test install install-phone check-phone clean emulator run release distribute
 
 build:
 	./gradlew assembleDebug
@@ -55,3 +55,17 @@ run: build
 	adb wait-for-device
 	adb install app/build/outputs/apk/debug/app-debug.apk
 	adb shell am start -n $(PKG)/.LoginActivity
+
+APP_ID := 1:490456704105:android:31512a2d6ade89fa4f6ef8
+RELEASE_APK := app/build/outputs/apk/release/app-release.apk
+
+release:
+	./gradlew assembleRelease
+	cp $(RELEASE_APK) $(HOME)/Downloads/Fit.apk
+	@echo "Release APK at ~/Downloads/Fit.apk"
+
+distribute: release
+	firebase appdistribution:distribute $(RELEASE_APK) \
+		--app $(APP_ID) \
+		--groups "fit-app-testers" \
+		--release-notes "$(NOTES)"
