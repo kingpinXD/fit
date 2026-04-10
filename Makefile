@@ -2,7 +2,7 @@ export ANDROID_HOME := $(HOME)/android-sdk
 
 PKG := com.example.fit
 
-.PHONY: build test install install-phone check-phone clean emulator run release distribute
+.PHONY: build test install install-phone check-phone clean emulator run release distribute bump-version
 
 build:
 	./gradlew assembleDebug
@@ -64,7 +64,21 @@ release:
 	cp $(RELEASE_APK) $(HOME)/Downloads/Fit.apk
 	@echo "Release APK at ~/Downloads/Fit.apk"
 
-distribute: release
+bump-version:
+	@# Increment minor version: 1.0.0 -> 1.1.0, and bump versionCode
+	@current=$$(grep 'versionName' app/build.gradle.kts | head -1 | sed 's/.*"\(.*\)".*/\1/'); \
+	major=$$(echo $$current | cut -d. -f1); \
+	minor=$$(echo $$current | cut -d. -f2); \
+	patch=$$(echo $$current | cut -d. -f3); \
+	new_minor=$$((minor + 1)); \
+	new_version="$$major.$$new_minor.$$patch"; \
+	code=$$(grep 'versionCode' app/build.gradle.kts | head -1 | sed 's/[^0-9]//g'); \
+	new_code=$$((code + 1)); \
+	sed -i '' "s/versionCode = $$code/versionCode = $$new_code/" app/build.gradle.kts; \
+	sed -i '' "s/versionName = \"$$current\"/versionName = \"$$new_version\"/" app/build.gradle.kts; \
+	echo "Bumped version: $$current ($$code) -> $$new_version ($$new_code)"
+
+distribute: bump-version release
 	firebase appdistribution:distribute $(RELEASE_APK) \
 		--app $(APP_ID) \
 		--groups "fit-app-testers" \

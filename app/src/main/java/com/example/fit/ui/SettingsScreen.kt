@@ -322,6 +322,16 @@ fun SettingsScreen(
                 modifier = Modifier.padding(16.dp)
             )
         }
+
+        Spacer(modifier = Modifier.weight(1f))
+
+        // Version
+        Text(
+            text = "v${com.example.fit.BuildConfig.VERSION_NAME}",
+            color = com.example.fit.ui.theme.TextSecondary,
+            fontSize = 11.sp,
+            modifier = Modifier.align(Alignment.CenterHorizontally).padding(bottom = 16.dp)
+        )
     }
 }
 
