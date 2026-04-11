@@ -14,6 +14,7 @@ import com.example.fit.data.ExerciseHistoryEntry
 import com.example.fit.data.ExerciseLog
 import com.example.fit.data.FirebaseSyncManager
 import com.example.fit.data.ImportResult
+import com.example.fit.data.Programme
 import com.example.fit.data.ProgrammeRepository
 import kotlinx.coroutines.launch
 import java.io.InputStream
@@ -35,6 +36,7 @@ class ProgrammeViewModel(app: Application) : AndroidViewModel(app) {
     val showHistory = MutableLiveData(false)
 
     val hasProgramme: LiveData<Boolean>
+    val availableProgrammes: LiveData<List<Programme>>
     val completedWeeks: LiveData<List<Int>>
     val completedDays: LiveData<List<String>>
     val selectedExerciseLog: LiveData<ExerciseLog?>
@@ -46,6 +48,12 @@ class ProgrammeViewModel(app: Application) : AndroidViewModel(app) {
         repository = ProgrammeRepository(db.exerciseDao(), db.exerciseLogDao(), db.programmeDao(), app)
 
         programmeName.value = repository.getProgrammeName()
+        availableProgrammes = repository.getAvailableProgrammes()
+
+        // Preload bundled programmes on first launch (idempotent)
+        viewModelScope.launch {
+            repository.preloadProgrammes()
+        }
 
         // All queries react to programme name changes
         hasProgramme = programmeName.switchMap { name ->
@@ -137,6 +145,13 @@ class ProgrammeViewModel(app: Application) : AndroidViewModel(app) {
             } catch (e: Exception) {
                 Log.e("ProgrammeViewModel", "Failed to import XLSX programme", e)
             }
+        }
+    }
+
+    fun switchProgramme(name: String) {
+        viewModelScope.launch {
+            repository.setProgrammeName(name)
+            programmeName.value = name
         }
     }
 

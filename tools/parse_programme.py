@@ -9,9 +9,11 @@ from datetime import datetime
 import openpyxl
 
 
-PROGRAMME_NAME = "Jeff Nippard's Essentials Program - 5x/Week"
-DAY_NAMES = {"Upper", "Lower", "Push", "Pull", "Legs"}
-WEEK_PATTERN = re.compile(r"^Week\s+(\d+)$")
+PROGRAMME_NAME = "Jeff Nippard's Essentials Program"
+WEEK_PATTERN = re.compile(r"^Week\s+(\d+)")
+SKIP_VALUES = {"Exercise", "Warm-up Sets", "Working Sets", "Reps", "Load", "RPE", "Rest",
+               "Notes", "Warm-up Sets (see page 15 for details)", "Substitution Option 1",
+               "Substitution Option 2"}
 
 
 def parse_rpe(value) -> str:
@@ -54,7 +56,7 @@ def make_exercise(name: str, warmup, sets: int, reps, rpe, notes, order: int) ->
 
 def parse_programme(xlsx_path: str) -> dict:
     wb = openpyxl.load_workbook(xlsx_path, data_only=True)
-    ws = wb["5x Program"]
+    ws = wb[wb.sheetnames[0]]
 
     weeks = []
     current_week = None
@@ -80,8 +82,12 @@ def parse_programme(xlsx_path: str) -> dict:
                 current_day = None
                 continue
 
-            # Day label row (e.g., "Upper") — may also have first exercise in col C
-            if col_b in DAY_NAMES and current_week is not None:
+            # Skip header rows and rest days
+            if col_b in SKIP_VALUES or "Suggested" in col_b or "Copyright" in col_b:
+                continue
+
+            # Day label row — any non-week, non-skip value in column B with an exercise in C
+            if current_week is not None:
                 current_day = {"day": col_b, "exercises": []}
                 current_week["days"].append(current_day)
                 if col_c and col_e is not None:
@@ -89,9 +95,6 @@ def parse_programme(xlsx_path: str) -> dict:
                         make_exercise(col_c, col_d, col_e, col_f, col_h, col_l, order=1)
                     )
                 continue
-
-            # "Suggested Rest Day" or other B-column text — skip
-            continue
 
         # Exercise row: no day/week marker in B, but has exercise name in C
         if col_c and col_e is not None and current_day is not None:

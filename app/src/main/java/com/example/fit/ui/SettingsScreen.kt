@@ -29,6 +29,7 @@ import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.livedata.observeAsState
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
@@ -40,6 +41,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.fit.ProgrammeViewModel
+import com.example.fit.data.Programme
 import com.example.fit.data.ProgrammeNameNormalizer
 
 @Composable
@@ -54,8 +56,10 @@ fun SettingsScreen(
     var showCycleDialog by remember { mutableStateOf(false) }
     var exportIdentifier by remember { mutableStateOf("") }
     var cycleIdentifier by remember { mutableStateOf("") }
+    var showProgrammeDialog by remember { mutableStateOf(false) }
     var exporting by remember { mutableStateOf(false) }
     var cycling by remember { mutableStateOf(false) }
+    val availableProgrammes by viewModel.availableProgrammes.observeAsState(emptyList())
 
     // File picker for importing a programme
     val filePicker = rememberLauncherForActivityResult(
@@ -250,6 +254,19 @@ fun SettingsScreen(
         )
     }
 
+    if (showProgrammeDialog && availableProgrammes.isNotEmpty()) {
+        ProgrammePickerDialog(
+            programmes = availableProgrammes,
+            onSelect = { programme ->
+                viewModel.switchProgramme(programme.name)
+                showProgrammeDialog = false
+                Toast.makeText(context, "Switched to ${programme.name}", Toast.LENGTH_SHORT).show()
+                onBack()
+            },
+            onDismiss = { showProgrammeDialog = false }
+        )
+    }
+
     Column(
         modifier = Modifier
             .fillMaxSize()
@@ -276,6 +293,14 @@ fun SettingsScreen(
                 fontWeight = FontWeight.Bold
             )
         }
+
+        Spacer(modifier = Modifier.height(8.dp))
+
+        // Switch programme card
+        SettingsCard(
+            text = "Switch Programme",
+            onClick = { showProgrammeDialog = true }
+        )
 
         Spacer(modifier = Modifier.height(8.dp))
 

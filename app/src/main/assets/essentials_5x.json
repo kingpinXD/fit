@@ -1,0 +1,3281 @@
+{
+  "name": "Jeff Nippard's Essentials Program",
+  "weeks": [
+    {
+      "week": 1,
+      "days": [
+        {
+          "day": "Upper",
+          "exercises": [
+            {
+              "name": "Flat DB Press (Heavy)",
+              "warmupSets": "2-3",
+              "sets": 1,
+              "reps": "4-6",
+              "rpe": "8-9",
+              "notes": "Focus on strength here. Each week add weight or reps. Keep form consistent.",
+              "order": 1
+            },
+            {
+              "name": "Flat DB Press (Back off)",
+              "warmupSets": "0",
+              "sets": 1,
+              "reps": "8-10",
+              "rpe": "9-10",
+              "notes": "Focus on mind-muscle connection with pecs. Drop the weight back and focus on stretch and squeeze!",
+              "order": 2
+            },
+            {
+              "name": "2-Grip Lat Pulldown",
+              "warmupSets": "2",
+              "sets": 2,
+              "reps": "10-12",
+              "rpe": "9-10",
+              "notes": "Do first set wide overhand (1.5x shoulder width), second set underhand (1x shoulder width)",
+              "order": 3
+            },
+            {
+              "name": "Seated DB Shoulder Press",
+              "warmupSets": "1",
+              "sets": 2,
+              "reps": "10-12",
+              "rpe": "9-10",
+              "notes": "Bring the dumbbells all the way down, keep your torso upright",
+              "order": 4
+            },
+            {
+              "name": "Seated Cable Row",
+              "warmupSets": "1",
+              "sets": 2,
+              "reps": "10-12 (dropset)",
+              "rpe": "9-10",
+              "notes": "Focus on squeezing your shoulder blades together, drive your elbows down and back. Last set only do a dropset: perform 10-12 reps, drop the weight by ~50%, perform an additional 10-12 reps.",
+              "order": 5
+            },
+            {
+              "name": "A1: EZ Bar Skull Crusher",
+              "warmupSets": "1",
+              "sets": 2,
+              "reps": "12-15",
+              "rpe": "10",
+              "notes": "Arc the bar behind your head, constant tension on triceps",
+              "order": 6
+            },
+            {
+              "name": "A2: EZ Bar Curl",
+              "warmupSets": "1",
+              "sets": 2,
+              "reps": "12-15",
+              "rpe": "10",
+              "notes": "Arc the bar \"out\" not \"up\", focus on squeezing your biceps",
+              "order": 7
+            }
+          ]
+        },
+        {
+          "day": "Lower",
+          "exercises": [
+            {
+              "name": "Hack Squat (Heavy)",
+              "warmupSets": "2-3",
+              "sets": 1,
+              "reps": "4-6",
+              "rpe": "8-9",
+              "notes": "Focus on strength here. Each week add weight or reps. Keep form consistent.",
+              "order": 1
+            },
+            {
+              "name": "Hack Squat (Back off)",
+              "warmupSets": "0",
+              "sets": 1,
+              "reps": "8-10",
+              "rpe": "8-9",
+              "notes": "Drop the weight back and focus on controlling the negative. Smooth and consistent rep tempo.",
+              "order": 2
+            },
+            {
+              "name": "Seated Hamstring Curl",
+              "warmupSets": "1",
+              "sets": 1,
+              "reps": "10-12 (dropset)",
+              "rpe": "10",
+              "notes": "Dropset: perform 10-12 reps, drop the weight by ~50%, perform an additional 10-12 reps. Do seated if available. Otherwise do Lying Leg Curl or Nordic Ham Curl.",
+              "order": 3
+            },
+            {
+              "name": "A1: Standing Calf Raise",
+              "warmupSets": "1",
+              "sets": 2,
+              "reps": "10-12",
+              "rpe": "9-10",
+              "notes": "Press all the way up to your toes, stretch your calves at the bottom, don't bounce",
+              "order": 4
+            },
+            {
+              "name": "A2: Hanging Leg Raise",
+              "warmupSets": "1",
+              "sets": 2,
+              "reps": "10-12",
+              "rpe": "9-10",
+              "notes": "Knees to chest, controlled reps, straighten legs more to increase difficulty",
+              "order": 5
+            }
+          ]
+        },
+        {
+          "day": "Push",
+          "exercises": [
+            {
+              "name": "Machine Shoulder Press",
+              "warmupSets": "2",
+              "sets": 3,
+              "reps": "8-10",
+              "rpe": "9-10",
+              "notes": "Don't stop in between reps, keep smooth and controlled tension on the delts",
+              "order": 1
+            },
+            {
+              "name": "Cable Chest Press",
+              "warmupSets": "2",
+              "sets": 2,
+              "reps": "10-12 (dropset)",
+              "rpe": "9-10",
+              "notes": "Can be performed seated or standing. Focus on squeezing your chest. Last set only do a dropset: perform 10-12 reps, drop the weight by ~50%, perform an additional 10-12 reps.",
+              "order": 2
+            },
+            {
+              "name": "Triceps Pressdown",
+              "warmupSets": "1",
+              "sets": 2,
+              "reps": "12-15 (dropset)",
+              "rpe": "9-10",
+              "notes": "Focus on squeezing your triceps to move the weight. Last set only do a dropset: perform 12-15 reps, drop the weight by ~50%, perform an additional 12-15 reps.",
+              "order": 3
+            },
+            {
+              "name": "Close-Grip Push Up",
+              "warmupSets": "1",
+              "sets": 1,
+              "reps": "Failure",
+              "rpe": "10",
+              "notes": "Hands slightly narrower than shoulder width. Keep your elbows tucked in close to your torso. As many reps as possible!",
+              "order": 4
+            },
+            {
+              "name": "DB Lateral Raise",
+              "warmupSets": "1",
+              "sets": 2,
+              "reps": "12-15",
+              "rpe": "10",
+              "notes": "Raise the dumbbells \"out\" not \"up\", mind muscle connection with middle fibers",
+              "order": 5
+            }
+          ]
+        },
+        {
+          "day": "Pull",
+          "exercises": [
+            {
+              "name": "1-Arm Half-Kneeling Lat Pulldown",
+              "warmupSets": "1",
+              "sets": 1,
+              "reps": "10-12",
+              "rpe": "7-8",
+              "notes": "Keep chest tall, keep elbow tucked in close to your torso, focus on squeezing your lat to move the weight",
+              "order": 1
+            },
+            {
+              "name": "Weighted Pullup",
+              "warmupSets": "2",
+              "sets": 3,
+              "reps": "6-8",
+              "rpe": "9-10",
+              "notes": "1.5x shoulder width grip, pull your chest to the bar",
+              "order": 2
+            },
+            {
+              "name": "Pendlay Row",
+              "warmupSets": "2",
+              "sets": 2,
+              "reps": "8-10",
+              "rpe": "9-10",
+              "notes": "Initiate the movement by squeezing your shoulder blades together, pull to your lower chest, avoid using momentum",
+              "order": 3
+            },
+            {
+              "name": "Bayesian Cable Curl",
+              "warmupSets": "1",
+              "sets": 2,
+              "reps": "12-15",
+              "rpe": "10",
+              "notes": "Keep your elbow behind your torso throughout the range of motion, focus on squeezing your bicep. Sets are per arm",
+              "order": 4
+            },
+            {
+              "name": "Rope Facepull",
+              "warmupSets": "1",
+              "sets": 2,
+              "reps": "10-12 (dropset)",
+              "rpe": "10",
+              "notes": "Pull your elbows up and out, squeeze your shoulder blades together. Last set only do a dropset: perform 10-12 reps, drop the weight by ~50%, perform an additional 10-12 reps.",
+              "order": 5
+            }
+          ]
+        },
+        {
+          "day": "Legs",
+          "exercises": [
+            {
+              "name": "Romanian Deadlift",
+              "warmupSets": "2",
+              "sets": 2,
+              "reps": "10-12",
+              "rpe": "8-9",
+              "notes": "Maintain a neutral lower back, set your hips back, don't allow your spine to round",
+              "order": 1
+            },
+            {
+              "name": "Leg Press",
+              "warmupSets": "2",
+              "sets": 3,
+              "reps": "10-12",
+              "rpe": "8-9",
+              "notes": "Medium width feet placement on the platform, don't allow your lower back to round",
+              "order": 2
+            },
+            {
+              "name": "Leg Extension",
+              "warmupSets": "1",
+              "sets": 1,
+              "reps": "10-12 (dropset)",
+              "rpe": "9-10",
+              "notes": "Dropset: perform 10-12 reps, drop the weight by ~50%, perform an additional 10-12 reps. Focus on squeezing your quads to make the weight move.",
+              "order": 3
+            },
+            {
+              "name": "A1: Seated Calf Raise",
+              "warmupSets": "1",
+              "sets": 2,
+              "reps": "12-15",
+              "rpe": "10",
+              "notes": "Press all the way up to your toes, stretch your calves at the bottom, don't bounce",
+              "order": 4
+            },
+            {
+              "name": "A2: Cable Crunch",
+              "warmupSets": "1",
+              "sets": 2,
+              "reps": "12-15",
+              "rpe": "10",
+              "notes": "Round your back as you crunch",
+              "order": 5
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "week": 2,
+      "days": [
+        {
+          "day": "Upper",
+          "exercises": [
+            {
+              "name": "Flat DB Press (Heavy)",
+              "warmupSets": "2-3",
+              "sets": 1,
+              "reps": "4-6",
+              "rpe": "8-9",
+              "notes": "Focus on strength here. Each week add weight or reps. Keep form consistent.",
+              "order": 1
+            },
+            {
+              "name": "Flat DB Press (Back off)",
+              "warmupSets": "0",
+              "sets": 1,
+              "reps": "8-10",
+              "rpe": "9-10",
+              "notes": "Focus on mind-muscle connection with pecs. Drop the weight back and focus on stretch and squeeze!",
+              "order": 2
+            },
+            {
+              "name": "2-Grip Lat Pulldown",
+              "warmupSets": "2",
+              "sets": 2,
+              "reps": "10-12",
+              "rpe": "9-10",
+              "notes": "Do first set wide overhand (1.5x shoulder width), second set underhand (1x shoulder width)",
+              "order": 3
+            },
+            {
+              "name": "Seated DB Shoulder Press",
+              "warmupSets": "1",
+              "sets": 2,
+              "reps": "10-12",
+              "rpe": "9-10",
+              "notes": "Bring the dumbbells all the way down, keep your torso upright",
+              "order": 4
+            },
+            {
+              "name": "Seated Cable Row",
+              "warmupSets": "1",
+              "sets": 2,
+              "reps": "10-12 (dropset)",
+              "rpe": "9-10",
+              "notes": "Focus on squeezing your shoulder blades together, drive your elbows down and back. Last set only do a dropset: perform 10-12 reps, drop the weight by ~50%, perform an additional 10-12 reps.",
+              "order": 5
+            },
+            {
+              "name": "A1: EZ Bar Skull Crusher",
+              "warmupSets": "1",
+              "sets": 2,
+              "reps": "12-15",
+              "rpe": "10",
+              "notes": "Arc the bar behind your head, constant tension on triceps",
+              "order": 6
+            },
+            {
+              "name": "A2: EZ Bar Curl",
+              "warmupSets": "1",
+              "sets": 2,
+              "reps": "12-15",
+              "rpe": "10",
+              "notes": "Arc the bar \"out\" not \"up\", focus on squeezing your biceps",
+              "order": 7
+            }
+          ]
+        },
+        {
+          "day": "Lower",
+          "exercises": [
+            {
+              "name": "Hack Squat (Heavy)",
+              "warmupSets": "2-3",
+              "sets": 1,
+              "reps": "4-6",
+              "rpe": "8-9",
+              "notes": "Focus on strength here. Each week add weight or reps. Keep form consistent.",
+              "order": 1
+            },
+            {
+              "name": "Hack Squat (Back off)",
+              "warmupSets": "0",
+              "sets": 1,
+              "reps": "8-10",
+              "rpe": "8-9",
+              "notes": "Drop the weight back and focus on controlling the negative. Smooth and consistent rep tempo.",
+              "order": 2
+            },
+            {
+              "name": "Seated Hamstring Curl",
+              "warmupSets": "1",
+              "sets": 1,
+              "reps": "10-12 (dropset)",
+              "rpe": "10",
+              "notes": "Dropset: perform 10-12 reps, drop the weight by ~50%, perform an additional 10-12 reps. Do seated if available. Otherwise do Lying Leg Curl or Nordic Ham Curl.",
+              "order": 3
+            },
+            {
+              "name": "A1: Standing Calf Raise",
+              "warmupSets": "1",
+              "sets": 2,
+              "reps": "10-12",
+              "rpe": "9-10",
+              "notes": "Press all the way up to your toes, stretch your calves at the bottom, don't bounce",
+              "order": 4
+            },
+            {
+              "name": "A2: Hanging Leg Raise",
+              "warmupSets": "1",
+              "sets": 2,
+              "reps": "10-12",
+              "rpe": "9-10",
+              "notes": "Knees to chest, controlled reps, straighten legs more to increase difficulty",
+              "order": 5
+            }
+          ]
+        },
+        {
+          "day": "Push",
+          "exercises": [
+            {
+              "name": "Machine Shoulder Press",
+              "warmupSets": "2",
+              "sets": 3,
+              "reps": "8-10",
+              "rpe": "9-10",
+              "notes": "Don't stop in between reps, keep smooth and controlled tension on the delts",
+              "order": 1
+            },
+            {
+              "name": "Cable Chest Press",
+              "warmupSets": "2",
+              "sets": 2,
+              "reps": "10-12 (dropset)",
+              "rpe": "9-10",
+              "notes": "Can be performed seated or standing. Focus on squeezing your chest. Last set only do a dropset: perform 10-12 reps, drop the weight by ~50%, perform an additional 10-12 reps.",
+              "order": 2
+            },
+            {
+              "name": "Triceps Pressdown",
+              "warmupSets": "1",
+              "sets": 2,
+              "reps": "12-15 (dropset)",
+              "rpe": "9-10",
+              "notes": "Focus on squeezing your triceps to move the weight. Last set only do a dropset: perform 12-15 reps, drop the weight by ~50%, perform an additional 12-15 reps.",
+              "order": 3
+            },
+            {
+              "name": "Close-Grip Push Up",
+              "warmupSets": "1",
+              "sets": 1,
+              "reps": "Failure",
+              "rpe": "10",
+              "notes": "Hands slightly narrower than shoulder width. Keep your elbows tucked in close to your torso. As many reps as possible!",
+              "order": 4
+            },
+            {
+              "name": "DB Lateral Raise",
+              "warmupSets": "1",
+              "sets": 2,
+              "reps": "12-15",
+              "rpe": "10",
+              "notes": "Raise the dumbbells \"out\" not \"up\", mind muscle connection with middle fibers",
+              "order": 5
+            }
+          ]
+        },
+        {
+          "day": "Pull",
+          "exercises": [
+            {
+              "name": "1-Arm Half-Kneeling Lat Pulldown",
+              "warmupSets": "1",
+              "sets": 1,
+              "reps": "10-12",
+              "rpe": "7-8",
+              "notes": "Keep chest tall, keep elbow tucked in close to your torso, focus on squeezing your lat to move the weight",
+              "order": 1
+            },
+            {
+              "name": "Weighted Pullup",
+              "warmupSets": "2",
+              "sets": 3,
+              "reps": "6-8",
+              "rpe": "9-10",
+              "notes": "1.5x shoulder width grip, pull your chest to the bar",
+              "order": 2
+            },
+            {
+              "name": "Pendlay Row",
+              "warmupSets": "2",
+              "sets": 2,
+              "reps": "8-10",
+              "rpe": "9-10",
+              "notes": "Initiate the movement by squeezing your shoulder blades together, pull to your lower chest, avoid using momentum",
+              "order": 3
+            },
+            {
+              "name": "Bayesian Cable Curl",
+              "warmupSets": "1",
+              "sets": 2,
+              "reps": "12-15",
+              "rpe": "10",
+              "notes": "Keep your elbow behind your torso throughout the range of motion, focus on squeezing your bicep. Sets are per arm",
+              "order": 4
+            },
+            {
+              "name": "Rope Facepull",
+              "warmupSets": "1",
+              "sets": 2,
+              "reps": "10-12 (dropset)",
+              "rpe": "10",
+              "notes": "Pull your elbows up and out, squeeze your shoulder blades together. Last set only do a dropset: perform 10-12 reps, drop the weight by ~50%, perform an additional 10-12 reps.",
+              "order": 5
+            }
+          ]
+        },
+        {
+          "day": "Legs",
+          "exercises": [
+            {
+              "name": "Romanian Deadlift",
+              "warmupSets": "2",
+              "sets": 2,
+              "reps": "10-12",
+              "rpe": "8-9",
+              "notes": "Maintain a neutral lower back, set your hips back, don't allow your spine to round",
+              "order": 1
+            },
+            {
+              "name": "Leg Press",
+              "warmupSets": "2",
+              "sets": 3,
+              "reps": "10-12",
+              "rpe": "8-9",
+              "notes": "Medium width feet placement on the platform, don't allow your lower back to round",
+              "order": 2
+            },
+            {
+              "name": "Leg Extension",
+              "warmupSets": "1",
+              "sets": 1,
+              "reps": "10-12 (dropset)",
+              "rpe": "9-10",
+              "notes": "Dropset: perform 10-12 reps, drop the weight by ~50%, perform an additional 10-12 reps. Focus on squeezing your quads to make the weight move.",
+              "order": 3
+            },
+            {
+              "name": "A1: Seated Calf Raise",
+              "warmupSets": "1",
+              "sets": 2,
+              "reps": "12-15",
+              "rpe": "10",
+              "notes": "Press all the way up to your toes, stretch your calves at the bottom, don't bounce",
+              "order": 4
+            },
+            {
+              "name": "A2: Cable Crunch",
+              "warmupSets": "1",
+              "sets": 2,
+              "reps": "12-15",
+              "rpe": "10",
+              "notes": "Round your back as you crunch",
+              "order": 5
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "week": 3,
+      "days": [
+        {
+          "day": "Upper",
+          "exercises": [
+            {
+              "name": "Flat DB Press (Heavy)",
+              "warmupSets": "2-3",
+              "sets": 1,
+              "reps": "4-6",
+              "rpe": "8-9",
+              "notes": "Focus on strength here. Each week add weight or reps. Keep form consistent.",
+              "order": 1
+            },
+            {
+              "name": "Flat DB Press (Back off)",
+              "warmupSets": "0",
+              "sets": 1,
+              "reps": "8-10",
+              "rpe": "9-10",
+              "notes": "Focus on mind-muscle connection with pecs. Drop the weight back and focus on stretch and squeeze!",
+              "order": 2
+            },
+            {
+              "name": "2-Grip Lat Pulldown",
+              "warmupSets": "2",
+              "sets": 2,
+              "reps": "10-12",
+              "rpe": "9-10",
+              "notes": "Do first set wide overhand (1.5x shoulder width), second set underhand (1x shoulder width)",
+              "order": 3
+            },
+            {
+              "name": "Seated DB Shoulder Press",
+              "warmupSets": "1",
+              "sets": 2,
+              "reps": "10-12",
+              "rpe": "9-10",
+              "notes": "Bring the dumbbells all the way down, keep your torso upright",
+              "order": 4
+            },
+            {
+              "name": "Seated Cable Row",
+              "warmupSets": "1",
+              "sets": 2,
+              "reps": "10-12 (dropset)",
+              "rpe": "9-10",
+              "notes": "Focus on squeezing your shoulder blades together, drive your elbows down and back. Last set only do a dropset: perform 10-12 reps, drop the weight by ~50%, perform an additional 10-12 reps.",
+              "order": 5
+            },
+            {
+              "name": "A1: EZ Bar Skull Crusher",
+              "warmupSets": "1",
+              "sets": 2,
+              "reps": "12-15",
+              "rpe": "10",
+              "notes": "Arc the bar behind your head, constant tension on triceps",
+              "order": 6
+            },
+            {
+              "name": "A2: EZ Bar Curl",
+              "warmupSets": "1",
+              "sets": 2,
+              "reps": "12-15",
+              "rpe": "10",
+              "notes": "Arc the bar \"out\" not \"up\", focus on squeezing your biceps",
+              "order": 7
+            }
+          ]
+        },
+        {
+          "day": "Lower",
+          "exercises": [
+            {
+              "name": "Hack Squat (Heavy)",
+              "warmupSets": "2-3",
+              "sets": 1,
+              "reps": "4-6",
+              "rpe": "8-9",
+              "notes": "Focus on strength here. Each week add weight or reps. Keep form consistent.",
+              "order": 1
+            },
+            {
+              "name": "Hack Squat (Back off)",
+              "warmupSets": "0",
+              "sets": 1,
+              "reps": "8-10",
+              "rpe": "8-9",
+              "notes": "Drop the weight back and focus on controlling the negative. Smooth and consistent rep tempo.",
+              "order": 2
+            },
+            {
+              "name": "Seated Hamstring Curl",
+              "warmupSets": "1",
+              "sets": 1,
+              "reps": "10-12 (dropset)",
+              "rpe": "10",
+              "notes": "Dropset: perform 10-12 reps, drop the weight by ~50%, perform an additional 10-12 reps. Do seated if available. Otherwise do Lying Leg Curl or Nordic Ham Curl.",
+              "order": 3
+            },
+            {
+              "name": "A1: Standing Calf Raise",
+              "warmupSets": "1",
+              "sets": 2,
+              "reps": "10-12",
+              "rpe": "9-10",
+              "notes": "Press all the way up to your toes, stretch your calves at the bottom, don't bounce",
+              "order": 4
+            },
+            {
+              "name": "A2: Hanging Leg Raise",
+              "warmupSets": "1",
+              "sets": 2,
+              "reps": "10-12",
+              "rpe": "9-10",
+              "notes": "Knees to chest, controlled reps, straighten legs more to increase difficulty",
+              "order": 5
+            }
+          ]
+        },
+        {
+          "day": "Push",
+          "exercises": [
+            {
+              "name": "Machine Shoulder Press",
+              "warmupSets": "2",
+              "sets": 3,
+              "reps": "8-10",
+              "rpe": "9-10",
+              "notes": "Don't stop in between reps, keep smooth and controlled tension on the delts",
+              "order": 1
+            },
+            {
+              "name": "Cable Chest Press",
+              "warmupSets": "2",
+              "sets": 2,
+              "reps": "10-12 (dropset)",
+              "rpe": "9-10",
+              "notes": "Can be performed seated or standing. Focus on squeezing your chest. Last set only do a dropset: perform 10-12 reps, drop the weight by ~50%, perform an additional 10-12 reps.",
+              "order": 2
+            },
+            {
+              "name": "Triceps Pressdown",
+              "warmupSets": "1",
+              "sets": 2,
+              "reps": "12-15 (dropset)",
+              "rpe": "9-10",
+              "notes": "Focus on squeezing your triceps to move the weight. Last set only do a dropset: perform 12-15 reps, drop the weight by ~50%, perform an additional 12-15 reps.",
+              "order": 3
+            },
+            {
+              "name": "Close-Grip Push Up",
+              "warmupSets": "1",
+              "sets": 1,
+              "reps": "Failure",
+              "rpe": "10",
+              "notes": "Hands slightly narrower than shoulder width. Keep your elbows tucked in close to your torso. As many reps as possible!",
+              "order": 4
+            },
+            {
+              "name": "DB Lateral Raise",
+              "warmupSets": "1",
+              "sets": 2,
+              "reps": "12-15",
+              "rpe": "10",
+              "notes": "Raise the dumbbells \"out\" not \"up\", mind muscle connection with middle fibers",
+              "order": 5
+            }
+          ]
+        },
+        {
+          "day": "Pull",
+          "exercises": [
+            {
+              "name": "1-Arm Half-Kneeling Lat Pulldown",
+              "warmupSets": "1",
+              "sets": 1,
+              "reps": "10-12",
+              "rpe": "7-8",
+              "notes": "Keep chest tall, keep elbow tucked in close to your torso, focus on squeezing your lat to move the weight",
+              "order": 1
+            },
+            {
+              "name": "Weighted Pullup",
+              "warmupSets": "2",
+              "sets": 3,
+              "reps": "6-8",
+              "rpe": "9-10",
+              "notes": "1.5x shoulder width grip, pull your chest to the bar",
+              "order": 2
+            },
+            {
+              "name": "Pendlay Row",
+              "warmupSets": "2",
+              "sets": 2,
+              "reps": "8-10",
+              "rpe": "9-10",
+              "notes": "Initiate the movement by squeezing your shoulder blades together, pull to your lower chest, avoid using momentum",
+              "order": 3
+            },
+            {
+              "name": "Bayesian Cable Curl",
+              "warmupSets": "1",
+              "sets": 2,
+              "reps": "12-15",
+              "rpe": "10",
+              "notes": "Keep your elbow behind your torso throughout the range of motion, focus on squeezing your bicep. Sets are per arm",
+              "order": 4
+            },
+            {
+              "name": "Rope Facepull",
+              "warmupSets": "1",
+              "sets": 2,
+              "reps": "10-12 (dropset)",
+              "rpe": "10",
+              "notes": "Pull your elbows up and out, squeeze your shoulder blades together. Last set only do a dropset: perform 10-12 reps, drop the weight by ~50%, perform an additional 10-12 reps.",
+              "order": 5
+            }
+          ]
+        },
+        {
+          "day": "Legs",
+          "exercises": [
+            {
+              "name": "Romanian Deadlift",
+              "warmupSets": "2",
+              "sets": 2,
+              "reps": "10-12",
+              "rpe": "8-9",
+              "notes": "Maintain a neutral lower back, set your hips back, don't allow your spine to round",
+              "order": 1
+            },
+            {
+              "name": "Leg Press",
+              "warmupSets": "2",
+              "sets": 3,
+              "reps": "10-12",
+              "rpe": "8-9",
+              "notes": "Medium width feet placement on the platform, don't allow your lower back to round",
+              "order": 2
+            },
+            {
+              "name": "Leg Extension",
+              "warmupSets": "1",
+              "sets": 1,
+              "reps": "10-12 (dropset)",
+              "rpe": "9-10",
+              "notes": "Dropset: perform 10-12 reps, drop the weight by ~50%, perform an additional 10-12 reps. Focus on squeezing your quads to make the weight move.",
+              "order": 3
+            },
+            {
+              "name": "A1: Seated Calf Raise",
+              "warmupSets": "1",
+              "sets": 2,
+              "reps": "12-15",
+              "rpe": "10",
+              "notes": "Press all the way up to your toes, stretch your calves at the bottom, don't bounce",
+              "order": 4
+            },
+            {
+              "name": "A2: Cable Crunch",
+              "warmupSets": "1",
+              "sets": 2,
+              "reps": "12-15",
+              "rpe": "10",
+              "notes": "Round your back as you crunch",
+              "order": 5
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "week": 4,
+      "days": [
+        {
+          "day": "Upper",
+          "exercises": [
+            {
+              "name": "Flat DB Press (Heavy)",
+              "warmupSets": "2-3",
+              "sets": 1,
+              "reps": "4-6",
+              "rpe": "8-9",
+              "notes": "Focus on strength here. Each week add weight or reps. Keep form consistent.",
+              "order": 1
+            },
+            {
+              "name": "Flat DB Press (Back off)",
+              "warmupSets": "0",
+              "sets": 1,
+              "reps": "8-10",
+              "rpe": "9-10",
+              "notes": "Focus on mind-muscle connection with pecs. Drop the weight back and focus on stretch and squeeze!",
+              "order": 2
+            },
+            {
+              "name": "2-Grip Lat Pulldown",
+              "warmupSets": "2",
+              "sets": 2,
+              "reps": "10-12",
+              "rpe": "9-10",
+              "notes": "Do first set wide overhand (1.5x shoulder width), second set underhand (1x shoulder width)",
+              "order": 3
+            },
+            {
+              "name": "Seated DB Shoulder Press",
+              "warmupSets": "1",
+              "sets": 2,
+              "reps": "10-12",
+              "rpe": "9-10",
+              "notes": "Bring the dumbbells all the way down, keep your torso upright",
+              "order": 4
+            },
+            {
+              "name": "Seated Cable Row",
+              "warmupSets": "1",
+              "sets": 2,
+              "reps": "10-12 (dropset)",
+              "rpe": "9-10",
+              "notes": "Focus on squeezing your shoulder blades together, drive your elbows down and back. Last set only do a dropset: perform 10-12 reps, drop the weight by ~50%, perform an additional 10-12 reps.",
+              "order": 5
+            },
+            {
+              "name": "A1: EZ Bar Skull Crusher",
+              "warmupSets": "1",
+              "sets": 2,
+              "reps": "12-15",
+              "rpe": "10",
+              "notes": "Arc the bar behind your head, constant tension on triceps",
+              "order": 6
+            },
+            {
+              "name": "A2: EZ Bar Curl",
+              "warmupSets": "1",
+              "sets": 2,
+              "reps": "12-15",
+              "rpe": "10",
+              "notes": "Arc the bar \"out\" not \"up\", focus on squeezing your biceps",
+              "order": 7
+            }
+          ]
+        },
+        {
+          "day": "Lower",
+          "exercises": [
+            {
+              "name": "Hack Squat (Heavy)",
+              "warmupSets": "2-3",
+              "sets": 1,
+              "reps": "4-6",
+              "rpe": "8-9",
+              "notes": "Focus on strength here. Each week add weight or reps. Keep form consistent.",
+              "order": 1
+            },
+            {
+              "name": "Hack Squat (Back off)",
+              "warmupSets": "0",
+              "sets": 1,
+              "reps": "8-10",
+              "rpe": "8-9",
+              "notes": "Drop the weight back and focus on controlling the negative. Smooth and consistent rep tempo.",
+              "order": 2
+            },
+            {
+              "name": "Seated Hamstring Curl",
+              "warmupSets": "1",
+              "sets": 1,
+              "reps": "10-12 (dropset)",
+              "rpe": "10",
+              "notes": "Dropset: perform 10-12 reps, drop the weight by ~50%, perform an additional 10-12 reps. Do seated if available. Otherwise do Lying Leg Curl or Nordic Ham Curl.",
+              "order": 3
+            },
+            {
+              "name": "A1: Standing Calf Raise",
+              "warmupSets": "1",
+              "sets": 2,
+              "reps": "10-12",
+              "rpe": "9-10",
+              "notes": "Press all the way up to your toes, stretch your calves at the bottom, don't bounce",
+              "order": 4
+            },
+            {
+              "name": "A2: Hanging Leg Raise",
+              "warmupSets": "1",
+              "sets": 2,
+              "reps": "10-12",
+              "rpe": "9-10",
+              "notes": "Knees to chest, controlled reps, straighten legs more to increase difficulty",
+              "order": 5
+            }
+          ]
+        },
+        {
+          "day": "Push",
+          "exercises": [
+            {
+              "name": "Machine Shoulder Press",
+              "warmupSets": "2",
+              "sets": 3,
+              "reps": "8-10",
+              "rpe": "9-10",
+              "notes": "Don't stop in between reps, keep smooth and controlled tension on the delts",
+              "order": 1
+            },
+            {
+              "name": "Cable Chest Press",
+              "warmupSets": "2",
+              "sets": 2,
+              "reps": "10-12 (dropset)",
+              "rpe": "9-10",
+              "notes": "Can be performed seated or standing. Focus on squeezing your chest. Last set only do a dropset: perform 10-12 reps, drop the weight by ~50%, perform an additional 10-12 reps.",
+              "order": 2
+            },
+            {
+              "name": "Triceps Pressdown",
+              "warmupSets": "1",
+              "sets": 2,
+              "reps": "12-15 (dropset)",
+              "rpe": "9-10",
+              "notes": "Focus on squeezing your triceps to move the weight. Last set only do a dropset: perform 12-15 reps, drop the weight by ~50%, perform an additional 12-15 reps.",
+              "order": 3
+            },
+            {
+              "name": "Close-Grip Push Up",
+              "warmupSets": "1",
+              "sets": 1,
+              "reps": "Failure",
+              "rpe": "10",
+              "notes": "Hands slightly narrower than shoulder width. Keep your elbows tucked in close to your torso. As many reps as possible!",
+              "order": 4
+            },
+            {
+              "name": "DB Lateral Raise",
+              "warmupSets": "1",
+              "sets": 2,
+              "reps": "12-15",
+              "rpe": "10",
+              "notes": "Raise the dumbbells \"out\" not \"up\", mind muscle connection with middle fibers",
+              "order": 5
+            }
+          ]
+        },
+        {
+          "day": "Pull",
+          "exercises": [
+            {
+              "name": "1-Arm Half-Kneeling Lat Pulldown",
+              "warmupSets": "1",
+              "sets": 1,
+              "reps": "10-12",
+              "rpe": "7-8",
+              "notes": "Keep chest tall, keep elbow tucked in close to your torso, focus on squeezing your lat to move the weight",
+              "order": 1
+            },
+            {
+              "name": "Weighted Pullup",
+              "warmupSets": "2",
+              "sets": 3,
+              "reps": "6-8",
+              "rpe": "9-10",
+              "notes": "1.5x shoulder width grip, pull your chest to the bar",
+              "order": 2
+            },
+            {
+              "name": "Pendlay Row",
+              "warmupSets": "2",
+              "sets": 2,
+              "reps": "8-10",
+              "rpe": "9-10",
+              "notes": "Initiate the movement by squeezing your shoulder blades together, pull to your lower chest, avoid using momentum",
+              "order": 3
+            },
+            {
+              "name": "Bayesian Cable Curl",
+              "warmupSets": "1",
+              "sets": 2,
+              "reps": "12-15",
+              "rpe": "10",
+              "notes": "Keep your elbow behind your torso throughout the range of motion, focus on squeezing your bicep. Sets are per arm",
+              "order": 4
+            },
+            {
+              "name": "Rope Facepull",
+              "warmupSets": "1",
+              "sets": 2,
+              "reps": "10-12 (dropset)",
+              "rpe": "10",
+              "notes": "Pull your elbows up and out, squeeze your shoulder blades together. Last set only do a dropset: perform 10-12 reps, drop the weight by ~50%, perform an additional 10-12 reps.",
+              "order": 5
+            }
+          ]
+        },
+        {
+          "day": "Legs",
+          "exercises": [
+            {
+              "name": "Romanian Deadlift",
+              "warmupSets": "2",
+              "sets": 2,
+              "reps": "10-12",
+              "rpe": "8-9",
+              "notes": "Maintain a neutral lower back, set your hips back, don't allow your spine to round",
+              "order": 1
+            },
+            {
+              "name": "Leg Press",
+              "warmupSets": "2",
+              "sets": 3,
+              "reps": "10-12",
+              "rpe": "8-9",
+              "notes": "Medium width feet placement on the platform, don't allow your lower back to round",
+              "order": 2
+            },
+            {
+              "name": "Leg Extension",
+              "warmupSets": "1",
+              "sets": 1,
+              "reps": "10-12 (dropset)",
+              "rpe": "9-10",
+              "notes": "Dropset: perform 10-12 reps, drop the weight by ~50%, perform an additional 10-12 reps. Focus on squeezing your quads to make the weight move.",
+              "order": 3
+            },
+            {
+              "name": "A1: Seated Calf Raise",
+              "warmupSets": "1",
+              "sets": 2,
+              "reps": "12-15",
+              "rpe": "10",
+              "notes": "Press all the way up to your toes, stretch your calves at the bottom, don't bounce",
+              "order": 4
+            },
+            {
+              "name": "A2: Cable Crunch",
+              "warmupSets": "1",
+              "sets": 2,
+              "reps": "12-15",
+              "rpe": "10",
+              "notes": "Round your back as you crunch",
+              "order": 5
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "week": 5,
+      "days": [
+        {
+          "day": "Upper",
+          "exercises": [
+            {
+              "name": "2-Grip Pullup",
+              "warmupSets": "1-2",
+              "sets": 2,
+              "reps": "8-10",
+              "rpe": "9-10",
+              "notes": "First set 1.5x shoulder width grip. Second set 1.0x shoulder width grip",
+              "order": 1
+            },
+            {
+              "name": "Weighted Dip (Heavy)",
+              "warmupSets": "2-3",
+              "sets": 1,
+              "reps": "6-8",
+              "rpe": "8-9",
+              "notes": "Tuck your elbows at 45\u00b0, lean your torso forward 15\u00b0, shoulder width or slightly wider grip",
+              "order": 2
+            },
+            {
+              "name": "Weighted Dip (Back off)",
+              "warmupSets": "0",
+              "sets": 1,
+              "reps": "10-12",
+              "rpe": "9-10",
+              "notes": "Tuck your elbows at 45\u00b0, lean your torso forward 15\u00b0, shoulder width or slightly wider grip",
+              "order": 3
+            },
+            {
+              "name": "Incline Chest-Supported DB Row",
+              "warmupSets": "1",
+              "sets": 2,
+              "reps": "8-10",
+              "rpe": "9-10",
+              "notes": "Keep elbows at ~30\u00b0 angle from torso. Pull the weight towards your navel",
+              "order": 4
+            },
+            {
+              "name": "Standing DB Arnold Press",
+              "warmupSets": "1",
+              "sets": 2,
+              "reps": "8-10",
+              "rpe": "9-10",
+              "notes": "Start with your elbows in front of you and palms facing in. Rotate the dumbbells so that your palms face forward as you press.",
+              "order": 5
+            },
+            {
+              "name": "A1: DB Incline Curl",
+              "warmupSets": "1",
+              "sets": 2,
+              "reps": "15-20",
+              "rpe": "10",
+              "notes": "Brace upper back against bench, 45 degree incline, keep shoulders back as you curl",
+              "order": 6
+            },
+            {
+              "name": "A2: DB French Press",
+              "warmupSets": "1",
+              "sets": 2,
+              "reps": "15-20",
+              "rpe": "10",
+              "notes": "Can perform seated or standing. Press the dumbbell straight up and down behind your head.",
+              "order": 7
+            }
+          ]
+        },
+        {
+          "day": "Lower",
+          "exercises": [
+            {
+              "name": "Single-Leg Leg Press (Heavy)",
+              "warmupSets": "2-3",
+              "sets": 1,
+              "reps": "6-8 per leg",
+              "rpe": "8-9",
+              "notes": "High and wide foot positioning, start with weaker leg",
+              "order": 1
+            },
+            {
+              "name": "Single-Leg Leg Press (Back off)",
+              "warmupSets": "0",
+              "sets": 1,
+              "reps": "10-12 per leg",
+              "rpe": "8-9",
+              "notes": "High and wide foot positioning, start with weaker leg",
+              "order": 2
+            },
+            {
+              "name": "Glute-Ham Raise",
+              "warmupSets": "1",
+              "sets": 1,
+              "reps": "10-12",
+              "rpe": "10",
+              "notes": "Keep your hips straight, do Nordic ham curls if no GHR machine",
+              "order": 3
+            },
+            {
+              "name": "A1: Roman Chair Crunch",
+              "warmupSets": "1",
+              "sets": 2,
+              "reps": "12-15",
+              "rpe": "9-10",
+              "notes": "Don't swing your legs at the bottom, minimize momentum, tuck your knees towards your chest if lifting your legs straight out is too challenging",
+              "order": 4
+            },
+            {
+              "name": "A2: Seated Calf Raise",
+              "warmupSets": "1",
+              "sets": 2,
+              "reps": "12-15",
+              "rpe": "9-10",
+              "notes": "Press all the way up to your toes, stretch your calves at the bottom, don't bounce",
+              "order": 5
+            }
+          ]
+        },
+        {
+          "day": "Push",
+          "exercises": [
+            {
+              "name": "Machine Chest Press",
+              "warmupSets": "2",
+              "sets": 2,
+              "reps": "8-10",
+              "rpe": "9-10",
+              "notes": "Focus on squeezing your chest",
+              "order": 1
+            },
+            {
+              "name": "Seated DB Shoulder Press",
+              "warmupSets": "2",
+              "sets": 3,
+              "reps": "10-12",
+              "rpe": "9-10",
+              "notes": "Bring the dumbbells all the way down, keep your torso upright",
+              "order": 2
+            },
+            {
+              "name": "Cable Triceps Kickback",
+              "warmupSets": "1",
+              "sets": 2,
+              "reps": "12-15 (dropset)",
+              "rpe": "9-10",
+              "notes": "Lean slightly forward, lock your elbow behind your torso (shoulder hyperextension). Last set only do a dropset: perform 12-15 reps, drop the weight by ~50%, perform an additional 12-15 reps.",
+              "order": 3
+            },
+            {
+              "name": "Close-Grip Push Up",
+              "warmupSets": "1",
+              "sets": 1,
+              "reps": "Failure",
+              "rpe": "10",
+              "notes": "Hands slightly narrower than shoulder width. Keep your elbows tucked in close to your torso. As many reps as possible!",
+              "order": 4
+            },
+            {
+              "name": "Cable Lateral Raise",
+              "warmupSets": "1",
+              "sets": 2,
+              "reps": "12-15",
+              "rpe": "10",
+              "notes": "Lean away from the cable. Focus on squeezing your delts.",
+              "order": 5
+            }
+          ]
+        },
+        {
+          "day": "Pull",
+          "exercises": [
+            {
+              "name": "1-Arm Half-Kneeling Lat Pulldown",
+              "warmupSets": "1",
+              "sets": 1,
+              "reps": "10-12",
+              "rpe": "7-8",
+              "notes": "Keep chest tall, keep elbow tucked in close to your torso, focus on squeezing your lat to move the weight",
+              "order": 1
+            },
+            {
+              "name": "T-Bar Row",
+              "warmupSets": "2",
+              "sets": 2,
+              "reps": "10-12",
+              "rpe": "9-10",
+              "notes": "Focus on squeezing your shoulder blades together as you pull the weight towards you. Keep your shoulders down (avoid shrugging).",
+              "order": 2
+            },
+            {
+              "name": "Lat Pulldown",
+              "warmupSets": "2",
+              "sets": 3,
+              "reps": "8-10 (dropset)",
+              "rpe": "9-10",
+              "notes": "Think about pulling your elbows \"down\" and \"in\". Last set only do a dropset: perform 8-10 reps, drop the weight by ~50%, perform an additional 8-10 reps.",
+              "order": 3
+            },
+            {
+              "name": "Reverse Pec Deck",
+              "warmupSets": "1",
+              "sets": 2,
+              "reps": "12-15 (dropset)",
+              "rpe": "10",
+              "notes": "Swing the weight \"out\", not \"back\". Last set only do a dropset: perform 12-15 reps, drop the weight by ~50%, perform an additional 12-15 reps.",
+              "order": 4
+            },
+            {
+              "name": "Spider Curl",
+              "warmupSets": "1",
+              "sets": 2,
+              "reps": "12-15 (dropset)",
+              "rpe": "10",
+              "notes": "Brace your chest against an incline bench, curl with your elbows slightly in front of you. Last set only do a dropset: perform 12-15 reps, drop the weight by ~50%, perform an additional 12-15 reps.",
+              "order": 5
+            }
+          ]
+        },
+        {
+          "day": "Legs",
+          "exercises": [
+            {
+              "name": "DB Bulgarian Split Squat",
+              "warmupSets": "2",
+              "sets": 3,
+              "reps": "10-12",
+              "rpe": "8-9",
+              "notes": "Start with your weaker leg. Squat deep",
+              "order": 1
+            },
+            {
+              "name": "DB Romanian Deadlift",
+              "warmupSets": "2",
+              "sets": 2,
+              "reps": "10-12",
+              "rpe": "8-9",
+              "notes": "Emphasize the stretch in your hamstrings, prevent your lower back from rounding",
+              "order": 2
+            },
+            {
+              "name": "Goblet Squat",
+              "warmupSets": "1",
+              "sets": 1,
+              "reps": "12-15",
+              "rpe": "9-10",
+              "notes": "Hold the dumbbell underneath your chin, sit back and down, push your knees out laterally",
+              "order": 3
+            },
+            {
+              "name": "A1: Leg Press Toe Press",
+              "warmupSets": "1",
+              "sets": 2,
+              "reps": "15-20",
+              "rpe": "10",
+              "notes": "Press all the way up to your toes, stretch your calves at the bottom, don't bounce",
+              "order": 4
+            },
+            {
+              "name": "A2: Machine Crunch",
+              "warmupSets": "1",
+              "sets": 2,
+              "reps": "10-12",
+              "rpe": "10",
+              "notes": "Squeeze your abs to move the weight, don't use your arms to help",
+              "order": 5
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "week": 6,
+      "days": [
+        {
+          "day": "Upper",
+          "exercises": [
+            {
+              "name": "2-Grip Pullup",
+              "warmupSets": "1-2",
+              "sets": 2,
+              "reps": "8-10",
+              "rpe": "9-10",
+              "notes": "First set 1.5x shoulder width grip. Second set 1.0x shoulder width grip",
+              "order": 1
+            },
+            {
+              "name": "Weighted Dip (Heavy)",
+              "warmupSets": "2-3",
+              "sets": 1,
+              "reps": "6-8",
+              "rpe": "8-9",
+              "notes": "Tuck your elbows at 45\u00b0, lean your torso forward 15\u00b0, shoulder width or slightly wider grip",
+              "order": 2
+            },
+            {
+              "name": "Weighted Dip (Back off)",
+              "warmupSets": "0",
+              "sets": 1,
+              "reps": "10-12",
+              "rpe": "9-10",
+              "notes": "Tuck your elbows at 45\u00b0, lean your torso forward 15\u00b0, shoulder width or slightly wider grip",
+              "order": 3
+            },
+            {
+              "name": "Incline Chest-Supported DB Row",
+              "warmupSets": "1",
+              "sets": 2,
+              "reps": "8-10",
+              "rpe": "9-10",
+              "notes": "Keep elbows at ~30\u00b0 angle from torso. Pull the weight towards your navel",
+              "order": 4
+            },
+            {
+              "name": "Standing DB Arnold Press",
+              "warmupSets": "1",
+              "sets": 2,
+              "reps": "8-10",
+              "rpe": "9-10",
+              "notes": "Start with your elbows in front of you and palms facing in. Rotate the dumbbells so that your palms face forward as you press.",
+              "order": 5
+            },
+            {
+              "name": "A1: DB Incline Curl",
+              "warmupSets": "1",
+              "sets": 2,
+              "reps": "15-20",
+              "rpe": "10",
+              "notes": "Brace upper back against bench, 45 degree incline, keep shoulders back as you curl",
+              "order": 6
+            },
+            {
+              "name": "A2: DB French Press",
+              "warmupSets": "1",
+              "sets": 2,
+              "reps": "15-20",
+              "rpe": "10",
+              "notes": "Can perform seated or standing. Press the dumbbell straight up and down behind your head.",
+              "order": 7
+            }
+          ]
+        },
+        {
+          "day": "Lower",
+          "exercises": [
+            {
+              "name": "Single-Leg Leg Press (Heavy)",
+              "warmupSets": "2-3",
+              "sets": 1,
+              "reps": "6-8 per leg",
+              "rpe": "8-9",
+              "notes": "High and wide foot positioning, start with weaker leg",
+              "order": 1
+            },
+            {
+              "name": "Single-Leg Leg Press (Back off)",
+              "warmupSets": "0",
+              "sets": 1,
+              "reps": "10-12 per leg",
+              "rpe": "8-9",
+              "notes": "High and wide foot positioning, start with weaker leg",
+              "order": 2
+            },
+            {
+              "name": "Glute-Ham Raise",
+              "warmupSets": "1",
+              "sets": 1,
+              "reps": "10-12",
+              "rpe": "10",
+              "notes": "Keep your hips straight, do Nordic ham curls if no GHR machine",
+              "order": 3
+            },
+            {
+              "name": "A1: Roman Chair Crunch",
+              "warmupSets": "1",
+              "sets": 2,
+              "reps": "12-15",
+              "rpe": "9-10",
+              "notes": "Don't swing your legs at the bottom, minimize momentum, tuck your knees towards your chest if lifting your legs straight out is too challenging",
+              "order": 4
+            },
+            {
+              "name": "A2: Seated Calf Raise",
+              "warmupSets": "1",
+              "sets": 2,
+              "reps": "12-15",
+              "rpe": "9-10",
+              "notes": "Press all the way up to your toes, stretch your calves at the bottom, don't bounce",
+              "order": 5
+            }
+          ]
+        },
+        {
+          "day": "Push",
+          "exercises": [
+            {
+              "name": "Machine Chest Press",
+              "warmupSets": "2",
+              "sets": 2,
+              "reps": "8-10",
+              "rpe": "9-10",
+              "notes": "Focus on squeezing your chest",
+              "order": 1
+            },
+            {
+              "name": "Seated DB Shoulder Press",
+              "warmupSets": "2",
+              "sets": 3,
+              "reps": "10-12",
+              "rpe": "9-10",
+              "notes": "Bring the dumbbells all the way down, keep your torso upright",
+              "order": 2
+            },
+            {
+              "name": "Cable Triceps Kickback",
+              "warmupSets": "1",
+              "sets": 2,
+              "reps": "12-15 (dropset)",
+              "rpe": "9-10",
+              "notes": "Lean slightly forward, lock your elbow behind your torso (shoulder hyperextension). Last set only do a dropset: perform 12-15 reps, drop the weight by ~50%, perform an additional 12-15 reps.",
+              "order": 3
+            },
+            {
+              "name": "Close-Grip Push Up",
+              "warmupSets": "1",
+              "sets": 1,
+              "reps": "Failure",
+              "rpe": "10",
+              "notes": "Hands slightly narrower than shoulder width. Keep your elbows tucked in close to your torso. As many reps as possible!",
+              "order": 4
+            },
+            {
+              "name": "Cable Lateral Raise",
+              "warmupSets": "1",
+              "sets": 2,
+              "reps": "12-15",
+              "rpe": "10",
+              "notes": "Lean away from the cable. Focus on squeezing your delts.",
+              "order": 5
+            }
+          ]
+        },
+        {
+          "day": "Pull",
+          "exercises": [
+            {
+              "name": "1-Arm Half-Kneeling Lat Pulldown",
+              "warmupSets": "1",
+              "sets": 1,
+              "reps": "10-12",
+              "rpe": "7-8",
+              "notes": "Keep chest tall, keep elbow tucked in close to your torso, focus on squeezing your lat to move the weight",
+              "order": 1
+            },
+            {
+              "name": "T-Bar Row",
+              "warmupSets": "2",
+              "sets": 2,
+              "reps": "10-12",
+              "rpe": "9-10",
+              "notes": "Focus on squeezing your shoulder blades together as you pull the weight towards you. Keep your shoulders down (avoid shrugging).",
+              "order": 2
+            },
+            {
+              "name": "Lat Pulldown",
+              "warmupSets": "2",
+              "sets": 3,
+              "reps": "8-10 (dropset)",
+              "rpe": "9-10",
+              "notes": "Think about pulling your elbows \"down\" and \"in\". Last set only do a dropset: perform 8-10 reps, drop the weight by ~50%, perform an additional 8-10 reps.",
+              "order": 3
+            },
+            {
+              "name": "Reverse Pec Deck",
+              "warmupSets": "1",
+              "sets": 2,
+              "reps": "12-15 (dropset)",
+              "rpe": "10",
+              "notes": "Swing the weight \"out\", not \"back\". Last set only do a dropset: perform 12-15 reps, drop the weight by ~50%, perform an additional 12-15 reps.",
+              "order": 4
+            },
+            {
+              "name": "Spider Curl",
+              "warmupSets": "1",
+              "sets": 2,
+              "reps": "12-15 (dropset)",
+              "rpe": "10",
+              "notes": "Brace your chest against an incline bench, curl with your elbows slightly in front of you. Last set only do a dropset: perform 12-15 reps, drop the weight by ~50%, perform an additional 12-15 reps.",
+              "order": 5
+            }
+          ]
+        },
+        {
+          "day": "Legs",
+          "exercises": [
+            {
+              "name": "DB Bulgarian Split Squat",
+              "warmupSets": "2",
+              "sets": 3,
+              "reps": "10-12",
+              "rpe": "8-9",
+              "notes": "Start with your weaker leg. Squat deep",
+              "order": 1
+            },
+            {
+              "name": "DB Romanian Deadlift",
+              "warmupSets": "2",
+              "sets": 2,
+              "reps": "10-12",
+              "rpe": "8-9",
+              "notes": "Emphasize the stretch in your hamstrings, prevent your lower back from rounding",
+              "order": 2
+            },
+            {
+              "name": "Goblet Squat",
+              "warmupSets": "1",
+              "sets": 1,
+              "reps": "12-15",
+              "rpe": "9-10",
+              "notes": "Hold the dumbbell underneath your chin, sit back and down, push your knees out laterally",
+              "order": 3
+            },
+            {
+              "name": "A1: Leg Press Toe Press",
+              "warmupSets": "1",
+              "sets": 2,
+              "reps": "15-20",
+              "rpe": "10",
+              "notes": "Press all the way up to your toes, stretch your calves at the bottom, don't bounce",
+              "order": 4
+            },
+            {
+              "name": "A2: Machine Crunch",
+              "warmupSets": "1",
+              "sets": 2,
+              "reps": "10-12",
+              "rpe": "10",
+              "notes": "Squeeze your abs to move the weight, don't use your arms to help",
+              "order": 5
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "week": 7,
+      "days": [
+        {
+          "day": "Upper",
+          "exercises": [
+            {
+              "name": "2-Grip Pullup",
+              "warmupSets": "1-2",
+              "sets": 2,
+              "reps": "8-10",
+              "rpe": "9-10",
+              "notes": "First set 1.5x shoulder width grip. Second set 1.0x shoulder width grip",
+              "order": 1
+            },
+            {
+              "name": "Weighted Dip (Heavy)",
+              "warmupSets": "2-3",
+              "sets": 1,
+              "reps": "6-8",
+              "rpe": "8-9",
+              "notes": "Tuck your elbows at 45\u00b0, lean your torso forward 15\u00b0, shoulder width or slightly wider grip",
+              "order": 2
+            },
+            {
+              "name": "Weighted Dip (Back off)",
+              "warmupSets": "0",
+              "sets": 1,
+              "reps": "10-12",
+              "rpe": "9-10",
+              "notes": "Tuck your elbows at 45\u00b0, lean your torso forward 15\u00b0, shoulder width or slightly wider grip",
+              "order": 3
+            },
+            {
+              "name": "Incline Chest-Supported DB Row",
+              "warmupSets": "1",
+              "sets": 2,
+              "reps": "8-10",
+              "rpe": "9-10",
+              "notes": "Keep elbows at ~30\u00b0 angle from torso. Pull the weight towards your navel",
+              "order": 4
+            },
+            {
+              "name": "Standing DB Arnold Press",
+              "warmupSets": "1",
+              "sets": 2,
+              "reps": "8-10",
+              "rpe": "9-10",
+              "notes": "Start with your elbows in front of you and palms facing in. Rotate the dumbbells so that your palms face forward as you press.",
+              "order": 5
+            },
+            {
+              "name": "A1: DB Incline Curl",
+              "warmupSets": "1",
+              "sets": 2,
+              "reps": "15-20",
+              "rpe": "10",
+              "notes": "Brace upper back against bench, 45 degree incline, keep shoulders back as you curl",
+              "order": 6
+            },
+            {
+              "name": "A2: DB French Press",
+              "warmupSets": "1",
+              "sets": 2,
+              "reps": "15-20",
+              "rpe": "10",
+              "notes": "Can perform seated or standing. Press the dumbbell straight up and down behind your head.",
+              "order": 7
+            }
+          ]
+        },
+        {
+          "day": "Lower",
+          "exercises": [
+            {
+              "name": "Single-Leg Leg Press (Heavy)",
+              "warmupSets": "2-3",
+              "sets": 1,
+              "reps": "6-8 per leg",
+              "rpe": "8-9",
+              "notes": "High and wide foot positioning, start with weaker leg",
+              "order": 1
+            },
+            {
+              "name": "Single-Leg Leg Press (Back off)",
+              "warmupSets": "0",
+              "sets": 1,
+              "reps": "10-12 per leg",
+              "rpe": "8-9",
+              "notes": "High and wide foot positioning, start with weaker leg",
+              "order": 2
+            },
+            {
+              "name": "Glute-Ham Raise",
+              "warmupSets": "1",
+              "sets": 1,
+              "reps": "10-12",
+              "rpe": "10",
+              "notes": "Keep your hips straight, do Nordic ham curls if no GHR machine",
+              "order": 3
+            },
+            {
+              "name": "A1: Roman Chair Crunch",
+              "warmupSets": "1",
+              "sets": 2,
+              "reps": "12-15",
+              "rpe": "9-10",
+              "notes": "Don't swing your legs at the bottom, minimize momentum, tuck your knees towards your chest if lifting your legs straight out is too challenging",
+              "order": 4
+            },
+            {
+              "name": "A2: Seated Calf Raise",
+              "warmupSets": "1",
+              "sets": 2,
+              "reps": "12-15",
+              "rpe": "9-10",
+              "notes": "Press all the way up to your toes, stretch your calves at the bottom, don't bounce",
+              "order": 5
+            }
+          ]
+        },
+        {
+          "day": "Push",
+          "exercises": [
+            {
+              "name": "Machine Chest Press",
+              "warmupSets": "2",
+              "sets": 2,
+              "reps": "8-10",
+              "rpe": "9-10",
+              "notes": "Focus on squeezing your chest",
+              "order": 1
+            },
+            {
+              "name": "Seated DB Shoulder Press",
+              "warmupSets": "2",
+              "sets": 3,
+              "reps": "10-12",
+              "rpe": "9-10",
+              "notes": "Bring the dumbbells all the way down, keep your torso upright",
+              "order": 2
+            },
+            {
+              "name": "Cable Triceps Kickback",
+              "warmupSets": "1",
+              "sets": 2,
+              "reps": "12-15 (dropset)",
+              "rpe": "9-10",
+              "notes": "Lean slightly forward, lock your elbow behind your torso (shoulder hyperextension). Last set only do a dropset: perform 12-15 reps, drop the weight by ~50%, perform an additional 12-15 reps.",
+              "order": 3
+            },
+            {
+              "name": "Close-Grip Push Up",
+              "warmupSets": "1",
+              "sets": 1,
+              "reps": "Failure",
+              "rpe": "10",
+              "notes": "Hands slightly narrower than shoulder width. Keep your elbows tucked in close to your torso. As many reps as possible!",
+              "order": 4
+            },
+            {
+              "name": "Cable Lateral Raise",
+              "warmupSets": "1",
+              "sets": 2,
+              "reps": "12-15",
+              "rpe": "10",
+              "notes": "Lean away from the cable. Focus on squeezing your delts.",
+              "order": 5
+            }
+          ]
+        },
+        {
+          "day": "Pull",
+          "exercises": [
+            {
+              "name": "1-Arm Half-Kneeling Lat Pulldown",
+              "warmupSets": "1",
+              "sets": 1,
+              "reps": "10-12",
+              "rpe": "7-8",
+              "notes": "Keep chest tall, keep elbow tucked in close to your torso, focus on squeezing your lat to move the weight",
+              "order": 1
+            },
+            {
+              "name": "T-Bar Row",
+              "warmupSets": "2",
+              "sets": 2,
+              "reps": "10-12",
+              "rpe": "9-10",
+              "notes": "Focus on squeezing your shoulder blades together as you pull the weight towards you. Keep your shoulders down (avoid shrugging).",
+              "order": 2
+            },
+            {
+              "name": "Lat Pulldown",
+              "warmupSets": "2",
+              "sets": 3,
+              "reps": "8-10 (dropset)",
+              "rpe": "9-10",
+              "notes": "Think about pulling your elbows \"down\" and \"in\". Last set only do a dropset: perform 8-10 reps, drop the weight by ~50%, perform an additional 8-10 reps.",
+              "order": 3
+            },
+            {
+              "name": "Reverse Pec Deck",
+              "warmupSets": "1",
+              "sets": 2,
+              "reps": "12-15 (dropset)",
+              "rpe": "10",
+              "notes": "Swing the weight \"out\", not \"back\". Last set only do a dropset: perform 12-15 reps, drop the weight by ~50%, perform an additional 12-15 reps.",
+              "order": 4
+            },
+            {
+              "name": "Spider Curl",
+              "warmupSets": "1",
+              "sets": 2,
+              "reps": "12-15 (dropset)",
+              "rpe": "10",
+              "notes": "Brace your chest against an incline bench, curl with your elbows slightly in front of you. Last set only do a dropset: perform 12-15 reps, drop the weight by ~50%, perform an additional 12-15 reps.",
+              "order": 5
+            }
+          ]
+        },
+        {
+          "day": "Legs",
+          "exercises": [
+            {
+              "name": "DB Bulgarian Split Squat",
+              "warmupSets": "2",
+              "sets": 3,
+              "reps": "10-12",
+              "rpe": "8-9",
+              "notes": "Start with your weaker leg. Squat deep",
+              "order": 1
+            },
+            {
+              "name": "DB Romanian Deadlift",
+              "warmupSets": "2",
+              "sets": 2,
+              "reps": "10-12",
+              "rpe": "8-9",
+              "notes": "Emphasize the stretch in your hamstrings, prevent your lower back from rounding",
+              "order": 2
+            },
+            {
+              "name": "Goblet Squat",
+              "warmupSets": "1",
+              "sets": 1,
+              "reps": "12-15",
+              "rpe": "9-10",
+              "notes": "Hold the dumbbell underneath your chin, sit back and down, push your knees out laterally",
+              "order": 3
+            },
+            {
+              "name": "A1: Leg Press Toe Press",
+              "warmupSets": "1",
+              "sets": 2,
+              "reps": "15-20",
+              "rpe": "10",
+              "notes": "Press all the way up to your toes, stretch your calves at the bottom, don't bounce",
+              "order": 4
+            },
+            {
+              "name": "A2: Machine Crunch",
+              "warmupSets": "1",
+              "sets": 2,
+              "reps": "10-12",
+              "rpe": "10",
+              "notes": "Squeeze your abs to move the weight, don't use your arms to help",
+              "order": 5
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "week": 8,
+      "days": [
+        {
+          "day": "Upper",
+          "exercises": [
+            {
+              "name": "2-Grip Pullup",
+              "warmupSets": "1-2",
+              "sets": 2,
+              "reps": "8-10",
+              "rpe": "9-10",
+              "notes": "First set 1.5x shoulder width grip. Second set 1.0x shoulder width grip",
+              "order": 1
+            },
+            {
+              "name": "Weighted Dip (Heavy)",
+              "warmupSets": "2-3",
+              "sets": 1,
+              "reps": "6-8",
+              "rpe": "8-9",
+              "notes": "Tuck your elbows at 45\u00b0, lean your torso forward 15\u00b0, shoulder width or slightly wider grip",
+              "order": 2
+            },
+            {
+              "name": "Weighted Dip (Back off)",
+              "warmupSets": "0",
+              "sets": 1,
+              "reps": "10-12",
+              "rpe": "9-10",
+              "notes": "Tuck your elbows at 45\u00b0, lean your torso forward 15\u00b0, shoulder width or slightly wider grip",
+              "order": 3
+            },
+            {
+              "name": "Incline Chest-Supported DB Row",
+              "warmupSets": "1",
+              "sets": 2,
+              "reps": "8-10",
+              "rpe": "9-10",
+              "notes": "Keep elbows at ~30\u00b0 angle from torso. Pull the weight towards your navel",
+              "order": 4
+            },
+            {
+              "name": "Standing DB Arnold Press",
+              "warmupSets": "1",
+              "sets": 2,
+              "reps": "8-10",
+              "rpe": "9-10",
+              "notes": "Start with your elbows in front of you and palms facing in. Rotate the dumbbells so that your palms face forward as you press.",
+              "order": 5
+            },
+            {
+              "name": "A1: DB Incline Curl",
+              "warmupSets": "1",
+              "sets": 2,
+              "reps": "15-20",
+              "rpe": "10",
+              "notes": "Brace upper back against bench, 45 degree incline, keep shoulders back as you curl",
+              "order": 6
+            },
+            {
+              "name": "A2: DB French Press",
+              "warmupSets": "1",
+              "sets": 2,
+              "reps": "15-20",
+              "rpe": "10",
+              "notes": "Can perform seated or standing. Press the dumbbell straight up and down behind your head.",
+              "order": 7
+            }
+          ]
+        },
+        {
+          "day": "Lower",
+          "exercises": [
+            {
+              "name": "Single-Leg Leg Press (Heavy)",
+              "warmupSets": "2-3",
+              "sets": 1,
+              "reps": "6-8 per leg",
+              "rpe": "8-9",
+              "notes": "High and wide foot positioning, start with weaker leg",
+              "order": 1
+            },
+            {
+              "name": "Single-Leg Leg Press (Back off)",
+              "warmupSets": "0",
+              "sets": 1,
+              "reps": "10-12 per leg",
+              "rpe": "8-9",
+              "notes": "High and wide foot positioning, start with weaker leg",
+              "order": 2
+            },
+            {
+              "name": "Glute-Ham Raise",
+              "warmupSets": "1",
+              "sets": 1,
+              "reps": "10-12",
+              "rpe": "10",
+              "notes": "Keep your hips straight, do Nordic ham curls if no GHR machine",
+              "order": 3
+            },
+            {
+              "name": "A1: Roman Chair Crunch",
+              "warmupSets": "1",
+              "sets": 2,
+              "reps": "12-15",
+              "rpe": "9-10",
+              "notes": "Don't swing your legs at the bottom, minimize momentum, tuck your knees towards your chest if lifting your legs straight out is too challenging",
+              "order": 4
+            },
+            {
+              "name": "A2: Seated Calf Raise",
+              "warmupSets": "1",
+              "sets": 2,
+              "reps": "12-15",
+              "rpe": "9-10",
+              "notes": "Press all the way up to your toes, stretch your calves at the bottom, don't bounce",
+              "order": 5
+            }
+          ]
+        },
+        {
+          "day": "Push",
+          "exercises": [
+            {
+              "name": "Machine Chest Press",
+              "warmupSets": "2",
+              "sets": 2,
+              "reps": "8-10",
+              "rpe": "9-10",
+              "notes": "Focus on squeezing your chest",
+              "order": 1
+            },
+            {
+              "name": "Seated DB Shoulder Press",
+              "warmupSets": "2",
+              "sets": 3,
+              "reps": "10-12",
+              "rpe": "9-10",
+              "notes": "Bring the dumbbells all the way down, keep your torso upright",
+              "order": 2
+            },
+            {
+              "name": "Cable Triceps Kickback",
+              "warmupSets": "1",
+              "sets": 2,
+              "reps": "12-15 (dropset)",
+              "rpe": "9-10",
+              "notes": "Lean slightly forward, lock your elbow behind your torso (shoulder hyperextension). Last set only do a dropset: perform 12-15 reps, drop the weight by ~50%, perform an additional 12-15 reps.",
+              "order": 3
+            },
+            {
+              "name": "Close-Grip Push Up",
+              "warmupSets": "1",
+              "sets": 1,
+              "reps": "Failure",
+              "rpe": "10",
+              "notes": "Hands slightly narrower than shoulder width. Keep your elbows tucked in close to your torso. As many reps as possible!",
+              "order": 4
+            },
+            {
+              "name": "Cable Lateral Raise",
+              "warmupSets": "1",
+              "sets": 2,
+              "reps": "12-15",
+              "rpe": "10",
+              "notes": "Lean away from the cable. Focus on squeezing your delts.",
+              "order": 5
+            }
+          ]
+        },
+        {
+          "day": "Pull",
+          "exercises": [
+            {
+              "name": "1-Arm Half-Kneeling Lat Pulldown",
+              "warmupSets": "1",
+              "sets": 1,
+              "reps": "10-12",
+              "rpe": "7-8",
+              "notes": "Keep chest tall, keep elbow tucked in close to your torso, focus on squeezing your lat to move the weight",
+              "order": 1
+            },
+            {
+              "name": "T-Bar Row",
+              "warmupSets": "2",
+              "sets": 2,
+              "reps": "10-12",
+              "rpe": "9-10",
+              "notes": "Focus on squeezing your shoulder blades together as you pull the weight towards you. Keep your shoulders down (avoid shrugging).",
+              "order": 2
+            },
+            {
+              "name": "Lat Pulldown",
+              "warmupSets": "2",
+              "sets": 3,
+              "reps": "8-10 (dropset)",
+              "rpe": "9-10",
+              "notes": "Think about pulling your elbows \"down\" and \"in\". Last set only do a dropset: perform 8-10 reps, drop the weight by ~50%, perform an additional 8-10 reps.",
+              "order": 3
+            },
+            {
+              "name": "Reverse Pec Deck",
+              "warmupSets": "1",
+              "sets": 2,
+              "reps": "12-15 (dropset)",
+              "rpe": "10",
+              "notes": "Swing the weight \"out\", not \"back\". Last set only do a dropset: perform 12-15 reps, drop the weight by ~50%, perform an additional 12-15 reps.",
+              "order": 4
+            },
+            {
+              "name": "Spider Curl",
+              "warmupSets": "1",
+              "sets": 2,
+              "reps": "12-15 (dropset)",
+              "rpe": "10",
+              "notes": "Brace your chest against an incline bench, curl with your elbows slightly in front of you. Last set only do a dropset: perform 12-15 reps, drop the weight by ~50%, perform an additional 12-15 reps.",
+              "order": 5
+            }
+          ]
+        },
+        {
+          "day": "Legs",
+          "exercises": [
+            {
+              "name": "DB Bulgarian Split Squat",
+              "warmupSets": "2",
+              "sets": 3,
+              "reps": "10-12",
+              "rpe": "8-9",
+              "notes": "Start with your weaker leg. Squat deep",
+              "order": 1
+            },
+            {
+              "name": "DB Romanian Deadlift",
+              "warmupSets": "2",
+              "sets": 2,
+              "reps": "10-12",
+              "rpe": "8-9",
+              "notes": "Emphasize the stretch in your hamstrings, prevent your lower back from rounding",
+              "order": 2
+            },
+            {
+              "name": "Goblet Squat",
+              "warmupSets": "1",
+              "sets": 1,
+              "reps": "12-15",
+              "rpe": "9-10",
+              "notes": "Hold the dumbbell underneath your chin, sit back and down, push your knees out laterally",
+              "order": 3
+            },
+            {
+              "name": "A1: Leg Press Toe Press",
+              "warmupSets": "1",
+              "sets": 2,
+              "reps": "15-20",
+              "rpe": "10",
+              "notes": "Press all the way up to your toes, stretch your calves at the bottom, don't bounce",
+              "order": 4
+            },
+            {
+              "name": "A2: Machine Crunch",
+              "warmupSets": "1",
+              "sets": 2,
+              "reps": "10-12",
+              "rpe": "10",
+              "notes": "Squeeze your abs to move the weight, don't use your arms to help",
+              "order": 5
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "week": 9,
+      "days": [
+        {
+          "day": "Upper",
+          "exercises": [
+            {
+              "name": "Machine Chest Press (Heavy)",
+              "warmupSets": "2-3",
+              "sets": 1,
+              "reps": "4-6",
+              "rpe": "8-9",
+              "notes": "Focus on squeezing your chest",
+              "order": 1
+            },
+            {
+              "name": "Machine Chest Press (Back off)",
+              "warmupSets": "0",
+              "sets": 1,
+              "reps": "8-10",
+              "rpe": "9-10",
+              "notes": "Focus on squeezing your chest",
+              "order": 2
+            },
+            {
+              "name": "Machine Pulldown",
+              "warmupSets": "2",
+              "sets": 2,
+              "reps": "10-12 (dropset)",
+              "rpe": "9-10",
+              "notes": "Think about pulling your elbows \"down\" and \"in\". Last set only do a dropset: perform 10-12 reps, drop the weight by ~50%, perform an additional 10-12 reps.",
+              "order": 3
+            },
+            {
+              "name": "Cable Shoulder Press",
+              "warmupSets": "1",
+              "sets": 2,
+              "reps": "12-15 (dropset)",
+              "rpe": "9-10",
+              "notes": "Bring cables all the way down to shoulder height, keep torso upright. Last set only do a dropset: perform 12-15 reps, drop the weight by ~50%, perform an additional 12-15 reps.",
+              "order": 4
+            },
+            {
+              "name": "Helms DB Row",
+              "warmupSets": "1",
+              "sets": 2,
+              "reps": "10-12",
+              "rpe": "9-10",
+              "notes": "Be ultra strict with form, drive elbows out and back at 45 degree angle",
+              "order": 5
+            },
+            {
+              "name": "A1: Overhead Cable Triceps Extension",
+              "warmupSets": "1",
+              "sets": 2,
+              "reps": "12-15",
+              "rpe": "10",
+              "notes": "Do both arms at once, resist the negative",
+              "order": 6
+            },
+            {
+              "name": "A2: Cable EZ Curl",
+              "warmupSets": "1",
+              "sets": 2,
+              "reps": "12-15",
+              "rpe": "10",
+              "notes": "Focus on squeezing your biceps. Control the negative",
+              "order": 7
+            }
+          ]
+        },
+        {
+          "day": "Lower",
+          "exercises": [
+            {
+              "name": "Machine Squat (Heavy)",
+              "warmupSets": "2-3",
+              "sets": 1,
+              "reps": "4-6",
+              "rpe": "8-9",
+              "notes": "Focus on strength here. Each week add weight or reps. Keep form consistent.",
+              "order": 1
+            },
+            {
+              "name": "Machine Squat (Back off)",
+              "warmupSets": "0",
+              "sets": 1,
+              "reps": "8-10",
+              "rpe": "8-9",
+              "notes": "Drop the weight back and focus on controlling the negative. Smooth and consistent rep tempo.",
+              "order": 2
+            },
+            {
+              "name": "Nordic Ham Curl",
+              "warmupSets": "1",
+              "sets": 1,
+              "reps": "8-10",
+              "rpe": "10",
+              "notes": "Keep your hips as straight as you can, can sub for lying leg curl",
+              "order": 3
+            },
+            {
+              "name": "A1: Seated Calf Raise",
+              "warmupSets": "1",
+              "sets": 2,
+              "reps": "10-12",
+              "rpe": "9-10",
+              "notes": "Press all the way up to your toes, stretch your calves at the bottom, don't bounce",
+              "order": 4
+            },
+            {
+              "name": "A2: Two-Arms Two-Legs Dead Bug",
+              "warmupSets": "1",
+              "sets": 2,
+              "reps": "10-12",
+              "rpe": "9-10",
+              "notes": "Perform these slowly, focus on keeping your lower back against the ground throughout the set",
+              "order": 5
+            }
+          ]
+        },
+        {
+          "day": "Push",
+          "exercises": [
+            {
+              "name": "Standing DB Arnold Press",
+              "warmupSets": "2",
+              "sets": 2,
+              "reps": "10-12",
+              "rpe": "9-10",
+              "notes": "Start with your elbows in front of you and palms facing in. Rotate the dumbbells so that your palms face forward as you press.",
+              "order": 1
+            },
+            {
+              "name": "Cable Chest Press",
+              "warmupSets": "2",
+              "sets": 2,
+              "reps": "10-12 (dropset)",
+              "rpe": "9-10",
+              "notes": "Can be performed seated or standing. Focus on squeezing your chest. Last set only do a dropset: perform 10-12 reps, drop the weight by ~50%, perform an additional 10-12 reps.",
+              "order": 2
+            },
+            {
+              "name": "DB Triceps Kickback",
+              "warmupSets": "1",
+              "sets": 2,
+              "reps": "10-12 (dropset)",
+              "rpe": "9-10",
+              "notes": "Lean slightly forward, lock your elbow behind your torso (shoulder hyperextension). Last set only do a dropset: perform 10-12 reps, drop the weight by ~50%, perform an additional 10-12 reps.",
+              "order": 3
+            },
+            {
+              "name": "Close-Grip Push Up",
+              "warmupSets": "1",
+              "sets": 1,
+              "reps": "Failure",
+              "rpe": "10",
+              "notes": "Hands slightly narrower than shoulder width. Keep your elbows tucked in close to your torso. As many reps as possible!",
+              "order": 4
+            },
+            {
+              "name": "Machine Lateral Raise",
+              "warmupSets": "1",
+              "sets": 2,
+              "reps": "10-12",
+              "rpe": "10",
+              "notes": "Focus on squeezing your lateral delt to move the weight",
+              "order": 5
+            }
+          ]
+        },
+        {
+          "day": "Pull",
+          "exercises": [
+            {
+              "name": "1-Arm Half-Kneeling Lat Pulldown",
+              "warmupSets": "1",
+              "sets": 1,
+              "reps": "10-12",
+              "rpe": "7-8",
+              "notes": "Keep chest tall, keep elbow tucked in close to your torso, focus on squeezing your lat to move the weight",
+              "order": 1
+            },
+            {
+              "name": "Neutral-Grip Lat Pulldown",
+              "warmupSets": "2",
+              "sets": 3,
+              "reps": "8-10 (dropset)",
+              "rpe": "9-10",
+              "notes": "Pull your elbows down against your sides. Last set only do a dropset: perform 8-10 reps, drop the weight by ~50%, perform an additional 8-10 reps.",
+              "order": 2
+            },
+            {
+              "name": "Meadows Row",
+              "warmupSets": "2",
+              "sets": 2,
+              "reps": "10-12",
+              "rpe": "9-10",
+              "notes": "Brace with your non-working hand against your knee, stay light, emphasize form",
+              "order": 3
+            },
+            {
+              "name": "Inverse Zottman Curl",
+              "warmupSets": "1",
+              "sets": 2,
+              "reps": "10-12 (dropset)",
+              "rpe": "10",
+              "notes": "Hammer curl on concentric, supinated curl (palms up) on the eccentric. Last set only do a dropset: perform 10-12 reps, drop the weight by ~50%, perform an additional 10-12 reps.",
+              "order": 4
+            },
+            {
+              "name": "Bent-Over Reverse DB Flye",
+              "warmupSets": "1",
+              "sets": 2,
+              "reps": "15-20",
+              "rpe": "10",
+              "notes": "Mind-muscle connection with rear delts, sweep the weight out",
+              "order": 5
+            }
+          ]
+        },
+        {
+          "day": "Legs",
+          "exercises": [
+            {
+              "name": "Romanian Deadlift",
+              "warmupSets": "2",
+              "sets": 2,
+              "reps": "10-12",
+              "rpe": "8-9",
+              "notes": "Maintain a neutral lower back, set your hips back, don't allow your spine to round",
+              "order": 1
+            },
+            {
+              "name": "DB Walking Lunge",
+              "warmupSets": "2",
+              "sets": 3,
+              "reps": "8-10",
+              "rpe": "8-9",
+              "notes": "Take medium strides, minimize the amount you push off your rear leg",
+              "order": 2
+            },
+            {
+              "name": "Leg Extension",
+              "warmupSets": "1",
+              "sets": 1,
+              "reps": "12-15 (dropset)",
+              "rpe": "9-10",
+              "notes": "Dropset: perform 12-15 reps, drop the weight by ~50%, perform an additional 12-15 reps. Focus on squeezing your quads to make the weight move.",
+              "order": 3
+            },
+            {
+              "name": "A1: Standing Calf Raise",
+              "warmupSets": "1",
+              "sets": 2,
+              "reps": "15-20",
+              "rpe": "10",
+              "notes": "Press all the way up to your toes, stretch your calves at the bottom, don't bounce",
+              "order": 4
+            },
+            {
+              "name": "A2: Plate-Weighted Crunch",
+              "warmupSets": "1",
+              "sets": 2,
+              "reps": "12-15",
+              "rpe": "10",
+              "notes": "Hold a plate or DB to your chest and crunch hard!",
+              "order": 5
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "week": 10,
+      "days": [
+        {
+          "day": "Upper",
+          "exercises": [
+            {
+              "name": "Machine Chest Press (Heavy)",
+              "warmupSets": "2-3",
+              "sets": 1,
+              "reps": "4-6",
+              "rpe": "8-9",
+              "notes": "Focus on squeezing your chest",
+              "order": 1
+            },
+            {
+              "name": "Machine Chest Press (Back off)",
+              "warmupSets": "0",
+              "sets": 1,
+              "reps": "8-10",
+              "rpe": "9-10",
+              "notes": "Focus on squeezing your chest",
+              "order": 2
+            },
+            {
+              "name": "Machine Pulldown",
+              "warmupSets": "2",
+              "sets": 2,
+              "reps": "10-12 (dropset)",
+              "rpe": "9-10",
+              "notes": "Think about pulling your elbows \"down\" and \"in\". Last set only do a dropset: perform 10-12 reps, drop the weight by ~50%, perform an additional 10-12 reps.",
+              "order": 3
+            },
+            {
+              "name": "Cable Shoulder Press",
+              "warmupSets": "1",
+              "sets": 2,
+              "reps": "12-15 (dropset)",
+              "rpe": "9-10",
+              "notes": "Bring cables all the way down to shoulder height, keep torso upright. Last set only do a dropset: perform 12-15 reps, drop the weight by ~50%, perform an additional 12-15 reps.",
+              "order": 4
+            },
+            {
+              "name": "Helms DB Row",
+              "warmupSets": "1",
+              "sets": 2,
+              "reps": "10-12",
+              "rpe": "9-10",
+              "notes": "Be ultra strict with form, drive elbows out and back at 45 degree angle",
+              "order": 5
+            },
+            {
+              "name": "A1: Overhead Cable Triceps Extension",
+              "warmupSets": "1",
+              "sets": 2,
+              "reps": "12-15",
+              "rpe": "10",
+              "notes": "Do both arms at once, resist the negative",
+              "order": 6
+            },
+            {
+              "name": "A2: Cable EZ Curl",
+              "warmupSets": "1",
+              "sets": 2,
+              "reps": "12-15",
+              "rpe": "10",
+              "notes": "Focus on squeezing your biceps. Control the negative",
+              "order": 7
+            }
+          ]
+        },
+        {
+          "day": "Lower",
+          "exercises": [
+            {
+              "name": "Machine Squat (Heavy)",
+              "warmupSets": "2-3",
+              "sets": 1,
+              "reps": "4-6",
+              "rpe": "8-9",
+              "notes": "Focus on strength here. Each week add weight or reps. Keep form consistent.",
+              "order": 1
+            },
+            {
+              "name": "Machine Squat (Back off)",
+              "warmupSets": "0",
+              "sets": 1,
+              "reps": "8-10",
+              "rpe": "8-9",
+              "notes": "Drop the weight back and focus on controlling the negative. Smooth and consistent rep tempo.",
+              "order": 2
+            },
+            {
+              "name": "Nordic Ham Curl",
+              "warmupSets": "1",
+              "sets": 1,
+              "reps": "8-10",
+              "rpe": "10",
+              "notes": "Keep your hips as straight as you can, can sub for lying leg curl",
+              "order": 3
+            },
+            {
+              "name": "A1: Seated Calf Raise",
+              "warmupSets": "1",
+              "sets": 2,
+              "reps": "10-12",
+              "rpe": "9-10",
+              "notes": "Press all the way up to your toes, stretch your calves at the bottom, don't bounce",
+              "order": 4
+            },
+            {
+              "name": "A2: Two-Arms Two-Legs Dead Bug",
+              "warmupSets": "1",
+              "sets": 2,
+              "reps": "10-12",
+              "rpe": "9-10",
+              "notes": "Perform these slowly, focus on keeping your lower back against the ground throughout the set",
+              "order": 5
+            }
+          ]
+        },
+        {
+          "day": "Push",
+          "exercises": [
+            {
+              "name": "Standing DB Arnold Press",
+              "warmupSets": "2",
+              "sets": 2,
+              "reps": "10-12",
+              "rpe": "9-10",
+              "notes": "Start with your elbows in front of you and palms facing in. Rotate the dumbbells so that your palms face forward as you press.",
+              "order": 1
+            },
+            {
+              "name": "Cable Chest Press",
+              "warmupSets": "2",
+              "sets": 2,
+              "reps": "10-12 (dropset)",
+              "rpe": "9-10",
+              "notes": "Can be performed seated or standing. Focus on squeezing your chest. Last set only do a dropset: perform 10-12 reps, drop the weight by ~50%, perform an additional 10-12 reps.",
+              "order": 2
+            },
+            {
+              "name": "DB Triceps Kickback",
+              "warmupSets": "1",
+              "sets": 2,
+              "reps": "10-12 (dropset)",
+              "rpe": "9-10",
+              "notes": "Lean slightly forward, lock your elbow behind your torso (shoulder hyperextension). Last set only do a dropset: perform 10-12 reps, drop the weight by ~50%, perform an additional 10-12 reps.",
+              "order": 3
+            },
+            {
+              "name": "Close-Grip Push Up",
+              "warmupSets": "1",
+              "sets": 1,
+              "reps": "Failure",
+              "rpe": "10",
+              "notes": "Hands slightly narrower than shoulder width. Keep your elbows tucked in close to your torso. As many reps as possible!",
+              "order": 4
+            },
+            {
+              "name": "Machine Lateral Raise",
+              "warmupSets": "1",
+              "sets": 2,
+              "reps": "10-12",
+              "rpe": "10",
+              "notes": "Focus on squeezing your lateral delt to move the weight",
+              "order": 5
+            }
+          ]
+        },
+        {
+          "day": "Pull",
+          "exercises": [
+            {
+              "name": "1-Arm Half-Kneeling Lat Pulldown",
+              "warmupSets": "1",
+              "sets": 1,
+              "reps": "10-12",
+              "rpe": "7-8",
+              "notes": "Keep chest tall, keep elbow tucked in close to your torso, focus on squeezing your lat to move the weight",
+              "order": 1
+            },
+            {
+              "name": "Neutral-Grip Lat Pulldown",
+              "warmupSets": "2",
+              "sets": 3,
+              "reps": "8-10 (dropset)",
+              "rpe": "9-10",
+              "notes": "Pull your elbows down against your sides. Last set only do a dropset: perform 8-10 reps, drop the weight by ~50%, perform an additional 8-10 reps.",
+              "order": 2
+            },
+            {
+              "name": "Meadows Row",
+              "warmupSets": "2",
+              "sets": 2,
+              "reps": "10-12",
+              "rpe": "9-10",
+              "notes": "Brace with your non-working hand against your knee, stay light, emphasize form",
+              "order": 3
+            },
+            {
+              "name": "Inverse Zottman Curl",
+              "warmupSets": "1",
+              "sets": 2,
+              "reps": "10-12 (dropset)",
+              "rpe": "10",
+              "notes": "Hammer curl on concentric, supinated curl (palms up) on the eccentric. Last set only do a dropset: perform 10-12 reps, drop the weight by ~50%, perform an additional 10-12 reps.",
+              "order": 4
+            },
+            {
+              "name": "Bent-Over Reverse DB Flye",
+              "warmupSets": "1",
+              "sets": 2,
+              "reps": "15-20",
+              "rpe": "10",
+              "notes": "Mind-muscle connection with rear delts, sweep the weight out",
+              "order": 5
+            }
+          ]
+        },
+        {
+          "day": "Legs",
+          "exercises": [
+            {
+              "name": "Romanian Deadlift",
+              "warmupSets": "2",
+              "sets": 2,
+              "reps": "10-12",
+              "rpe": "8-9",
+              "notes": "Maintain a neutral lower back, set your hips back, don't allow your spine to round",
+              "order": 1
+            },
+            {
+              "name": "DB Walking Lunge",
+              "warmupSets": "2",
+              "sets": 3,
+              "reps": "8-10",
+              "rpe": "8-9",
+              "notes": "Take medium strides, minimize the amount you push off your rear leg",
+              "order": 2
+            },
+            {
+              "name": "Leg Extension",
+              "warmupSets": "1",
+              "sets": 1,
+              "reps": "12-15 (dropset)",
+              "rpe": "9-10",
+              "notes": "Dropset: perform 12-15 reps, drop the weight by ~50%, perform an additional 12-15 reps. Focus on squeezing your quads to make the weight move.",
+              "order": 3
+            },
+            {
+              "name": "A1: Standing Calf Raise",
+              "warmupSets": "1",
+              "sets": 2,
+              "reps": "15-20",
+              "rpe": "10",
+              "notes": "Press all the way up to your toes, stretch your calves at the bottom, don't bounce",
+              "order": 4
+            },
+            {
+              "name": "A2: Plate-Weighted Crunch",
+              "warmupSets": "1",
+              "sets": 2,
+              "reps": "12-15",
+              "rpe": "10",
+              "notes": "Hold a plate or DB to your chest and crunch hard!",
+              "order": 5
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "week": 11,
+      "days": [
+        {
+          "day": "Upper",
+          "exercises": [
+            {
+              "name": "Machine Chest Press (Heavy)",
+              "warmupSets": "2-3",
+              "sets": 1,
+              "reps": "4-6",
+              "rpe": "8-9",
+              "notes": "Focus on squeezing your chest",
+              "order": 1
+            },
+            {
+              "name": "Machine Chest Press (Back off)",
+              "warmupSets": "0",
+              "sets": 1,
+              "reps": "8-10",
+              "rpe": "9-10",
+              "notes": "Focus on squeezing your chest",
+              "order": 2
+            },
+            {
+              "name": "Machine Pulldown",
+              "warmupSets": "2",
+              "sets": 2,
+              "reps": "10-12 (dropset)",
+              "rpe": "9-10",
+              "notes": "Think about pulling your elbows \"down\" and \"in\". Last set only do a dropset: perform 10-12 reps, drop the weight by ~50%, perform an additional 10-12 reps.",
+              "order": 3
+            },
+            {
+              "name": "Cable Shoulder Press",
+              "warmupSets": "1",
+              "sets": 2,
+              "reps": "12-15 (dropset)",
+              "rpe": "9-10",
+              "notes": "Bring cables all the way down to shoulder height, keep torso upright. Last set only do a dropset: perform 12-15 reps, drop the weight by ~50%, perform an additional 12-15 reps.",
+              "order": 4
+            },
+            {
+              "name": "Helms DB Row",
+              "warmupSets": "1",
+              "sets": 2,
+              "reps": "10-12",
+              "rpe": "9-10",
+              "notes": "Be ultra strict with form, drive elbows out and back at 45 degree angle",
+              "order": 5
+            },
+            {
+              "name": "A1: Overhead Cable Triceps Extension",
+              "warmupSets": "1",
+              "sets": 2,
+              "reps": "12-15",
+              "rpe": "10",
+              "notes": "Do both arms at once, resist the negative",
+              "order": 6
+            },
+            {
+              "name": "A2: Cable EZ Curl",
+              "warmupSets": "1",
+              "sets": 2,
+              "reps": "12-15",
+              "rpe": "10",
+              "notes": "Focus on squeezing your biceps. Control the negative",
+              "order": 7
+            }
+          ]
+        },
+        {
+          "day": "Lower",
+          "exercises": [
+            {
+              "name": "Machine Squat (Heavy)",
+              "warmupSets": "2-3",
+              "sets": 1,
+              "reps": "4-6",
+              "rpe": "8-9",
+              "notes": "Focus on strength here. Each week add weight or reps. Keep form consistent.",
+              "order": 1
+            },
+            {
+              "name": "Machine Squat (Back off)",
+              "warmupSets": "0",
+              "sets": 1,
+              "reps": "8-10",
+              "rpe": "8-9",
+              "notes": "Drop the weight back and focus on controlling the negative. Smooth and consistent rep tempo.",
+              "order": 2
+            },
+            {
+              "name": "Nordic Ham Curl",
+              "warmupSets": "1",
+              "sets": 1,
+              "reps": "8-10",
+              "rpe": "10",
+              "notes": "Keep your hips as straight as you can, can sub for lying leg curl",
+              "order": 3
+            },
+            {
+              "name": "A1: Seated Calf Raise",
+              "warmupSets": "1",
+              "sets": 2,
+              "reps": "10-12",
+              "rpe": "9-10",
+              "notes": "Press all the way up to your toes, stretch your calves at the bottom, don't bounce",
+              "order": 4
+            },
+            {
+              "name": "A2: Two-Arms Two-Legs Dead Bug",
+              "warmupSets": "1",
+              "sets": 2,
+              "reps": "10-12",
+              "rpe": "9-10",
+              "notes": "Perform these slowly, focus on keeping your lower back against the ground throughout the set",
+              "order": 5
+            }
+          ]
+        },
+        {
+          "day": "Push",
+          "exercises": [
+            {
+              "name": "Standing DB Arnold Press",
+              "warmupSets": "2",
+              "sets": 2,
+              "reps": "10-12",
+              "rpe": "9-10",
+              "notes": "Start with your elbows in front of you and palms facing in. Rotate the dumbbells so that your palms face forward as you press.",
+              "order": 1
+            },
+            {
+              "name": "Cable Chest Press",
+              "warmupSets": "2",
+              "sets": 2,
+              "reps": "10-12 (dropset)",
+              "rpe": "9-10",
+              "notes": "Can be performed seated or standing. Focus on squeezing your chest. Last set only do a dropset: perform 10-12 reps, drop the weight by ~50%, perform an additional 10-12 reps.",
+              "order": 2
+            },
+            {
+              "name": "DB Triceps Kickback",
+              "warmupSets": "1",
+              "sets": 2,
+              "reps": "10-12 (dropset)",
+              "rpe": "9-10",
+              "notes": "Lean slightly forward, lock your elbow behind your torso (shoulder hyperextension). Last set only do a dropset: perform 10-12 reps, drop the weight by ~50%, perform an additional 10-12 reps.",
+              "order": 3
+            },
+            {
+              "name": "Close-Grip Push Up",
+              "warmupSets": "1",
+              "sets": 1,
+              "reps": "Failure",
+              "rpe": "10",
+              "notes": "Hands slightly narrower than shoulder width. Keep your elbows tucked in close to your torso. As many reps as possible!",
+              "order": 4
+            },
+            {
+              "name": "Machine Lateral Raise",
+              "warmupSets": "1",
+              "sets": 2,
+              "reps": "10-12",
+              "rpe": "10",
+              "notes": "Focus on squeezing your lateral delt to move the weight",
+              "order": 5
+            }
+          ]
+        },
+        {
+          "day": "Pull",
+          "exercises": [
+            {
+              "name": "1-Arm Half-Kneeling Lat Pulldown",
+              "warmupSets": "1",
+              "sets": 1,
+              "reps": "10-12",
+              "rpe": "7-8",
+              "notes": "Keep chest tall, keep elbow tucked in close to your torso, focus on squeezing your lat to move the weight",
+              "order": 1
+            },
+            {
+              "name": "Neutral-Grip Lat Pulldown",
+              "warmupSets": "2",
+              "sets": 3,
+              "reps": "8-10 (dropset)",
+              "rpe": "9-10",
+              "notes": "Pull your elbows down against your sides. Last set only do a dropset: perform 8-10 reps, drop the weight by ~50%, perform an additional 8-10 reps.",
+              "order": 2
+            },
+            {
+              "name": "Meadows Row",
+              "warmupSets": "2",
+              "sets": 2,
+              "reps": "10-12",
+              "rpe": "9-10",
+              "notes": "Brace with your non-working hand against your knee, stay light, emphasize form",
+              "order": 3
+            },
+            {
+              "name": "Inverse Zottman Curl",
+              "warmupSets": "1",
+              "sets": 2,
+              "reps": "10-12 (dropset)",
+              "rpe": "10",
+              "notes": "Hammer curl on concentric, supinated curl (palms up) on the eccentric. Last set only do a dropset: perform 10-12 reps, drop the weight by ~50%, perform an additional 10-12 reps.",
+              "order": 4
+            },
+            {
+              "name": "Bent-Over Reverse DB Flye",
+              "warmupSets": "1",
+              "sets": 2,
+              "reps": "15-20",
+              "rpe": "10",
+              "notes": "Mind-muscle connection with rear delts, sweep the weight out",
+              "order": 5
+            }
+          ]
+        },
+        {
+          "day": "Legs",
+          "exercises": [
+            {
+              "name": "Romanian Deadlift",
+              "warmupSets": "2",
+              "sets": 2,
+              "reps": "10-12",
+              "rpe": "8-9",
+              "notes": "Maintain a neutral lower back, set your hips back, don't allow your spine to round",
+              "order": 1
+            },
+            {
+              "name": "DB Walking Lunge",
+              "warmupSets": "2",
+              "sets": 3,
+              "reps": "8-10",
+              "rpe": "8-9",
+              "notes": "Take medium strides, minimize the amount you push off your rear leg",
+              "order": 2
+            },
+            {
+              "name": "Leg Extension",
+              "warmupSets": "1",
+              "sets": 1,
+              "reps": "12-15 (dropset)",
+              "rpe": "9-10",
+              "notes": "Dropset: perform 12-15 reps, drop the weight by ~50%, perform an additional 12-15 reps. Focus on squeezing your quads to make the weight move.",
+              "order": 3
+            },
+            {
+              "name": "A1: Standing Calf Raise",
+              "warmupSets": "1",
+              "sets": 2,
+              "reps": "15-20",
+              "rpe": "10",
+              "notes": "Press all the way up to your toes, stretch your calves at the bottom, don't bounce",
+              "order": 4
+            },
+            {
+              "name": "A2: Plate-Weighted Crunch",
+              "warmupSets": "1",
+              "sets": 2,
+              "reps": "12-15",
+              "rpe": "10",
+              "notes": "Hold a plate or DB to your chest and crunch hard!",
+              "order": 5
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "week": 12,
+      "days": [
+        {
+          "day": "Upper",
+          "exercises": [
+            {
+              "name": "Machine Chest Press (Heavy)",
+              "warmupSets": "2-3",
+              "sets": 1,
+              "reps": "4-6",
+              "rpe": "8-9",
+              "notes": "Focus on squeezing your chest",
+              "order": 1
+            },
+            {
+              "name": "Machine Chest Press (Back off)",
+              "warmupSets": "0",
+              "sets": 1,
+              "reps": "8-10",
+              "rpe": "9-10",
+              "notes": "Focus on squeezing your chest",
+              "order": 2
+            },
+            {
+              "name": "Machine Pulldown",
+              "warmupSets": "2",
+              "sets": 2,
+              "reps": "10-12 (dropset)",
+              "rpe": "9-10",
+              "notes": "Think about pulling your elbows \"down\" and \"in\". Last set only do a dropset: perform 10-12 reps, drop the weight by ~50%, perform an additional 10-12 reps.",
+              "order": 3
+            },
+            {
+              "name": "Cable Shoulder Press",
+              "warmupSets": "1",
+              "sets": 2,
+              "reps": "12-15 (dropset)",
+              "rpe": "9-10",
+              "notes": "Bring cables all the way down to shoulder height, keep torso upright. Last set only do a dropset: perform 12-15 reps, drop the weight by ~50%, perform an additional 12-15 reps.",
+              "order": 4
+            },
+            {
+              "name": "Helms DB Row",
+              "warmupSets": "1",
+              "sets": 2,
+              "reps": "10-12",
+              "rpe": "9-10",
+              "notes": "Be ultra strict with form, drive elbows out and back at 45 degree angle",
+              "order": 5
+            },
+            {
+              "name": "A1: Overhead Cable Triceps Extension",
+              "warmupSets": "1",
+              "sets": 2,
+              "reps": "12-15",
+              "rpe": "10",
+              "notes": "Do both arms at once, resist the negative",
+              "order": 6
+            },
+            {
+              "name": "A2: Cable EZ Curl",
+              "warmupSets": "1",
+              "sets": 2,
+              "reps": "12-15",
+              "rpe": "10",
+              "notes": "Focus on squeezing your biceps. Control the negative",
+              "order": 7
+            }
+          ]
+        },
+        {
+          "day": "Lower",
+          "exercises": [
+            {
+              "name": "Machine Squat (Heavy)",
+              "warmupSets": "2-3",
+              "sets": 1,
+              "reps": "4-6",
+              "rpe": "8-9",
+              "notes": "Focus on strength here. Each week add weight or reps. Keep form consistent.",
+              "order": 1
+            },
+            {
+              "name": "Machine Squat (Back off)",
+              "warmupSets": "0",
+              "sets": 1,
+              "reps": "8-10",
+              "rpe": "8-9",
+              "notes": "Drop the weight back and focus on controlling the negative. Smooth and consistent rep tempo.",
+              "order": 2
+            },
+            {
+              "name": "Nordic Ham Curl",
+              "warmupSets": "1",
+              "sets": 1,
+              "reps": "8-10",
+              "rpe": "10",
+              "notes": "Keep your hips as straight as you can, can sub for lying leg curl",
+              "order": 3
+            },
+            {
+              "name": "A1: Seated Calf Raise",
+              "warmupSets": "1",
+              "sets": 2,
+              "reps": "10-12",
+              "rpe": "9-10",
+              "notes": "Press all the way up to your toes, stretch your calves at the bottom, don't bounce",
+              "order": 4
+            },
+            {
+              "name": "A2: Two-Arms Two-Legs Dead Bug",
+              "warmupSets": "1",
+              "sets": 2,
+              "reps": "10-12",
+              "rpe": "9-10",
+              "notes": "Perform these slowly, focus on keeping your lower back against the ground throughout the set",
+              "order": 5
+            }
+          ]
+        },
+        {
+          "day": "Push",
+          "exercises": [
+            {
+              "name": "Standing DB Arnold Press",
+              "warmupSets": "2",
+              "sets": 2,
+              "reps": "10-12",
+              "rpe": "9-10",
+              "notes": "Start with your elbows in front of you and palms facing in. Rotate the dumbbells so that your palms face forward as you press.",
+              "order": 1
+            },
+            {
+              "name": "Cable Chest Press",
+              "warmupSets": "2",
+              "sets": 2,
+              "reps": "10-12 (dropset)",
+              "rpe": "9-10",
+              "notes": "Can be performed seated or standing. Focus on squeezing your chest. Last set only do a dropset: perform 10-12 reps, drop the weight by ~50%, perform an additional 10-12 reps.",
+              "order": 2
+            },
+            {
+              "name": "DB Triceps Kickback",
+              "warmupSets": "1",
+              "sets": 2,
+              "reps": "10-12 (dropset)",
+              "rpe": "9-10",
+              "notes": "Lean slightly forward, lock your elbow behind your torso (shoulder hyperextension). Last set only do a dropset: perform 10-12 reps, drop the weight by ~50%, perform an additional 10-12 reps.",
+              "order": 3
+            },
+            {
+              "name": "Close-Grip Push Up",
+              "warmupSets": "1",
+              "sets": 1,
+              "reps": "Failure",
+              "rpe": "10",
+              "notes": "Hands slightly narrower than shoulder width. Keep your elbows tucked in close to your torso. As many reps as possible!",
+              "order": 4
+            },
+            {
+              "name": "Machine Lateral Raise",
+              "warmupSets": "1",
+              "sets": 2,
+              "reps": "10-12",
+              "rpe": "10",
+              "notes": "Focus on squeezing your lateral delt to move the weight",
+              "order": 5
+            }
+          ]
+        },
+        {
+          "day": "Pull",
+          "exercises": [
+            {
+              "name": "1-Arm Half-Kneeling Lat Pulldown",
+              "warmupSets": "1",
+              "sets": 1,
+              "reps": "10-12",
+              "rpe": "7-8",
+              "notes": "Keep chest tall, keep elbow tucked in close to your torso, focus on squeezing your lat to move the weight",
+              "order": 1
+            },
+            {
+              "name": "Neutral-Grip Lat Pulldown",
+              "warmupSets": "2",
+              "sets": 3,
+              "reps": "8-10 (dropset)",
+              "rpe": "9-10",
+              "notes": "Pull your elbows down against your sides. Last set only do a dropset: perform 8-10 reps, drop the weight by ~50%, perform an additional 8-10 reps.",
+              "order": 2
+            },
+            {
+              "name": "Meadows Row",
+              "warmupSets": "2",
+              "sets": 2,
+              "reps": "10-12",
+              "rpe": "9-10",
+              "notes": "Brace with your non-working hand against your knee, stay light, emphasize form",
+              "order": 3
+            },
+            {
+              "name": "Inverse Zottman Curl",
+              "warmupSets": "1",
+              "sets": 2,
+              "reps": "10-12 (dropset)",
+              "rpe": "10",
+              "notes": "Hammer curl on concentric, supinated curl (palms up) on the eccentric. Last set only do a dropset: perform 10-12 reps, drop the weight by ~50%, perform an additional 10-12 reps.",
+              "order": 4
+            },
+            {
+              "name": "Bent-Over Reverse DB Flye",
+              "warmupSets": "1",
+              "sets": 2,
+              "reps": "15-20",
+              "rpe": "10",
+              "notes": "Mind-muscle connection with rear delts, sweep the weight out",
+              "order": 5
+            }
+          ]
+        },
+        {
+          "day": "Legs",
+          "exercises": [
+            {
+              "name": "Romanian Deadlift",
+              "warmupSets": "2",
+              "sets": 2,
+              "reps": "10-12",
+              "rpe": "8-9",
+              "notes": "Maintain a neutral lower back, set your hips back, don't allow your spine to round",
+              "order": 1
+            },
+            {
+              "name": "DB Walking Lunge",
+              "warmupSets": "2",
+              "sets": 3,
+              "reps": "8-10",
+              "rpe": "8-9",
+              "notes": "Take medium strides, minimize the amount you push off your rear leg",
+              "order": 2
+            },
+            {
+              "name": "Leg Extension",
+              "warmupSets": "1",
+              "sets": 1,
+              "reps": "12-15 (dropset)",
+              "rpe": "9-10",
+              "notes": "Dropset: perform 12-15 reps, drop the weight by ~50%, perform an additional 12-15 reps. Focus on squeezing your quads to make the weight move.",
+              "order": 3
+            },
+            {
+              "name": "A1: Standing Calf Raise",
+              "warmupSets": "1",
+              "sets": 2,
+              "reps": "15-20",
+              "rpe": "10",
+              "notes": "Press all the way up to your toes, stretch your calves at the bottom, don't bounce",
+              "order": 4
+            },
+            {
+              "name": "A2: Plate-Weighted Crunch",
+              "warmupSets": "1",
+              "sets": 2,
+              "reps": "12-15",
+              "rpe": "10",
+              "notes": "Hold a plate or DB to your chest and crunch hard!",
+              "order": 5
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

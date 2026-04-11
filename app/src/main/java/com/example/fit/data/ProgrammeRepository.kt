@@ -172,7 +172,26 @@ class ProgrammeRepository(
         return root.toString(2)
     }
 
+    fun getAvailableProgrammes(): LiveData<List<Programme>> = programmeDao.getAll()
+
+    suspend fun preloadProgrammes() {
+        for ((name, assetFile) in BUNDLED_PROGRAMMES) {
+            if (programmeExists(name)) continue
+            val json = context.assets.open(assetFile).bufferedReader().use { it.readText() }
+            val exercises = parseProgramme(json).map { it.copy(programmeName = name) }
+            dao.insertAll(exercises)
+            programmeDao.upsert(Programme(name = name, importedAt = Instant.now().toString()))
+        }
+    }
+
     companion object {
+        val BUNDLED_PROGRAMMES = listOf(
+            "Essentials 2x" to "essentials_2x.json",
+            "Essentials 3x" to "essentials_3x.json",
+            "Essentials 4x" to "essentials_4x.json",
+            "Essentials 5x" to "essentials_5x.json",
+        )
+
         fun parseProgramme(json: String): List<Exercise> {
             val root = JSONObject(json)
             val weeks = root.getJSONArray("weeks")

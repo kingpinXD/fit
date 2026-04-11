@@ -46,10 +46,12 @@ import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.AlertDialog
 import androidx.compose.material3.OutlinedButton
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.OutlinedTextFieldDefaults
 import androidx.compose.material3.Text
+import androidx.compose.material3.TextButton
 import androidx.compose.material3.TextField
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
@@ -77,6 +79,7 @@ import com.example.fit.ProgrammeViewModel
 import com.example.fit.data.Exercise
 import com.example.fit.data.ExerciseHistoryEntry
 import com.example.fit.data.ExerciseLog
+import com.example.fit.data.Programme
 import com.example.fit.data.ProgrammeNameNormalizer
 import com.example.fit.ui.theme.LocalFitSizing
 import com.example.fit.ui.theme.RpePurple
@@ -347,12 +350,45 @@ private fun ImportScreen(viewModel: ProgrammeViewModel) {
 
         Spacer(modifier = Modifier.height(48.dp))
 
+        val availableProgrammes by viewModel.availableProgrammes.observeAsState(emptyList())
+        var showProgrammeDialog by remember { mutableStateOf(false) }
+
+        if (showProgrammeDialog && availableProgrammes.isNotEmpty()) {
+            ProgrammePickerDialog(
+                programmes = availableProgrammes,
+                onSelect = { programme ->
+                    viewModel.switchProgramme(programme.name)
+                    showProgrammeDialog = false
+                },
+                onDismiss = { showProgrammeDialog = false }
+            )
+        }
+
         if (importing) {
             CircularProgressIndicator(
                 color = Color.White,
                 modifier = Modifier.size(48.dp)
             )
         } else {
+            Button(
+                onClick = { showProgrammeDialog = true },
+                colors = ButtonDefaults.buttonColors(
+                    containerColor = MaterialTheme.colorScheme.primary
+                ),
+                shape = RoundedCornerShape(12.dp),
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .height(52.dp)
+            ) {
+                Text(
+                    text = "USE EXISTING",
+                    fontWeight = FontWeight.SemiBold,
+                    fontSize = 16.sp
+                )
+            }
+
+            Spacer(modifier = Modifier.height(12.dp))
+
             OutlinedButton(
                 onClick = { filePicker.launch("*/*") },
                 colors = ButtonDefaults.outlinedButtonColors(contentColor = Color.White),
@@ -372,6 +408,39 @@ private fun ImportScreen(viewModel: ProgrammeViewModel) {
             }
         }
     }
+}
+
+@Composable
+internal fun ProgrammePickerDialog(
+    programmes: List<Programme>,
+    onSelect: (Programme) -> Unit,
+    onDismiss: () -> Unit
+) {
+    AlertDialog(
+        onDismissRequest = onDismiss,
+        title = { Text("Select Programme") },
+        text = {
+            Column {
+                programmes.forEach { programme ->
+                    Text(
+                        text = programme.name,
+                        color = Color.White,
+                        fontSize = 16.sp,
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .clickable { onSelect(programme) }
+                            .padding(vertical = 12.dp)
+                    )
+                }
+            }
+        },
+        confirmButton = {},
+        dismissButton = {
+            TextButton(onClick = onDismiss) {
+                Text("Cancel")
+            }
+        }
+    )
 }
 
 private fun advanceToNext(

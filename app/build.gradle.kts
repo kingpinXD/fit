@@ -13,8 +13,8 @@ android {
         applicationId = "com.example.fit"
         minSdk = 26
         targetSdk = 34
-        versionCode = 2
-        versionName = "1.1.0"
+        versionCode = 3
+        versionName = "1.2.0"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
@@ -113,6 +113,7 @@ dependencies {
     debugImplementation("androidx.compose.ui:ui-tooling")
 
     // Testing
+    testImplementation("org.json:json:20231013")
     testImplementation("junit:junit:4.13.2")
     testImplementation("org.robolectric:robolectric:4.11.1")
     testImplementation("androidx.test:core-ktx:1.5.0")
