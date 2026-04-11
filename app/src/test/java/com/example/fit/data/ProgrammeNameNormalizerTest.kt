@@ -11,7 +11,7 @@ class ProgrammeNameNormalizerTest {
     @Test
     fun `essentials program 2x`() {
         assertEquals(
-            "the_essentials_2x",
+            "essentials_2x",
             ProgrammeNameNormalizer.normalize("The Essentials Program 2x.xlsx")
         )
     }
@@ -19,7 +19,7 @@ class ProgrammeNameNormalizerTest {
     @Test
     fun `essentials program 5x`() {
         assertEquals(
-            "the_essentials_5x",
+            "essentials_5x",
             ProgrammeNameNormalizer.normalize("The Essentials Program 5x.xlsx")
         )
     }
@@ -99,7 +99,7 @@ class ProgrammeNameNormalizerTest {
     @Test
     fun `ultimate push pull legs system 4x`() {
         assertEquals(
-            "the_ultimate_push_pull_legs_system_4x",
+            "ultimate_push_pull_legs_system_4x",
             ProgrammeNameNormalizer.normalize("The_Ultimate_Push_Pull_Legs_System_-_4x.xlsx")
         )
     }
@@ -107,7 +107,7 @@ class ProgrammeNameNormalizerTest {
     @Test
     fun `essentials program no variant`() {
         assertEquals(
-            "the_essentials",
+            "essentials",
             ProgrammeNameNormalizer.normalize("The Essentials Program.xlsx")
         )
     }

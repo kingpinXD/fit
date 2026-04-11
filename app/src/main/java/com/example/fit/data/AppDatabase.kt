@@ -99,6 +99,9 @@ interface ExerciseDao {
 
     @Query("DELETE FROM exercises WHERE programmeName = :programmeName")
     suspend fun deleteByProgramme(programmeName: String)
+
+    @Query("UPDATE exercises SET programmeName = :newName WHERE programmeName = :oldName")
+    suspend fun renameProgramme(oldName: String, newName: String)
 }
 
 data class ExerciseHistoryEntry(

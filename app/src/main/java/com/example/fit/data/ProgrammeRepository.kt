@@ -175,6 +175,9 @@ class ProgrammeRepository(
     fun getAvailableProgrammes(): LiveData<List<Programme>> = programmeDao.getAll()
 
     suspend fun preloadProgrammes() {
+        // Clean up old duplicate names (e.g. "the_essentials_5x" → "essentials_5x")
+        cleanupLegacyNames()
+
         for ((name, assetFile) in BUNDLED_PROGRAMMES) {
             if (programmeExists(name)) continue
             val json = context.assets.open(assetFile).bufferedReader().use { it.readText() }
@@ -184,13 +187,39 @@ class ProgrammeRepository(
         }
     }
 
+    private suspend fun cleanupLegacyNames() {
+        // Map of old names to new normalized names
+        val legacyMap = mapOf(
+            "the_essentials_2x" to "essentials_2x",
+            "the_essentials_3x" to "essentials_3x",
+            "the_essentials_4x" to "essentials_4x",
+            "the_essentials_5x" to "essentials_5x",
+            "Essentials 2x" to "essentials_2x",
+            "Essentials 3x" to "essentials_3x",
+            "Essentials 4x" to "essentials_4x",
+            "Essentials 5x" to "essentials_5x",
+        )
+        for ((oldName, newName) in legacyMap) {
+            if (!programmeExists(oldName)) continue
+            // Rename exercises
+            dao.renameProgramme(oldName, newName)
+            // Update programme registry
+            programmeDao.delete(oldName)
+            programmeDao.upsert(Programme(name = newName, importedAt = Instant.now().toString()))
+            // Update active programme name if it matches
+            if (getProgrammeName() == oldName) {
+                setProgrammeName(newName)
+            }
+        }
+    }
+
     companion object {
         val BUNDLED_PROGRAMMES = listOf(
-            "Essentials 2x" to "essentials_2x.json",
-            "Essentials 3x" to "essentials_3x.json",
-            "Essentials 4x" to "essentials_4x.json",
-            "Essentials 5x" to "essentials_5x.json",
-        )
+            "essentials_2x.json",
+            "essentials_3x.json",
+            "essentials_4x.json",
+            "essentials_5x.json",
+        ).map { ProgrammeNameNormalizer.normalize(it) to it }
 
         fun parseProgramme(json: String): List<Exercise> {
             val root = JSONObject(json)

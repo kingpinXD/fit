@@ -2,7 +2,7 @@ package com.example.fit.data
 
 object ProgrammeNameNormalizer {
 
-    private val NOISE_WORDS = setOf("edited", "spreadsheet", "sheet", "program")
+    private val NOISE_WORDS = setOf("the", "edited", "spreadsheet", "sheet", "program")
 
     /**
      * Normalizes a filename into a clean programme name.
