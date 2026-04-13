@@ -54,6 +54,14 @@ class PreloadProgrammesTest {
     }
 
     @Test
+    fun `parse essentials 4x has four distinct days`() {
+        val json = loadResource("essentials_4x.json")
+        val exercises = ProgrammeRepository.parseProgramme(json)
+        val week1Days = exercises.filter { it.weekNumber == 1 }.map { it.dayName }.distinct()
+        assertEquals(listOf("Upper", "Lower", "Upper #2", "Lower #2"), week1Days)
+    }
+
+    @Test
     fun `parse essentials 5x has five distinct days`() {
         val json = loadResource("essentials_5x.json")
         val exercises = ProgrammeRepository.parseProgramme(json)

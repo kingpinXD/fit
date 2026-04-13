@@ -38,7 +38,7 @@ class ProgrammeRepository(
         dao.getCompletedWeeks(name)
 
     suspend fun programmeExists(name: String): Boolean =
-        programmeDao.exists(name)
+        programmeDao.exists(name) || dao.countByProgramme(name) > 0
 
     suspend fun importProgrammeFromJson(json: String, name: String): ImportResult {
         if (programmeExists(name)) {

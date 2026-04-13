@@ -114,21 +114,35 @@ class XlsxParserTest {
     // --- essentials_4x ---
 
     @Test
-    fun `parse essentials 4x - upper lower split`() {
+    fun `parse essentials 4x - upper lower split with unique names`() {
         val exercises = XlsxParser.parse(loadResource("essentials_4x.xlsx"))
         val week1Days = exercises.filter { it.weekNumber == 1 }.map { it.dayName }.distinct()
-        assertTrue(week1Days.all { it in listOf("Upper", "Lower") })
+        assertEquals(4, week1Days.size)
+        assertTrue(week1Days.containsAll(listOf("Upper", "Lower", "Upper #2", "Lower #2")))
     }
 
     @Test
     fun `parse essentials 4x - four sessions per week`() {
         val exercises = XlsxParser.parse(loadResource("essentials_4x.xlsx"))
-        // 4x has two Upper and two Lower sessions per week
-        val week1Upper = exercises.filter { it.weekNumber == 1 && it.dayName == "Upper" }
-        val week1Lower = exercises.filter { it.weekNumber == 1 && it.dayName == "Lower" }
-        // First Upper = 7 exercises, second Upper = 8 exercises
-        assertTrue("Should have exercises from both Upper sessions", week1Upper.size > 7)
-        assertTrue("Should have exercises from both Lower sessions", week1Lower.size > 5)
+        val week1Upper1 = exercises.filter { it.weekNumber == 1 && it.dayName == "Upper" }
+        val week1Upper2 = exercises.filter { it.weekNumber == 1 && it.dayName == "Upper #2" }
+        val week1Lower1 = exercises.filter { it.weekNumber == 1 && it.dayName == "Lower" }
+        val week1Lower2 = exercises.filter { it.weekNumber == 1 && it.dayName == "Lower #2" }
+        assertEquals(7, week1Upper1.size)
+        assertEquals(7, week1Upper2.size)
+        assertEquals(5, week1Lower1.size)
+        assertEquals(5, week1Lower2.size)
+    }
+
+    @Test
+    fun `parse essentials 4x - four unique day names per week`() {
+        val exercises = XlsxParser.parse(loadResource("essentials_4x.xlsx"))
+        val week1Days = exercises.filter { it.weekNumber == 1 }.map { it.dayName }.distinct()
+        assertEquals(4, week1Days.size)
+        assertTrue(week1Days.contains("Upper"))
+        assertTrue(week1Days.contains("Lower"))
+        assertTrue(week1Days.contains("Upper #2"))
+        assertTrue(week1Days.contains("Lower #2"))
     }
 
     // --- ppl_5x ---

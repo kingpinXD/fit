@@ -61,6 +61,9 @@ def parse_programme(xlsx_path: str) -> dict:
     weeks = []
     current_week = None
     current_day = None
+    # Track day name occurrences within a week to disambiguate duplicates
+    # (e.g., 4x has Upper, Lower, Upper, Lower → Upper, Lower, Upper #2, Lower #2)
+    day_counts_per_week = {}
 
     for row in ws.iter_rows(min_row=1, max_row=ws.max_row, min_col=2, max_col=12):
         col_b = row[0].value   # Column B
@@ -80,6 +83,7 @@ def parse_programme(xlsx_path: str) -> dict:
                 current_week = {"week": int(week_match.group(1)), "days": []}
                 weeks.append(current_week)
                 current_day = None
+                day_counts_per_week = {}
                 continue
 
             # Skip header rows and rest days
@@ -88,7 +92,10 @@ def parse_programme(xlsx_path: str) -> dict:
 
             # Day label row — any non-week, non-skip value in column B with an exercise in C
             if current_week is not None:
-                current_day = {"day": col_b, "exercises": []}
+                count = day_counts_per_week.get(col_b, 0) + 1
+                day_counts_per_week[col_b] = count
+                unique_day_name = f"{col_b} #{count}" if count > 1 else col_b
+                current_day = {"day": unique_day_name, "exercises": []}
                 current_week["days"].append(current_day)
                 if col_c and col_e is not None:
                     current_day["exercises"].append(

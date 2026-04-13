@@ -63,6 +63,9 @@ interface ExerciseDao {
     @Query("SELECT COUNT(*) FROM exercises WHERE programmeName = :programmeName")
     fun countLive(programmeName: String): LiveData<Int>
 
+    @Query("SELECT COUNT(*) FROM exercises WHERE programmeName = :programmeName")
+    suspend fun countByProgramme(programmeName: String): Int
+
     @Query("SELECT * FROM exercises WHERE programmeName = :programmeName ORDER BY weekNumber, id")
     suspend fun getAllExercises(programmeName: String): List<Exercise>
 

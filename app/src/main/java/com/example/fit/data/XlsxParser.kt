@@ -35,6 +35,9 @@ object XlsxParser {
         // Track exercise count per (week, dayName) so the 4x program's repeated
         // "Upper"/"Lower" sessions within the same week get continuous indices.
         val dayCounters = mutableMapOf<String, Int>()
+        // Track day name occurrences within a week to disambiguate duplicates
+        // (e.g., 4x has Upper, Lower, Upper, Lower → Upper, Lower, Upper #2, Lower #2)
+        val dayCountsPerWeek = mutableMapOf<String, Int>()
 
         for (row in sheet) {
             val labelCol = getCellString(row.getCell(offset))
@@ -47,12 +50,16 @@ object XlsxParser {
                 if (weekMatch != null) {
                     currentWeek = weekMatch.groupValues[1].toInt()
                     currentDay = null
+                    dayCountsPerWeek.clear()
                     continue
                 }
 
                 // Check for day label: non-week, non-skip, non-rest-day text
                 if (isDayName(labelCol) && currentWeek != null) {
-                    currentDay = labelCol.trim()
+                    val dayLabel = labelCol.trim()
+                    val count = (dayCountsPerWeek[dayLabel] ?: 0) + 1
+                    dayCountsPerWeek[dayLabel] = count
+                    currentDay = if (count > 1) "$dayLabel #$count" else dayLabel
 
                     // First exercise may be on the same row as the day label
                     if (exerciseCol.isNotBlank()) {
