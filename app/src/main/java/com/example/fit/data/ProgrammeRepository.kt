@@ -178,12 +178,32 @@ class ProgrammeRepository(
         // Clean up old duplicate names (e.g. "the_essentials_5x" → "essentials_5x")
         cleanupLegacyNames()
 
+        // Deduplicate exercises that may have been doubled by previous versions
+        deduplicateExercises()
+
         for ((name, assetFile) in BUNDLED_PROGRAMMES) {
             if (programmeExists(name)) continue
             val json = context.assets.open(assetFile).bufferedReader().use { it.readText() }
             val exercises = parseProgramme(json).map { it.copy(programmeName = name) }
             dao.insertAll(exercises)
             programmeDao.upsert(Programme(name = name, importedAt = Instant.now().toString()))
+        }
+    }
+
+    private suspend fun deduplicateExercises() {
+        for ((name, _) in BUNDLED_PROGRAMMES) {
+            val expected = when {
+                name.contains("2x") -> 180
+                name.contains("3x") -> 240
+                name.contains("4x") -> 288
+                name.contains("5x") -> 324
+                else -> continue
+            }
+            val actual = dao.countByProgramme(name)
+            if (actual > expected) {
+                // Delete duplicates: keep the lowest IDs, remove the rest
+                dao.deduplicateByProgramme(name, expected)
+            }
         }
     }
 
