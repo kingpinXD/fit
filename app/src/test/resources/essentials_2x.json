@@ -14,7 +14,12 @@
               "reps": "4-6",
               "rpe": "8-9",
               "notes": "Focus on strength here. Each week add weight or reps. Keep form consistent.",
-              "order": 1
+              "order": 1,
+              "sub1": "Machine Chest Press",
+              "sub2": "Weighted Dip",
+              "videoUrl": "https://youtu.be/URQ1Wn7lY3A",
+              "sub1VideoUrl": "https://youtu.be/k1S_Any3NIA?t=240",
+              "sub2VideoUrl": "https://youtu.be/yN6Q1UI_xkE?t=75"
             },
             {
               "name": "Flat DB Press (Back off)",
@@ -23,7 +28,12 @@
               "reps": "8-10",
               "rpe": "9-10",
               "notes": "Focus on mind-muscle connection with pecs. Drop the weight back and focus on stretch and squeeze!",
-              "order": 2
+              "order": 2,
+              "sub1": "Machine Chest Press",
+              "sub2": "Weighted Dip",
+              "videoUrl": "https://youtu.be/URQ1Wn7lY3A",
+              "sub1VideoUrl": "https://youtu.be/k1S_Any3NIA?t=240",
+              "sub2VideoUrl": "https://youtu.be/yN6Q1UI_xkE?t=75"
             },
             {
               "name": "Romanian Deadlift",
@@ -32,7 +42,12 @@
               "reps": "8-10",
               "rpe": "8-9",
               "notes": "Maintain a neutral lower back, set your hips back, squeeze your hamstrings to move the weight",
-              "order": 3
+              "order": 3,
+              "sub1": "DB Romanian Deadlift",
+              "sub2": "45\u00b0 Hyperextension",
+              "videoUrl": "https://youtu.be/_oyxCn2iSjU?t=95",
+              "sub1VideoUrl": "https://youtu.be/V5u2AP9wBwE",
+              "sub2VideoUrl": "https://youtu.be/J46aPqFl0WE?t=178"
             },
             {
               "name": "2-Grip Lat Pulldown",
@@ -41,7 +56,12 @@
               "reps": "10-12",
               "rpe": "9-10",
               "notes": "Do first set wide overhand (1.5x shoulder width), second set underhand (1x shoulder width)",
-              "order": 4
+              "order": 4,
+              "sub1": "2-Grip Pull-up",
+              "sub2": "Machine Pulldown",
+              "videoUrl": "https://youtu.be/QGKhvhMcpPQ",
+              "sub1VideoUrl": "https://youtu.be/AUhSQM_c1QQ",
+              "sub2VideoUrl": "https://youtu.be/j8Q50oBDK44"
             },
             {
               "name": "DB Walking Lunge",
@@ -50,7 +70,12 @@
               "reps": "8-10 per leg",
               "rpe": "9-10",
               "notes": "Take medium strides, let your torso lean forward",
-              "order": 5
+              "order": 5,
+              "sub1": "Smith Machine Lunge",
+              "sub2": "DB Step Up",
+              "videoUrl": "https://youtu.be/Y4Vv2ASsyhs?t=536",
+              "sub1VideoUrl": "https://youtu.be/QdrgSJMx7KU",
+              "sub2VideoUrl": "https://youtu.be/cP77gUDvAPA?t=745"
             },
             {
               "name": "DB Skull Crusher",
@@ -59,7 +84,12 @@
               "reps": "12-15",
               "rpe": "10",
               "notes": "Arc the dumbbells behind your head, constant tension on triceps",
-              "order": 6
+              "order": 6,
+              "sub1": "Overhead Cable Tricep Extension",
+              "sub2": "DB French Press",
+              "videoUrl": "https://youtu.be/popGXI-qs98?t=336",
+              "sub1VideoUrl": "https://youtu.be/qIW3z-ydg-M",
+              "sub2VideoUrl": "https://youtu.be/K4E8CXajqfQ"
             },
             {
               "name": "DB Lateral Raise",
@@ -68,7 +98,12 @@
               "reps": "12-15 (dropset)",
               "rpe": "10",
               "notes": "Dropset: perform 12-15 reps, drop the weight by ~50%, perform an additional 12-15 reps. Raise the dumbbells \"out\" not \"up\", mind muscle connection with middle fibers",
-              "order": 7
+              "order": 7,
+              "sub1": "Cable Lateral Raise",
+              "sub2": "Machine Lateral Raise",
+              "videoUrl": "https://youtu.be/v_ZkxWzYnMc?t=215",
+              "sub1VideoUrl": "https://youtu.be/SJqInYJcg5k?t=653",
+              "sub2VideoUrl": "https://youtu.be/-9QsrJ542ao"
             },
             {
               "name": "Seated Calf Raise",
@@ -77,7 +112,12 @@
               "reps": "12-15 (dropset)",
               "rpe": "10",
               "notes": "Dropset: perform 12-15 reps, drop the weight by ~50%, perform an additional 12-15 reps. Press all the way up to your toes, stretch your calves at the bottom, don't bounce",
-              "order": 8
+              "order": 8,
+              "sub1": "Standing Calf Raise",
+              "sub2": "Leg Press Toe Press",
+              "videoUrl": "https://youtu.be/-qsRtp_PbVM?t=311",
+              "sub1VideoUrl": "https://youtu.be/-qsRtp_PbVM?t=162",
+              "sub2VideoUrl": "https://youtu.be/VJ_9xii47Sk"
             }
           ]
         },
@@ -91,7 +131,12 @@
               "reps": "4-6",
               "rpe": "8-9",
               "notes": "Focus on strength here. Each week add weight or reps. Keep form consistent.",
-              "order": 1
+              "order": 1,
+              "sub1": "Machine Squat",
+              "sub2": "Leg Press",
+              "videoUrl": "https://youtu.be/wEgQUCdtFLg",
+              "sub1VideoUrl": "https://youtu.be/N56STpGGRYE",
+              "sub2VideoUrl": "https://youtu.be/didU4ZwAkPI?t=241"
             },
             {
               "name": "Hack Squat (Back off)",
@@ -100,7 +145,12 @@
               "reps": "8-10",
               "rpe": "8-9",
               "notes": "Drop the weight back and focus on controlling the negative. Smooth and consistent rep tempo.",
-              "order": 2
+              "order": 2,
+              "sub1": "Machine Squat",
+              "sub2": "Leg Press",
+              "videoUrl": "https://youtu.be/wEgQUCdtFLg",
+              "sub1VideoUrl": "https://youtu.be/N56STpGGRYE",
+              "sub2VideoUrl": "https://youtu.be/didU4ZwAkPI?t=241"
             },
             {
               "name": "Incline DB Press",
@@ -109,7 +159,12 @@
               "reps": "8-10",
               "rpe": "8-9",
               "notes": "Sink the dumbbells as low as you comfortably can",
-              "order": 3
+              "order": 3,
+              "sub1": "Incline Machine Press",
+              "sub2": "Incline Smith Machine Press",
+              "videoUrl": "https://www.youtube.com/watch?v=p2t9daxLpB8",
+              "sub1VideoUrl": "https://youtu.be/b8fYnZ-usP0",
+              "sub2VideoUrl": "https://youtu.be/koNxsM7rYyc"
             },
             {
               "name": "Seated Hamstring Curl",
@@ -118,7 +173,12 @@
               "reps": "10-12 (dropset)",
               "rpe": "10",
               "notes": "Dropset: perform 10-12 reps, drop the weight by ~50%, perform an additional 10-12 reps. Do seated if available. Otherwise do Lying Leg Curl or Nordic Ham Curl.",
-              "order": 4
+              "order": 4,
+              "sub1": "Nordic Ham Curl",
+              "sub2": "Lying Leg Curl",
+              "videoUrl": "https://youtu.be/2CMmuH4qJh0",
+              "sub1VideoUrl": "https://youtu.be/qVek72z3F1U?t=683",
+              "sub2VideoUrl": "https://www.youtube.com/watch?v=e_48W0vlU58&feature=youtu.be"
             },
             {
               "name": "T-Bar Row",
@@ -127,7 +187,12 @@
               "reps": "10-12",
               "rpe": "9-10",
               "notes": "Squeeze your shoulder blades at the top, control the weight",
-              "order": 5
+              "order": 5,
+              "sub1": "Helms DB Row",
+              "sub2": "Chest-Supported Machine Row",
+              "videoUrl": "https://youtu.be/ZOg0CcJCKrk",
+              "sub1VideoUrl": "https://youtu.be/axoeDmW0oAY?t=419",
+              "sub2VideoUrl": "https://youtu.be/xn42rKwqBZU"
             },
             {
               "name": "EZ Bar Curl",
@@ -136,7 +201,12 @@
               "reps": "12-15 (dropset)",
               "rpe": "10",
               "notes": "Dropset: perform 12-15 reps, drop the weight by ~50%, perform an additional 12-15 reps. Arc the bar \"out\" not \"up\", focus on squeezing your biceps",
-              "order": 6
+              "order": 6,
+              "sub1": "DB Curl",
+              "sub2": "Cable EZ-Curl",
+              "videoUrl": "https://www.youtube.com/watch?v=Dd0t5UOCEUc",
+              "sub1VideoUrl": "https://youtu.be/i1YgFZB6alI?t=487",
+              "sub2VideoUrl": "https://youtu.be/tw1h5XOD23Y"
             },
             {
               "name": "Cable Crunch",
@@ -145,7 +215,12 @@
               "reps": "12-15 (dropset)",
               "rpe": "10",
               "notes": "Dropset: perform 12-15 reps, drop the weight by ~50%, perform an additional 12-15 reps. Round your back as you crunch.",
-              "order": 7
+              "order": 7,
+              "sub1": "Machine Crunch",
+              "sub2": "Plate-weighted Crunch",
+              "videoUrl": "https://youtu.be/2RrGnjxSsiA?t=124",
+              "sub1VideoUrl": "https://youtu.be/zU6X6DLCH_U",
+              "sub2VideoUrl": "https://youtu.be/PRcz1uIkqko"
             }
           ]
         }
@@ -164,7 +239,12 @@
               "reps": "4-6",
               "rpe": "8-9",
               "notes": "Focus on strength here. Each week add weight or reps. Keep form consistent.",
-              "order": 1
+              "order": 1,
+              "sub1": "Machine Chest Press",
+              "sub2": "Weighted Dip",
+              "videoUrl": "https://youtu.be/URQ1Wn7lY3A",
+              "sub1VideoUrl": "https://youtu.be/k1S_Any3NIA?t=240",
+              "sub2VideoUrl": "https://youtu.be/yN6Q1UI_xkE?t=75"
             },
             {
               "name": "Flat DB Press (Back off)",
@@ -173,7 +253,12 @@
               "reps": "8-10",
               "rpe": "9-10",
               "notes": "Focus on mind-muscle connection with pecs. Drop the weight back and focus on stretch and squeeze!",
-              "order": 2
+              "order": 2,
+              "sub1": "Machine Chest Press",
+              "sub2": "Weighted Dip",
+              "videoUrl": "https://youtu.be/URQ1Wn7lY3A",
+              "sub1VideoUrl": "https://youtu.be/k1S_Any3NIA?t=240",
+              "sub2VideoUrl": "https://youtu.be/yN6Q1UI_xkE?t=75"
             },
             {
               "name": "Romanian Deadlift",
@@ -182,7 +267,12 @@
               "reps": "8-10",
               "rpe": "8-9",
               "notes": "Maintain a neutral lower back, set your hips back, squeeze your hamstrings to move the weight",
-              "order": 3
+              "order": 3,
+              "sub1": "DB Romanian Deadlift",
+              "sub2": "45\u00b0 Hyperextension",
+              "videoUrl": "https://youtu.be/_oyxCn2iSjU?t=95",
+              "sub1VideoUrl": "https://youtu.be/V5u2AP9wBwE",
+              "sub2VideoUrl": "https://youtu.be/J46aPqFl0WE?t=178"
             },
             {
               "name": "2-Grip Lat Pulldown",
@@ -191,7 +281,12 @@
               "reps": "10-12",
               "rpe": "9-10",
               "notes": "Do first set wide overhand (1.5x shoulder width), second set underhand (1x shoulder width)",
-              "order": 4
+              "order": 4,
+              "sub1": "2-Grip Pull-up",
+              "sub2": "Machine Pulldown",
+              "videoUrl": "https://youtu.be/QGKhvhMcpPQ",
+              "sub1VideoUrl": "https://youtu.be/AUhSQM_c1QQ",
+              "sub2VideoUrl": "https://youtu.be/j8Q50oBDK44"
             },
             {
               "name": "DB Walking Lunge",
@@ -200,7 +295,12 @@
               "reps": "8-10 per leg",
               "rpe": "9-10",
               "notes": "Take medium strides, let your torso lean forward",
-              "order": 5
+              "order": 5,
+              "sub1": "Smith Machine Lunge",
+              "sub2": "DB Step Up",
+              "videoUrl": "https://youtu.be/Y4Vv2ASsyhs?t=536",
+              "sub1VideoUrl": "https://youtu.be/QdrgSJMx7KU",
+              "sub2VideoUrl": "https://youtu.be/cP77gUDvAPA?t=745"
             },
             {
               "name": "DB Skull Crusher",
@@ -209,7 +309,12 @@
               "reps": "12-15",
               "rpe": "10",
               "notes": "Arc the dumbbells behind your head, constant tension on triceps",
-              "order": 6
+              "order": 6,
+              "sub1": "Overhead Cable Tricep Extension",
+              "sub2": "DB French Press",
+              "videoUrl": "https://youtu.be/popGXI-qs98?t=336",
+              "sub1VideoUrl": "https://youtu.be/qIW3z-ydg-M",
+              "sub2VideoUrl": "https://youtu.be/K4E8CXajqfQ"
             },
             {
               "name": "DB Lateral Raise",
@@ -218,7 +323,12 @@
               "reps": "12-15 (dropset)",
               "rpe": "10",
               "notes": "Dropset: perform 12-15 reps, drop the weight by ~50%, perform an additional 12-15 reps. Raise the dumbbells \"out\" not \"up\", mind muscle connection with middle fibers",
-              "order": 7
+              "order": 7,
+              "sub1": "Cable Lateral Raise",
+              "sub2": "Machine Lateral Raise",
+              "videoUrl": "https://youtu.be/v_ZkxWzYnMc?t=215",
+              "sub1VideoUrl": "https://youtu.be/SJqInYJcg5k?t=653",
+              "sub2VideoUrl": "https://youtu.be/-9QsrJ542ao"
             },
             {
               "name": "Seated Calf Raise",
@@ -227,7 +337,12 @@
               "reps": "12-15 (dropset)",
               "rpe": "10",
               "notes": "Dropset: perform 12-15 reps, drop the weight by ~50%, perform an additional 12-15 reps. Press all the way up to your toes, stretch your calves at the bottom, don't bounce",
-              "order": 8
+              "order": 8,
+              "sub1": "Standing Calf Raise",
+              "sub2": "Leg Press Toe Press",
+              "videoUrl": "https://youtu.be/-qsRtp_PbVM?t=311",
+              "sub1VideoUrl": "https://youtu.be/-qsRtp_PbVM?t=162",
+              "sub2VideoUrl": "https://youtu.be/VJ_9xii47Sk"
             }
           ]
         },
@@ -241,7 +356,12 @@
               "reps": "4-6",
               "rpe": "8-9",
               "notes": "Focus on strength here. Each week add weight or reps. Keep form consistent.",
-              "order": 1
+              "order": 1,
+              "sub1": "Machine Squat",
+              "sub2": "Leg Press",
+              "videoUrl": "https://youtu.be/wEgQUCdtFLg",
+              "sub1VideoUrl": "https://youtu.be/N56STpGGRYE",
+              "sub2VideoUrl": "https://youtu.be/didU4ZwAkPI?t=241"
             },
             {
               "name": "Hack Squat (Back off)",
@@ -250,7 +370,12 @@
               "reps": "8-10",
               "rpe": "8-9",
               "notes": "Drop the weight back and focus on controlling the negative. Smooth and consistent rep tempo.",
-              "order": 2
+              "order": 2,
+              "sub1": "Machine Squat",
+              "sub2": "Leg Press",
+              "videoUrl": "https://youtu.be/wEgQUCdtFLg",
+              "sub1VideoUrl": "https://youtu.be/N56STpGGRYE",
+              "sub2VideoUrl": "https://youtu.be/didU4ZwAkPI?t=241"
             },
             {
               "name": "Incline DB Press",
@@ -259,7 +384,12 @@
               "reps": "8-10",
               "rpe": "8-9",
               "notes": "Sink the dumbbells as low as you comfortably can",
-              "order": 3
+              "order": 3,
+              "sub1": "Incline Machine Press",
+              "sub2": "Incline Smith Machine Press",
+              "videoUrl": "https://www.youtube.com/watch?v=p2t9daxLpB8",
+              "sub1VideoUrl": "https://youtu.be/b8fYnZ-usP0",
+              "sub2VideoUrl": "https://youtu.be/koNxsM7rYyc"
             },
             {
               "name": "Seated Hamstring Curl",
@@ -268,7 +398,12 @@
               "reps": "10-12 (dropset)",
               "rpe": "10",
               "notes": "Dropset: perform 10-12 reps, drop the weight by ~50%, perform an additional 10-12 reps. Do seated if available. Otherwise do Lying Leg Curl or Nordic Ham Curl.",
-              "order": 4
+              "order": 4,
+              "sub1": "Nordic Ham Curl",
+              "sub2": "Lying Leg Curl",
+              "videoUrl": "https://youtu.be/2CMmuH4qJh0",
+              "sub1VideoUrl": "https://youtu.be/qVek72z3F1U?t=683",
+              "sub2VideoUrl": "https://www.youtube.com/watch?v=e_48W0vlU58&feature=youtu.be"
             },
             {
               "name": "T-Bar Row",
@@ -277,7 +412,12 @@
               "reps": "10-12",
               "rpe": "9-10",
               "notes": "Squeeze your shoulder blades at the top, control the weight",
-              "order": 5
+              "order": 5,
+              "sub1": "Helms DB Row",
+              "sub2": "Chest-Supported Machine Row",
+              "videoUrl": "https://youtu.be/ZOg0CcJCKrk",
+              "sub1VideoUrl": "https://youtu.be/axoeDmW0oAY?t=419",
+              "sub2VideoUrl": "https://youtu.be/xn42rKwqBZU"
             },
             {
               "name": "EZ Bar Curl",
@@ -286,7 +426,12 @@
               "reps": "12-15 (dropset)",
               "rpe": "10",
               "notes": "Dropset: perform 12-15 reps, drop the weight by ~50%, perform an additional 12-15 reps. Arc the bar \"out\" not \"up\", focus on squeezing your biceps",
-              "order": 6
+              "order": 6,
+              "sub1": "DB Curl",
+              "sub2": "Cable EZ-Curl",
+              "videoUrl": "https://www.youtube.com/watch?v=Dd0t5UOCEUc",
+              "sub1VideoUrl": "https://youtu.be/i1YgFZB6alI?t=487",
+              "sub2VideoUrl": "https://youtu.be/tw1h5XOD23Y"
             },
             {
               "name": "Cable Crunch",
@@ -295,7 +440,12 @@
               "reps": "12-15 (dropset)",
               "rpe": "10",
               "notes": "Dropset: perform 12-15 reps, drop the weight by ~50%, perform an additional 12-15 reps. Round your back as you crunch.",
-              "order": 7
+              "order": 7,
+              "sub1": "Machine Crunch",
+              "sub2": "Plate-weighted Crunch",
+              "videoUrl": "https://youtu.be/2RrGnjxSsiA?t=124",
+              "sub1VideoUrl": "https://youtu.be/zU6X6DLCH_U",
+              "sub2VideoUrl": "https://youtu.be/PRcz1uIkqko"
             }
           ]
         }
@@ -314,7 +464,12 @@
               "reps": "4-6",
               "rpe": "8-9",
               "notes": "Focus on strength here. Each week add weight or reps. Keep form consistent.",
-              "order": 1
+              "order": 1,
+              "sub1": "Machine Chest Press",
+              "sub2": "Weighted Dip",
+              "videoUrl": "https://youtu.be/URQ1Wn7lY3A",
+              "sub1VideoUrl": "https://youtu.be/k1S_Any3NIA?t=240",
+              "sub2VideoUrl": "https://youtu.be/yN6Q1UI_xkE?t=75"
             },
             {
               "name": "Flat DB Press (Back off)",
@@ -323,7 +478,12 @@
               "reps": "8-10",
               "rpe": "9-10",
               "notes": "Focus on mind-muscle connection with pecs. Drop the weight back and focus on stretch and squeeze!",
-              "order": 2
+              "order": 2,
+              "sub1": "Machine Chest Press",
+              "sub2": "Weighted Dip",
+              "videoUrl": "https://youtu.be/URQ1Wn7lY3A",
+              "sub1VideoUrl": "https://youtu.be/k1S_Any3NIA?t=240",
+              "sub2VideoUrl": "https://youtu.be/yN6Q1UI_xkE?t=75"
             },
             {
               "name": "Romanian Deadlift",
@@ -332,7 +492,12 @@
               "reps": "8-10",
               "rpe": "8-9",
               "notes": "Maintain a neutral lower back, set your hips back, squeeze your hamstrings to move the weight",
-              "order": 3
+              "order": 3,
+              "sub1": "DB Romanian Deadlift",
+              "sub2": "45\u00b0 Hyperextension",
+              "videoUrl": "https://youtu.be/_oyxCn2iSjU?t=95",
+              "sub1VideoUrl": "https://youtu.be/V5u2AP9wBwE",
+              "sub2VideoUrl": "https://youtu.be/J46aPqFl0WE?t=178"
             },
             {
               "name": "2-Grip Lat Pulldown",
@@ -341,7 +506,12 @@
               "reps": "10-12",
               "rpe": "9-10",
               "notes": "Do first set wide overhand (1.5x shoulder width), second set underhand (1x shoulder width)",
-              "order": 4
+              "order": 4,
+              "sub1": "2-Grip Pull-up",
+              "sub2": "Machine Pulldown",
+              "videoUrl": "https://youtu.be/QGKhvhMcpPQ",
+              "sub1VideoUrl": "https://youtu.be/AUhSQM_c1QQ",
+              "sub2VideoUrl": "https://youtu.be/j8Q50oBDK44"
             },
             {
               "name": "DB Walking Lunge",
@@ -350,7 +520,12 @@
               "reps": "8-10 per leg",
               "rpe": "9-10",
               "notes": "Take medium strides, let your torso lean forward",
-              "order": 5
+              "order": 5,
+              "sub1": "Smith Machine Lunge",
+              "sub2": "DB Step Up",
+              "videoUrl": "https://youtu.be/Y4Vv2ASsyhs?t=536",
+              "sub1VideoUrl": "https://youtu.be/QdrgSJMx7KU",
+              "sub2VideoUrl": "https://youtu.be/cP77gUDvAPA?t=745"
             },
             {
               "name": "DB Skull Crusher",
@@ -359,7 +534,12 @@
               "reps": "12-15",
               "rpe": "10",
               "notes": "Arc the dumbbells behind your head, constant tension on triceps",
-              "order": 6
+              "order": 6,
+              "sub1": "Overhead Cable Tricep Extension",
+              "sub2": "DB French Press",
+              "videoUrl": "https://youtu.be/popGXI-qs98?t=336",
+              "sub1VideoUrl": "https://youtu.be/qIW3z-ydg-M",
+              "sub2VideoUrl": "https://youtu.be/K4E8CXajqfQ"
             },
             {
               "name": "DB Lateral Raise",
@@ -368,7 +548,12 @@
               "reps": "12-15 (dropset)",
               "rpe": "10",
               "notes": "Dropset: perform 12-15 reps, drop the weight by ~50%, perform an additional 12-15 reps. Raise the dumbbells \"out\" not \"up\", mind muscle connection with middle fibers",
-              "order": 7
+              "order": 7,
+              "sub1": "Cable Lateral Raise",
+              "sub2": "Machine Lateral Raise",
+              "videoUrl": "https://youtu.be/v_ZkxWzYnMc?t=215",
+              "sub1VideoUrl": "https://youtu.be/SJqInYJcg5k?t=653",
+              "sub2VideoUrl": "https://youtu.be/-9QsrJ542ao"
             },
             {
               "name": "Seated Calf Raise",
@@ -377,7 +562,12 @@
               "reps": "12-15 (dropset)",
               "rpe": "10",
               "notes": "Dropset: perform 12-15 reps, drop the weight by ~50%, perform an additional 12-15 reps. Press all the way up to your toes, stretch your calves at the bottom, don't bounce",
-              "order": 8
+              "order": 8,
+              "sub1": "Standing Calf Raise",
+              "sub2": "Leg Press Toe Press",
+              "videoUrl": "https://youtu.be/-qsRtp_PbVM?t=311",
+              "sub1VideoUrl": "https://youtu.be/-qsRtp_PbVM?t=162",
+              "sub2VideoUrl": "https://youtu.be/VJ_9xii47Sk"
             }
           ]
         },
@@ -391,7 +581,12 @@
               "reps": "4-6",
               "rpe": "8-9",
               "notes": "Focus on strength here. Each week add weight or reps. Keep form consistent.",
-              "order": 1
+              "order": 1,
+              "sub1": "Machine Squat",
+              "sub2": "Leg Press",
+              "videoUrl": "https://youtu.be/wEgQUCdtFLg",
+              "sub1VideoUrl": "https://youtu.be/N56STpGGRYE",
+              "sub2VideoUrl": "https://youtu.be/didU4ZwAkPI?t=241"
             },
             {
               "name": "Hack Squat (Back off)",
@@ -400,7 +595,12 @@
               "reps": "8-10",
               "rpe": "8-9",
               "notes": "Drop the weight back and focus on controlling the negative. Smooth and consistent rep tempo.",
-              "order": 2
+              "order": 2,
+              "sub1": "Machine Squat",
+              "sub2": "Leg Press",
+              "videoUrl": "https://youtu.be/wEgQUCdtFLg",
+              "sub1VideoUrl": "https://youtu.be/N56STpGGRYE",
+              "sub2VideoUrl": "https://youtu.be/didU4ZwAkPI?t=241"
             },
             {
               "name": "Incline DB Press",
@@ -409,7 +609,12 @@
               "reps": "8-10",
               "rpe": "8-9",
               "notes": "Sink the dumbbells as low as you comfortably can",
-              "order": 3
+              "order": 3,
+              "sub1": "Incline Machine Press",
+              "sub2": "Incline Smith Machine Press",
+              "videoUrl": "https://www.youtube.com/watch?v=p2t9daxLpB8",
+              "sub1VideoUrl": "https://youtu.be/b8fYnZ-usP0",
+              "sub2VideoUrl": "https://youtu.be/koNxsM7rYyc"
             },
             {
               "name": "Seated Hamstring Curl",
@@ -418,7 +623,12 @@
               "reps": "10-12 (dropset)",
               "rpe": "10",
               "notes": "Dropset: perform 10-12 reps, drop the weight by ~50%, perform an additional 10-12 reps. Do seated if available. Otherwise do Lying Leg Curl or Nordic Ham Curl.",
-              "order": 4
+              "order": 4,
+              "sub1": "Nordic Ham Curl",
+              "sub2": "Lying Leg Curl",
+              "videoUrl": "https://youtu.be/2CMmuH4qJh0",
+              "sub1VideoUrl": "https://youtu.be/qVek72z3F1U?t=683",
+              "sub2VideoUrl": "https://www.youtube.com/watch?v=e_48W0vlU58&feature=youtu.be"
             },
             {
               "name": "T-Bar Row",
@@ -427,7 +637,12 @@
               "reps": "10-12",
               "rpe": "9-10",
               "notes": "Squeeze your shoulder blades at the top, control the weight",
-              "order": 5
+              "order": 5,
+              "sub1": "Helms DB Row",
+              "sub2": "Chest-Supported Machine Row",
+              "videoUrl": "https://youtu.be/ZOg0CcJCKrk",
+              "sub1VideoUrl": "https://youtu.be/axoeDmW0oAY?t=419",
+              "sub2VideoUrl": "https://youtu.be/xn42rKwqBZU"
             },
             {
               "name": "EZ Bar Curl",
@@ -436,7 +651,12 @@
               "reps": "12-15 (dropset)",
               "rpe": "10",
               "notes": "Dropset: perform 12-15 reps, drop the weight by ~50%, perform an additional 12-15 reps. Arc the bar \"out\" not \"up\", focus on squeezing your biceps",
-              "order": 6
+              "order": 6,
+              "sub1": "DB Curl",
+              "sub2": "Cable EZ-Curl",
+              "videoUrl": "https://www.youtube.com/watch?v=Dd0t5UOCEUc",
+              "sub1VideoUrl": "https://youtu.be/i1YgFZB6alI?t=487",
+              "sub2VideoUrl": "https://youtu.be/tw1h5XOD23Y"
             },
             {
               "name": "Cable Crunch",
@@ -445,7 +665,12 @@
               "reps": "12-15 (dropset)",
               "rpe": "10",
               "notes": "Dropset: perform 12-15 reps, drop the weight by ~50%, perform an additional 12-15 reps. Round your back as you crunch.",
-              "order": 7
+              "order": 7,
+              "sub1": "Machine Crunch",
+              "sub2": "Plate-weighted Crunch",
+              "videoUrl": "https://youtu.be/2RrGnjxSsiA?t=124",
+              "sub1VideoUrl": "https://youtu.be/zU6X6DLCH_U",
+              "sub2VideoUrl": "https://youtu.be/PRcz1uIkqko"
             }
           ]
         }
@@ -464,7 +689,12 @@
               "reps": "4-6",
               "rpe": "8-9",
               "notes": "Focus on strength here. Each week add weight or reps. Keep form consistent.",
-              "order": 1
+              "order": 1,
+              "sub1": "Machine Chest Press",
+              "sub2": "Weighted Dip",
+              "videoUrl": "https://youtu.be/URQ1Wn7lY3A",
+              "sub1VideoUrl": "https://youtu.be/k1S_Any3NIA?t=240",
+              "sub2VideoUrl": "https://youtu.be/yN6Q1UI_xkE?t=75"
             },
             {
               "name": "Flat DB Press (Back off)",
@@ -473,7 +703,12 @@
               "reps": "8-10",
               "rpe": "9-10",
               "notes": "Focus on mind-muscle connection with pecs. Drop the weight back and focus on stretch and squeeze!",
-              "order": 2
+              "order": 2,
+              "sub1": "Machine Chest Press",
+              "sub2": "Weighted Dip",
+              "videoUrl": "https://youtu.be/URQ1Wn7lY3A",
+              "sub1VideoUrl": "https://youtu.be/k1S_Any3NIA?t=240",
+              "sub2VideoUrl": "https://youtu.be/yN6Q1UI_xkE?t=75"
             },
             {
               "name": "Romanian Deadlift",
@@ -482,7 +717,12 @@
               "reps": "8-10",
               "rpe": "8-9",
               "notes": "Maintain a neutral lower back, set your hips back, squeeze your hamstrings to move the weight",
-              "order": 3
+              "order": 3,
+              "sub1": "DB Romanian Deadlift",
+              "sub2": "45\u00b0 Hyperextension",
+              "videoUrl": "https://youtu.be/_oyxCn2iSjU?t=95",
+              "sub1VideoUrl": "https://youtu.be/V5u2AP9wBwE",
+              "sub2VideoUrl": "https://youtu.be/J46aPqFl0WE?t=178"
             },
             {
               "name": "2-Grip Lat Pulldown",
@@ -491,7 +731,12 @@
               "reps": "10-12",
               "rpe": "9-10",
               "notes": "Do first set wide overhand (1.5x shoulder width), second set underhand (1x shoulder width)",
-              "order": 4
+              "order": 4,
+              "sub1": "2-Grip Pull-up",
+              "sub2": "Machine Pulldown",
+              "videoUrl": "https://youtu.be/QGKhvhMcpPQ",
+              "sub1VideoUrl": "https://youtu.be/AUhSQM_c1QQ",
+              "sub2VideoUrl": "https://youtu.be/j8Q50oBDK44"
             },
             {
               "name": "DB Walking Lunge",
@@ -500,7 +745,12 @@
               "reps": "8-10 per leg",
               "rpe": "9-10",
               "notes": "Take medium strides, let your torso lean forward",
-              "order": 5
+              "order": 5,
+              "sub1": "Smith Machine Lunge",
+              "sub2": "DB Step Up",
+              "videoUrl": "https://youtu.be/Y4Vv2ASsyhs?t=536",
+              "sub1VideoUrl": "https://youtu.be/QdrgSJMx7KU",
+              "sub2VideoUrl": "https://youtu.be/cP77gUDvAPA?t=745"
             },
             {
               "name": "DB Skull Crusher",
@@ -509,7 +759,12 @@
               "reps": "12-15",
               "rpe": "10",
               "notes": "Arc the dumbbells behind your head, constant tension on triceps",
-              "order": 6
+              "order": 6,
+              "sub1": "Overhead Cable Tricep Extension",
+              "sub2": "DB French Press",
+              "videoUrl": "https://youtu.be/popGXI-qs98?t=336",
+              "sub1VideoUrl": "https://youtu.be/qIW3z-ydg-M",
+              "sub2VideoUrl": "https://youtu.be/K4E8CXajqfQ"
             },
             {
               "name": "DB Lateral Raise",
@@ -518,7 +773,12 @@
               "reps": "12-15 (dropset)",
               "rpe": "10",
               "notes": "Dropset: perform 12-15 reps, drop the weight by ~50%, perform an additional 12-15 reps. Raise the dumbbells \"out\" not \"up\", mind muscle connection with middle fibers",
-              "order": 7
+              "order": 7,
+              "sub1": "Cable Lateral Raise",
+              "sub2": "Machine Lateral Raise",
+              "videoUrl": "https://youtu.be/v_ZkxWzYnMc?t=215",
+              "sub1VideoUrl": "https://youtu.be/SJqInYJcg5k?t=653",
+              "sub2VideoUrl": "https://youtu.be/-9QsrJ542ao"
             },
             {
               "name": "Seated Calf Raise",
@@ -527,7 +787,12 @@
               "reps": "12-15 (dropset)",
               "rpe": "10",
               "notes": "Dropset: perform 12-15 reps, drop the weight by ~50%, perform an additional 12-15 reps. Press all the way up to your toes, stretch your calves at the bottom, don't bounce",
-              "order": 8
+              "order": 8,
+              "sub1": "Standing Calf Raise",
+              "sub2": "Leg Press Toe Press",
+              "videoUrl": "https://youtu.be/-qsRtp_PbVM?t=311",
+              "sub1VideoUrl": "https://youtu.be/-qsRtp_PbVM?t=162",
+              "sub2VideoUrl": "https://youtu.be/VJ_9xii47Sk"
             }
           ]
         },
@@ -541,7 +806,12 @@
               "reps": "4-6",
               "rpe": "8-9",
               "notes": "Focus on strength here. Each week add weight or reps. Keep form consistent.",
-              "order": 1
+              "order": 1,
+              "sub1": "Machine Squat",
+              "sub2": "Leg Press",
+              "videoUrl": "https://youtu.be/wEgQUCdtFLg",
+              "sub1VideoUrl": "https://youtu.be/N56STpGGRYE",
+              "sub2VideoUrl": "https://youtu.be/didU4ZwAkPI?t=241"
             },
             {
               "name": "Hack Squat (Back off)",
@@ -550,7 +820,12 @@
               "reps": "8-10",
               "rpe": "8-9",
               "notes": "Drop the weight back and focus on controlling the negative. Smooth and consistent rep tempo.",
-              "order": 2
+              "order": 2,
+              "sub1": "Machine Squat",
+              "sub2": "Leg Press",
+              "videoUrl": "https://youtu.be/wEgQUCdtFLg",
+              "sub1VideoUrl": "https://youtu.be/N56STpGGRYE",
+              "sub2VideoUrl": "https://youtu.be/didU4ZwAkPI?t=241"
             },
             {
               "name": "Incline DB Press",
@@ -559,7 +834,12 @@
               "reps": "8-10",
               "rpe": "8-9",
               "notes": "Sink the dumbbells as low as you comfortably can",
-              "order": 3
+              "order": 3,
+              "sub1": "Incline Machine Press",
+              "sub2": "Incline Smith Machine Press",
+              "videoUrl": "https://www.youtube.com/watch?v=p2t9daxLpB8",
+              "sub1VideoUrl": "https://youtu.be/b8fYnZ-usP0",
+              "sub2VideoUrl": "https://youtu.be/koNxsM7rYyc"
             },
             {
               "name": "Seated Hamstring Curl",
@@ -568,7 +848,12 @@
               "reps": "10-12 (dropset)",
               "rpe": "10",
               "notes": "Dropset: perform 10-12 reps, drop the weight by ~50%, perform an additional 10-12 reps. Do seated if available. Otherwise do Lying Leg Curl or Nordic Ham Curl.",
-              "order": 4
+              "order": 4,
+              "sub1": "Nordic Ham Curl",
+              "sub2": "Lying Leg Curl",
+              "videoUrl": "https://youtu.be/2CMmuH4qJh0",
+              "sub1VideoUrl": "https://youtu.be/qVek72z3F1U?t=683",
+              "sub2VideoUrl": "https://www.youtube.com/watch?v=e_48W0vlU58&feature=youtu.be"
             },
             {
               "name": "T-Bar Row",
@@ -577,7 +862,12 @@
               "reps": "10-12",
               "rpe": "9-10",
               "notes": "Squeeze your shoulder blades at the top, control the weight",
-              "order": 5
+              "order": 5,
+              "sub1": "Helms DB Row",
+              "sub2": "Chest-Supported Machine Row",
+              "videoUrl": "https://youtu.be/ZOg0CcJCKrk",
+              "sub1VideoUrl": "https://youtu.be/axoeDmW0oAY?t=419",
+              "sub2VideoUrl": "https://youtu.be/xn42rKwqBZU"
             },
             {
               "name": "EZ Bar Curl",
@@ -586,7 +876,12 @@
               "reps": "12-15 (dropset)",
               "rpe": "10",
               "notes": "Dropset: perform 12-15 reps, drop the weight by ~50%, perform an additional 12-15 reps. Arc the bar \"out\" not \"up\", focus on squeezing your biceps",
-              "order": 6
+              "order": 6,
+              "sub1": "DB Curl",
+              "sub2": "Cable EZ-Curl",
+              "videoUrl": "https://www.youtube.com/watch?v=Dd0t5UOCEUc",
+              "sub1VideoUrl": "https://youtu.be/i1YgFZB6alI?t=487",
+              "sub2VideoUrl": "https://youtu.be/tw1h5XOD23Y"
             },
             {
               "name": "Cable Crunch",
@@ -595,7 +890,12 @@
               "reps": "12-15 (dropset)",
               "rpe": "10",
               "notes": "Dropset: perform 12-15 reps, drop the weight by ~50%, perform an additional 12-15 reps. Round your back as you crunch.",
-              "order": 7
+              "order": 7,
+              "sub1": "Machine Crunch",
+              "sub2": "Plate-weighted Crunch",
+              "videoUrl": "https://youtu.be/2RrGnjxSsiA?t=124",
+              "sub1VideoUrl": "https://youtu.be/zU6X6DLCH_U",
+              "sub2VideoUrl": "https://youtu.be/PRcz1uIkqko"
             }
           ]
         }
@@ -614,7 +914,12 @@
               "reps": "8-10",
               "rpe": "8-9",
               "notes": "Emphasize the stretch in your hamstrings, prevent your lower back from rounding",
-              "order": 1
+              "order": 1,
+              "sub1": "Romanian Deadlift",
+              "sub2": "45\u00b0 Hyperextension",
+              "videoUrl": "https://youtu.be/V5u2AP9wBwE",
+              "sub1VideoUrl": "https://youtu.be/_oyxCn2iSjU?t=95",
+              "sub2VideoUrl": "https://youtu.be/J46aPqFl0WE?t=178"
             },
             {
               "name": "Weighted Dip (Heavy)",
@@ -623,7 +928,12 @@
               "reps": "6-8",
               "rpe": "8-9",
               "notes": "Tuck your elbows at 45\u00b0, lean your torso forward 15\u00b0, shoulder width or slightly wider grip",
-              "order": 2
+              "order": 2,
+              "sub1": "Machine Chest Press",
+              "sub2": "Flat DB Press",
+              "videoUrl": "https://youtu.be/yN6Q1UI_xkE?t=75",
+              "sub1VideoUrl": "https://youtu.be/k1S_Any3NIA?t=240",
+              "sub2VideoUrl": "https://youtu.be/URQ1Wn7lY3A"
             },
             {
               "name": "Weighted Dip (Back off)",
@@ -632,7 +942,12 @@
               "reps": "10-12",
               "rpe": "9-10",
               "notes": "Tuck your elbows at 45\u00b0, lean your torso forward 15\u00b0, shoulder width or slightly wider grip",
-              "order": 3
+              "order": 3,
+              "sub1": "Machine Chest Press",
+              "sub2": "Flat DB Press",
+              "videoUrl": "https://youtu.be/yN6Q1UI_xkE?t=75",
+              "sub1VideoUrl": "https://youtu.be/k1S_Any3NIA?t=240",
+              "sub2VideoUrl": "https://youtu.be/URQ1Wn7lY3A"
             },
             {
               "name": "DB Step Up",
@@ -641,7 +956,12 @@
               "reps": "10-12 per leg",
               "rpe": "9-10",
               "notes": "Use a box height that places your working leg's thigh at parallel when your other foot is on the ground",
-              "order": 4
+              "order": 4,
+              "sub1": "Smith Machine Lunge",
+              "sub2": "DB Walking Lunge",
+              "videoUrl": "https://youtu.be/cP77gUDvAPA?t=745",
+              "sub1VideoUrl": "https://youtu.be/QdrgSJMx7KU",
+              "sub2VideoUrl": "https://youtu.be/Y4Vv2ASsyhs?t=536"
             },
             {
               "name": "2-Grip Pullup",
@@ -650,7 +970,12 @@
               "reps": "8-10",
               "rpe": "9-10",
               "notes": "First set 1.5x shoulder width grip. Second set 1.0x shoulder width grip",
-              "order": 5
+              "order": 5,
+              "sub1": "Machine Pulldown",
+              "sub2": "2-Grip Lat Pulldown",
+              "videoUrl": "https://youtu.be/AUhSQM_c1QQ",
+              "sub1VideoUrl": "https://youtu.be/j8Q50oBDK44",
+              "sub2VideoUrl": "https://youtu.be/QGKhvhMcpPQ"
             },
             {
               "name": "Cable Lateral Raise",
@@ -659,7 +984,12 @@
               "reps": "12-15 (dropset)",
               "rpe": "9-10",
               "notes": "Dropset: perform 12-15 reps, drop the weight by ~50%, perform an additional 12-15 reps. Lean away from the cable. Focus on squeezing your delts.",
-              "order": 6
+              "order": 6,
+              "sub1": "Machine Lateral Raise",
+              "sub2": "DB Lateral Raise",
+              "videoUrl": "https://youtu.be/SJqInYJcg5k?t=653",
+              "sub1VideoUrl": "https://youtu.be/-9QsrJ542ao",
+              "sub2VideoUrl": "https://youtu.be/x4YNi4nRboU?t=268"
             },
             {
               "name": "Cable Triceps Kickback",
@@ -668,7 +998,12 @@
               "reps": "10-12 (dropset)",
               "rpe": "9-10",
               "notes": "Dropset: perform 10-12 reps, drop the weight by ~50%, perform an additional 10-12 reps. Lean slightly forward, lock your elbow behind your torso (shoulder hyperextension)",
-              "order": 7
+              "order": 7,
+              "sub1": "Triceps Pressdown",
+              "sub2": "DB Triceps Kickback",
+              "videoUrl": "https://youtu.be/94DXwlcX8Po?t=327",
+              "sub1VideoUrl": "https://youtu.be/94DXwlcX8Po?t=106",
+              "sub2VideoUrl": "https://youtu.be/C6UcPm7mdE4"
             },
             {
               "name": "Leg Press Toe Press",
@@ -677,7 +1012,12 @@
               "reps": "15-20",
               "rpe": "10",
               "notes": "Press all the way up to your toes, stretch your calves at the bottom, don't bounce",
-              "order": 8
+              "order": 8,
+              "sub1": "Standing Calf Raise",
+              "sub2": "Seated Calf Raise",
+              "videoUrl": "https://youtu.be/VJ_9xii47Sk",
+              "sub1VideoUrl": "https://youtu.be/-qsRtp_PbVM?t=162",
+              "sub2VideoUrl": "https://youtu.be/-qsRtp_PbVM?t=311"
             }
           ]
         },
@@ -691,7 +1031,12 @@
               "reps": "8-10",
               "rpe": "9-10",
               "notes": "45\u00b0 incline, focus on squeezing your chest",
-              "order": 1
+              "order": 1,
+              "sub1": "Incline Smith Machine Press",
+              "sub2": "Incline DB Press",
+              "videoUrl": "https://youtu.be/b8fYnZ-usP0",
+              "sub1VideoUrl": "https://youtu.be/koNxsM7rYyc",
+              "sub2VideoUrl": "https://www.youtube.com/watch?v=p2t9daxLpB8"
             },
             {
               "name": "Single-Leg Leg Press (Heavy)",
@@ -700,7 +1045,12 @@
               "reps": "6-8 per leg",
               "rpe": "8-9",
               "notes": "High and wide foot positioning, start with weaker leg",
-              "order": 2
+              "order": 2,
+              "sub1": "Machine Squat",
+              "sub2": "Hack Squat",
+              "videoUrl": "https://youtu.be/Gvgm70v4sPU",
+              "sub1VideoUrl": "https://youtu.be/N56STpGGRYE",
+              "sub2VideoUrl": "https://youtu.be/wEgQUCdtFLg"
             },
             {
               "name": "Single-Leg Leg Press (Back off)",
@@ -709,7 +1059,12 @@
               "reps": "10-12 per leg",
               "rpe": "8-9",
               "notes": "High and wide foot positioning, start with weaker leg",
-              "order": 3
+              "order": 3,
+              "sub1": "Machine Squat",
+              "sub2": "Hack Squat",
+              "videoUrl": "https://youtu.be/Gvgm70v4sPU",
+              "sub1VideoUrl": "https://youtu.be/N56STpGGRYE",
+              "sub2VideoUrl": "https://youtu.be/wEgQUCdtFLg"
             },
             {
               "name": "Pendlay Row",
@@ -718,7 +1073,12 @@
               "reps": "8-10",
               "rpe": "9-10",
               "notes": "Initiate the movement by squeezing your shoulder blades together, pull to your lower chest, avoid using momentum",
-              "order": 4
+              "order": 4,
+              "sub1": "T-Bar Row",
+              "sub2": "Seated Cable Row",
+              "videoUrl": "https://youtu.be/axoeDmW0oAY?t=185",
+              "sub1VideoUrl": "https://youtu.be/ZOg0CcJCKrk",
+              "sub2VideoUrl": "https://youtu.be/FbWfA_s0XL8?t=273"
             },
             {
               "name": "Glute-Ham Raise",
@@ -727,7 +1087,12 @@
               "reps": "10-12",
               "rpe": "10",
               "notes": "Keep your hips straight, do Nordic ham curls if no GHR machine",
-              "order": 5
+              "order": 5,
+              "sub1": "Nordic Ham Curl",
+              "sub2": "Lying Leg Curl",
+              "videoUrl": "https://youtu.be/psdbgvbdd_M",
+              "sub1VideoUrl": "https://youtu.be/qVek72z3F1U?t=683",
+              "sub2VideoUrl": "https://www.youtube.com/watch?v=e_48W0vlU58&feature=youtu.be"
             },
             {
               "name": "Spider Curl",
@@ -736,7 +1101,12 @@
               "reps": "12-15 (dropset)",
               "rpe": "10",
               "notes": "Dropset: perform 12-15 reps, drop the weight by ~50%, perform an additional 12-15 reps. Brace your chest against an incline bench, curl with your elbows slightly in front of you",
-              "order": 6
+              "order": 6,
+              "sub1": "DB Preacher Curl",
+              "sub2": "Bayesian Cable Curl",
+              "videoUrl": "https://www.youtube.com/watch?v=ebyOmAZUqzo&t=698s",
+              "sub1VideoUrl": "https://youtu.be/x4YNi4nRboU?t=268",
+              "sub2VideoUrl": "https://youtu.be/acC5hLyjEDI"
             },
             {
               "name": "Hanging Leg Raise",
@@ -745,7 +1115,12 @@
               "reps": "12-15",
               "rpe": "10",
               "notes": "Knees to chest, controlled reps, straighten legs more to increase difficulty",
-              "order": 7
+              "order": 7,
+              "sub1": "Roman Chair Crunch",
+              "sub2": "Reverse Crunch",
+              "videoUrl": "https://youtu.be/2RrGnjxSsiA?t=247",
+              "sub1VideoUrl": "https://youtu.be/dd1WoEcQB4c",
+              "sub2VideoUrl": "https://youtu.be/CFPB3QT19rE"
             }
           ]
         }
@@ -764,7 +1139,12 @@
               "reps": "8-10",
               "rpe": "8-9",
               "notes": "Emphasize the stretch in your hamstrings, prevent your lower back from rounding",
-              "order": 1
+              "order": 1,
+              "sub1": "Romanian Deadlift",
+              "sub2": "45\u00b0 Hyperextension",
+              "videoUrl": "https://youtu.be/V5u2AP9wBwE",
+              "sub1VideoUrl": "https://youtu.be/_oyxCn2iSjU?t=95",
+              "sub2VideoUrl": "https://youtu.be/J46aPqFl0WE?t=178"
             },
             {
               "name": "Weighted Dip (Heavy)",
@@ -773,7 +1153,12 @@
               "reps": "6-8",
               "rpe": "8-9",
               "notes": "Tuck your elbows at 45\u00b0, lean your torso forward 15\u00b0, shoulder width or slightly wider grip",
-              "order": 2
+              "order": 2,
+              "sub1": "Machine Chest Press",
+              "sub2": "Flat DB Press",
+              "videoUrl": "https://youtu.be/yN6Q1UI_xkE?t=75",
+              "sub1VideoUrl": "https://youtu.be/k1S_Any3NIA?t=240",
+              "sub2VideoUrl": "https://youtu.be/URQ1Wn7lY3A"
             },
             {
               "name": "Weighted Dip (Back off)",
@@ -782,7 +1167,12 @@
               "reps": "10-12",
               "rpe": "9-10",
               "notes": "Tuck your elbows at 45\u00b0, lean your torso forward 15\u00b0, shoulder width or slightly wider grip",
-              "order": 3
+              "order": 3,
+              "sub1": "Machine Chest Press",
+              "sub2": "Flat DB Press",
+              "videoUrl": "https://youtu.be/yN6Q1UI_xkE?t=75",
+              "sub1VideoUrl": "https://youtu.be/k1S_Any3NIA?t=240",
+              "sub2VideoUrl": "https://youtu.be/URQ1Wn7lY3A"
             },
             {
               "name": "DB Step Up",
@@ -791,7 +1181,12 @@
               "reps": "10-12 per leg",
               "rpe": "9-10",
               "notes": "Use a box height that places your working leg's thigh at parallel when your other foot is on the ground",
-              "order": 4
+              "order": 4,
+              "sub1": "Smith Machine Lunge",
+              "sub2": "DB Walking Lunge",
+              "videoUrl": "https://youtu.be/cP77gUDvAPA?t=745",
+              "sub1VideoUrl": "https://youtu.be/QdrgSJMx7KU",
+              "sub2VideoUrl": "https://youtu.be/Y4Vv2ASsyhs?t=536"
             },
             {
               "name": "2-Grip Pullup",
@@ -800,7 +1195,12 @@
               "reps": "8-10",
               "rpe": "9-10",
               "notes": "First set 1.5x shoulder width grip. Second set 1.0x shoulder width grip",
-              "order": 5
+              "order": 5,
+              "sub1": "Machine Pulldown",
+              "sub2": "2-Grip Lat Pulldown",
+              "videoUrl": "https://youtu.be/AUhSQM_c1QQ",
+              "sub1VideoUrl": "https://youtu.be/j8Q50oBDK44",
+              "sub2VideoUrl": "https://youtu.be/QGKhvhMcpPQ"
             },
             {
               "name": "Cable Lateral Raise",
@@ -809,7 +1209,12 @@
               "reps": "12-15 (dropset)",
               "rpe": "9-10",
               "notes": "Dropset: perform 12-15 reps, drop the weight by ~50%, perform an additional 12-15 reps. Lean away from the cable. Focus on squeezing your delts.",
-              "order": 6
+              "order": 6,
+              "sub1": "Machine Lateral Raise",
+              "sub2": "DB Lateral Raise",
+              "videoUrl": "https://youtu.be/SJqInYJcg5k?t=653",
+              "sub1VideoUrl": "https://youtu.be/-9QsrJ542ao",
+              "sub2VideoUrl": "https://youtu.be/x4YNi4nRboU?t=268"
             },
             {
               "name": "Cable Triceps Kickback",
@@ -818,7 +1223,12 @@
               "reps": "10-12 (dropset)",
               "rpe": "9-10",
               "notes": "Dropset: perform 10-12 reps, drop the weight by ~50%, perform an additional 10-12 reps. Lean slightly forward, lock your elbow behind your torso (shoulder hyperextension)",
-              "order": 7
+              "order": 7,
+              "sub1": "Triceps Pressdown",
+              "sub2": "DB Triceps Kickback",
+              "videoUrl": "https://youtu.be/94DXwlcX8Po?t=327",
+              "sub1VideoUrl": "https://youtu.be/94DXwlcX8Po?t=106",
+              "sub2VideoUrl": "https://youtu.be/C6UcPm7mdE4"
             },
             {
               "name": "Leg Press Toe Press",
@@ -827,7 +1237,12 @@
               "reps": "15-20",
               "rpe": "10",
               "notes": "Press all the way up to your toes, stretch your calves at the bottom, don't bounce",
-              "order": 8
+              "order": 8,
+              "sub1": "Standing Calf Raise",
+              "sub2": "Seated Calf Raise",
+              "videoUrl": "https://youtu.be/VJ_9xii47Sk",
+              "sub1VideoUrl": "https://youtu.be/-qsRtp_PbVM?t=162",
+              "sub2VideoUrl": "https://youtu.be/-qsRtp_PbVM?t=311"
             }
           ]
         },
@@ -841,7 +1256,12 @@
               "reps": "8-10",
               "rpe": "9-10",
               "notes": "45\u00b0 incline, focus on squeezing your chest",
-              "order": 1
+              "order": 1,
+              "sub1": "Incline Smith Machine Press",
+              "sub2": "Incline DB Press",
+              "videoUrl": "https://youtu.be/b8fYnZ-usP0",
+              "sub1VideoUrl": "https://youtu.be/koNxsM7rYyc",
+              "sub2VideoUrl": "https://www.youtube.com/watch?v=p2t9daxLpB8"
             },
             {
               "name": "Single-Leg Leg Press (Heavy)",
@@ -850,7 +1270,12 @@
               "reps": "6-8 per leg",
               "rpe": "8-9",
               "notes": "High and wide foot positioning, start with weaker leg",
-              "order": 2
+              "order": 2,
+              "sub1": "Machine Squat",
+              "sub2": "Hack Squat",
+              "videoUrl": "https://youtu.be/Gvgm70v4sPU",
+              "sub1VideoUrl": "https://youtu.be/N56STpGGRYE",
+              "sub2VideoUrl": "https://youtu.be/wEgQUCdtFLg"
             },
             {
               "name": "Single-Leg Leg Press (Back off)",
@@ -859,7 +1284,12 @@
               "reps": "10-12 per leg",
               "rpe": "8-9",
               "notes": "High and wide foot positioning, start with weaker leg",
-              "order": 3
+              "order": 3,
+              "sub1": "Machine Squat",
+              "sub2": "Hack Squat",
+              "videoUrl": "https://youtu.be/Gvgm70v4sPU",
+              "sub1VideoUrl": "https://youtu.be/N56STpGGRYE",
+              "sub2VideoUrl": "https://youtu.be/wEgQUCdtFLg"
             },
             {
               "name": "Pendlay Row",
@@ -868,7 +1298,12 @@
               "reps": "8-10",
               "rpe": "9-10",
               "notes": "Initiate the movement by squeezing your shoulder blades together, pull to your lower chest, avoid using momentum",
-              "order": 4
+              "order": 4,
+              "sub1": "T-Bar Row",
+              "sub2": "Seated Cable Row",
+              "videoUrl": "https://youtu.be/axoeDmW0oAY?t=185",
+              "sub1VideoUrl": "https://youtu.be/ZOg0CcJCKrk",
+              "sub2VideoUrl": "https://youtu.be/FbWfA_s0XL8?t=273"
             },
             {
               "name": "Glute-Ham Raise",
@@ -877,7 +1312,12 @@
               "reps": "10-12",
               "rpe": "10",
               "notes": "Keep your hips straight, do Nordic ham curls if no GHR machine",
-              "order": 5
+              "order": 5,
+              "sub1": "Nordic Ham Curl",
+              "sub2": "Lying Leg Curl",
+              "videoUrl": "https://youtu.be/psdbgvbdd_M",
+              "sub1VideoUrl": "https://youtu.be/qVek72z3F1U?t=683",
+              "sub2VideoUrl": "https://www.youtube.com/watch?v=e_48W0vlU58&feature=youtu.be"
             },
             {
               "name": "Spider Curl",
@@ -886,7 +1326,12 @@
               "reps": "12-15 (dropset)",
               "rpe": "10",
               "notes": "Dropset: perform 12-15 reps, drop the weight by ~50%, perform an additional 12-15 reps. Brace your chest against an incline bench, curl with your elbows slightly in front of you",
-              "order": 6
+              "order": 6,
+              "sub1": "DB Preacher Curl",
+              "sub2": "Bayesian Cable Curl",
+              "videoUrl": "https://www.youtube.com/watch?v=ebyOmAZUqzo&t=698s",
+              "sub1VideoUrl": "https://youtu.be/x4YNi4nRboU?t=268",
+              "sub2VideoUrl": "https://youtu.be/acC5hLyjEDI"
             },
             {
               "name": "Hanging Leg Raise",
@@ -895,7 +1340,12 @@
               "reps": "12-15",
               "rpe": "10",
               "notes": "Knees to chest, controlled reps, straighten legs more to increase difficulty",
-              "order": 7
+              "order": 7,
+              "sub1": "Roman Chair Crunch",
+              "sub2": "Reverse Crunch",
+              "videoUrl": "https://youtu.be/2RrGnjxSsiA?t=247",
+              "sub1VideoUrl": "https://youtu.be/dd1WoEcQB4c",
+              "sub2VideoUrl": "https://youtu.be/CFPB3QT19rE"
             }
           ]
         }
@@ -914,7 +1364,12 @@
               "reps": "8-10",
               "rpe": "8-9",
               "notes": "Emphasize the stretch in your hamstrings, prevent your lower back from rounding",
-              "order": 1
+              "order": 1,
+              "sub1": "Romanian Deadlift",
+              "sub2": "45\u00b0 Hyperextension",
+              "videoUrl": "https://youtu.be/V5u2AP9wBwE",
+              "sub1VideoUrl": "https://youtu.be/_oyxCn2iSjU?t=95",
+              "sub2VideoUrl": "https://youtu.be/J46aPqFl0WE?t=178"
             },
             {
               "name": "Weighted Dip (Heavy)",
@@ -923,7 +1378,12 @@
               "reps": "6-8",
               "rpe": "8-9",
               "notes": "Tuck your elbows at 45\u00b0, lean your torso forward 15\u00b0, shoulder width or slightly wider grip",
-              "order": 2
+              "order": 2,
+              "sub1": "Machine Chest Press",
+              "sub2": "Flat DB Press",
+              "videoUrl": "https://youtu.be/yN6Q1UI_xkE?t=75",
+              "sub1VideoUrl": "https://youtu.be/k1S_Any3NIA?t=240",
+              "sub2VideoUrl": "https://youtu.be/URQ1Wn7lY3A"
             },
             {
               "name": "Weighted Dip (Back off)",
@@ -932,7 +1392,12 @@
               "reps": "10-12",
               "rpe": "9-10",
               "notes": "Tuck your elbows at 45\u00b0, lean your torso forward 15\u00b0, shoulder width or slightly wider grip",
-              "order": 3
+              "order": 3,
+              "sub1": "Machine Chest Press",
+              "sub2": "Flat DB Press",
+              "videoUrl": "https://youtu.be/yN6Q1UI_xkE?t=75",
+              "sub1VideoUrl": "https://youtu.be/k1S_Any3NIA?t=240",
+              "sub2VideoUrl": "https://youtu.be/URQ1Wn7lY3A"
             },
             {
               "name": "DB Step Up",
@@ -941,7 +1406,12 @@
               "reps": "10-12 per leg",
               "rpe": "9-10",
               "notes": "Use a box height that places your working leg's thigh at parallel when your other foot is on the ground",
-              "order": 4
+              "order": 4,
+              "sub1": "Smith Machine Lunge",
+              "sub2": "DB Walking Lunge",
+              "videoUrl": "https://youtu.be/cP77gUDvAPA?t=745",
+              "sub1VideoUrl": "https://youtu.be/QdrgSJMx7KU",
+              "sub2VideoUrl": "https://youtu.be/Y4Vv2ASsyhs?t=536"
             },
             {
               "name": "2-Grip Pullup",
@@ -950,7 +1420,12 @@
               "reps": "8-10",
               "rpe": "9-10",
               "notes": "First set 1.5x shoulder width grip. Second set 1.0x shoulder width grip",
-              "order": 5
+              "order": 5,
+              "sub1": "Machine Pulldown",
+              "sub2": "2-Grip Lat Pulldown",
+              "videoUrl": "https://youtu.be/AUhSQM_c1QQ",
+              "sub1VideoUrl": "https://youtu.be/j8Q50oBDK44",
+              "sub2VideoUrl": "https://youtu.be/QGKhvhMcpPQ"
             },
             {
               "name": "Cable Lateral Raise",
@@ -959,7 +1434,12 @@
               "reps": "12-15 (dropset)",
               "rpe": "9-10",
               "notes": "Dropset: perform 12-15 reps, drop the weight by ~50%, perform an additional 12-15 reps. Lean away from the cable. Focus on squeezing your delts.",
-              "order": 6
+              "order": 6,
+              "sub1": "Machine Lateral Raise",
+              "sub2": "DB Lateral Raise",
+              "videoUrl": "https://youtu.be/SJqInYJcg5k?t=653",
+              "sub1VideoUrl": "https://youtu.be/-9QsrJ542ao",
+              "sub2VideoUrl": "https://youtu.be/x4YNi4nRboU?t=268"
             },
             {
               "name": "Cable Triceps Kickback",
@@ -968,7 +1448,12 @@
               "reps": "10-12 (dropset)",
               "rpe": "9-10",
               "notes": "Dropset: perform 10-12 reps, drop the weight by ~50%, perform an additional 10-12 reps. Lean slightly forward, lock your elbow behind your torso (shoulder hyperextension)",
-              "order": 7
+              "order": 7,
+              "sub1": "Triceps Pressdown",
+              "sub2": "DB Triceps Kickback",
+              "videoUrl": "https://youtu.be/94DXwlcX8Po?t=327",
+              "sub1VideoUrl": "https://youtu.be/94DXwlcX8Po?t=106",
+              "sub2VideoUrl": "https://youtu.be/C6UcPm7mdE4"
             },
             {
               "name": "Leg Press Toe Press",
@@ -977,7 +1462,12 @@
               "reps": "15-20",
               "rpe": "10",
               "notes": "Press all the way up to your toes, stretch your calves at the bottom, don't bounce",
-              "order": 8
+              "order": 8,
+              "sub1": "Standing Calf Raise",
+              "sub2": "Seated Calf Raise",
+              "videoUrl": "https://youtu.be/VJ_9xii47Sk",
+              "sub1VideoUrl": "https://youtu.be/-qsRtp_PbVM?t=162",
+              "sub2VideoUrl": "https://youtu.be/-qsRtp_PbVM?t=311"
             }
           ]
         },
@@ -991,7 +1481,12 @@
               "reps": "8-10",
               "rpe": "9-10",
               "notes": "45\u00b0 incline, focus on squeezing your chest",
-              "order": 1
+              "order": 1,
+              "sub1": "Incline Smith Machine Press",
+              "sub2": "Incline DB Press",
+              "videoUrl": "https://youtu.be/b8fYnZ-usP0",
+              "sub1VideoUrl": "https://youtu.be/koNxsM7rYyc",
+              "sub2VideoUrl": "https://www.youtube.com/watch?v=p2t9daxLpB8"
             },
             {
               "name": "Single-Leg Leg Press (Heavy)",
@@ -1000,7 +1495,12 @@
               "reps": "6-8 per leg",
               "rpe": "8-9",
               "notes": "High and wide foot positioning, start with weaker leg",
-              "order": 2
+              "order": 2,
+              "sub1": "Machine Squat",
+              "sub2": "Hack Squat",
+              "videoUrl": "https://youtu.be/Gvgm70v4sPU",
+              "sub1VideoUrl": "https://youtu.be/N56STpGGRYE",
+              "sub2VideoUrl": "https://youtu.be/wEgQUCdtFLg"
             },
             {
               "name": "Single-Leg Leg Press (Back off)",
@@ -1009,7 +1509,12 @@
               "reps": "10-12 per leg",
               "rpe": "8-9",
               "notes": "High and wide foot positioning, start with weaker leg",
-              "order": 3
+              "order": 3,
+              "sub1": "Machine Squat",
+              "sub2": "Hack Squat",
+              "videoUrl": "https://youtu.be/Gvgm70v4sPU",
+              "sub1VideoUrl": "https://youtu.be/N56STpGGRYE",
+              "sub2VideoUrl": "https://youtu.be/wEgQUCdtFLg"
             },
             {
               "name": "Pendlay Row",
@@ -1018,7 +1523,12 @@
               "reps": "8-10",
               "rpe": "9-10",
               "notes": "Initiate the movement by squeezing your shoulder blades together, pull to your lower chest, avoid using momentum",
-              "order": 4
+              "order": 4,
+              "sub1": "T-Bar Row",
+              "sub2": "Seated Cable Row",
+              "videoUrl": "https://youtu.be/axoeDmW0oAY?t=185",
+              "sub1VideoUrl": "https://youtu.be/ZOg0CcJCKrk",
+              "sub2VideoUrl": "https://youtu.be/FbWfA_s0XL8?t=273"
             },
             {
               "name": "Glute-Ham Raise",
@@ -1027,7 +1537,12 @@
               "reps": "10-12",
               "rpe": "10",
               "notes": "Keep your hips straight, do Nordic ham curls if no GHR machine",
-              "order": 5
+              "order": 5,
+              "sub1": "Nordic Ham Curl",
+              "sub2": "Lying Leg Curl",
+              "videoUrl": "https://youtu.be/psdbgvbdd_M",
+              "sub1VideoUrl": "https://youtu.be/qVek72z3F1U?t=683",
+              "sub2VideoUrl": "https://www.youtube.com/watch?v=e_48W0vlU58&feature=youtu.be"
             },
             {
               "name": "Spider Curl",
@@ -1036,7 +1551,12 @@
               "reps": "12-15 (dropset)",
               "rpe": "10",
               "notes": "Dropset: perform 12-15 reps, drop the weight by ~50%, perform an additional 12-15 reps. Brace your chest against an incline bench, curl with your elbows slightly in front of you",
-              "order": 6
+              "order": 6,
+              "sub1": "DB Preacher Curl",
+              "sub2": "Bayesian Cable Curl",
+              "videoUrl": "https://www.youtube.com/watch?v=ebyOmAZUqzo&t=698s",
+              "sub1VideoUrl": "https://youtu.be/x4YNi4nRboU?t=268",
+              "sub2VideoUrl": "https://youtu.be/acC5hLyjEDI"
             },
             {
               "name": "Hanging Leg Raise",
@@ -1045,7 +1565,12 @@
               "reps": "12-15",
               "rpe": "10",
               "notes": "Knees to chest, controlled reps, straighten legs more to increase difficulty",
-              "order": 7
+              "order": 7,
+              "sub1": "Roman Chair Crunch",
+              "sub2": "Reverse Crunch",
+              "videoUrl": "https://youtu.be/2RrGnjxSsiA?t=247",
+              "sub1VideoUrl": "https://youtu.be/dd1WoEcQB4c",
+              "sub2VideoUrl": "https://youtu.be/CFPB3QT19rE"
             }
           ]
         }
@@ -1064,7 +1589,12 @@
               "reps": "8-10",
               "rpe": "8-9",
               "notes": "Emphasize the stretch in your hamstrings, prevent your lower back from rounding",
-              "order": 1
+              "order": 1,
+              "sub1": "Romanian Deadlift",
+              "sub2": "45\u00b0 Hyperextension",
+              "videoUrl": "https://youtu.be/V5u2AP9wBwE",
+              "sub1VideoUrl": "https://youtu.be/_oyxCn2iSjU?t=95",
+              "sub2VideoUrl": "https://youtu.be/J46aPqFl0WE?t=178"
             },
             {
               "name": "Weighted Dip (Heavy)",
@@ -1073,7 +1603,12 @@
               "reps": "6-8",
               "rpe": "8-9",
               "notes": "Tuck your elbows at 45\u00b0, lean your torso forward 15\u00b0, shoulder width or slightly wider grip",
-              "order": 2
+              "order": 2,
+              "sub1": "Machine Chest Press",
+              "sub2": "Flat DB Press",
+              "videoUrl": "https://youtu.be/yN6Q1UI_xkE?t=75",
+              "sub1VideoUrl": "https://youtu.be/k1S_Any3NIA?t=240",
+              "sub2VideoUrl": "https://youtu.be/URQ1Wn7lY3A"
             },
             {
               "name": "Weighted Dip (Back off)",
@@ -1082,7 +1617,12 @@
               "reps": "10-12",
               "rpe": "9-10",
               "notes": "Tuck your elbows at 45\u00b0, lean your torso forward 15\u00b0, shoulder width or slightly wider grip",
-              "order": 3
+              "order": 3,
+              "sub1": "Machine Chest Press",
+              "sub2": "Flat DB Press",
+              "videoUrl": "https://youtu.be/yN6Q1UI_xkE?t=75",
+              "sub1VideoUrl": "https://youtu.be/k1S_Any3NIA?t=240",
+              "sub2VideoUrl": "https://youtu.be/URQ1Wn7lY3A"
             },
             {
               "name": "DB Step Up",
@@ -1091,7 +1631,12 @@
               "reps": "10-12 per leg",
               "rpe": "9-10",
               "notes": "Use a box height that places your working leg's thigh at parallel when your other foot is on the ground",
-              "order": 4
+              "order": 4,
+              "sub1": "Smith Machine Lunge",
+              "sub2": "DB Walking Lunge",
+              "videoUrl": "https://youtu.be/cP77gUDvAPA?t=745",
+              "sub1VideoUrl": "https://youtu.be/QdrgSJMx7KU",
+              "sub2VideoUrl": "https://youtu.be/Y4Vv2ASsyhs?t=536"
             },
             {
               "name": "2-Grip Pullup",
@@ -1100,7 +1645,12 @@
               "reps": "8-10",
               "rpe": "9-10",
               "notes": "First set 1.5x shoulder width grip. Second set 1.0x shoulder width grip",
-              "order": 5
+              "order": 5,
+              "sub1": "Machine Pulldown",
+              "sub2": "2-Grip Lat Pulldown",
+              "videoUrl": "https://youtu.be/AUhSQM_c1QQ",
+              "sub1VideoUrl": "https://youtu.be/j8Q50oBDK44",
+              "sub2VideoUrl": "https://youtu.be/QGKhvhMcpPQ"
             },
             {
               "name": "Cable Lateral Raise",
@@ -1109,7 +1659,12 @@
               "reps": "12-15 (dropset)",
               "rpe": "9-10",
               "notes": "Dropset: perform 12-15 reps, drop the weight by ~50%, perform an additional 12-15 reps. Lean away from the cable. Focus on squeezing your delts.",
-              "order": 6
+              "order": 6,
+              "sub1": "Machine Lateral Raise",
+              "sub2": "DB Lateral Raise",
+              "videoUrl": "https://youtu.be/SJqInYJcg5k?t=653",
+              "sub1VideoUrl": "https://youtu.be/-9QsrJ542ao",
+              "sub2VideoUrl": "https://youtu.be/x4YNi4nRboU?t=268"
             },
             {
               "name": "Cable Triceps Kickback",
@@ -1118,7 +1673,12 @@
               "reps": "10-12 (dropset)",
               "rpe": "9-10",
               "notes": "Dropset: perform 10-12 reps, drop the weight by ~50%, perform an additional 10-12 reps. Lean slightly forward, lock your elbow behind your torso (shoulder hyperextension)",
-              "order": 7
+              "order": 7,
+              "sub1": "Triceps Pressdown",
+              "sub2": "DB Triceps Kickback",
+              "videoUrl": "https://youtu.be/94DXwlcX8Po?t=327",
+              "sub1VideoUrl": "https://youtu.be/94DXwlcX8Po?t=106",
+              "sub2VideoUrl": "https://youtu.be/C6UcPm7mdE4"
             },
             {
               "name": "Leg Press Toe Press",
@@ -1127,7 +1687,12 @@
               "reps": "15-20",
               "rpe": "10",
               "notes": "Press all the way up to your toes, stretch your calves at the bottom, don't bounce",
-              "order": 8
+              "order": 8,
+              "sub1": "Standing Calf Raise",
+              "sub2": "Seated Calf Raise",
+              "videoUrl": "https://youtu.be/VJ_9xii47Sk",
+              "sub1VideoUrl": "https://youtu.be/-qsRtp_PbVM?t=162",
+              "sub2VideoUrl": "https://youtu.be/-qsRtp_PbVM?t=311"
             }
           ]
         },
@@ -1141,7 +1706,12 @@
               "reps": "8-10",
               "rpe": "9-10",
               "notes": "45\u00b0 incline, focus on squeezing your chest",
-              "order": 1
+              "order": 1,
+              "sub1": "Incline Smith Machine Press",
+              "sub2": "Incline DB Press",
+              "videoUrl": "https://youtu.be/b8fYnZ-usP0",
+              "sub1VideoUrl": "https://youtu.be/koNxsM7rYyc",
+              "sub2VideoUrl": "https://www.youtube.com/watch?v=p2t9daxLpB8"
             },
             {
               "name": "Single-Leg Leg Press (Heavy)",
@@ -1150,7 +1720,12 @@
               "reps": "6-8 per leg",
               "rpe": "8-9",
               "notes": "High and wide foot positioning, start with weaker leg",
-              "order": 2
+              "order": 2,
+              "sub1": "Machine Squat",
+              "sub2": "Hack Squat",
+              "videoUrl": "https://youtu.be/Gvgm70v4sPU",
+              "sub1VideoUrl": "https://youtu.be/N56STpGGRYE",
+              "sub2VideoUrl": "https://youtu.be/wEgQUCdtFLg"
             },
             {
               "name": "Single-Leg Leg Press (Back off)",
@@ -1159,7 +1734,12 @@
               "reps": "10-12 per leg",
               "rpe": "8-9",
               "notes": "High and wide foot positioning, start with weaker leg",
-              "order": 3
+              "order": 3,
+              "sub1": "Machine Squat",
+              "sub2": "Hack Squat",
+              "videoUrl": "https://youtu.be/Gvgm70v4sPU",
+              "sub1VideoUrl": "https://youtu.be/N56STpGGRYE",
+              "sub2VideoUrl": "https://youtu.be/wEgQUCdtFLg"
             },
             {
               "name": "Pendlay Row",
@@ -1168,7 +1748,12 @@
               "reps": "8-10",
               "rpe": "9-10",
               "notes": "Initiate the movement by squeezing your shoulder blades together, pull to your lower chest, avoid using momentum",
-              "order": 4
+              "order": 4,
+              "sub1": "T-Bar Row",
+              "sub2": "Seated Cable Row",
+              "videoUrl": "https://youtu.be/axoeDmW0oAY?t=185",
+              "sub1VideoUrl": "https://youtu.be/ZOg0CcJCKrk",
+              "sub2VideoUrl": "https://youtu.be/FbWfA_s0XL8?t=273"
             },
             {
               "name": "Glute-Ham Raise",
@@ -1177,7 +1762,12 @@
               "reps": "10-12",
               "rpe": "10",
               "notes": "Keep your hips straight, do Nordic ham curls if no GHR machine",
-              "order": 5
+              "order": 5,
+              "sub1": "Nordic Ham Curl",
+              "sub2": "Lying Leg Curl",
+              "videoUrl": "https://youtu.be/psdbgvbdd_M",
+              "sub1VideoUrl": "https://youtu.be/qVek72z3F1U?t=683",
+              "sub2VideoUrl": "https://www.youtube.com/watch?v=e_48W0vlU58&feature=youtu.be"
             },
             {
               "name": "Spider Curl",
@@ -1186,7 +1776,12 @@
               "reps": "12-15 (dropset)",
               "rpe": "10",
               "notes": "Dropset: perform 12-15 reps, drop the weight by ~50%, perform an additional 12-15 reps. Brace your chest against an incline bench, curl with your elbows slightly in front of you",
-              "order": 6
+              "order": 6,
+              "sub1": "DB Preacher Curl",
+              "sub2": "Bayesian Cable Curl",
+              "videoUrl": "https://www.youtube.com/watch?v=ebyOmAZUqzo&t=698s",
+              "sub1VideoUrl": "https://youtu.be/x4YNi4nRboU?t=268",
+              "sub2VideoUrl": "https://youtu.be/acC5hLyjEDI"
             },
             {
               "name": "Hanging Leg Raise",
@@ -1195,7 +1790,12 @@
               "reps": "12-15",
               "rpe": "10",
               "notes": "Knees to chest, controlled reps, straighten legs more to increase difficulty",
-              "order": 7
+              "order": 7,
+              "sub1": "Roman Chair Crunch",
+              "sub2": "Reverse Crunch",
+              "videoUrl": "https://youtu.be/2RrGnjxSsiA?t=247",
+              "sub1VideoUrl": "https://youtu.be/dd1WoEcQB4c",
+              "sub2VideoUrl": "https://youtu.be/CFPB3QT19rE"
             }
           ]
         }
@@ -1214,7 +1814,12 @@
               "reps": "4-6",
               "rpe": "8-9",
               "notes": "15\u00b0 bench angle. Tuck your elbows slightly",
-              "order": 1
+              "order": 1,
+              "sub1": "Flat DB Press",
+              "sub2": "Weighted Dip",
+              "videoUrl": "https://youtu.be/jovoJdM3UPE",
+              "sub1VideoUrl": "https://youtu.be/URQ1Wn7lY3A",
+              "sub2VideoUrl": "https://youtu.be/yN6Q1UI_xkE?t=75"
             },
             {
               "name": "Slight Incline DB Press (Back off)",
@@ -1223,7 +1828,12 @@
               "reps": "8-10",
               "rpe": "9-10",
               "notes": "15\u00b0 bench angle. Tuck your elbows slightly",
-              "order": 2
+              "order": 2,
+              "sub1": "Flat DB Press",
+              "sub2": "Weighted Dip",
+              "videoUrl": "https://youtu.be/jovoJdM3UPE",
+              "sub1VideoUrl": "https://youtu.be/URQ1Wn7lY3A",
+              "sub2VideoUrl": "https://youtu.be/yN6Q1UI_xkE?t=75"
             },
             {
               "name": "Romanian Deadlift",
@@ -1232,7 +1842,12 @@
               "reps": "10-12",
               "rpe": "8-9",
               "notes": "Maintain a neutral lower back, set your hips back, don't allow your spine to round",
-              "order": 3
+              "order": 3,
+              "sub1": "DB Romanian Deadlift",
+              "sub2": "45\u00b0 Hyperextension",
+              "videoUrl": "https://youtu.be/_oyxCn2iSjU?t=95",
+              "sub1VideoUrl": "https://youtu.be/V5u2AP9wBwE",
+              "sub2VideoUrl": "https://youtu.be/J46aPqFl0WE?t=178"
             },
             {
               "name": "Machine Pulldown",
@@ -1241,7 +1856,12 @@
               "reps": "10-12 (dropset)",
               "rpe": "9-10",
               "notes": "Think about pulling your elbows \"down\" and \"in\". Last set only do a dropset: perform 10-12 reps, drop the weight by ~50%, perform an additional 10-12 reps.",
-              "order": 4
+              "order": 4,
+              "sub1": "2-Grip Lat Pulldown",
+              "sub2": "Weighted Pullup",
+              "videoUrl": "https://youtu.be/j8Q50oBDK44",
+              "sub1VideoUrl": "https://youtu.be/QGKhvhMcpPQ",
+              "sub2VideoUrl": "https://youtu.be/Hdc7Mw6BIEE?t=99"
             },
             {
               "name": "DB Bulgarian Split Squat",
@@ -1250,7 +1870,12 @@
               "reps": "8-10 per leg",
               "rpe": "8-9",
               "notes": "Start with your weaker leg. Squat deep",
-              "order": 5
+              "order": 5,
+              "sub1": "DB Walking Lunge",
+              "sub2": "DB Step Up",
+              "videoUrl": "https://youtu.be/htDXu61MPio",
+              "sub1VideoUrl": "https://youtu.be/Y4Vv2ASsyhs?t=536",
+              "sub2VideoUrl": "https://youtu.be/cP77gUDvAPA?t=745"
             },
             {
               "name": "Triceps Pressdown",
@@ -1259,7 +1884,12 @@
               "reps": "12-15 (dropset)",
               "rpe": "9-10",
               "notes": "Dropset: perform 12-15 reps, drop the weight by ~50%, perform an additional 12-15 reps. Focus on squeezing your triceps to move the weight",
-              "order": 6
+              "order": 6,
+              "sub1": "Cable Triceps Kickback",
+              "sub2": "DB Triceps Kickback",
+              "videoUrl": "https://youtu.be/94DXwlcX8Po?t=106",
+              "sub1VideoUrl": "https://youtu.be/94DXwlcX8Po?t=327",
+              "sub2VideoUrl": "https://youtu.be/C6UcPm7mdE4"
             },
             {
               "name": "Machine Lateral Raise",
@@ -1268,7 +1898,12 @@
               "reps": "10-12 (dropset)",
               "rpe": "10",
               "notes": "Dropset: perform 10-12 reps, drop the weight by ~50%, perform an additional 10-12 reps. Focus on squeezing your lateral delt to move the weight",
-              "order": 7
+              "order": 7,
+              "sub1": "DB Lateral Raise",
+              "sub2": "Cable Lateral Raise",
+              "videoUrl": "https://youtu.be/-9QsrJ542ao",
+              "sub1VideoUrl": "https://youtu.be/v_ZkxWzYnMc?t=215",
+              "sub2VideoUrl": "https://youtu.be/SJqInYJcg5k?t=653"
             },
             {
               "name": "Standing Calf Raise",
@@ -1277,7 +1912,12 @@
               "reps": "12-15",
               "rpe": "10",
               "notes": "Press all the way up to your toes, stretch your calves at the bottom, don't bounce",
-              "order": 8
+              "order": 8,
+              "sub1": "Seated Calf Raise",
+              "sub2": "Leg Press Toe Press",
+              "videoUrl": "https://youtu.be/-qsRtp_PbVM?t=162",
+              "sub1VideoUrl": "https://youtu.be/-qsRtp_PbVM?t=311",
+              "sub2VideoUrl": "https://youtu.be/VJ_9xii47Sk"
             }
           ]
         },
@@ -1291,7 +1931,12 @@
               "reps": "4-6",
               "rpe": "8-9",
               "notes": "Focus on strength here. Each week add weight or reps. Keep form consistent.",
-              "order": 1
+              "order": 1,
+              "sub1": "Hack Squat",
+              "sub2": "Leg Press",
+              "videoUrl": "https://youtu.be/N56STpGGRYE",
+              "sub1VideoUrl": "https://youtu.be/wEgQUCdtFLg",
+              "sub2VideoUrl": "https://youtu.be/didU4ZwAkPI?t=241"
             },
             {
               "name": "Machine Squat (Back off)",
@@ -1300,7 +1945,12 @@
               "reps": "8-10",
               "rpe": "8-9",
               "notes": "Drop the weight back and focus on controlling the negative. Smooth and consistent rep tempo.",
-              "order": 2
+              "order": 2,
+              "sub1": "Hack Squat",
+              "sub2": "Leg Press",
+              "videoUrl": "https://youtu.be/N56STpGGRYE",
+              "sub1VideoUrl": "https://youtu.be/wEgQUCdtFLg",
+              "sub2VideoUrl": "https://youtu.be/didU4ZwAkPI?t=241"
             },
             {
               "name": "Standing DB Arnold Press",
@@ -1309,7 +1959,12 @@
               "reps": "8-10",
               "rpe": "9-10",
               "notes": "Start with your elbows in front of you and palms facing in. Rotate the dumbbells so that your palms face forward as you press.",
-              "order": 3
+              "order": 3,
+              "sub1": "Seated DB Shoulder Press",
+              "sub2": "Machine Shoulder Press",
+              "videoUrl": "https://www.youtube.com/watch?v=zOpA1Op0zvc",
+              "sub1VideoUrl": "https://youtu.be/ae9IxwoEpQ8?t=507",
+              "sub2VideoUrl": "https://www.youtube.com/watch?v=flr4ohSl0j8"
             },
             {
               "name": "Nordic Ham Curl",
@@ -1318,7 +1973,12 @@
               "reps": "8-10",
               "rpe": "10",
               "notes": "Keep your hips as straight as you can, can sub for lying leg curl",
-              "order": 4
+              "order": 4,
+              "sub1": "Lying Leg Curl",
+              "sub2": "Glute-Ham Raise",
+              "videoUrl": "https://youtu.be/qVek72z3F1U?t=683",
+              "sub1VideoUrl": "https://www.youtube.com/watch?v=e_48W0vlU58&feature=youtu.be",
+              "sub2VideoUrl": "https://youtu.be/psdbgvbdd_M"
             },
             {
               "name": "Meadows Row",
@@ -1327,7 +1987,12 @@
               "reps": "10-12",
               "rpe": "9-10",
               "notes": "Brace with your non-working hand against your knee, stay light, emphasize form",
-              "order": 5
+              "order": 5,
+              "sub1": "Single-Arm DB Row",
+              "sub2": "Pendlay Row",
+              "videoUrl": "https://youtu.be/f2JDJV0AnyY?t=336",
+              "sub1VideoUrl": "https://youtu.be/djKXLt7kv7Q?t=115",
+              "sub2VideoUrl": "https://youtu.be/axoeDmW0oAY?t=185"
             },
             {
               "name": "Inverse Zottman Curl",
@@ -1336,7 +2001,12 @@
               "reps": "10-12 (dropset)",
               "rpe": "10",
               "notes": "Dropset: perform 10-12 reps, drop the weight by ~50%, perform an additional 10-12 reps. Hammer curl on concentric, supinated curl (palms up) on the eccentric",
-              "order": 6
+              "order": 6,
+              "sub1": "Hammer Curl",
+              "sub2": "DB Curl",
+              "videoUrl": "https://youtu.be/oU0Lb2dD_js",
+              "sub1VideoUrl": "https://youtu.be/Kd3tbUnbueU",
+              "sub2VideoUrl": "https://youtu.be/i1YgFZB6alI?t=487"
             },
             {
               "name": "Pec Deck",
@@ -1345,7 +2015,12 @@
               "reps": "10-12 (dropset)",
               "rpe": "10",
               "notes": "Dropset: perform 10-12 reps, drop the weight by ~50%, perform an additional 10-12 reps. Focus on bringing your inner elbows together - not your hands",
-              "order": 7
+              "order": 7,
+              "sub1": "Cable Flye",
+              "sub2": "DB Flye",
+              "videoUrl": "https://youtu.be/-EIhKMDSjBY?t=151",
+              "sub1VideoUrl": "https://youtu.be/-EIhKMDSjBY?t=169",
+              "sub2VideoUrl": "https://youtu.be/wkyadlB54wE"
             }
           ]
         }
@@ -1364,7 +2039,12 @@
               "reps": "4-6",
               "rpe": "8-9",
               "notes": "15\u00b0 bench angle. Tuck your elbows slightly",
-              "order": 1
+              "order": 1,
+              "sub1": "Flat DB Press",
+              "sub2": "Weighted Dip",
+              "videoUrl": "https://youtu.be/jovoJdM3UPE",
+              "sub1VideoUrl": "https://youtu.be/URQ1Wn7lY3A",
+              "sub2VideoUrl": "https://youtu.be/yN6Q1UI_xkE?t=75"
             },
             {
               "name": "Slight Incline DB Press (Back off)",
@@ -1373,7 +2053,12 @@
               "reps": "8-10",
               "rpe": "9-10",
               "notes": "15\u00b0 bench angle. Tuck your elbows slightly",
-              "order": 2
+              "order": 2,
+              "sub1": "Flat DB Press",
+              "sub2": "Weighted Dip",
+              "videoUrl": "https://youtu.be/jovoJdM3UPE",
+              "sub1VideoUrl": "https://youtu.be/URQ1Wn7lY3A",
+              "sub2VideoUrl": "https://youtu.be/yN6Q1UI_xkE?t=75"
             },
             {
               "name": "Romanian Deadlift",
@@ -1382,7 +2067,12 @@
               "reps": "10-12",
               "rpe": "8-9",
               "notes": "Maintain a neutral lower back, set your hips back, don't allow your spine to round",
-              "order": 3
+              "order": 3,
+              "sub1": "DB Romanian Deadlift",
+              "sub2": "45\u00b0 Hyperextension",
+              "videoUrl": "https://youtu.be/_oyxCn2iSjU?t=95",
+              "sub1VideoUrl": "https://youtu.be/V5u2AP9wBwE",
+              "sub2VideoUrl": "https://youtu.be/J46aPqFl0WE?t=178"
             },
             {
               "name": "Machine Pulldown",
@@ -1391,7 +2081,12 @@
               "reps": "10-12 (dropset)",
               "rpe": "9-10",
               "notes": "Think about pulling your elbows \"down\" and \"in\". Last set only do a dropset: perform 10-12 reps, drop the weight by ~50%, perform an additional 10-12 reps.",
-              "order": 4
+              "order": 4,
+              "sub1": "2-Grip Lat Pulldown",
+              "sub2": "Weighted Pullup",
+              "videoUrl": "https://youtu.be/j8Q50oBDK44",
+              "sub1VideoUrl": "https://youtu.be/QGKhvhMcpPQ",
+              "sub2VideoUrl": "https://youtu.be/Hdc7Mw6BIEE?t=99"
             },
             {
               "name": "DB Bulgarian Split Squat",
@@ -1400,7 +2095,12 @@
               "reps": "8-10 per leg",
               "rpe": "8-9",
               "notes": "Start with your weaker leg. Squat deep",
-              "order": 5
+              "order": 5,
+              "sub1": "DB Walking Lunge",
+              "sub2": "DB Step Up",
+              "videoUrl": "https://youtu.be/htDXu61MPio",
+              "sub1VideoUrl": "https://youtu.be/Y4Vv2ASsyhs?t=536",
+              "sub2VideoUrl": "https://youtu.be/cP77gUDvAPA?t=745"
             },
             {
               "name": "Triceps Pressdown",
@@ -1409,7 +2109,12 @@
               "reps": "12-15 (dropset)",
               "rpe": "9-10",
               "notes": "Dropset: perform 12-15 reps, drop the weight by ~50%, perform an additional 12-15 reps. Focus on squeezing your triceps to move the weight",
-              "order": 6
+              "order": 6,
+              "sub1": "Cable Triceps Kickback",
+              "sub2": "DB Triceps Kickback",
+              "videoUrl": "https://youtu.be/94DXwlcX8Po?t=106",
+              "sub1VideoUrl": "https://youtu.be/94DXwlcX8Po?t=327",
+              "sub2VideoUrl": "https://youtu.be/C6UcPm7mdE4"
             },
             {
               "name": "Machine Lateral Raise",
@@ -1418,7 +2123,12 @@
               "reps": "10-12 (dropset)",
               "rpe": "10",
               "notes": "Dropset: perform 10-12 reps, drop the weight by ~50%, perform an additional 10-12 reps. Focus on squeezing your lateral delt to move the weight",
-              "order": 7
+              "order": 7,
+              "sub1": "DB Lateral Raise",
+              "sub2": "Cable Lateral Raise",
+              "videoUrl": "https://youtu.be/-9QsrJ542ao",
+              "sub1VideoUrl": "https://youtu.be/v_ZkxWzYnMc?t=215",
+              "sub2VideoUrl": "https://youtu.be/SJqInYJcg5k?t=653"
             },
             {
               "name": "Standing Calf Raise",
@@ -1427,7 +2137,12 @@
               "reps": "12-15",
               "rpe": "10",
               "notes": "Press all the way up to your toes, stretch your calves at the bottom, don't bounce",
-              "order": 8
+              "order": 8,
+              "sub1": "Seated Calf Raise",
+              "sub2": "Leg Press Toe Press",
+              "videoUrl": "https://youtu.be/-qsRtp_PbVM?t=162",
+              "sub1VideoUrl": "https://youtu.be/-qsRtp_PbVM?t=311",
+              "sub2VideoUrl": "https://youtu.be/VJ_9xii47Sk"
             }
           ]
         },
@@ -1441,7 +2156,12 @@
               "reps": "4-6",
               "rpe": "8-9",
               "notes": "Focus on strength here. Each week add weight or reps. Keep form consistent.",
-              "order": 1
+              "order": 1,
+              "sub1": "Hack Squat",
+              "sub2": "Leg Press",
+              "videoUrl": "https://youtu.be/N56STpGGRYE",
+              "sub1VideoUrl": "https://youtu.be/wEgQUCdtFLg",
+              "sub2VideoUrl": "https://youtu.be/didU4ZwAkPI?t=241"
             },
             {
               "name": "Machine Squat (Back off)",
@@ -1450,7 +2170,12 @@
               "reps": "8-10",
               "rpe": "8-9",
               "notes": "Drop the weight back and focus on controlling the negative. Smooth and consistent rep tempo.",
-              "order": 2
+              "order": 2,
+              "sub1": "Hack Squat",
+              "sub2": "Leg Press",
+              "videoUrl": "https://youtu.be/N56STpGGRYE",
+              "sub1VideoUrl": "https://youtu.be/wEgQUCdtFLg",
+              "sub2VideoUrl": "https://youtu.be/didU4ZwAkPI?t=241"
             },
             {
               "name": "Standing DB Arnold Press",
@@ -1459,7 +2184,12 @@
               "reps": "8-10",
               "rpe": "9-10",
               "notes": "Start with your elbows in front of you and palms facing in. Rotate the dumbbells so that your palms face forward as you press.",
-              "order": 3
+              "order": 3,
+              "sub1": "Seated DB Shoulder Press",
+              "sub2": "Machine Shoulder Press",
+              "videoUrl": "https://www.youtube.com/watch?v=zOpA1Op0zvc",
+              "sub1VideoUrl": "https://youtu.be/ae9IxwoEpQ8?t=507",
+              "sub2VideoUrl": "https://www.youtube.com/watch?v=flr4ohSl0j8"
             },
             {
               "name": "Nordic Ham Curl",
@@ -1468,7 +2198,12 @@
               "reps": "8-10",
               "rpe": "10",
               "notes": "Keep your hips as straight as you can, can sub for lying leg curl",
-              "order": 4
+              "order": 4,
+              "sub1": "Lying Leg Curl",
+              "sub2": "Glute-Ham Raise",
+              "videoUrl": "https://youtu.be/qVek72z3F1U?t=683",
+              "sub1VideoUrl": "https://www.youtube.com/watch?v=e_48W0vlU58&feature=youtu.be",
+              "sub2VideoUrl": "https://youtu.be/psdbgvbdd_M"
             },
             {
               "name": "Meadows Row",
@@ -1477,7 +2212,12 @@
               "reps": "10-12",
               "rpe": "9-10",
               "notes": "Brace with your non-working hand against your knee, stay light, emphasize form",
-              "order": 5
+              "order": 5,
+              "sub1": "Single-Arm DB Row",
+              "sub2": "Pendlay Row",
+              "videoUrl": "https://youtu.be/f2JDJV0AnyY?t=336",
+              "sub1VideoUrl": "https://youtu.be/djKXLt7kv7Q?t=115",
+              "sub2VideoUrl": "https://youtu.be/axoeDmW0oAY?t=185"
             },
             {
               "name": "Inverse Zottman Curl",
@@ -1486,7 +2226,12 @@
               "reps": "10-12 (dropset)",
               "rpe": "10",
               "notes": "Dropset: perform 10-12 reps, drop the weight by ~50%, perform an additional 10-12 reps. Hammer curl on concentric, supinated curl (palms up) on the eccentric",
-              "order": 6
+              "order": 6,
+              "sub1": "Hammer Curl",
+              "sub2": "DB Curl",
+              "videoUrl": "https://youtu.be/oU0Lb2dD_js",
+              "sub1VideoUrl": "https://youtu.be/Kd3tbUnbueU",
+              "sub2VideoUrl": "https://youtu.be/i1YgFZB6alI?t=487"
             },
             {
               "name": "Pec Deck",
@@ -1495,7 +2240,12 @@
               "reps": "10-12 (dropset)",
               "rpe": "10",
               "notes": "Dropset: perform 10-12 reps, drop the weight by ~50%, perform an additional 10-12 reps. Focus on bringing your inner elbows together - not your hands",
-              "order": 7
+              "order": 7,
+              "sub1": "Cable Flye",
+              "sub2": "DB Flye",
+              "videoUrl": "https://youtu.be/-EIhKMDSjBY?t=151",
+              "sub1VideoUrl": "https://youtu.be/-EIhKMDSjBY?t=169",
+              "sub2VideoUrl": "https://youtu.be/wkyadlB54wE"
             }
           ]
         }
@@ -1514,7 +2264,12 @@
               "reps": "4-6",
               "rpe": "8-9",
               "notes": "15\u00b0 bench angle. Tuck your elbows slightly",
-              "order": 1
+              "order": 1,
+              "sub1": "Flat DB Press",
+              "sub2": "Weighted Dip",
+              "videoUrl": "https://youtu.be/jovoJdM3UPE",
+              "sub1VideoUrl": "https://youtu.be/URQ1Wn7lY3A",
+              "sub2VideoUrl": "https://youtu.be/yN6Q1UI_xkE?t=75"
             },
             {
               "name": "Slight Incline DB Press (Back off)",
@@ -1523,7 +2278,12 @@
               "reps": "8-10",
               "rpe": "9-10",
               "notes": "15\u00b0 bench angle. Tuck your elbows slightly",
-              "order": 2
+              "order": 2,
+              "sub1": "Flat DB Press",
+              "sub2": "Weighted Dip",
+              "videoUrl": "https://youtu.be/jovoJdM3UPE",
+              "sub1VideoUrl": "https://youtu.be/URQ1Wn7lY3A",
+              "sub2VideoUrl": "https://youtu.be/yN6Q1UI_xkE?t=75"
             },
             {
               "name": "Romanian Deadlift",
@@ -1532,7 +2292,12 @@
               "reps": "10-12",
               "rpe": "8-9",
               "notes": "Maintain a neutral lower back, set your hips back, don't allow your spine to round",
-              "order": 3
+              "order": 3,
+              "sub1": "DB Romanian Deadlift",
+              "sub2": "45\u00b0 Hyperextension",
+              "videoUrl": "https://youtu.be/_oyxCn2iSjU?t=95",
+              "sub1VideoUrl": "https://youtu.be/V5u2AP9wBwE",
+              "sub2VideoUrl": "https://youtu.be/J46aPqFl0WE?t=178"
             },
             {
               "name": "Machine Pulldown",
@@ -1541,7 +2306,12 @@
               "reps": "10-12 (dropset)",
               "rpe": "9-10",
               "notes": "Think about pulling your elbows \"down\" and \"in\". Last set only do a dropset: perform 10-12 reps, drop the weight by ~50%, perform an additional 10-12 reps.",
-              "order": 4
+              "order": 4,
+              "sub1": "2-Grip Lat Pulldown",
+              "sub2": "Weighted Pullup",
+              "videoUrl": "https://youtu.be/j8Q50oBDK44",
+              "sub1VideoUrl": "https://youtu.be/QGKhvhMcpPQ",
+              "sub2VideoUrl": "https://youtu.be/Hdc7Mw6BIEE?t=99"
             },
             {
               "name": "DB Bulgarian Split Squat",
@@ -1550,7 +2320,12 @@
               "reps": "8-10 per leg",
               "rpe": "8-9",
               "notes": "Start with your weaker leg. Squat deep",
-              "order": 5
+              "order": 5,
+              "sub1": "DB Walking Lunge",
+              "sub2": "DB Step Up",
+              "videoUrl": "https://youtu.be/htDXu61MPio",
+              "sub1VideoUrl": "https://youtu.be/Y4Vv2ASsyhs?t=536",
+              "sub2VideoUrl": "https://youtu.be/cP77gUDvAPA?t=745"
             },
             {
               "name": "Triceps Pressdown",
@@ -1559,7 +2334,12 @@
               "reps": "12-15 (dropset)",
               "rpe": "9-10",
               "notes": "Dropset: perform 12-15 reps, drop the weight by ~50%, perform an additional 12-15 reps. Focus on squeezing your triceps to move the weight",
-              "order": 6
+              "order": 6,
+              "sub1": "Cable Triceps Kickback",
+              "sub2": "DB Triceps Kickback",
+              "videoUrl": "https://youtu.be/94DXwlcX8Po?t=106",
+              "sub1VideoUrl": "https://youtu.be/94DXwlcX8Po?t=327",
+              "sub2VideoUrl": "https://youtu.be/C6UcPm7mdE4"
             },
             {
               "name": "Machine Lateral Raise",
@@ -1568,7 +2348,12 @@
               "reps": "10-12 (dropset)",
               "rpe": "10",
               "notes": "Dropset: perform 10-12 reps, drop the weight by ~50%, perform an additional 10-12 reps. Focus on squeezing your lateral delt to move the weight",
-              "order": 7
+              "order": 7,
+              "sub1": "DB Lateral Raise",
+              "sub2": "Cable Lateral Raise",
+              "videoUrl": "https://youtu.be/-9QsrJ542ao",
+              "sub1VideoUrl": "https://youtu.be/v_ZkxWzYnMc?t=215",
+              "sub2VideoUrl": "https://youtu.be/SJqInYJcg5k?t=653"
             },
             {
               "name": "Standing Calf Raise",
@@ -1577,7 +2362,12 @@
               "reps": "12-15",
               "rpe": "10",
               "notes": "Press all the way up to your toes, stretch your calves at the bottom, don't bounce",
-              "order": 8
+              "order": 8,
+              "sub1": "Seated Calf Raise",
+              "sub2": "Leg Press Toe Press",
+              "videoUrl": "https://youtu.be/-qsRtp_PbVM?t=162",
+              "sub1VideoUrl": "https://youtu.be/-qsRtp_PbVM?t=311",
+              "sub2VideoUrl": "https://youtu.be/VJ_9xii47Sk"
             }
           ]
         },
@@ -1591,7 +2381,12 @@
               "reps": "4-6",
               "rpe": "8-9",
               "notes": "Focus on strength here. Each week add weight or reps. Keep form consistent.",
-              "order": 1
+              "order": 1,
+              "sub1": "Hack Squat",
+              "sub2": "Leg Press",
+              "videoUrl": "https://youtu.be/N56STpGGRYE",
+              "sub1VideoUrl": "https://youtu.be/wEgQUCdtFLg",
+              "sub2VideoUrl": "https://youtu.be/didU4ZwAkPI?t=241"
             },
             {
               "name": "Machine Squat (Back off)",
@@ -1600,7 +2395,12 @@
               "reps": "8-10",
               "rpe": "8-9",
               "notes": "Drop the weight back and focus on controlling the negative. Smooth and consistent rep tempo.",
-              "order": 2
+              "order": 2,
+              "sub1": "Hack Squat",
+              "sub2": "Leg Press",
+              "videoUrl": "https://youtu.be/N56STpGGRYE",
+              "sub1VideoUrl": "https://youtu.be/wEgQUCdtFLg",
+              "sub2VideoUrl": "https://youtu.be/didU4ZwAkPI?t=241"
             },
             {
               "name": "Standing DB Arnold Press",
@@ -1609,7 +2409,12 @@
               "reps": "8-10",
               "rpe": "9-10",
               "notes": "Start with your elbows in front of you and palms facing in. Rotate the dumbbells so that your palms face forward as you press.",
-              "order": 3
+              "order": 3,
+              "sub1": "Seated DB Shoulder Press",
+              "sub2": "Machine Shoulder Press",
+              "videoUrl": "https://www.youtube.com/watch?v=zOpA1Op0zvc",
+              "sub1VideoUrl": "https://youtu.be/ae9IxwoEpQ8?t=507",
+              "sub2VideoUrl": "https://www.youtube.com/watch?v=flr4ohSl0j8"
             },
             {
               "name": "Nordic Ham Curl",
@@ -1618,7 +2423,12 @@
               "reps": "8-10",
               "rpe": "10",
               "notes": "Keep your hips as straight as you can, can sub for lying leg curl",
-              "order": 4
+              "order": 4,
+              "sub1": "Lying Leg Curl",
+              "sub2": "Glute-Ham Raise",
+              "videoUrl": "https://youtu.be/qVek72z3F1U?t=683",
+              "sub1VideoUrl": "https://www.youtube.com/watch?v=e_48W0vlU58&feature=youtu.be",
+              "sub2VideoUrl": "https://youtu.be/psdbgvbdd_M"
             },
             {
               "name": "Meadows Row",
@@ -1627,7 +2437,12 @@
               "reps": "10-12",
               "rpe": "9-10",
               "notes": "Brace with your non-working hand against your knee, stay light, emphasize form",
-              "order": 5
+              "order": 5,
+              "sub1": "Single-Arm DB Row",
+              "sub2": "Pendlay Row",
+              "videoUrl": "https://youtu.be/f2JDJV0AnyY?t=336",
+              "sub1VideoUrl": "https://youtu.be/djKXLt7kv7Q?t=115",
+              "sub2VideoUrl": "https://youtu.be/axoeDmW0oAY?t=185"
             },
             {
               "name": "Inverse Zottman Curl",
@@ -1636,7 +2451,12 @@
               "reps": "10-12 (dropset)",
               "rpe": "10",
               "notes": "Dropset: perform 10-12 reps, drop the weight by ~50%, perform an additional 10-12 reps. Hammer curl on concentric, supinated curl (palms up) on the eccentric",
-              "order": 6
+              "order": 6,
+              "sub1": "Hammer Curl",
+              "sub2": "DB Curl",
+              "videoUrl": "https://youtu.be/oU0Lb2dD_js",
+              "sub1VideoUrl": "https://youtu.be/Kd3tbUnbueU",
+              "sub2VideoUrl": "https://youtu.be/i1YgFZB6alI?t=487"
             },
             {
               "name": "Pec Deck",
@@ -1645,7 +2465,12 @@
               "reps": "10-12 (dropset)",
               "rpe": "10",
               "notes": "Dropset: perform 10-12 reps, drop the weight by ~50%, perform an additional 10-12 reps. Focus on bringing your inner elbows together - not your hands",
-              "order": 7
+              "order": 7,
+              "sub1": "Cable Flye",
+              "sub2": "DB Flye",
+              "videoUrl": "https://youtu.be/-EIhKMDSjBY?t=151",
+              "sub1VideoUrl": "https://youtu.be/-EIhKMDSjBY?t=169",
+              "sub2VideoUrl": "https://youtu.be/wkyadlB54wE"
             }
           ]
         }
@@ -1664,7 +2489,12 @@
               "reps": "4-6",
               "rpe": "8-9",
               "notes": "15\u00b0 bench angle. Tuck your elbows slightly",
-              "order": 1
+              "order": 1,
+              "sub1": "Flat DB Press",
+              "sub2": "Weighted Dip",
+              "videoUrl": "https://youtu.be/jovoJdM3UPE",
+              "sub1VideoUrl": "https://youtu.be/URQ1Wn7lY3A",
+              "sub2VideoUrl": "https://youtu.be/yN6Q1UI_xkE?t=75"
             },
             {
               "name": "Slight Incline DB Press (Back off)",
@@ -1673,7 +2503,12 @@
               "reps": "8-10",
               "rpe": "9-10",
               "notes": "15\u00b0 bench angle. Tuck your elbows slightly",
-              "order": 2
+              "order": 2,
+              "sub1": "Flat DB Press",
+              "sub2": "Weighted Dip",
+              "videoUrl": "https://youtu.be/jovoJdM3UPE",
+              "sub1VideoUrl": "https://youtu.be/URQ1Wn7lY3A",
+              "sub2VideoUrl": "https://youtu.be/yN6Q1UI_xkE?t=75"
             },
             {
               "name": "Romanian Deadlift",
@@ -1682,7 +2517,12 @@
               "reps": "10-12",
               "rpe": "8-9",
               "notes": "Maintain a neutral lower back, set your hips back, don't allow your spine to round",
-              "order": 3
+              "order": 3,
+              "sub1": "DB Romanian Deadlift",
+              "sub2": "45\u00b0 Hyperextension",
+              "videoUrl": "https://youtu.be/_oyxCn2iSjU?t=95",
+              "sub1VideoUrl": "https://youtu.be/V5u2AP9wBwE",
+              "sub2VideoUrl": "https://youtu.be/J46aPqFl0WE?t=178"
             },
             {
               "name": "Machine Pulldown",
@@ -1691,7 +2531,12 @@
               "reps": "10-12 (dropset)",
               "rpe": "9-10",
               "notes": "Think about pulling your elbows \"down\" and \"in\". Last set only do a dropset: perform 10-12 reps, drop the weight by ~50%, perform an additional 10-12 reps.",
-              "order": 4
+              "order": 4,
+              "sub1": "2-Grip Lat Pulldown",
+              "sub2": "Weighted Pullup",
+              "videoUrl": "https://youtu.be/j8Q50oBDK44",
+              "sub1VideoUrl": "https://youtu.be/QGKhvhMcpPQ",
+              "sub2VideoUrl": "https://youtu.be/Hdc7Mw6BIEE?t=99"
             },
             {
               "name": "DB Bulgarian Split Squat",
@@ -1700,7 +2545,12 @@
               "reps": "8-10 per leg",
               "rpe": "8-9",
               "notes": "Start with your weaker leg. Squat deep",
-              "order": 5
+              "order": 5,
+              "sub1": "DB Walking Lunge",
+              "sub2": "DB Step Up",
+              "videoUrl": "https://youtu.be/htDXu61MPio",
+              "sub1VideoUrl": "https://youtu.be/Y4Vv2ASsyhs?t=536",
+              "sub2VideoUrl": "https://youtu.be/cP77gUDvAPA?t=745"
             },
             {
               "name": "Triceps Pressdown",
@@ -1709,7 +2559,12 @@
               "reps": "12-15 (dropset)",
               "rpe": "9-10",
               "notes": "Dropset: perform 12-15 reps, drop the weight by ~50%, perform an additional 12-15 reps. Focus on squeezing your triceps to move the weight",
-              "order": 6
+              "order": 6,
+              "sub1": "Cable Triceps Kickback",
+              "sub2": "DB Triceps Kickback",
+              "videoUrl": "https://youtu.be/94DXwlcX8Po?t=106",
+              "sub1VideoUrl": "https://youtu.be/94DXwlcX8Po?t=327",
+              "sub2VideoUrl": "https://youtu.be/C6UcPm7mdE4"
             },
             {
               "name": "Machine Lateral Raise",
@@ -1718,7 +2573,12 @@
               "reps": "10-12 (dropset)",
               "rpe": "10",
               "notes": "Dropset: perform 10-12 reps, drop the weight by ~50%, perform an additional 10-12 reps. Focus on squeezing your lateral delt to move the weight",
-              "order": 7
+              "order": 7,
+              "sub1": "DB Lateral Raise",
+              "sub2": "Cable Lateral Raise",
+              "videoUrl": "https://youtu.be/-9QsrJ542ao",
+              "sub1VideoUrl": "https://youtu.be/v_ZkxWzYnMc?t=215",
+              "sub2VideoUrl": "https://youtu.be/SJqInYJcg5k?t=653"
             },
             {
               "name": "Standing Calf Raise",
@@ -1727,7 +2587,12 @@
               "reps": "12-15",
               "rpe": "10",
               "notes": "Press all the way up to your toes, stretch your calves at the bottom, don't bounce",
-              "order": 8
+              "order": 8,
+              "sub1": "Seated Calf Raise",
+              "sub2": "Leg Press Toe Press",
+              "videoUrl": "https://youtu.be/-qsRtp_PbVM?t=162",
+              "sub1VideoUrl": "https://youtu.be/-qsRtp_PbVM?t=311",
+              "sub2VideoUrl": "https://youtu.be/VJ_9xii47Sk"
             }
           ]
         },
@@ -1741,7 +2606,12 @@
               "reps": "4-6",
               "rpe": "8-9",
               "notes": "Focus on strength here. Each week add weight or reps. Keep form consistent.",
-              "order": 1
+              "order": 1,
+              "sub1": "Hack Squat",
+              "sub2": "Leg Press",
+              "videoUrl": "https://youtu.be/N56STpGGRYE",
+              "sub1VideoUrl": "https://youtu.be/wEgQUCdtFLg",
+              "sub2VideoUrl": "https://youtu.be/didU4ZwAkPI?t=241"
             },
             {
               "name": "Machine Squat (Back off)",
@@ -1750,7 +2620,12 @@
               "reps": "8-10",
               "rpe": "8-9",
               "notes": "Drop the weight back and focus on controlling the negative. Smooth and consistent rep tempo.",
-              "order": 2
+              "order": 2,
+              "sub1": "Hack Squat",
+              "sub2": "Leg Press",
+              "videoUrl": "https://youtu.be/N56STpGGRYE",
+              "sub1VideoUrl": "https://youtu.be/wEgQUCdtFLg",
+              "sub2VideoUrl": "https://youtu.be/didU4ZwAkPI?t=241"
             },
             {
               "name": "Standing DB Arnold Press",
@@ -1759,7 +2634,12 @@
               "reps": "8-10",
               "rpe": "9-10",
               "notes": "Start with your elbows in front of you and palms facing in. Rotate the dumbbells so that your palms face forward as you press.",
-              "order": 3
+              "order": 3,
+              "sub1": "Seated DB Shoulder Press",
+              "sub2": "Machine Shoulder Press",
+              "videoUrl": "https://www.youtube.com/watch?v=zOpA1Op0zvc",
+              "sub1VideoUrl": "https://youtu.be/ae9IxwoEpQ8?t=507",
+              "sub2VideoUrl": "https://www.youtube.com/watch?v=flr4ohSl0j8"
             },
             {
               "name": "Nordic Ham Curl",
@@ -1768,7 +2648,12 @@
               "reps": "8-10",
               "rpe": "10",
               "notes": "Keep your hips as straight as you can, can sub for lying leg curl",
-              "order": 4
+              "order": 4,
+              "sub1": "Lying Leg Curl",
+              "sub2": "Glute-Ham Raise",
+              "videoUrl": "https://youtu.be/qVek72z3F1U?t=683",
+              "sub1VideoUrl": "https://www.youtube.com/watch?v=e_48W0vlU58&feature=youtu.be",
+              "sub2VideoUrl": "https://youtu.be/psdbgvbdd_M"
             },
             {
               "name": "Meadows Row",
@@ -1777,7 +2662,12 @@
               "reps": "10-12",
               "rpe": "9-10",
               "notes": "Brace with your non-working hand against your knee, stay light, emphasize form",
-              "order": 5
+              "order": 5,
+              "sub1": "Single-Arm DB Row",
+              "sub2": "Pendlay Row",
+              "videoUrl": "https://youtu.be/f2JDJV0AnyY?t=336",
+              "sub1VideoUrl": "https://youtu.be/djKXLt7kv7Q?t=115",
+              "sub2VideoUrl": "https://youtu.be/axoeDmW0oAY?t=185"
             },
             {
               "name": "Inverse Zottman Curl",
@@ -1786,7 +2676,12 @@
               "reps": "10-12 (dropset)",
               "rpe": "10",
               "notes": "Dropset: perform 10-12 reps, drop the weight by ~50%, perform an additional 10-12 reps. Hammer curl on concentric, supinated curl (palms up) on the eccentric",
-              "order": 6
+              "order": 6,
+              "sub1": "Hammer Curl",
+              "sub2": "DB Curl",
+              "videoUrl": "https://youtu.be/oU0Lb2dD_js",
+              "sub1VideoUrl": "https://youtu.be/Kd3tbUnbueU",
+              "sub2VideoUrl": "https://youtu.be/i1YgFZB6alI?t=487"
             },
             {
               "name": "Pec Deck",
@@ -1795,7 +2690,12 @@
               "reps": "10-12 (dropset)",
               "rpe": "10",
               "notes": "Dropset: perform 10-12 reps, drop the weight by ~50%, perform an additional 10-12 reps. Focus on bringing your inner elbows together - not your hands",
-              "order": 7
+              "order": 7,
+              "sub1": "Cable Flye",
+              "sub2": "DB Flye",
+              "videoUrl": "https://youtu.be/-EIhKMDSjBY?t=151",
+              "sub1VideoUrl": "https://youtu.be/-EIhKMDSjBY?t=169",
+              "sub2VideoUrl": "https://youtu.be/wkyadlB54wE"
             }
           ]
         }

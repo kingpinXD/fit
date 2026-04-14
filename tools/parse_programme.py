@@ -42,7 +42,8 @@ def parse_warmup(value) -> str:
     return str(value).strip()
 
 
-def make_exercise(name: str, warmup, sets: int, reps, rpe, notes, order: int) -> dict:
+def make_exercise(name: str, warmup, sets: int, reps, rpe, notes, order: int,
+                   sub1="", sub2="", video_url="", sub1_video_url="", sub2_video_url="") -> dict:
     return {
         "name": str(name).strip(),
         "warmupSets": parse_warmup(warmup),
@@ -51,6 +52,11 @@ def make_exercise(name: str, warmup, sets: int, reps, rpe, notes, order: int) ->
         "rpe": parse_rpe(rpe),
         "notes": str(notes).strip() if notes else "",
         "order": order,
+        "sub1": str(sub1).strip() if sub1 else "",
+        "sub2": str(sub2).strip() if sub2 else "",
+        "videoUrl": str(video_url).strip() if video_url else "",
+        "sub1VideoUrl": str(sub1_video_url).strip() if sub1_video_url else "",
+        "sub2VideoUrl": str(sub2_video_url).strip() if sub2_video_url else "",
     }
 
 
@@ -72,7 +78,13 @@ def parse_programme(xlsx_path: str) -> dict:
         col_e = row[3].value   # Column E (working sets)
         col_f = row[4].value   # Column F (reps)
         col_h = row[6].value   # Column H (RPE)
+        col_j = row[8].value   # Column J (sub1)
+        col_k = row[9].value   # Column K (sub2)
         col_l = row[10].value  # Column L (notes)
+        # Hyperlinks
+        video_url = row[1].hyperlink.target if row[1].hyperlink else ""
+        sub1_video_url = row[8].hyperlink.target if row[8].hyperlink else ""
+        sub2_video_url = row[9].hyperlink.target if row[9].hyperlink else ""
 
         if col_b and isinstance(col_b, str):
             col_b = col_b.strip()
@@ -99,7 +111,9 @@ def parse_programme(xlsx_path: str) -> dict:
                 current_week["days"].append(current_day)
                 if col_c and col_e is not None:
                     current_day["exercises"].append(
-                        make_exercise(col_c, col_d, col_e, col_f, col_h, col_l, order=1)
+                        make_exercise(col_c, col_d, col_e, col_f, col_h, col_l, order=1,
+                                      sub1=col_j, sub2=col_k, video_url=video_url,
+                                      sub1_video_url=sub1_video_url, sub2_video_url=sub2_video_url)
                     )
                 continue
 
@@ -107,7 +121,9 @@ def parse_programme(xlsx_path: str) -> dict:
         if col_c and col_e is not None and current_day is not None:
             order = len(current_day["exercises"]) + 1
             current_day["exercises"].append(
-                make_exercise(col_c, col_d, col_e, col_f, col_h, col_l, order=order)
+                make_exercise(col_c, col_d, col_e, col_f, col_h, col_l, order=order,
+                              sub1=col_j, sub2=col_k, video_url=video_url,
+                              sub1_video_url=sub1_video_url, sub2_video_url=sub2_video_url)
             )
 
     return {"name": PROGRAMME_NAME, "weeks": weeks}

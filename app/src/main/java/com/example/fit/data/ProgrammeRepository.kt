@@ -178,6 +178,9 @@ class ProgrammeRepository(
         // Clean up old duplicate names (e.g. "the_essentials_5x" → "essentials_5x")
         cleanupLegacyNames()
 
+        // Fix 4x day names that were preloaded without #2 suffixes
+        repair4xDayNames()
+
         // Deduplicate exercises that may have been doubled by previous versions
         deduplicateExercises()
 
@@ -204,6 +207,20 @@ class ProgrammeRepository(
                 // Delete duplicates: keep the lowest IDs, remove the rest
                 dao.deduplicateByProgramme(name, expected)
             }
+        }
+    }
+
+    private suspend fun repair4xDayNames() {
+        val name4x = BUNDLED_PROGRAMMES.firstOrNull { it.first.contains("4x") }?.first ?: return
+        val count = dao.countByProgramme(name4x)
+        if (count == 0) return
+
+        // Should have 4 unique days per week; if only 2, the old preload used wrong names
+        val exercises = dao.getAllExercises(name4x)
+        val week1Days = exercises.filter { it.weekNumber == 1 }.map { it.dayName }.distinct()
+        if (week1Days.size < 4) {
+            dao.deleteByProgramme(name4x)
+            programmeDao.delete(name4x)
         }
     }
 
@@ -270,7 +287,10 @@ class ProgrammeRepository(
                                 notes = exObj.optString("notes", ""),
                                 warmupSets = exObj.optString("warmupSets", "0"),
                                 sub1 = exObj.optString("sub1", ""),
-                                sub2 = exObj.optString("sub2", "")
+                                sub2 = exObj.optString("sub2", ""),
+                                videoUrl = exObj.optString("videoUrl", ""),
+                                sub1VideoUrl = exObj.optString("sub1VideoUrl", ""),
+                                sub2VideoUrl = exObj.optString("sub2VideoUrl", "")
                             )
                         )
                     }

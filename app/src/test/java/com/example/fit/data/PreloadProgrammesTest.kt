@@ -82,6 +82,33 @@ class PreloadProgrammesTest {
         }
     }
 
+    @Test
+    fun `parse essentials 5x JSON has sub1 and videoUrl`() {
+        val json = loadResource("essentials_5x.json")
+        val exercises = ProgrammeRepository.parseProgramme(json)
+        val first = exercises.first { it.weekNumber == 1 && it.dayName == "Upper" && it.orderIndex == 1 }
+        assertEquals("Machine Chest Press", first.sub1)
+        assertEquals("Weighted Dip", first.sub2)
+        assertTrue(first.videoUrl.contains("youtu"))
+    }
+
+    @Test
+    fun `parse essentials 4x JSON has 4 unique days`() {
+        val json = loadResource("essentials_4x.json")
+        val exercises = ProgrammeRepository.parseProgramme(json)
+        val week1Days = exercises.filter { it.weekNumber == 1 }.map { it.dayName }.distinct()
+        assertEquals(4, week1Days.size)
+        assertTrue(week1Days.contains("Upper #2"))
+    }
+
+    @Test
+    fun `parse essentials 2x JSON has sub1`() {
+        val json = loadResource("essentials_2x.json")
+        val exercises = ProgrammeRepository.parseProgramme(json)
+        val withSubs = exercises.filter { it.sub1.isNotBlank() }
+        assertTrue("Should have exercises with substitutions", withSubs.isNotEmpty())
+    }
+
     private fun loadResource(name: String): String {
         return javaClass.classLoader!!.getResourceAsStream(name)!!
             .bufferedReader().use { it.readText() }
