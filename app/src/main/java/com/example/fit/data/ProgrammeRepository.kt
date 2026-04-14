@@ -137,6 +137,7 @@ class ProgrammeRepository(
                         put("sets", ex.sets)
                         put("reps", ex.reps)
                         put("rpe", ex.rpe)
+                        put("rest", ex.rest)
                         put("warmupSets", ex.warmupSets)
                         put("notes", ex.notes)
                         put("order", ex.orderIndex)
@@ -284,6 +285,7 @@ class ProgrammeRepository(
                                 reps = exObj.getString("reps"),
                                 orderIndex = exObj.optInt("order", exercises.size),
                                 rpe = exObj.optString("rpe", ""),
+                                rest = exObj.optString("rest", ""),
                                 notes = exObj.optString("notes", ""),
                                 warmupSets = exObj.optString("warmupSets", "0"),
                                 sub1 = exObj.optString("sub1", ""),

@@ -24,6 +24,7 @@ data class Exercise(
     val rpe: String = "",
     val notes: String = "",
     val warmupSets: String = "0",
+    val rest: String = "",
     val sub1: String = "",
     val sub2: String = "",
     val videoUrl: String = "",
@@ -195,7 +196,7 @@ interface ProgrammeDao {
     suspend fun delete(name: String)
 }
 
-@Database(entities = [Exercise::class, ExerciseLog::class, Programme::class], version = 8, exportSchema = false)
+@Database(entities = [Exercise::class, ExerciseLog::class, Programme::class], version = 9, exportSchema = false)
 abstract class AppDatabase : RoomDatabase() {
 
     abstract fun exerciseDao(): ExerciseDao
@@ -206,13 +207,22 @@ abstract class AppDatabase : RoomDatabase() {
         @Volatile
         private var INSTANCE: AppDatabase? = null
 
+        private val MIGRATION_8_9 = object : androidx.room.migration.Migration(8, 9) {
+            override fun migrate(db: androidx.sqlite.db.SupportSQLiteDatabase) {
+                db.execSQL("ALTER TABLE exercises ADD COLUMN rest TEXT NOT NULL DEFAULT ''")
+            }
+        }
+
         fun getInstance(context: Context): AppDatabase {
             return INSTANCE ?: synchronized(this) {
                 INSTANCE ?: Room.databaseBuilder(
                     context.applicationContext,
                     AppDatabase::class.java,
                     "fit.db"
-                ).fallbackToDestructiveMigration().build().also { INSTANCE = it }
+                )
+                    .addMigrations(MIGRATION_8_9)
+                    .fallbackToDestructiveMigration()
+                    .build().also { INSTANCE = it }
             }
         }
     }

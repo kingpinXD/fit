@@ -50,6 +50,8 @@ import androidx.compose.material3.AlertDialog
 import androidx.compose.material3.OutlinedButton
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.OutlinedTextFieldDefaults
+import androidx.compose.material3.Slider
+import androidx.compose.material3.SliderDefaults
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
 import androidx.compose.material3.TextField
@@ -57,6 +59,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.livedata.observeAsState
+import androidx.compose.runtime.mutableFloatStateOf
 import androidx.compose.runtime.mutableIntStateOf
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
@@ -87,6 +90,23 @@ import com.example.fit.ui.theme.EquipmentGreen
 import com.example.fit.ui.theme.SkipBlue
 import com.example.fit.ui.theme.SuccessGreen
 import com.example.fit.ui.theme.TextSecondary
+
+/**
+ * Parses the programme's recommended RPE string into an integer default for the slider.
+ * Handles ranges ("9-10" -> 10), single values ("8" -> 8), and non-numeric ("N/A" -> 5).
+ */
+internal fun parseDefaultRpe(rpe: String): Int {
+    val trimmed = rpe.trim()
+    if (trimmed.isBlank()) return 5
+
+    // Handle range like "9-10", "7-8"
+    if (trimmed.contains("-")) {
+        val max = trimmed.split("-").mapNotNull { it.trim().toIntOrNull() }.maxOrNull()
+        return max?.coerceIn(1, 10) ?: 5
+    }
+
+    return trimmed.toIntOrNull()?.coerceIn(1, 10) ?: 5
+}
 
 @Composable
 fun ProgrammeScreen(
@@ -699,8 +719,15 @@ private fun ExerciseDetail(
     var isDb by remember(exercise.id, existingLog) { mutableStateOf("Dumbbell" in existingEquipment) }
     var isMn by remember(exercise.id, existingLog) { mutableStateOf("Machine" in existingEquipment) }
     var isEs by remember(exercise.id, existingLog) { mutableStateOf("Each Side" in existingEquipment) }
+    var isCables by remember(exercise.id, existingLog) { mutableStateOf("Cables" in existingEquipment) }
+    var isBodyWt by remember(exercise.id, existingLog) { mutableStateOf("Body Weight" in existingEquipment) }
+    var rpeValue by remember(exercise.id, existingLog) {
+        mutableFloatStateOf(
+            existingLog?.observedRpe?.toIntOrNull()?.toFloat()
+                ?: parseDefaultRpe(exercise.rpe).toFloat()
+        )
+    }
     var comments by remember(exercise.id, existingLog) { mutableStateOf(existingLog?.userComments ?: "") }
-    var observedRpe by remember(exercise.id, existingLog) { mutableStateOf(existingLog?.observedRpe ?: "") }
     var notesExpanded by remember(exercise.id) { mutableStateOf(false) }
     var altsExpanded by remember(exercise.id) { mutableStateOf(false) }
 
@@ -751,46 +778,47 @@ private fun ExerciseDetail(
 
             // Working sets line
             val rpeStr = if (exercise.rpe.isNotBlank()) " | RPE: ${exercise.rpe}" else ""
+            val restStr = if (exercise.rest.isNotBlank()) " | Rest: ${exercise.rest}" else ""
             Text(
-                text = "Working: ${exercise.sets} sets \u00D7 ${exercise.reps}$rpeStr",
+                text = "Working: ${exercise.sets} sets \u00D7 ${exercise.reps}$rpeStr$restStr",
                 color = TextSecondary,
                 fontSize = 12.sp
             )
 
-            // Notes toggle
-            if (exercise.notes.isNotBlank()) {
-                Spacer(modifier = Modifier.height(sz.xxs))
-                Text(
-                    text = if (notesExpanded) "Notes \u25BC" else "Notes \u25B6",
-                    color = TextSecondary,
-                    fontSize = 12.sp,
-                    modifier = Modifier
-                        .clickable { notesExpanded = !notesExpanded }
-                        .padding(2.dp)
-                )
+            // Notes + Alternatives on same row (collapsed)
+            val hasNotes = exercise.notes.isNotBlank()
+            val hasAlts = exercise.sub1.isNotBlank() || exercise.sub2.isNotBlank()
+            if (hasNotes || hasAlts) {
+                Row(
+                    horizontalArrangement = Arrangement.spacedBy(sz.xs),
+                    modifier = Modifier.padding(top = 2.dp)
+                ) {
+                    if (hasNotes) {
+                        Text(
+                            text = if (notesExpanded) "Notes \u25BC" else "Notes \u25B6",
+                            color = TextSecondary,
+                            fontSize = 11.sp,
+                            modifier = Modifier.clickable { notesExpanded = !notesExpanded }
+                        )
+                    }
+                    if (hasAlts) {
+                        Text(
+                            text = if (altsExpanded) "Alts \u25BC" else "Alts \u25B6",
+                            color = TextSecondary,
+                            fontSize = 11.sp,
+                            modifier = Modifier.clickable { altsExpanded = !altsExpanded }
+                        )
+                    }
+                }
                 AnimatedVisibility(visible = notesExpanded) {
                     Text(
                         text = exercise.notes,
                         color = TextSecondary,
-                        fontSize = 11.sp,
+                        fontSize = 10.sp,
                         fontStyle = FontStyle.Italic,
                         modifier = Modifier.padding(horizontal = sz.xxs, vertical = 2.dp)
                     )
                 }
-            }
-
-            // Alternatives toggle
-            val hasAlts = exercise.sub1.isNotBlank() || exercise.sub2.isNotBlank()
-            if (hasAlts) {
-                Spacer(modifier = Modifier.height(sz.xxs))
-                Text(
-                    text = if (altsExpanded) "Alternatives \u25BC" else "Alternatives \u25B6",
-                    color = TextSecondary,
-                    fontSize = 12.sp,
-                    modifier = Modifier
-                        .clickable { altsExpanded = !altsExpanded }
-                        .padding(2.dp)
-                )
                 AnimatedVisibility(visible = altsExpanded) {
                     Column(modifier = Modifier.padding(horizontal = sz.xxs, vertical = 2.dp)) {
                         if (exercise.sub1.isNotBlank()) {
@@ -798,7 +826,7 @@ private fun ExerciseDetail(
                             Text(
                                 text = "\u2022 ${exercise.sub1}" + if (hasSub1Link) " \u25B6" else "",
                                 color = if (hasSub1Link) Color(0xFF5AC8FA) else TextSecondary,
-                                fontSize = 11.sp,
+                                fontSize = 10.sp,
                                 modifier = if (hasSub1Link) Modifier.clickable { uriHandler.openUri(exercise.sub1VideoUrl) } else Modifier
                             )
                         }
@@ -807,7 +835,7 @@ private fun ExerciseDetail(
                             Text(
                                 text = "\u2022 ${exercise.sub2}" + if (hasSub2Link) " \u25B6" else "",
                                 color = if (hasSub2Link) Color(0xFF5AC8FA) else TextSecondary,
-                                fontSize = 11.sp,
+                                fontSize = 10.sp,
                                 modifier = if (hasSub2Link) Modifier.clickable { uriHandler.openUri(exercise.sub2VideoUrl) } else Modifier
                             )
                         }
@@ -850,7 +878,7 @@ private fun ExerciseDetail(
 
             Spacer(modifier = Modifier.height(sz.xs))
 
-            // Row 1: Weight + RPE + Equipment grid
+            // Row 1: Weight + Equipment grid (3x2)
             Row(
                 modifier = Modifier.fillMaxWidth(),
                 verticalAlignment = Alignment.CenterVertically,
@@ -859,21 +887,13 @@ private fun ExerciseDetail(
                 OutlinedTextField(
                     value = weight,
                     onValueChange = { weight = it },
-                    label = { Text("Wt (lbs)", fontSize = 10.sp) },
+                    label = { Text("Wt", fontSize = 9.sp) },
                     colors = fieldColors,
                     singleLine = true,
-                    modifier = Modifier.weight(0.8f)
-                )
-                OutlinedTextField(
-                    value = observedRpe,
-                    onValueChange = { observedRpe = it },
-                    label = { Text("RPE (opt)", fontSize = 9.sp, maxLines = 1) },
-                    colors = fieldColors,
-                    singleLine = true,
-                    modifier = Modifier.width(76.dp)
+                    modifier = Modifier.width(70.dp)
                 )
 
-                // Equipment type buttons: 2x2 compact grid
+                // Equipment type buttons: 2x3 compact grid
                 Column(
                     verticalArrangement = Arrangement.spacedBy(2.dp),
                     modifier = Modifier.weight(1f)
@@ -884,20 +904,65 @@ private fun ExerciseDetail(
                     ) {
                         EquipmentChip("Barbell", isBb, { isBb = it }, Modifier.weight(1f))
                         EquipmentChip("Dumbbell", isDb, { isDb = it }, Modifier.weight(1f))
+                        EquipmentChip("Machine", isMn, { isMn = it }, Modifier.weight(1f))
                     }
                     Row(
                         horizontalArrangement = Arrangement.spacedBy(2.dp),
                         modifier = Modifier.fillMaxWidth()
                     ) {
-                        EquipmentChip("Machine", isMn, { isMn = it }, Modifier.weight(1f))
                         EquipmentChip("Each Side", isEs, { isEs = it }, Modifier.weight(1f))
+                        EquipmentChip("Cables", isCables, { isCables = it }, Modifier.weight(1f))
+                        EquipmentChip("Body Wt", isBodyWt, { isBodyWt = it }, Modifier.weight(1f))
                     }
                 }
             }
 
             Spacer(modifier = Modifier.height(sz.xxs))
 
-            // Row 2: Comments
+            // Row 2: RPE Slider (full width)
+            Column(modifier = Modifier.fillMaxWidth()) {
+                Row(
+                    modifier = Modifier.fillMaxWidth(),
+                    horizontalArrangement = Arrangement.SpaceBetween,
+                    verticalAlignment = Alignment.CenterVertically
+                ) {
+                    Text("RPE", color = TextSecondary, fontSize = 12.sp)
+                    Text(
+                        text = "${rpeValue.toInt()}",
+                        color = Color.White,
+                        fontSize = 16.sp,
+                        fontWeight = FontWeight.Bold
+                    )
+                }
+                Slider(
+                    value = rpeValue,
+                    onValueChange = { rpeValue = it },
+                    valueRange = 1f..10f,
+                    steps = 8,
+                    colors = SliderDefaults.colors(
+                        thumbColor = Color.White,
+                        activeTrackColor = Color.White,
+                        inactiveTrackColor = MaterialTheme.colorScheme.outline
+                    ),
+                    modifier = Modifier.fillMaxWidth()
+                )
+                Row(
+                    modifier = Modifier.fillMaxWidth(),
+                    horizontalArrangement = Arrangement.SpaceBetween
+                ) {
+                    (1..10).forEach { i ->
+                        Text(
+                            text = "$i",
+                            color = if (i == rpeValue.toInt()) Color.White else TextSecondary,
+                            fontSize = 9.sp
+                        )
+                    }
+                }
+            }
+
+            Spacer(modifier = Modifier.height(sz.xxs))
+
+            // Row 3: Comments
             OutlinedTextField(
                 value = comments,
                 onValueChange = { comments = it },
@@ -920,9 +985,11 @@ private fun ExerciseDetail(
                             if (isBb) "Barbell" else null,
                             if (isDb) "Dumbbell" else null,
                             if (isMn) "Machine" else null,
-                            if (isEs) "Each Side" else null
+                            if (isEs) "Each Side" else null,
+                            if (isCables) "Cables" else null,
+                            if (isBodyWt) "Body Weight" else null
                         ).joinToString(",")
-                        onDone(weight, equipment, comments, observedRpe)
+                        onDone(weight, equipment, comments, rpeValue.toInt().toString())
                     },
                     colors = ButtonDefaults.buttonColors(
                         containerColor = SuccessGreen,
@@ -1042,7 +1109,8 @@ private fun HistoryCard(entry: ExerciseHistoryEntry) {
     val equipmentTags = entry.equipmentType.split(",").filter { it.isNotBlank() }
     val shortEquipment = mapOf(
         "Barbell" to "BB", "Dumbbell" to "DB",
-        "Machine" to "MN", "Each Side" to "ES"
+        "Machine" to "MN", "Each Side" to "ES",
+        "Cables" to "CB", "Body Weight" to "BW"
     )
 
     Card(
