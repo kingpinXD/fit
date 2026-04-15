@@ -12,31 +12,80 @@ import java.util.Calendar
 /**
  * Parses workout programme XLSX files into Exercise entities.
  *
- * Supports two column layouts:
- * - Offset 1 (default): Column B = week/day, C = exercise, D = warmup, E = sets, F = reps, H = RPE, L = notes
- * - Offset 0 (PPL-style): Column A = week/day, B = exercise, C = warmup, D = sets, E = reps, G = RPE, K = notes
+ * Auto-detects two format families:
  *
- * Day names are detected dynamically (e.g., "Upper", "Full Body A", "Push #1").
- * Week headers support both "Week 1" and "Week 1 Day 1" formats.
+ * Week-based (Essentials / PPL):
+ * - Column B (or A) = week/day headers, exercises follow beneath
+ * - Supports offset 0 (PPL) and offset 1 (Essentials) column layouts
+ *
+ * Header-based (weekly plan):
+ * - Row 1 has column headers (Day, Focus, Exercise, Sets, Reps/Duration, Notes)
+ * - Day labels like "Day 1 – Push" in column A
+ * - Single week stored as week 1
  */
 object XlsxParser {
 
     private val WEEK_PATTERN = Regex("^Week\\s+(\\d+).*", RegexOption.IGNORE_CASE)
     private val SKIP_VALUES = setOf("exercise", "warm-up sets", "working sets", "reps", "load", "rpe", "rest", "notes")
+    private val DAY_LABEL_PATTERN = Regex("Day\\s+\\d+\\s*[–\\-]\\s*(.+)", RegexOption.IGNORE_CASE)
+
+    private enum class Format { WEEK_BASED, HEADER_BASED }
 
     fun parse(inputStream: InputStream): List<Exercise> {
         val workbook = XSSFWorkbook(inputStream)
         val sheet = workbook.getSheetAt(0)
+
+        val format = detectFormat(sheet)
+        val exercises = when (format) {
+            Format.WEEK_BASED -> parseWeekBased(sheet)
+            Format.HEADER_BASED -> parseHeaderBased(sheet)
+        }
+
+        workbook.close()
+        return exercises
+    }
+
+    /**
+     * Detect format by scanning the first rows:
+     * - If any row matches "Week N" → week-based (Essentials/PPL)
+     * - If row 1 has header-like column names → header-based
+     * - Default to week-based
+     */
+    private fun detectFormat(sheet: Sheet): Format {
+        // Check for "Week N" pattern in first 20 rows
+        for (i in 0..minOf(20, sheet.lastRowNum)) {
+            val row = sheet.getRow(i) ?: continue
+            for (j in 0..minOf(5, row.lastCellNum.toInt())) {
+                val value = getCellString(row.getCell(j)).trim()
+                if (WEEK_PATTERN.matches(value)) return Format.WEEK_BASED
+            }
+        }
+
+        // Check if row 1 (index 0) has header-like values
+        val firstRow = sheet.getRow(0)
+        if (firstRow != null) {
+            val headerNames = setOf("exercise", "exercises", "sets", "reps", "day", "days",
+                "reps/duration", "notes", "note", "focus", "description")
+            var headerCount = 0
+            for (j in 0..minOf(10, firstRow.lastCellNum.toInt())) {
+                val value = getCellString(firstRow.getCell(j)).trim().lowercase()
+                if (value in headerNames) headerCount++
+            }
+            if (headerCount >= 2) return Format.HEADER_BASED
+        }
+
+        return Format.WEEK_BASED
+    }
+
+    // ---- Week-based parsing (Essentials / PPL) ----
+
+    private fun parseWeekBased(sheet: Sheet): List<Exercise> {
         val offset = detectColumnOffset(sheet)
         val exercises = mutableListOf<Exercise>()
 
         var currentWeek: Int? = null
         var currentDay: String? = null
-        // Track exercise count per (week, dayName) so the 4x program's repeated
-        // "Upper"/"Lower" sessions within the same week get continuous indices.
         val dayCounters = mutableMapOf<String, Int>()
-        // Track day name occurrences within a week to disambiguate duplicates
-        // (e.g., 4x has Upper, Lower, Upper, Lower → Upper, Lower, Upper #2, Lower #2)
         val dayCountsPerWeek = mutableMapOf<String, Int>()
 
         for (row in sheet) {
@@ -44,8 +93,6 @@ object XlsxParser {
             val exerciseCol = getCellString(row.getCell(offset + 1))
 
             if (labelCol.isNotBlank()) {
-                // Check for week header first (before header-row skip, since week rows
-                // also contain "Exercise" in the next column)
                 val weekMatch = WEEK_PATTERN.matchEntire(labelCol.trim())
                 if (weekMatch != null) {
                     currentWeek = weekMatch.groupValues[1].toInt()
@@ -54,43 +101,137 @@ object XlsxParser {
                     continue
                 }
 
-                // Check for day label: non-week, non-skip, non-rest-day text
                 if (isDayName(labelCol) && currentWeek != null) {
                     val dayLabel = labelCol.trim()
                     val count = (dayCountsPerWeek[dayLabel] ?: 0) + 1
                     dayCountsPerWeek[dayLabel] = count
                     currentDay = if (count > 1) "$dayLabel #$count" else dayLabel
 
-                    // First exercise may be on the same row as the day label
                     if (exerciseCol.isNotBlank()) {
                         val sets = getNumericCell(row.getCell(offset + 3))
                         if (sets != null) {
                             val key = "$currentWeek-$currentDay"
                             val idx = dayCounters.merge(key, 1, Int::plus)!!
-                            exercises.add(buildExercise(row, offset, currentWeek, currentDay, idx))
+                            exercises.add(buildWeekBasedExercise(row, offset, currentWeek, currentDay, idx))
                         }
                     }
                     continue
                 }
 
-                // Other label text (e.g., "Suggested Rest Day", "Copyright", title rows) -- skip
                 continue
             }
 
-            // Exercise row: empty label column, has exercise name
             if (exerciseCol.isNotBlank() && currentDay != null && currentWeek != null) {
                 val sets = getNumericCell(row.getCell(offset + 3))
                 if (sets != null) {
                     val key = "$currentWeek-$currentDay"
                     val idx = dayCounters.merge(key, 1, Int::plus)!!
-                    exercises.add(buildExercise(row, offset, currentWeek, currentDay, idx))
+                    exercises.add(buildWeekBasedExercise(row, offset, currentWeek, currentDay, idx))
                 }
             }
         }
 
-        workbook.close()
         return exercises
     }
+
+    // ---- Header-based parsing (weekly plan) ----
+
+    private fun parseHeaderBased(sheet: Sheet): List<Exercise> {
+        val headerRow = sheet.getRow(0) ?: return emptyList()
+        val headers = buildHeaderMap(headerRow)
+
+        val exerciseCol = headers["exercise"] ?: return emptyList()
+        val setsCol = headers["sets"]
+        val repsCol = headers["reps"]
+        val notesCol = headers["notes"]
+        val dayCol = headers["day"]
+
+        val exercises = mutableListOf<Exercise>()
+        var currentDay: String? = null
+        val dayCounters = mutableMapOf<String, Int>()
+
+        for (i in 1..sheet.lastRowNum) {
+            val row = sheet.getRow(i) ?: continue
+
+            // Check for day label
+            val dayValue = if (dayCol != null) getCellString(row.getCell(dayCol)).trim() else ""
+            if (dayValue.isNotBlank()) {
+                val extracted = extractDayName(dayValue)
+                // Rest days with no exercises on this row
+                if (extracted.equals("Rest", ignoreCase = true)) continue
+                currentDay = extracted
+            }
+
+            if (currentDay == null) continue
+
+            val exerciseName = getCellString(row.getCell(exerciseCol)).trim()
+            val setsValue = if (setsCol != null) getNumericCell(row.getCell(setsCol)) else null
+            val repsValue = if (repsCol != null) getCellString(row.getCell(repsCol)).trim() else ""
+            val notesValue = if (notesCol != null) getCellString(row.getCell(notesCol)).trim() else ""
+
+            // Skip note-only rows (no exercise name)
+            if (exerciseName.isBlank()) continue
+
+            val sets = setsValue ?: 1
+
+            val key = currentDay
+            val idx = dayCounters.merge(key, 1, Int::plus)!!
+
+            exercises.add(
+                Exercise(
+                    weekNumber = 1,
+                    dayName = currentDay,
+                    exerciseName = exerciseName,
+                    sets = sets,
+                    reps = repsValue,
+                    orderIndex = idx,
+                    rpe = "",
+                    rest = "",
+                    notes = notesValue,
+                    warmupSets = "0",
+                    sub1 = "",
+                    sub2 = "",
+                    videoUrl = "",
+                    sub1VideoUrl = "",
+                    sub2VideoUrl = ""
+                )
+            )
+        }
+
+        return exercises
+    }
+
+    /**
+     * Map header row values to column indices. Case-insensitive matching.
+     */
+    private fun buildHeaderMap(row: Row): Map<String, Int> {
+        val map = mutableMapOf<String, Int>()
+        for (j in 0..row.lastCellNum.toInt()) {
+            val value = getCellString(row.getCell(j)).trim().lowercase()
+            when {
+                value in setOf("exercise", "exercises") -> map["exercise"] = j
+                value in setOf("sets", "set") -> map["sets"] = j
+                value in setOf("reps", "rep", "reps/duration") -> map["reps"] = j
+                value in setOf("notes", "note") -> map["notes"] = j
+                value in setOf("day", "days") -> map["day"] = j
+                value in setOf("rpe") -> map["rpe"] = j
+                value in setOf("rest") -> map["rest"] = j
+                value in setOf("warm-up", "warmup", "warm-up sets") -> map["warmup"] = j
+            }
+        }
+        return map
+    }
+
+    /**
+     * Extract the meaningful day name from labels like "Day 1 – Push" → "Push".
+     * Falls back to the raw string if no match.
+     */
+    internal fun extractDayName(raw: String): String {
+        val match = DAY_LABEL_PATTERN.find(raw.trim())
+        return match?.groupValues?.get(1)?.trim() ?: raw.trim()
+    }
+
+    // ---- Shared utilities ----
 
     /**
      * Scan the first 20 rows to determine whether week/day labels live in column A (offset=0)
@@ -128,7 +269,7 @@ object XlsxParser {
         return true
     }
 
-    private fun buildExercise(
+    private fun buildWeekBasedExercise(
         row: Row,
         offset: Int,
         weekNumber: Int,
