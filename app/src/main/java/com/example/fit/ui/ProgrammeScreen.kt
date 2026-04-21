@@ -2,6 +2,7 @@ package com.example.fit.ui
 
 import android.net.Uri
 import android.provider.OpenableColumns
+import androidx.activity.compose.BackHandler
 import androidx.activity.compose.rememberLauncherForActivityResult
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.compose.animation.AnimatedVisibility
@@ -158,6 +159,7 @@ fun ProgrammeScreen(
         }
     }
 
+    Box(modifier = Modifier.fillMaxSize()) {
     Column(
         modifier = Modifier
             .fillMaxSize()
@@ -281,8 +283,6 @@ fun ProgrammeScreen(
             ExerciseDetail(
                 exercise = selectedExercise!!,
                 existingLog = selectedExerciseLog,
-                history = exerciseHistory,
-                showHistory = showHistory,
                 onDone = { weight, equipment, comments, rpe ->
                     viewModel.markDone(selectedExercise!!, weight, equipment, comments, rpe)
                     viewModel.showHistory.value = false
@@ -298,6 +298,16 @@ fun ProgrammeScreen(
                     .padding(horizontal = 16.dp, vertical = 4.dp)
             )
         }
+    }
+
+    // History overlay (rendered above everything)
+    if (showHistory && selectedExercise != null) {
+        HistoryOverlay(
+            exerciseName = selectedExercise!!.exerciseName,
+            history = exerciseHistory,
+            onDismiss = { viewModel.showHistory.value = false }
+        )
+    }
     }
 }
 
@@ -703,8 +713,6 @@ private fun ShowTableButton(
 private fun ExerciseDetail(
     exercise: Exercise,
     existingLog: ExerciseLog?,
-    history: List<ExerciseHistoryEntry>,
-    showHistory: Boolean,
     onDone: (weight: String, equipment: String, comments: String, rpe: String) -> Unit,
     onSkip: () -> Unit,
     modifier: Modifier = Modifier
@@ -838,39 +846,6 @@ private fun ExerciseDetail(
                                 fontSize = 10.sp,
                                 modifier = if (hasSub2Link) Modifier.clickable { uriHandler.openUri(exercise.sub2VideoUrl) } else Modifier
                             )
-                        }
-                    }
-                }
-            }
-
-            // History section (shown on long press)
-            AnimatedVisibility(visible = showHistory) {
-                Column(modifier = Modifier.padding(top = 12.dp)) {
-                    Text(
-                        text = "PREVIOUS WEEKS",
-                        color = TextSecondary,
-                        fontSize = 12.sp,
-                        fontWeight = FontWeight.Medium,
-                        modifier = Modifier.padding(bottom = 8.dp)
-                    )
-                    if (history.isEmpty()) {
-                        Text(
-                            text = "No data available",
-                            color = TextSecondary,
-                            fontSize = 13.sp,
-                            fontStyle = FontStyle.Italic
-                        )
-                    } else {
-                        Row(
-                            modifier = Modifier
-                                .fillMaxWidth()
-                                .horizontalScroll(rememberScrollState())
-                                .height(IntrinsicSize.Max),
-                            horizontalArrangement = Arrangement.spacedBy(8.dp)
-                        ) {
-                            history.forEach { entry ->
-                                HistoryCard(entry)
-                            }
                         }
                     }
                 }
@@ -1104,8 +1079,81 @@ private fun EquipmentChip(
 
 
 @Composable
+private fun HistoryOverlay(
+    exerciseName: String,
+    history: List<ExerciseHistoryEntry>,
+    onDismiss: () -> Unit
+) {
+    BackHandler(onBack = onDismiss)
+
+    Box(
+        modifier = Modifier
+            .fillMaxSize()
+            .background(Color.Black.copy(alpha = 0.85f))
+            .clickable(onClick = onDismiss)
+    ) {
+        Column(
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(24.dp)
+                .align(Alignment.Center)
+                .clickable(enabled = false, onClick = {})
+        ) {
+            // Close button row
+            Row(
+                modifier = Modifier.fillMaxWidth(),
+                horizontalArrangement = Arrangement.End
+            ) {
+                Text(
+                    text = "✕",
+                    color = TextSecondary,
+                    fontSize = 20.sp,
+                    modifier = Modifier.clickable(onClick = onDismiss)
+                )
+            }
+
+            Text(
+                text = exerciseName,
+                color = Color.White,
+                fontSize = 20.sp,
+                fontWeight = FontWeight.Bold,
+                modifier = Modifier.padding(bottom = 4.dp)
+            )
+
+            Text(
+                text = "PREVIOUS WEEKS",
+                color = TextSecondary,
+                fontSize = 12.sp,
+                fontWeight = FontWeight.Medium,
+                modifier = Modifier.padding(bottom = 12.dp)
+            )
+
+            if (history.isEmpty()) {
+                Text(
+                    text = "No data available",
+                    color = TextSecondary,
+                    fontSize = 13.sp,
+                    fontStyle = FontStyle.Italic
+                )
+            } else {
+                Row(
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .horizontalScroll(rememberScrollState())
+                        .height(IntrinsicSize.Max),
+                    horizontalArrangement = Arrangement.spacedBy(8.dp)
+                ) {
+                    history.forEach { entry ->
+                        HistoryCard(entry)
+                    }
+                }
+            }
+        }
+    }
+}
+
+@Composable
 private fun HistoryCard(entry: ExerciseHistoryEntry) {
-    var showComments by remember { mutableStateOf(false) }
     val equipmentTags = entry.equipmentType.split(",").filter { it.isNotBlank() }
     val shortEquipment = mapOf(
         "Barbell" to "BB", "Dumbbell" to "DB",
@@ -1157,7 +1205,7 @@ private fun HistoryCard(entry: ExerciseHistoryEntry) {
 
             Spacer(modifier = Modifier.weight(1f))
 
-            // Row 3: RPE + Equipment chips + comment arrow
+            // Row 3: RPE + Equipment chips
             Row(
                 horizontalArrangement = Arrangement.spacedBy(3.dp),
                 verticalAlignment = Alignment.CenterVertically,
@@ -1169,18 +1217,10 @@ private fun HistoryCard(entry: ExerciseHistoryEntry) {
                 equipmentTags.forEach { tag ->
                     HistoryChip(shortEquipment[tag] ?: tag, EquipmentGreen)
                 }
-                if (entry.userComments.isNotBlank()) {
-                    Text(
-                        text = if (showComments) "\u25BC" else "\u25B6",
-                        fontSize = 10.sp,
-                        color = TextSecondary,
-                        modifier = Modifier.clickable { showComments = !showComments }
-                    )
-                }
             }
 
-            // Row 4: Expandable comments
-            AnimatedVisibility(visible = showComments) {
+            // Row 4: Comments (always visible)
+            if (entry.userComments.isNotBlank()) {
                 Text(
                     text = entry.userComments,
                     color = TextSecondary,
