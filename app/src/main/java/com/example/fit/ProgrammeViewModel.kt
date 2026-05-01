@@ -9,6 +9,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.switchMap
 import androidx.lifecycle.viewModelScope
 import com.example.fit.data.AppDatabase
+import com.example.fit.data.DayInfo
 import com.example.fit.data.Exercise
 import com.example.fit.data.ExerciseHistoryEntry
 import com.example.fit.data.ExerciseLog
@@ -34,6 +35,7 @@ class ProgrammeViewModel(app: Application) : AndroidViewModel(app) {
     val selectedExercise = MutableLiveData<Exercise?>()
     val showTable = MutableLiveData(false)
     val showHistory = MutableLiveData(false)
+    val initialDay = MutableLiveData<DayInfo?>()
 
     val hasProgramme: LiveData<Boolean>
     val availableProgrammes: LiveData<List<Programme>>
@@ -53,6 +55,10 @@ class ProgrammeViewModel(app: Application) : AndroidViewModel(app) {
         // Preload bundled programmes on first launch (idempotent)
         viewModelScope.launch {
             repository.preloadProgrammes()
+        }
+
+        viewModelScope.launch {
+            initialDay.value = repository.getFirstIncompleteDay()
         }
 
         // All queries react to programme name changes

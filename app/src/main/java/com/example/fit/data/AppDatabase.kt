@@ -44,6 +44,8 @@ data class ExerciseLog(
     val status: String // "PENDING", "DONE", "SKIPPED"
 )
 
+data class DayInfo(val weekNumber: Int, val dayName: String)
+
 @Dao
 interface ExerciseDao {
     @Query("SELECT * FROM exercises WHERE programmeName = :programmeName AND weekNumber = :weekNumber AND dayName = :dayName ORDER BY orderIndex")
@@ -97,6 +99,20 @@ interface ExerciseDao {
         "ORDER BY e.weekNumber"
     )
     fun getCompletedWeeks(programmeName: String): LiveData<List<Int>>
+
+    @Query(
+        "SELECT e.weekNumber, e.dayName FROM exercises e " +
+        "WHERE e.programmeName = :programmeName " +
+        "GROUP BY e.weekNumber, e.dayName " +
+        "HAVING COUNT(e.id) > (" +
+        "  SELECT COUNT(el.id) FROM exercise_logs el " +
+        "  INNER JOIN exercises e2 ON el.exerciseId = e2.id " +
+        "  WHERE e2.programmeName = :programmeName AND e2.weekNumber = e.weekNumber AND e2.dayName = e.dayName" +
+        ") " +
+        "ORDER BY e.weekNumber, MIN(e.id) " +
+        "LIMIT 1"
+    )
+    suspend fun getFirstIncompleteDay(programmeName: String): DayInfo?
 
     @Query("DELETE FROM exercises")
     suspend fun deleteAll()

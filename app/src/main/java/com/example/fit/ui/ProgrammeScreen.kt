@@ -10,14 +10,11 @@ import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.combinedClickable
-import androidx.compose.foundation.horizontalScroll
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.IntrinsicSize
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
-import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
@@ -80,6 +77,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import com.example.fit.ProgrammeViewModel
+import com.example.fit.data.DayInfo
 import com.example.fit.data.Exercise
 import com.example.fit.data.ExerciseHistoryEntry
 import com.example.fit.data.ExerciseLog
@@ -133,6 +131,7 @@ fun ProgrammeScreen(
     val exerciseHistory by viewModel.exerciseHistory.observeAsState(emptyList())
     val showTable by viewModel.showTable.observeAsState(false)
     val showHistory by viewModel.showHistory.observeAsState(false)
+    val initialDay by viewModel.initialDay.observeAsState(null)
 
     val logsByExerciseId = remember(exerciseLogs) {
         exerciseLogs.associateBy { it.exerciseId }
@@ -140,20 +139,37 @@ fun ProgrammeScreen(
 
     var selectedWeekIndex by remember { mutableIntStateOf(0) }
     var selectedDayIndex by remember { mutableIntStateOf(0) }
+    var initialSelectionDone by remember { mutableStateOf(false) }
+    var prefillEntry by remember { mutableStateOf<ExerciseHistoryEntry?>(null) }
 
-    // When weeks load, select the first one
-    LaunchedEffect(weeks) {
+    // When weeks load, select the initial week (from incomplete day or fallback to last)
+    LaunchedEffect(weeks, initialDay) {
         if (weeks.isNotEmpty() && viewModel.selectedWeek.value == null) {
-            viewModel.selectedWeek.value = weeks[0]
-            selectedWeekIndex = 0
+            val targetWeek = initialDay?.weekNumber ?: weeks.last()
+            val weekIdx = weeks.indexOf(targetWeek).coerceAtLeast(0)
+            viewModel.selectedWeek.value = weeks[weekIdx]
+            selectedWeekIndex = weekIdx
         }
     }
 
-    // When days change, reset to first day
+    // When days change, select the initial day (from incomplete day or fallback to last)
     LaunchedEffect(days) {
         if (days.isNotEmpty()) {
-            selectedDayIndex = 0
-            viewModel.selectedDay.value = days[0]
+            if (!initialSelectionDone && initialDay != null && viewModel.selectedWeek.value == initialDay?.weekNumber) {
+                val dayIdx = days.indexOf(initialDay!!.dayName).coerceAtLeast(0)
+                selectedDayIndex = dayIdx
+                viewModel.selectedDay.value = days[dayIdx]
+                initialSelectionDone = true
+            } else if (!initialSelectionDone && initialDay == null) {
+                // All complete -- select last day
+                selectedDayIndex = days.lastIndex
+                viewModel.selectedDay.value = days.last()
+                initialSelectionDone = true
+            } else {
+                // User manually switched week -- select first day
+                selectedDayIndex = 0
+                viewModel.selectedDay.value = days[0]
+            }
             viewModel.selectedExercise.value = null
             viewModel.showTable.value = false
         }
@@ -283,6 +299,8 @@ fun ProgrammeScreen(
             ExerciseDetail(
                 exercise = selectedExercise!!,
                 existingLog = selectedExerciseLog,
+                prefill = prefillEntry,
+                onPrefillConsumed = { prefillEntry = null },
                 onDone = { weight, equipment, comments, rpe ->
                     viewModel.markDone(selectedExercise!!, weight, equipment, comments, rpe)
                     viewModel.showHistory.value = false
@@ -305,7 +323,11 @@ fun ProgrammeScreen(
         HistoryOverlay(
             exerciseName = selectedExercise!!.exerciseName,
             history = exerciseHistory,
-            onDismiss = { viewModel.showHistory.value = false }
+            onDismiss = { viewModel.showHistory.value = false },
+            onCopy = { entry ->
+                prefillEntry = entry
+                viewModel.showHistory.value = false
+            }
         )
     }
     }
@@ -713,6 +735,8 @@ private fun ShowTableButton(
 private fun ExerciseDetail(
     exercise: Exercise,
     existingLog: ExerciseLog?,
+    prefill: ExerciseHistoryEntry? = null,
+    onPrefillConsumed: () -> Unit = {},
     onDone: (weight: String, equipment: String, comments: String, rpe: String) -> Unit,
     onSkip: () -> Unit,
     modifier: Modifier = Modifier
@@ -736,6 +760,23 @@ private fun ExerciseDetail(
         )
     }
     var comments by remember(exercise.id, existingLog) { mutableStateOf(existingLog?.userComments ?: "") }
+
+    LaunchedEffect(prefill) {
+        if (prefill != null) {
+            weight = prefill.userWeight
+            val prefillEquipment = prefill.equipmentType.split(",").map { it.trim() }.toSet()
+            isBb = "Barbell" in prefillEquipment
+            isDb = "Dumbbell" in prefillEquipment
+            isMn = "Machine" in prefillEquipment
+            isEs = "Each Side" in prefillEquipment
+            isCables = "Cables" in prefillEquipment
+            isBodyWt = "Body Weight" in prefillEquipment
+            rpeValue = prefill.observedRpe.toIntOrNull()?.toFloat() ?: rpeValue
+            comments = prefill.userComments
+            onPrefillConsumed()
+        }
+    }
+
     var notesExpanded by remember(exercise.id) { mutableStateOf(false) }
     var altsExpanded by remember(exercise.id) { mutableStateOf(false) }
 
@@ -1082,7 +1123,8 @@ private fun EquipmentChip(
 private fun HistoryOverlay(
     exerciseName: String,
     history: List<ExerciseHistoryEntry>,
-    onDismiss: () -> Unit
+    onDismiss: () -> Unit,
+    onCopy: (ExerciseHistoryEntry) -> Unit = {}
 ) {
     BackHandler(onBack = onDismiss)
 
@@ -1136,15 +1178,14 @@ private fun HistoryOverlay(
                     fontStyle = FontStyle.Italic
                 )
             } else {
-                Row(
+                Column(
                     modifier = Modifier
                         .fillMaxWidth()
-                        .horizontalScroll(rememberScrollState())
-                        .height(IntrinsicSize.Max),
-                    horizontalArrangement = Arrangement.spacedBy(8.dp)
+                        .verticalScroll(rememberScrollState()),
+                    verticalArrangement = Arrangement.spacedBy(8.dp)
                 ) {
-                    history.forEach { entry ->
-                        HistoryCard(entry)
+                    history.reversed().forEach { entry ->
+                        HistoryCard(entry, onLongPress = { onCopy(entry) })
                     }
                 }
             }
@@ -1152,8 +1193,9 @@ private fun HistoryOverlay(
     }
 }
 
+@OptIn(ExperimentalFoundationApi::class)
 @Composable
-private fun HistoryCard(entry: ExerciseHistoryEntry) {
+private fun HistoryCard(entry: ExerciseHistoryEntry, onLongPress: () -> Unit = {}) {
     val equipmentTags = entry.equipmentType.split(",").filter { it.isNotBlank() }
     val shortEquipment = mapOf(
         "Barbell" to "BB", "Dumbbell" to "DB",
@@ -1167,68 +1209,63 @@ private fun HistoryCard(entry: ExerciseHistoryEntry) {
         ),
         shape = RoundedCornerShape(10.dp),
         modifier = Modifier
-            .width(110.dp)
-            .fillMaxHeight()
+            .fillMaxWidth()
+            .combinedClickable(
+                onClick = {},
+                onLongClick = onLongPress
+            )
     ) {
-        Column(
+        Row(
             modifier = Modifier
-                .padding(8.dp)
-                .fillMaxHeight()
+                .padding(12.dp)
+                .fillMaxWidth(),
+            verticalAlignment = Alignment.CenterVertically,
+            horizontalArrangement = Arrangement.spacedBy(12.dp)
         ) {
-            // Row 1: Week label
+            // Week label
             Text(
                 text = "W${entry.weekNumber}",
                 color = TextSecondary,
-                fontSize = 10.sp,
+                fontSize = 12.sp,
                 fontWeight = FontWeight.Medium
             )
 
-            // Row 2: Weight (fixed height so cards align)
-            Box(modifier = Modifier.height(26.dp), contentAlignment = Alignment.BottomStart) {
-                if (entry.userWeight.isNotBlank()) {
-                    Text(
-                        text = entry.userWeight,
-                        color = Color.White,
-                        fontSize = 18.sp,
-                        fontWeight = FontWeight.Bold,
-                        maxLines = 1
-                    )
-                } else {
-                    Text(
-                        text = if (entry.status == "SKIPPED") "Skipped" else "\u2014",
-                        color = TextSecondary,
-                        fontSize = 14.sp,
-                        fontStyle = FontStyle.Italic
-                    )
-                }
+            // Weight
+            if (entry.userWeight.isNotBlank()) {
+                Text(
+                    text = entry.userWeight,
+                    color = Color.White,
+                    fontSize = 18.sp,
+                    fontWeight = FontWeight.Bold
+                )
+            } else {
+                Text(
+                    text = if (entry.status == "SKIPPED") "Skipped" else "\u2014",
+                    color = TextSecondary,
+                    fontSize = 14.sp,
+                    fontStyle = FontStyle.Italic
+                )
             }
 
-            Spacer(modifier = Modifier.weight(1f))
-
-            // Row 3: RPE + Equipment chips
-            Row(
-                horizontalArrangement = Arrangement.spacedBy(3.dp),
-                verticalAlignment = Alignment.CenterVertically,
-                modifier = Modifier.fillMaxWidth()
-            ) {
-                if (entry.observedRpe.isNotBlank()) {
-                    HistoryChip(entry.observedRpe, RpePurple)
-                }
-                equipmentTags.forEach { tag ->
-                    HistoryChip(shortEquipment[tag] ?: tag, EquipmentGreen)
-                }
+            // RPE + Equipment chips
+            if (entry.observedRpe.isNotBlank()) {
+                HistoryChip(entry.observedRpe, RpePurple)
+            }
+            equipmentTags.forEach { tag ->
+                HistoryChip(shortEquipment[tag] ?: tag, EquipmentGreen)
             }
 
-            // Row 4: Comments (always visible)
+            // Comments (pushed to end)
             if (entry.userComments.isNotBlank()) {
+                Spacer(modifier = Modifier.weight(1f))
                 Text(
                     text = entry.userComments,
                     color = TextSecondary,
                     fontSize = 9.sp,
                     fontStyle = FontStyle.Italic,
-                    maxLines = 3,
+                    maxLines = 2,
                     overflow = TextOverflow.Ellipsis,
-                    modifier = Modifier.padding(top = 2.dp)
+                    modifier = Modifier.weight(1f, fill = false)
                 )
             }
         }

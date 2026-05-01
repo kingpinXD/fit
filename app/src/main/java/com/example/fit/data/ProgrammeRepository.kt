@@ -89,6 +89,9 @@ class ProgrammeRepository(
     fun getCompletedWeeks(): LiveData<List<Int>> =
         dao.getCompletedWeeks(getProgrammeName())
 
+    suspend fun getFirstIncompleteDay(): DayInfo? =
+        dao.getFirstIncompleteDay(getProgrammeName())
+
     fun getLog(exerciseId: Long): LiveData<ExerciseLog?> =
         logDao.getLog(exerciseId)
 
