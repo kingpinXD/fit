@@ -3,6 +3,7 @@ plugins {
     id("org.jetbrains.kotlin.android")
     id("com.google.devtools.ksp")
     id("com.google.gms.google-services")
+    id("org.jetbrains.kotlinx.kover")
 }
 
 android {
@@ -51,6 +52,9 @@ android {
     buildFeatures {
         compose = true
         buildConfig = true
+    }
+    testOptions {
+        unitTests.isIncludeAndroidResources = true
     }
     composeOptions {
         kotlinCompilerExtensionVersion = "1.5.8"
@@ -120,4 +124,18 @@ dependencies {
     testImplementation("androidx.test.ext:junit-ktx:1.1.5")
     testImplementation("org.jetbrains.kotlinx:kotlinx-coroutines-test:1.7.3")
     testImplementation("androidx.arch.core:core-testing:2.2.0")
+}
+
+// Compose UI is being rewritten in Flutter — exclude from coverage measurement.
+koverReport {
+    filters {
+        excludes {
+            packages("com.example.fit.ui")
+            classes(
+                "com.example.fit.BuildConfig",
+                "*ComposableSingletons*"
+            )
+        }
+    }
+    androidReports("debug") {}
 }

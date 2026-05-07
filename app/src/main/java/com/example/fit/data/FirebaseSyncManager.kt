@@ -5,8 +5,9 @@ import com.google.firebase.database.FirebaseDatabase
 
 class FirebaseSyncManager {
 
-    private val db = FirebaseDatabase.getInstance()
-    private val auth = FirebaseAuth.getInstance()
+    // Lazy so unit tests can construct this class without Firebase being initialized.
+    private val db by lazy { FirebaseDatabase.getInstance() }
+    private val auth by lazy { FirebaseAuth.getInstance() }
 
     private val uid: String?
         get() = auth.currentUser?.uid
